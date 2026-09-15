@@ -1,19 +1,27 @@
 /**
  * AI Hot Editorial — design tokens
- * Dark glow field (indigo + pink radials)
- * Dials: VARIANCE 5 / MOTION 3 / DENSITY 2
+ * Cream field + Prussian blue + Roscoe red
  */
 
 :root {
-  --bg: #0d0f17;
-  --bg-elev: rgba(255, 255, 255, 0.05);
-  --ink: #e2e8f0;
-  --muted: #94a3b8;
-  --accent: #a5b4fc;
-  --accent-hot: #c4b5fd;
-  --line: rgba(255, 255, 255, 0.12);
-  --focus: #a5b4fc;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --bg: #edddaf;
+  --bg-gradient: linear-gradient(
+    90deg,
+    var(--bg) 0%,
+    var(--bg) 52%,
+    color-mix(in srgb, var(--accent-hot) 26%, var(--bg)) 100%
+  );
+  --bg-elev: rgba(0, 49, 83, 0.06);
+  --ink: #003153;
+  --muted: #4a6278;
+  --accent: #003153;
+  --accent-hot: #ae322a;
+  --line: rgba(0, 49, 83, 0.18);
+  --focus: #003153;
+  --shadow: 0 10px 30px rgba(0, 49, 83, 0.12);
+  --nav-bg: rgba(237, 221, 175, 0.92);
+  --surface: rgba(255, 255, 255, 0.45);
+  --surface-hover: rgba(255, 255, 255, 0.65);
   --radius: 16px;
   --font-display: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto,
     sans-serif;

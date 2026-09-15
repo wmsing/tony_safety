@@ -14,6 +14,7 @@ alwaysApply: true
 - **test (site)**: TBD（MVP 以 build 缝为主）
 - **install (Python)**: `pip install -e ".[dev]"`
 - **run**: `python -m src.main`
+- **admin (local CRUD)**: `ADMIN_TOKEN=… python -m src.admin`（需 `pip install -e ".[admin]"`；仅 127.0.0.1）
 - **typecheck**: `mypy src`
 - **test**: `pytest`
 - **lint**: `ruff check src && ruff format --check src`

@@ -1,0 +1,27 @@
+---
+import EditorialLayout from '../../layouts/EditorialLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<EditorialLayout
+	title="About"
+	description="About this LLM security site"
+	lang="en"
+	zhPath="/about/"
+	enPath="/en/about/"
+>
+	<p class="meta-text"><a href={`${base}en/`}>← Feed</a></p>
+	<h1 class="page-title">About</h1>
+	<main class="prose">
+		<p>
+			This site covers LLM security: prompt injection, data leakage, tool abuse, agent permissions, and supply-chain
+			risk. Chinese articles are primary; English pages mirror structure where available.
+		</p>
+		<p>
+			Published material is research and practice notes. Inbox drafts under <code>content/inbox/</code> are not
+			auto-published. Feedback via
+			<a href="https://github.com/wmsing/tony_safty" target="_blank" rel="noopener noreferrer">GitHub</a>.
+		</p>
+	</main>
+</EditorialLayout>

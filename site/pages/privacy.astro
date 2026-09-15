@@ -1,0 +1,25 @@
+---
+import EditorialLayout from '../layouts/EditorialLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<EditorialLayout
+	title="隐私政策"
+	description="LLM 网络安全站点隐私说明"
+	zhPath="/privacy/"
+	enPath="/en/privacy/"
+>
+	<p class="meta-text"><a href={base}>← Feed</a></p>
+	<h1 class="page-title">隐私政策</h1>
+	<main class="prose">
+		<p><strong>静态站点。</strong>本站由 GitHub Pages（或同类静态托管）提供，不运行服务端业务逻辑，不收集账号或登录信息。</p>
+		<p>
+			<strong>访问数据。</strong>托管方可能记录 IP、User-Agent、访问路径等标准 Web 日志，受其隐私政策约束；本站不额外写入跟踪 Cookie 或出售个人数据。
+		</p>
+		<p>
+			<strong>外链。</strong>文章中的第三方链接受其各自政策管辖；离开本站前请自行判断。
+		</p>
+		<p>政策更新会反映在本页；重大变更时在仓库 README 或 Feed 中说明。</p>
+	</main>
+</EditorialLayout>

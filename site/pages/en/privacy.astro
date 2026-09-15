@@ -1,0 +1,28 @@
+---
+import EditorialLayout from '../../layouts/EditorialLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<EditorialLayout
+	title="Privacy"
+	description="Privacy policy for this static site"
+	lang="en"
+	zhPath="/privacy/"
+	enPath="/en/privacy/"
+>
+	<p class="meta-text"><a href={`${base}en/`}>← Feed</a></p>
+	<h1 class="page-title">Privacy</h1>
+	<main class="prose">
+		<p>
+			<strong>Static site.</strong> Hosted as static files (e.g. GitHub Pages). No accounts, logins, or server-side
+			app logic on this project.
+		</p>
+		<p>
+			<strong>Access logs.</strong> The host may log IP, User-Agent, and request paths per its own policy. This site
+			does not add tracking cookies or sell personal data.
+		</p>
+		<p><strong>Outbound links.</strong> Third-party sites have their own policies.</p>
+		<p>Updates appear on this page; material changes may be noted in the repo README or Feed.</p>
+	</main>
+</EditorialLayout>

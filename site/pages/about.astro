@@ -1,0 +1,24 @@
+---
+import EditorialLayout from '../layouts/EditorialLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<EditorialLayout
+	title="关于"
+	description="LLM 网络安全站点说明"
+	zhPath="/about/"
+	enPath="/en/about/"
+>
+	<p class="meta-text"><a href={base}>← Feed</a></p>
+	<h1 class="page-title">关于</h1>
+	<main class="prose">
+		<p>
+			本站聚焦大语言模型（LLM）安全：提示注入、数据泄露、工具滥用、Agent 权限与供应链风险等议题，以中文文章与摘要为主。
+		</p>
+		<p>
+			内容来自公开研究与实践笔记；<code>content/inbox/</code> 中的素材不会自动发布。纠错与建议请通过
+			<a href="https://github.com/wmsing/tony_safty" target="_blank" rel="noopener noreferrer">GitHub</a> 反馈。
+		</p>
+	</main>
+</EditorialLayout>

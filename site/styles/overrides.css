@@ -1,8 +1,8 @@
-/* LLM 网络安全 — feed source accents (AI Hot Editorial) */
+/* LLM 网络安全 — feed source accents */
 .item[data-source='article'] {
-	--source: #5b8def;
+	--source: #003153;
 }
 
 .item[data-source='digest'] {
-	--source: #c4b5fd;
+	--source: #ae322a;
 }

@@ -21,7 +21,24 @@ const {
 
 const base = import.meta.env.BASE_URL;
 const home = base;
+const zhHref = `${base}${zhPath.replace(/^\//, '')}`;
+const enHref = `${base}${enPath.replace(/^\//, '')}`;
+const feedHref = lang === 'en' ? `${base}en/` : home;
+const aboutHref = lang === 'en' ? `${base}en/about/` : `${base}about/`;
+const privacyHref = lang === 'en' ? `${base}en/privacy/` : `${base}privacy/`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://wmsing.github.io').href;
+
+const basePath = base.replace(/\/$/, '');
+let relPath = Astro.url.pathname;
+if (basePath && relPath.startsWith(basePath)) {
+	relPath = relPath.slice(basePath.length) || '/';
+}
+relPath = relPath.replace(/\/+$/, '') || '/';
+
+type NavKey = 'feed' | 'about' | 'privacy';
+let navActive: NavKey = 'feed';
+if (relPath === '/about' || relPath === '/en/about') navActive = 'about';
+else if (relPath === '/privacy' || relPath === '/en/privacy') navActive = 'privacy';
 ---
 
 <!doctype html>
@@ -29,7 +46,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://wmsing.gith
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="theme-color" content="#0d0f17" />
+		<meta name="theme-color" content="#edddaf" />
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,16 +68,32 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://wmsing.gith
 			</header>
 			<nav class="site-nav" aria-label="Primary">
 				<div class="nav-primary">
-					<a href={home}>Feed</a>
+					<a
+						class:list={{ 'is-active': navActive === 'feed' }}
+						href={feedHref}
+						aria-current={navActive === 'feed' ? 'page' : undefined}>Feed</a
+					>
+					<a
+						class:list={{ 'is-active': navActive === 'about' }}
+						href={aboutHref}
+						aria-current={navActive === 'about' ? 'page' : undefined}
+						>{lang === 'en' ? 'About' : '关于'}</a
+					>
+					<a
+						class:list={{ 'is-active': navActive === 'privacy' }}
+						href={privacyHref}
+						aria-current={navActive === 'privacy' ? 'page' : undefined}
+						>{lang === 'en' ? 'Privacy' : '隐私'}</a
+					>
 				</div>
 				<div class="lang-switch">
 					{lang === 'zh-CN' ? (
-						<a class="lang-toggle" href={`${base}${enPath.replace(/^\//, '')}`} hreflang="en">
-							English
+						<a class="lang-btn lang-btn--en" href={enHref} hreflang="en" lang="en">
+							EN
 						</a>
 					) : (
-						<a class="lang-toggle" href={`${base}${zhPath.replace(/^\//, '')}`} hreflang="zh-Hans">
-							简体中文
+						<a class="lang-btn lang-btn--zh" href={zhHref} hreflang="zh-Hans" lang="zh-Hans">
+							中
 						</a>
 					)}
 				</div>
@@ -68,10 +101,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://wmsing.gith
 			<slot />
 			<footer class="site-footer">
 				<p class="meta-text">
+					<a href={aboutHref}>{lang === 'en' ? 'About' : '关于'}</a>
+					·
+					<a href={privacyHref}>{lang === 'en' ? 'Privacy' : '隐私'}</a>
+					·
 					<a href="https://github.com/wmsing/tony_safty" target="_blank" rel="noopener noreferrer"
 						>GitHub</a
 					>
-					· Inbox 素材不自动发布
+					{lang === 'en' ? ' · Inbox is not auto-published' : ' · Inbox 素材不自动发布'}
 				</p>
 			</footer>
 		</div>
