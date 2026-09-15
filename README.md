@@ -31,8 +31,21 @@ ruff check src && ruff format --check src
 
 ```bash
 npm install
-npm run dev
-npm run build
+npm run dev    # predev 会自动 npm run sync-content
+npm run build  # prebuild 会自动 sync；MVP 主验收缝
 ```
 
-GitHub Pages 项目站 `base` 为 `/tony_safty/`（见 `astro.config.mjs`）。
+`sync-content` 将 `content/zh|en/{articles,digests}/` 同步到 `site/content/docs/`（同步目录已 gitignore，勿手改生成物）。
+
+### Public site（线上）
+
+- **URL**：<https://wmsing.github.io/tony_safty/>
+- **路径**：GitHub Pages 项目站 `base` 为 `/tony_safty/`（见 `astro.config.mjs`）。
+
+### GitHub Pages 一次性设置（仓库管理员）
+
+1. 打开仓库 **Settings → Pages**。
+2. **Build and deployment → Source** 选 **GitHub Actions**（不要选 legacy 分支）。
+3. 将本仓库 `main` 的 workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) 合并后，push 会触发 **Deploy Public site to GitHub Pages**；首次成功部署后线上 URL 即可访问。
+
+之后日常发布：改 `content/zh/...` → push `main` → Actions 自动 build 并部署。

@@ -7,8 +7,11 @@ alwaysApply: true
 
 ## Run / quality
 - **install (site)**: `npm install`
+- **sync-content (site)**: `npm run sync-content`（`predev` / `prebuild` 会自动执行）
 - **dev (site)**: `npm run dev`
-- **build (site)**: `npm run build`（Public site MVP 主验收缝）
+- **build (site)**: `npm run build`（Public site MVP 主验收缝；CI 同命令 + grep 样板 Article 标题）
+- **lint (site)**: TBD
+- **test (site)**: TBD（MVP 以 build 缝为主）
 - **install (Python)**: `pip install -e ".[dev]"`
 - **run**: `python -m src.main`
 - **typecheck**: `mypy src`
