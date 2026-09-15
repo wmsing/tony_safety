@@ -1,0 +1,145 @@
+/* Brand palette — only three pairings:
+   ① cream (#fce2c4) + blue (#015697) text — main reading surface
+   ② blue bg + gold (#f5b70a) text — top nav
+   ③ gold bg + blue text — sidebar */
+
+:root,
+[data-theme='light'] {
+	--brand-blue: #015697;
+	--brand-gold: #f5b70a;
+	--brand-cream: #fce2c4;
+
+	--sl-color-accent: var(--brand-blue);
+	--sl-color-accent-low: var(--brand-cream);
+	--sl-color-accent-high: #013a66;
+
+	--sl-color-bg: var(--brand-cream);
+	--sl-color-bg-nav: var(--brand-blue);
+	--sl-color-bg-sidebar: var(--brand-gold);
+
+	--sl-color-black: var(--brand-blue);
+	--sl-color-text: var(--brand-blue);
+	--sl-color-text-accent: var(--brand-blue);
+	--sl-color-gray-5: var(--brand-blue);
+	--sl-color-gray-6: var(--brand-blue);
+	--sl-color-gray-7: #013a66;
+
+	--sl-color-orange: var(--brand-gold);
+}
+
+/* ① 奶油底 + 蓝字 */
+[data-theme='light'] .main-frame,
+[data-theme='light'] main .content-panel {
+	background-color: var(--brand-cream);
+	color: var(--brand-blue);
+}
+
+[data-theme='light'] main .content-panel :is(h1, h2, h3, h4, h5, h6, p, li, strong) {
+	color: var(--brand-blue);
+}
+
+[data-theme='light'] main .content-panel a:not(.sl-link-button) {
+	color: var(--brand-blue);
+}
+
+/* 首页 Card：③ 黄底 + 蓝字（避免 Starlight 默认蓝底蓝字） */
+[data-theme='light'] .card {
+	background-color: var(--brand-gold);
+	color: var(--brand-blue);
+	border-color: var(--brand-blue);
+}
+
+[data-theme='light'] .card :is(.title, .body, h3, p, a, strong, span) {
+	color: var(--brand-blue);
+}
+
+[data-theme='dark'] .card {
+	background-color: var(--brand-gold);
+	color: var(--brand-blue);
+	border-color: var(--brand-blue);
+}
+
+[data-theme='dark'] .card :is(.title, .body, h3, p, a, strong, span) {
+	color: var(--brand-blue);
+}
+
+/* ② 蓝底 + 黄字 */
+[data-theme='light'] header.header {
+	color: var(--brand-gold);
+	--sl-color-text-accent: var(--brand-gold);
+}
+
+[data-theme='light'] header.header :is(a, button, .site-title, .site-title span) {
+	color: var(--brand-gold);
+}
+
+/* ③ 黄底 + 蓝字 */
+[data-theme='light'] nav.sidebar,
+[data-theme='light'] .sidebar-pane {
+	background-color: var(--brand-gold);
+	color: var(--brand-blue);
+}
+
+[data-theme='light'] nav.sidebar :is(a, button, summary, span, label),
+[data-theme='light'] .sidebar-pane :is(a, button, summary, span, label) {
+	color: var(--brand-blue);
+}
+
+[data-theme='light'] nav.sidebar a[aria-current='page'] {
+	font-weight: 700;
+	background-color: var(--brand-cream);
+	color: var(--brand-blue);
+}
+
+/* CTA：蓝底黄字（与顶栏同系） */
+[data-theme='light'] .sl-link-button.primary {
+	background-color: var(--brand-blue);
+	border-color: var(--brand-blue);
+	color: var(--brand-gold);
+}
+
+[data-theme='light'] .sl-link-button.primary:hover {
+	background-color: var(--sl-color-accent-high);
+	color: var(--brand-gold);
+}
+
+/* 次要按钮：黄底蓝字（与侧栏同系） */
+[data-theme='light'] .sl-link-button:not(.primary) {
+	background-color: var(--brand-gold);
+	border-color: var(--brand-blue);
+	color: var(--brand-blue);
+}
+
+[data-theme='dark'] {
+	--brand-blue: #015697;
+	--brand-gold: #f5b70a;
+	--brand-cream: #fce2c4;
+
+	--sl-color-bg-nav: var(--brand-blue);
+	--sl-color-bg-sidebar: var(--brand-gold);
+	--sl-color-accent: #3d8fd4;
+}
+
+[data-theme='dark'] header.header {
+	color: var(--brand-gold);
+}
+
+[data-theme='dark'] header.header :is(a, button, .site-title, .site-title span) {
+	color: var(--brand-gold);
+}
+
+[data-theme='dark'] nav.sidebar,
+[data-theme='dark'] .sidebar-pane {
+	background-color: var(--brand-gold);
+	color: var(--brand-blue);
+}
+
+[data-theme='dark'] nav.sidebar :is(a, button, summary, span, label),
+[data-theme='dark'] .sidebar-pane :is(a, button, summary, span, label) {
+	color: var(--brand-blue);
+}
+
+[data-theme='dark'] nav.sidebar a[aria-current='page'] {
+	background-color: var(--brand-cream);
+	color: var(--brand-blue);
+}
