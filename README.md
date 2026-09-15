@@ -1,64 +1,75 @@
 # tony_safty
 
-LLM 安全相关博客与笔记；仓库同时承载可公开发布内容与采集素材。领域术语见 [CONTEXT.md](CONTEXT.md)。
+LLM 安全博客与笔记仓库。术语见 [CONTEXT.md](CONTEXT.md)。
 
-## 目录（摘要）
+## 我只想…
 
-- `content/zh|en/{articles,digests}/` — Article / Digest 源文件（构建前 `npm run sync-content`）
-- `content/inbox/` — Inbox（不进站点）
-- `site/` — Astro 站点（**AI Hot Editorial** 壳 + `design-system/`）；根目录 `package.json` 负责 **Public site** 构建
-- `src/` — Python 工具与脚本（脚手架默认包）
-- `.cursor/` — Agent 安全基线 + 工程规则
+| 目标 | 做什么 |
+|------|--------|
+| **本地写稿** | 下面 [本地 Admin](#本地-admin写稿) → 浏览器改 `content/zh/...` |
+| **本地看站** | `npm install` → `npm run dev` → 打开终端里给的本地 URL |
+| **发布线上** | 改内容后 `git push` 到 `main`（Actions 自动部署） |
 
-## 本地 Admin（CRUD Markdown 源稿）
+线上地址：<https://wmsing.github.io/tony_safty/>
 
-GitHub Pages **不能**托管写库后台；Admin 仅在本机运行，直接改 `content/zh/{articles,digests}/`。
+## 架构图（可选）
+
+交互图在仓库内用浏览器打开对应 HTML：
+
+- [内容发布与 CI/CD](docs/diagrams/tony_safty-cicd.workflow.html)
+- [Public site 架构](docs/diagrams/tony_safty-public-site.architecture.html)
+- [部署时序](docs/diagrams/tony_safty-deploy.sequence.html)
+
+源规格：`docs/diagrams/tony_safty-*.json`（本地 Archify 更新后 `deliver` 到同目录 HTML）。
+
+## 本地 Admin（写稿）
+
+GitHub Pages 不能跑写库后台；用本机 Admin 改 Markdown 源稿。
 
 ```bash
 pip install -e ".[admin,dev]"
-cp .env.example .env                # 编辑 ADMIN_TOKEN，勿提交 .env
-python -m src.admin                 # http://127.0.0.1:8787 — 登录页输入 ADMIN_TOKEN
-# 另开终端：npm run dev → Admin 里点 Preview 打开本地站点核对
+cp .env.example .env          # 填 ADMIN_TOKEN，勿提交 .env
+python -m src.admin           # http://127.0.0.1:8787
 ```
 
-保存后：Admin 会自动 sync；点 **Preview** 跳转 `SITE_DEV_URL`（默认 `http://127.0.0.1:4321/tony_safty/`）。**线上**需 `git push`。
+1. 浏览器登录（Token = `ADMIN_TOKEN`）。
+2. **另开终端**运行 `npm run dev`，在 Admin 点 **Preview** 看站点（默认 `http://127.0.0.1:4321/tony_safty/`）。
+3. 保存后 Admin 会 sync；要上线再 **push** `main`。
 
-## Python 快速开始
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
-python -m src.main
-```
-
-## 质量闭环（改 Python 后必跑）
-
-```bash
-pytest
-mypy src
-ruff check src && ruff format --check src
-```
-
-## 站点（Astro · AI Hot Editorial）
+## 本地看站（不经过 Admin）
 
 ```bash
 npm install
-npm run dev    # predev 会自动 npm run sync-content
-npm run build  # prebuild 会自动 sync；MVP 主验收缝
+npm run dev      # 会自动 sync-content
+npm run build    # 发布前自检（MVP 主验收）
 ```
 
-`sync-content` 将 `content/zh|en/{articles,digests}/` 同步到 `site/content/docs/`（同步目录已 gitignore，勿手改生成物）。
+源稿在 `content/zh|en/{articles,digests}/`；`sync-content` 同步到 `site/content/docs/`（已 gitignore，勿手改）。
 
-### Public site（线上）
+## 目录（摘要）
 
-- **URL**：<https://wmsing.github.io/tony_safty/>
-- **路径**：GitHub Pages 项目站 `base` 为 `/tony_safty/`（见 `astro.config.mjs`）。
+- `content/zh|en/{articles,digests}/` — 已发布源文件
+- `content/inbox/` — 不进站点
+- `site/` — Astro + AI Hot Editorial（`design-system/`）
+- `src/` — Python 工具（含 Admin）
+- `.cursor/` — Agent 规则与安全基线
 
-### GitHub Pages 一次性设置（仓库管理员）
+## Python 工具开发（可选）
 
-1. 打开仓库 **Settings → Pages**。
-2. **Build and deployment → Source** 选 **GitHub Actions**（不要选 legacy 分支）。
-3. 将本仓库 `main` 的 workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) 合并后，push 会触发 **Deploy Public site to GitHub Pages**；首次成功部署后线上 URL 即可访问。
+改 `src/` 业务代码时用：
 
-之后日常发布：改 `content/zh/...` → push `main` → Actions 自动 build 并部署。
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+python -m src.main
+pytest && mypy src && ruff check src && ruff format --check src
+```
+
+## 仓库管理员（一次性）
+
+首次启用 GitHub Pages：
+
+1. **Settings → Pages** → Source 选 **GitHub Actions**。
+2. `main` 上已有 [`.github/workflows/pages.yml`](.github/workflows/pages.yml)；push 触发部署。
+
+日常：改 `content/zh/...` → push `main` 即可。项目站 `base` 为 `/tony_safty/`（见 `astro.config.mjs`）。

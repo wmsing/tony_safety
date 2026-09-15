@@ -1,0 +1,132 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "tony_safty 内容发布与 CI/CD",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "output": "tony_safty-cicd.workflow.html"
+  },
+  "lanes": [
+    { "id": "author", "label": "作者（本地）" },
+    { "id": "ci", "label": "GitHub Actions" },
+    { "id": "hosting", "label": "GitHub Pages" }
+  ],
+  "phases": [
+    { "id": "authoring", "label": "写作", "fromCol": 0, "toCol": 1 },
+    { "id": "integrate", "label": "提交", "fromCol": 2, "toCol": 2 },
+    { "id": "build", "label": "构建", "fromCol": 3, "toCol": 4, "variant": "emphasis" },
+    { "id": "publish", "label": "发布", "fromCol": 5, "toCol": 5, "variant": "dashed" }
+  ],
+  "mainPath": ["edit", "preview", "push", "actions", "build", "deploy", "read"],
+  "nodes": [
+    {
+      "id": "edit",
+      "lane": "author",
+      "col": 0,
+      "type": "frontend",
+      "label": "编辑源稿",
+      "sublabel": "Admin · content/zh"
+    },
+    {
+      "id": "preview",
+      "lane": "author",
+      "col": 1,
+      "type": "frontend",
+      "label": "本地预览",
+      "sublabel": "npm run dev"
+    },
+    {
+      "id": "push",
+      "lane": "author",
+      "col": 2,
+      "type": "external",
+      "label": "push main",
+      "sublabel": "git"
+    },
+    {
+      "id": "actions",
+      "lane": "ci",
+      "col": 3,
+      "type": "cloud",
+      "label": "Workflow",
+      "sublabel": "pages.yml",
+      "brand": "github",
+      "width": 132
+    },
+    {
+      "id": "build",
+      "lane": "ci",
+      "col": 4,
+      "type": "backend",
+      "label": "Build",
+      "sublabel": "sync · Astro · smoke",
+      "tag": "门禁",
+      "width": 140
+    },
+    {
+      "id": "deploy",
+      "lane": "hosting",
+      "col": 4,
+      "type": "cloud",
+      "label": "Deploy Pages",
+      "sublabel": "静态 dist",
+      "brand": "github",
+      "width": 132
+    },
+    {
+      "id": "read",
+      "lane": "hosting",
+      "col": 5,
+      "type": "external",
+      "label": "Public site",
+      "sublabel": "/tony_safty/"
+    }
+  ],
+  "edges": [
+    { "id": "edit-preview", "from": "edit", "to": "preview" },
+    { "id": "preview-push", "from": "preview", "to": "push", "variant": "emphasis" },
+    {
+      "id": "push-actions",
+      "from": "push",
+      "to": "actions",
+      "label": "触发 CI",
+      "variant": "emphasis"
+    },
+    { "id": "actions-build", "from": "actions", "to": "build" },
+    {
+      "id": "build-deploy",
+      "from": "build",
+      "to": "deploy",
+      "label": "artifact",
+      "variant": "emphasis"
+    },
+    {
+      "id": "deploy-read",
+      "from": "deploy",
+      "to": "read",
+      "label": "HTTPS",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "主路径",
+      "items": [
+        "Admin 仅 127.0.0.1；保存后 sync 到 site/content/docs",
+        "push main → Actions：npm ci · build · 冒烟 · deploy-pages",
+        "build 失败则不上线；inbox 不参与构建"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "与线上一致",
+      "items": [
+        "CI 与本地共用 npm run build（含 sync-content）",
+        "线上 URL：wmsing.github.io/tony_safty/",
+        "Admin 不部署到 Pages"
+      ]
+    }
+  ]
+}

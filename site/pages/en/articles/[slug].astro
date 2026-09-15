@@ -19,8 +19,8 @@ const base = import.meta.env.BASE_URL;
 	title={entry.data.title}
 	description={entry.data.description}
 	lang="en"
-	enPath="/en/"
-	zhPath="/"
+	zhPath={`/articles/${entry.id}/`}
+	enPath={`/en/articles/${entry.id}/`}
 >
 	<p class="meta-text"><a href={`${base}en/`}>← English home</a></p>
 	<h1 class="page-title">{entry.data.title}</h1>

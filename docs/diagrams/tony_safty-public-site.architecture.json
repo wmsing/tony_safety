@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "tony_safty Public site 架构",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "output": "tony_safty-public-site.architecture.html"
+  },
+  "components": [
+    {
+      "id": "reader",
+      "type": "external",
+      "label": "Reader",
+      "sublabel": "HTTPS 访问",
+      "pos": [48, 336],
+      "size": [128, 64]
+    },
+    {
+      "id": "author",
+      "type": "external",
+      "label": "Author",
+      "sublabel": "写作与提交",
+      "pos": [48, 48],
+      "size": [128, 64]
+    },
+    {
+      "id": "admin",
+      "type": "security",
+      "label": "Admin",
+      "sublabel": "127.0.0.1 · 本地",
+      "pos": [48, 168],
+      "size": [128, 64]
+    },
+    {
+      "id": "gh-actions",
+      "type": "cloud",
+      "label": "GitHub Actions",
+      "sublabel": "pages.yml",
+      "brand": "github",
+      "pos": [280, 48],
+      "size": [140, 64]
+    },
+    {
+      "id": "astro-site",
+      "type": "frontend",
+      "label": "Astro 站点",
+      "sublabel": "sync · Editorial",
+      "pos": [520, 48],
+      "size": [148, 64],
+      "tag": "LLM 网络安全"
+    },
+    {
+      "id": "zh-published",
+      "type": "database",
+      "label": "content/zh",
+      "sublabel": "articles · digests",
+      "pos": [780, 48],
+      "size": [140, 60]
+    },
+    {
+      "id": "en-locale",
+      "type": "database",
+      "label": "content/en",
+      "sublabel": "locale 预留",
+      "pos": [780, 148],
+      "size": [140, 60]
+    },
+    {
+      "id": "static-export",
+      "type": "frontend",
+      "label": "dist/",
+      "sublabel": "静态产物",
+      "pos": [520, 336],
+      "size": [148, 64]
+    },
+    {
+      "id": "gh-pages",
+      "type": "cloud",
+      "label": "GitHub Pages",
+      "sublabel": "/tony_safty/",
+      "brand": "github",
+      "pos": [280, 336],
+      "size": [140, 64]
+    },
+    {
+      "id": "inbox",
+      "type": "security",
+      "label": "content/inbox",
+      "sublabel": "不进站点",
+      "pos": [780, 336],
+      "size": [140, 64]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "GitHub 仓库 · tony_safty",
+      "wraps": [
+        "gh-actions",
+        "astro-site",
+        "static-export",
+        "gh-pages",
+        "zh-published",
+        "en-locale"
+      ]
+    },
+    {
+      "kind": "security-group",
+      "label": "仅作者本机 · 不部署",
+      "wraps": ["admin"]
+    },
+    {
+      "kind": "security-group",
+      "label": "构建边界外",
+      "wraps": ["inbox"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "reader-https",
+      "from": "reader",
+      "to": "gh-pages",
+      "label": "公开 URL",
+      "variant": "emphasis"
+    },
+    {
+      "id": "pages-serves",
+      "from": "gh-pages",
+      "to": "static-export",
+      "label": "托管静态文件"
+    },
+    {
+      "id": "author-admin",
+      "from": "author",
+      "to": "admin",
+      "label": "CRUD",
+      "labelDy": 24
+    },
+    {
+      "id": "author-push",
+      "from": "author",
+      "to": "gh-actions",
+      "label": "push main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "ci-build",
+      "from": "gh-actions",
+      "to": "astro-site",
+      "label": "npm run build"
+    },
+    {
+      "id": "read-zh",
+      "from": "astro-site",
+      "to": "zh-published",
+      "label": "sync-content"
+    },
+    {
+      "id": "read-en",
+      "from": "astro-site",
+      "to": "en-locale",
+      "label": "空树可构建",
+      "variant": "dashed"
+    },
+    {
+      "id": "emit-static",
+      "from": "astro-site",
+      "to": "static-export",
+      "label": "输出 dist",
+      "labelDy": 24
+    },
+    {
+      "id": "deploy-pages",
+      "from": "gh-actions",
+      "to": "gh-pages",
+      "label": "deploy-pages",
+      "variant": "dashed",
+      "labelDy": 24
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Reader 路径",
+      "items": [
+        "仅 GitHub Pages 提供 Public site",
+        "Astro + Editorial；构建读 sync 后的 site/content/docs",
+        "Admin 不在线上"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "作者路径",
+      "items": [
+        "Admin 写 content/zh 并 sync 到 site/content/docs",
+        "本地 npm run dev 预览；push main 触发 CI",
+        "build + smoke 通过后 deploy-pages"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "信任边界",
+      "items": [
+        "content/inbox 不参与构建",
+        "ADMIN_TOKEN 仅本地环境",
+        "MVP 无 PR 门禁"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "tony_safty 发布时序",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "output": "tony_safty-deploy.sequence.html",
+    "viewBox": [840, 520],
+    "column_fit": "spread"
+  },
+  "participants": [
+    { "id": "author", "type": "external", "label": "Author", "sublabel": "作者" },
+    {
+      "id": "admin",
+      "type": "backend",
+      "label": "Admin",
+      "sublabel": "本地 CRUD"
+    },
+    {
+      "id": "github",
+      "type": "cloud",
+      "label": "GitHub",
+      "sublabel": "tony_safty",
+      "brand": "github"
+    },
+    {
+      "id": "actions",
+      "type": "cloud",
+      "label": "Actions",
+      "sublabel": "pages.yml"
+    },
+    { "id": "build", "type": "backend", "label": "Build", "sublabel": "npm run build" },
+    {
+      "id": "pages",
+      "type": "cloud",
+      "label": "Pages",
+      "sublabel": "静态托管"
+    },
+    { "id": "reader", "type": "external", "label": "Reader", "sublabel": "浏览器" }
+  ],
+  "segments": [
+    { "from": 160, "to": 272, "label": "本地编辑" },
+    { "from": 280, "to": 392, "label": "CI 构建" },
+    { "from": 400, "to": 468, "label": "访问" }
+  ],
+  "messages": [
+    {
+      "from": "author",
+      "to": "admin",
+      "y": 172,
+      "label": "Save Markdown"
+    },
+    {
+      "from": "admin",
+      "to": "github",
+      "y": 200,
+      "label": "content/zh + sync",
+      "variant": "dashed"
+    },
+    {
+      "from": "author",
+      "to": "github",
+      "y": 228,
+      "label": "git push main",
+      "variant": "emphasis"
+    },
+    {
+      "from": "github",
+      "to": "actions",
+      "y": 256,
+      "label": "触发 workflow"
+    },
+    {
+      "from": "actions",
+      "to": "build",
+      "y": 284,
+      "label": "npm ci · build",
+      "variant": "emphasis"
+    },
+    {
+      "from": "build",
+      "to": "actions",
+      "y": 312,
+      "label": "sync + smoke",
+      "variant": "return"
+    },
+    {
+      "from": "actions",
+      "to": "pages",
+      "y": 340,
+      "label": "deploy-pages"
+    },
+    {
+      "from": "reader",
+      "to": "pages",
+      "y": 368,
+      "label": "GET /tony_safty/",
+      "variant": "emphasis"
+    },
+    {
+      "from": "pages",
+      "to": "reader",
+      "y": 396,
+      "label": "200 HTML",
+      "variant": "return"
+    }
+  ],
+  "activations": [
+    { "participant": "admin", "from": 166, "to": 212, "type": "backend" },
+    { "participant": "github", "from": 194, "to": 240, "type": "cloud" },
+    { "participant": "actions", "from": 250, "to": 352, "type": "cloud" },
+    { "participant": "build", "from": 278, "to": 320, "type": "backend" },
+    { "participant": "pages", "from": 334, "to": 406, "type": "cloud" }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "发布要点",
+      "items": [
+        "Admin 保存即 sync；线上只认 git 中的源稿与 CI build",
+        "smoke 失败则 deploy 不执行；Pages 仅服务 dist",
+        "本地预览：npm run dev（Admin 不部署）"
+      ]
+    }
+  ]
+}

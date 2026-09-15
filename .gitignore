@@ -34,7 +34,7 @@ build/
 # Node / Astro
 node_modules/
 .astro/
-# Starlight 由 content/zh|en 同步生成（见 scripts/sync-content.mjs）
+# sync-content 由 content/zh|en 同步生成（见 scripts/sync-content.mjs）
 site/content/docs/articles/
 site/content/docs/digests/
 site/content/docs/en/articles/

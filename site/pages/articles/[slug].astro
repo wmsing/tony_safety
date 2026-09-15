@@ -17,7 +17,12 @@ const base = import.meta.env.BASE_URL;
 const descHtml = entry.data.description ? renderMarkdown(entry.data.description) : '';
 ---
 
-<EditorialLayout title={entry.data.title} description={entry.data.description}>
+<EditorialLayout
+	title={entry.data.title}
+	description={entry.data.description}
+	zhPath={`/articles/${entry.id}/`}
+	enPath={`/en/articles/${entry.id}/`}
+>
 	<p class="meta-text"><a href={base}>← Feed</a></p>
 	<h1 class="page-title">{entry.data.title}</h1>
 	{descHtml ? <div class="prose prose-markdown arena-page-intro" set:html={descHtml} /> : null}
