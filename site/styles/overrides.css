@@ -1,3 +1,33 @@
+.site-banner {
+	display: block;
+	width: 100vw;
+	max-width: 100vw;
+	max-height: 11.5rem;
+	margin: 0 calc(50% - 50vw);
+	object-fit: cover;
+	object-position: center 35%;
+	border: none;
+	border-bottom: none;
+	border-radius: 0;
+	box-shadow: none;
+	line-height: 0;
+}
+
+.site-nav--under-banner {
+	margin-top: 0;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	width: 100vw;
+	max-width: 100vw;
+	border-top: none;
+}
+
+@media (min-width: 720px) {
+	.site-banner {
+		max-height: 9.5rem;
+	}
+}
+
 /* LLM 网络安全 — feed source accents */
 .item[data-source='article'] {
 	--source: #003153;

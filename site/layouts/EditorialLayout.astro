@@ -39,6 +39,16 @@ type NavKey = 'feed' | 'about' | 'privacy';
 let navActive: NavKey = 'feed';
 if (relPath === '/about' || relPath === '/en/about') navActive = 'about';
 else if (relPath === '/privacy' || relPath === '/en/privacy') navActive = 'privacy';
+
+const bannerSrc = `${base}images/hero-banner.jpeg`;
+const bannerAlt =
+	lang === 'en'
+		? 'Comic illustration: neural shield engaged against cyber attacks'
+		: '漫画插图：神经网络护盾抵御网络攻击';
+const tagline =
+	lang === 'en'
+		? 'LLM safety and abuse resistance · Chinese-first content'
+		: '大模型安全与滥用防护 · 中文优先';
 ---
 
 <!doctype html>
@@ -63,10 +73,19 @@ else if (relPath === '/privacy' || relPath === '/en/privacy') navActive = 'priva
 			<header class="site-header">
 				<div class="brand-block">
 					<p class="brand"><a href={home}>LLM 网络安全</a></p>
-					<p class="tagline">大模型安全与滥用防护 · 中文优先</p>
+					<p class="tagline">{tagline}</p>
 				</div>
 			</header>
-			<nav class="site-nav" aria-label="Primary">
+			<img
+				class="site-banner"
+				src={bannerSrc}
+				width={1024}
+				height={571}
+				alt={bannerAlt}
+				loading="eager"
+				decoding="async"
+			/>
+			<nav class="site-nav site-nav--under-banner" aria-label="Primary">
 				<div class="nav-primary">
 					<a
 						class:list={{ 'is-active': navActive === 'feed' }}

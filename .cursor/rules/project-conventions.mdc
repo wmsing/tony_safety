@@ -22,6 +22,7 @@ alwaysApply: true
 ## Layout (update as code lands)
 - `.cursor/` — Agent 安全与 hooks（勿删安全项）
 - `site/` — Astro 站点（AI Hot Editorial）；`design-system/`、`layouts/`、`pages/`；根目录 `astro.config.mjs` / `package.json`
+- `public/` — 静态资源（favicon、banner 等）；**不是** `site/public/`（Astro 只认仓库根 `public/`）
 - `content/zh|en/{articles,digests}/` — 已发布 Markdown 源（`npm run sync-content` 同步到 `site/content/docs/`，勿手改生成物）
 - `content/inbox/` — Inbox，不参与站点构建
 - `content/drafts/`、`data/raw/` — 预留：资讯抓取草稿与原始数据（未建目录时可后补）
