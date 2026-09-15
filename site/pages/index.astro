@@ -1,0 +1,78 @@
+---
+import EditorialLayout from '../layouts/EditorialLayout.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL;
+const articles = (await getCollection('articles')).sort((a, b) =>
+	a.id.localeCompare(b.id),
+);
+const digests = (await getCollection('digests')).sort((a, b) =>
+	a.id.localeCompare(b.id),
+);
+
+type FeedItem = {
+	kind: 'article' | 'digest';
+	id: string;
+	title: string;
+	description?: string;
+	href: string;
+};
+
+const feed: FeedItem[] = [
+	...articles.map((entry) => ({
+		kind: 'article' as const,
+		id: entry.id,
+		title: entry.data.title,
+		description: entry.data.description,
+		href: `${base}articles/${entry.id}/`,
+	})),
+	...digests.map((entry) => ({
+		kind: 'digest' as const,
+		id: entry.id,
+		title: entry.data.title,
+		description: entry.data.description,
+		href: `${base}digests/${entry.id}/`,
+	})),
+];
+---
+
+<EditorialLayout title="LLM 网络安全" description="LLM 安全主题 Feed">
+	<nav class="feed-filter" role="tablist" aria-label="栏目">
+		<span class="feed-filter-tab is-active" role="tab" aria-selected="true">全部</span>
+		<span class="feed-filter-tab" role="tab" aria-selected="false">Article · Digest</span>
+	</nav>
+	<main class="feed" id="feed">
+		{
+			feed.length === 0 ? (
+				<p class="meta-text">暂无已发布内容。在 content/zh/articles 添加 Markdown 后重新 build。</p>
+			) : (
+				feed.map((item, index) => (
+					<article
+						class="item"
+						data-source={item.kind === 'article' ? 'article' : 'digest'}
+						data-heat="2"
+						style={`--i: ${index}`}
+					>
+						<span class="item-index" aria-hidden="true">
+							{String(index + 1).padStart(2, '0')}
+						</span>
+						<div class="item-body">
+							<div class="item-meta">
+								<span class="badge badge-primary badge-source">
+									{item.kind === 'article' ? 'Article' : 'Digest'}
+								</span>
+							</div>
+							<h2>
+								<a href={item.href}>{item.title}</a>
+							</h2>
+							{item.description ? <p class="summary">{item.description}</p> : null}
+							<div class="item-actions">
+								<a class="item-read" href={item.href}>阅读</a>
+							</div>
+						</div>
+					</article>
+				))
+			)
+		}
+	</main>
+</EditorialLayout>

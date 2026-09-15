@@ -1,0 +1,22 @@
+---
+import EditorialLayout from '../../layouts/EditorialLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const digests = await getCollection('digests');
+	return digests.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<EditorialLayout title={entry.data.title} description={entry.data.description}>
+	<h1 class="page-title">{entry.data.title}</h1>
+	<main class="prose">
+		<Content />
+	</main>
+</EditorialLayout>

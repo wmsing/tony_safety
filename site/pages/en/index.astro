@@ -1,0 +1,33 @@
+---
+import EditorialLayout from '../../layouts/EditorialLayout.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL;
+const articles = await getCollection('enArticles');
+---
+
+<EditorialLayout
+	title="LLM Security"
+	lang="en"
+	description="English locale — structure ready, content TBD."
+	enPath="/en/"
+	zhPath="/"
+>
+	<h1 class="page-title">English</h1>
+	<main class="prose">
+		<p>Secondary locale per CONTEXT. Add Markdown under <code>content/en/articles/</code>.</p>
+		{
+			articles.length > 0 ? (
+				<ul class="archive-list">
+					{articles.map((entry) => (
+						<li>
+							<a href={`${base}en/articles/${entry.id}/`}>{entry.data.title}</a>
+						</li>
+					))}
+				</ul>
+			) : (
+				<p class="meta-text">No English articles yet.</p>
+			)
+		}
+	</main>
+</EditorialLayout>
