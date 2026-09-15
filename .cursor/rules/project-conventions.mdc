@@ -5,16 +5,20 @@ alwaysApply: true
 
 # Project conventions (tony_safty)
 
-## Run / quality (fill when stack is chosen)
-- **install**: TBD
-- **dev**: TBD
-- **typecheck**: TBD
-- **test**: TBD
-- **lint**: TBD
+## Run / quality
+- **install (site)**: `npm install`
+- **dev (site)**: `npm run dev`
+- **build (site)**: `npm run build`（Public site MVP 主验收缝）
+- **install (Python)**: `pip install -e ".[dev]"`
+- **run**: `python -m src.main`
+- **typecheck**: `mypy src`
+- **test**: `pytest`
+- **lint**: `ruff check src && ruff format --check src`
 
 ## Layout (update as code lands)
 - `.cursor/` — Agent 安全与 hooks（勿删安全项）
-- `content/posts/` — 博文 Markdown（静态站生成器待定）
+- `site/` — Starlight 站点源码；根目录 `astro.config.mjs` / `package.json`
+- `content/` — Article / Digest / Inbox（见 CONTEXT；与 Starlight 对接见 Issue #3）
 - `content/drafts/`、`data/raw/` — 预留：资讯抓取草稿与原始数据（未建目录时可后补）
 
 ## Hard off-limits (never edit without explicit user OK)

@@ -1,9 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+.venv/
+venv/
+ENV/
+
+# Environment variables & secrets (Off-limits)
 .env
 .env.*
 !.env.example
-node_modules/
-__pycache__/
-.venv/
+
+# IDE & Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing & Quality
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
 dist/
 build/
-*.log
+*.egg-info/
+
+# Node / Astro
+node_modules/
+.astro/

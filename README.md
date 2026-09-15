@@ -1,12 +1,37 @@
 # tony_safty
 
-LLM 安全相关博客与笔记；后续计划聚合 LLM 安全方向的热搜与新闻。
+LLM 安全相关博客与笔记；仓库同时承载可公开发布内容与采集素材。领域术语见 [CONTEXT.md](CONTEXT.md)。
 
-## 目录
+## 目录（摘要）
 
-- `content/posts/` — 博文 Markdown（站点生成器待定）
-- `.cursor/` — Cursor Agent 安全基线（hooks / rules）
+- `content/` — 文章、Digest、Inbox（见 CONTEXT）
+- `site/` — Astro Starlight 页面与文档源码；根目录 `package.json` 负责 **Public site** 构建
+- `src/` — Python 工具与脚本（脚手架默认包）
+- `.cursor/` — Agent 安全基线 + 工程规则
 
-## 开发
+## Python 快速开始
 
-工具链与本地命令见 `.cursor/rules/project-conventions.mdc`（选定博客栈后补充 `install` / `dev`）。
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+python -m src.main
+```
+
+## 质量闭环（改 Python 后必跑）
+
+```bash
+pytest
+mypy src
+ruff check src && ruff format --check src
+```
+
+## 站点（Starlight）
+
+```bash
+npm install
+npm run dev
+npm run build
+```
+
+GitHub Pages 项目站 `base` 为 `/tony_safty/`（见 `astro.config.mjs`）。
