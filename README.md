@@ -4,7 +4,8 @@ LLM 安全相关博客与笔记；仓库同时承载可公开发布内容与采�
 
 ## 目录（摘要）
 
-- `content/` — 文章、Digest、Inbox（见 CONTEXT）
+- `content/zh|en/{articles,digests}/` — Article / Digest 源文件（构建前 `npm run sync-content`）
+- `content/inbox/` — Inbox（不进站点）
 - `site/` — Astro Starlight 页面与文档源码；根目录 `package.json` 负责 **Public site** 构建
 - `src/` — Python 工具与脚本（脚手架默认包）
 - `.cursor/` — Agent 安全基线 + 工程规则

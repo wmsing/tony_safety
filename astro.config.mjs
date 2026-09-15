@@ -9,6 +9,7 @@ export default defineConfig({
 	srcDir: 'site',
 	integrations: [
 		starlight({
+			customCss: ['./site/styles/theme.css'],
 			title: 'LLM 网络安全',
 			defaultLocale: 'root',
 			locales: {
@@ -24,12 +25,12 @@ export default defineConfig({
 			],
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [{ label: 'Example Guide', slug: 'guides/example' }],
+					label: 'Article',
+					items: [{ autogenerate: { directory: 'articles' } }],
 				},
 				{
-					label: 'Reference',
-					items: [{ autogenerate: { directory: 'reference' } }],
+					label: 'Digest',
+					items: [{ autogenerate: { directory: 'digests' } }],
 				},
 			],
 		}),
