@@ -38,8 +38,27 @@ const feed: FeedItem[] = [
 
 <EditorialLayout title="LLM 网络安全" description="LLM 安全主题 Feed">
 	<nav class="feed-filter" role="tablist" aria-label="栏目">
-		<span class="feed-filter-tab is-active" role="tab" aria-selected="true">全部</span>
-		<span class="feed-filter-tab" role="tab" aria-selected="false">Article · Digest</span>
+		<button
+			type="button"
+			class="feed-filter-tab is-active"
+			role="tab"
+			aria-selected="true"
+			data-filter-kind="">全部</button
+		>
+		<button
+			type="button"
+			class="feed-filter-tab"
+			role="tab"
+			aria-selected="false"
+			data-filter-kind="article">Article</button
+		>
+		<button
+			type="button"
+			class="feed-filter-tab"
+			role="tab"
+			aria-selected="false"
+			data-filter-kind="digest">Digest</button
+		>
 	</nav>
 	<main class="feed" id="feed">
 		{
@@ -49,7 +68,8 @@ const feed: FeedItem[] = [
 				feed.map((item, index) => (
 					<article
 						class="item"
-						data-source={item.kind === 'article' ? 'article' : 'digest'}
+						data-kind={item.kind}
+						data-source={item.kind}
 						data-heat="2"
 						style={`--i: ${index}`}
 					>
@@ -75,4 +95,30 @@ const feed: FeedItem[] = [
 			)
 		}
 	</main>
+	<script is:inline>
+		(() => {
+			const tabs = document.querySelectorAll('.feed-filter-tab');
+			const items = document.querySelectorAll('#feed .item[data-kind]');
+			if (!tabs.length || !items.length) return;
+
+			const apply = (kind) => {
+				items.forEach((el) => {
+					const match = !kind || el.getAttribute('data-kind') === kind;
+					el.hidden = !match;
+				});
+			};
+
+			tabs.forEach((tab) => {
+				tab.addEventListener('click', () => {
+					const kind = tab.getAttribute('data-filter-kind') ?? '';
+					tabs.forEach((t) => {
+						const active = t === tab;
+						t.classList.toggle('is-active', active);
+						t.setAttribute('aria-selected', active ? 'true' : 'false');
+					});
+					apply(kind);
+				});
+			});
+		})();
+	</script>
 </EditorialLayout>

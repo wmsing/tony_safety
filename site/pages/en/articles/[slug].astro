@@ -1,10 +1,10 @@
 ---
-import EditorialLayout from '../../layouts/EditorialLayout.astro';
+import EditorialLayout from '../../../layouts/EditorialLayout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-	const digests = await getCollection('digests');
-	return digests.map((entry) => ({
+	const articles = await getCollection('enArticles');
+	return articles.map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry },
 	}));
@@ -15,8 +15,14 @@ const { Content } = await render(entry);
 const base = import.meta.env.BASE_URL;
 ---
 
-<EditorialLayout title={entry.data.title} description={entry.data.description}>
-	<p class="meta-text"><a href={base}>← Feed</a></p>
+<EditorialLayout
+	title={entry.data.title}
+	description={entry.data.description}
+	lang="en"
+	enPath="/en/"
+	zhPath="/"
+>
+	<p class="meta-text"><a href={`${base}en/`}>← English home</a></p>
 	<h1 class="page-title">{entry.data.title}</h1>
 	<main class="prose">
 		<Content />
