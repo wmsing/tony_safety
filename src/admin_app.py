@@ -53,6 +53,48 @@ def _valid_session(session: str | None) -> bool:
     return secrets.compare_digest(session, _session_digest())
 
 
+def site_dev_base() -> str:
+    raw = os.environ.get(
+        "SITE_DEV_URL",
+        "http://127.0.0.1:4321/tony_safty/",
+    ).strip()
+    return raw if raw.endswith("/") else f"{raw}/"
+
+
+def preview_post_url(kind: str, slug: str) -> str:
+    folder = "articles" if kind == "articles" else "digests"
+    return f"{site_dev_base()}{folder}/{slug}/"
+
+
+def _preview_panel(kind: str, slug: str | None = None, saved: bool = False) -> str:
+    home = html.escape(site_dev_base(), quote=True)
+    saved_note = (
+        '<p class="muted">已保存并 sync，可在本地站点核对效果。</p>' if saved else ""
+    )
+    if slug:
+        post_url = html.escape(preview_post_url(kind, slug), quote=True)
+        primary = (
+            f'<a class="btn-preview" href="{post_url}" '
+            f'target="_blank" rel="noopener noreferrer">预览此文 ↗</a>'
+        )
+    else:
+        primary = (
+            f'<a class="btn-preview" href="{home}" '
+            f'target="_blank" rel="noopener noreferrer">打开本地站点 ↗</a>'
+        )
+    return f"""
+    <div class="preview-panel">
+      {saved_note}
+      <p>{primary}
+        <a class="muted" href="{home}" target="_blank"
+          rel="noopener noreferrer">Feed 首页</a>
+      </p>
+      <p class="muted">另开终端 <code>npm run dev</code> ·
+        {html.escape(site_dev_base())}</p>
+    </div>
+    """
+
+
 def require_admin(
     session: Annotated[str | None, Cookie(alias=SESSION_COOKIE)] = None,
 ) -> None:
@@ -76,12 +118,21 @@ def _layout(title: str, body: str) -> str:
 <body>
   <nav>
     <a href="/admin/posts">Posts</a>
+    <a href="{html.escape(site_dev_base(), quote=True)}" target="_blank"
+      rel="noopener noreferrer">Preview (dev)</a>
     <a href="/admin/logout">Logout</a>
     <span class="muted">本地 only · 127.0.0.1</span>
   </nav>
   {body}
 </body>
 </html>"""
+
+
+def _excerpt(text: str, max_len: int = 100) -> str:
+    compact = " ".join(text.split())
+    if len(compact) <= max_len:
+        return compact
+    return f"{compact[: max_len - 1]}…"
 
 
 def _post_from_form(
@@ -164,23 +215,38 @@ def posts_index(
         kind = "articles"
     rows = list_posts(kind)
     items = "".join(
-        f"<tr><td>{html.escape(p.slug)}</td>"
+        f"<tr>"
+        f"<td><code>{html.escape(p.slug)}</code></td>"
         f"<td>{html.escape(p.title)}</td>"
+        f'<td class="muted">{html.escape(_excerpt(p.description, 80))}</td>'
+        f'<td class="muted">{html.escape(_excerpt(p.body, 120))}</td>'
         f'<td><a href="/admin/posts/{html.escape(p.slug)}/edit?kind={kind}">'
-        f"Edit</a></td></tr>"
+        f"Edit</a> · "
+        f'<a href="{html.escape(preview_post_url(kind, p.slug), quote=True)}" '
+        f'target="_blank" rel="noopener noreferrer">Preview</a></td></tr>'
         for p in rows
     )
-    empty = '<tr><td colspan="3" class="muted">暂无</td></tr>'
+    empty = '<tr><td colspan="5" class="muted">暂无</td></tr>'
+    preview = _preview_panel(kind)
     body = f"""
     <h1>Posts ({html.escape(kind)})</h1>
-    <p class="muted">保存后执行 <code>npm run build</code> 或 push 更新站点。</p>
+    {preview}
+    <p class="muted">保存后会 sync；线上需 <code>git push</code>。</p>
     <p>
       <a href="/admin/posts?kind=articles">Articles</a> |
       <a href="/admin/posts?kind=digests">Digests</a> |
       <a href="/admin/posts/new?kind={html.escape(kind)}">New</a>
     </p>
     <table>
-      <thead><tr><th>Slug</th><th>Title</th><th></th></tr></thead>
+      <thead>
+        <tr>
+          <th>Slug</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Body (preview)</th>
+          <th></th>
+        </tr>
+      </thead>
       <tbody>{items or empty}</tbody>
     </table>
     """
@@ -200,8 +266,13 @@ def posts_new(
       <input type="hidden" name="kind" value="{html.escape(kind)}">
       <label>Slug <input name="slug" required pattern="[a-z0-9-]+"></label>
       <label>Title <input name="title" required></label>
-      <label>Description <input name="description"></label>
-      <label>Body (Markdown) <textarea name="body" required></textarea></label>
+      <label>Description（支持 Markdown，如 <code>**粗体**</code>）
+        <input name="description">
+      </label>
+      <label>Body（Markdown 正文）
+        <textarea name="body" required></textarea>
+      </label>
+      <p class="muted">正文里的 <code>(TL;DR)</code> 仅作编辑标记；同步到站点预览时会自动隐藏。</p>
       <button type="submit">Create</button>
     </form>
     """
@@ -221,7 +292,7 @@ def posts_create(
         raise HTTPException(status_code=400, detail="invalid kind")
     post = _post_from_form(kind, slug, title, description, body)
     write_post(post)
-    url = f"/admin/posts/{post.slug}/edit?kind={kind}"
+    url = f"/admin/posts/{post.slug}/edit?kind={kind}&saved=1"
     return RedirectResponse(url=url, status_code=303)
 
 
@@ -230,24 +301,29 @@ def posts_edit(
     _: Annotated[None, Depends(require_admin)],
     slug: str,
     kind: str = "articles",
+    saved: str = "",
 ) -> str:
     if kind not in ("articles", "digests"):
         kind = "articles"
     post = read_post(kind, slug)
     slug_e = html.escape(post.slug)
+    preview = _preview_panel(kind, post.slug, saved=saved == "1")
     body = f"""
     <h1>Edit {slug_e}</h1>
+    {preview}
     <form method="post" action="/admin/posts/{slug_e}">
       <input type="hidden" name="kind" value="{html.escape(kind)}">
       <label>Title <input name="title" value="{html.escape(post.title)}" required>
       </label>
-      <label>Description
+      <label>Description（Markdown）
         <input name="description" value="{html.escape(post.description)}">
       </label>
-      <label>Body
+      <label>Body（Markdown）
         <textarea name="body" required>{html.escape(post.body)}</textarea>
       </label>
       <button type="submit">Save</button>
+      <a class="btn-preview secondary" href="{html.escape(preview_post_url(kind, post.slug), quote=True)}"
+        target="_blank" rel="noopener noreferrer">Save 后去预览 ↗</a>
     </form>
     <form method="post" action="/admin/posts/{slug_e}/delete"
       onsubmit="return confirm('Delete this post?');">
@@ -271,7 +347,8 @@ def posts_update(
         raise HTTPException(status_code=400, detail="invalid kind")
     post = _post_from_form(kind, slug, title, description, body)
     write_post(post)
-    return RedirectResponse(url=f"/admin/posts?kind={kind}", status_code=303)
+    url = f"/admin/posts/{post.slug}/edit?kind={kind}&saved=1"
+    return RedirectResponse(url=url, status_code=303)
 
 
 @app.post("/admin/posts/{slug}/delete")

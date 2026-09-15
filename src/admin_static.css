@@ -59,6 +59,35 @@ button {
   color: #fff;
 }
 
+.preview-panel {
+  margin: 0 0 1.25rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.btn-preview {
+  display: inline-block;
+  margin-right: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: #5b8def;
+  color: #0d0f17;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-preview.secondary {
+  margin-top: 0.75rem;
+  background: #3d5a80;
+  color: #e2e8f0;
+}
+
+form .btn-preview.secondary {
+  margin-left: 0.5rem;
+}
+
 nav {
   margin-bottom: 1.5rem;
 }
@@ -66,4 +95,11 @@ nav {
 .muted {
   color: #94a3b8;
   font-size: 0.9rem;
+}
+
+td.muted {
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

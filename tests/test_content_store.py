@@ -8,6 +8,7 @@ from src.content_store import (
     read_post,
     repo_root,
     serialize_post,
+    strip_tldr_for_site,
     write_post,
 )
 
@@ -31,6 +32,12 @@ def test_serialize_roundtrip() -> None:
     assert synced.is_file()
     delete_post("articles", "demo")
     assert not synced.is_file()
+
+
+def test_strip_tldr_for_site() -> None:
+    raw = "⚡ **3 秒极速版 (TL;DR)**\n\n正文"
+    assert "(TL;DR)" not in strip_tldr_for_site(raw)
+    assert "3 秒极速版" in strip_tldr_for_site(raw)
 
 
 def test_validate_slug_rejects_bad() -> None:

@@ -18,9 +18,10 @@ GitHub Pages **不能**托管写库后台；Admin 仅在本机运行，直接改
 pip install -e ".[admin,dev]"
 cp .env.example .env                # 编辑 ADMIN_TOKEN，勿提交 .env
 python -m src.admin                 # http://127.0.0.1:8787 — 登录页输入 ADMIN_TOKEN
+# 另开终端：npm run dev → Admin 里点 Preview 打开本地站点核对
 ```
 
-保存后：Admin 会自动 sync 到 `site/content/docs/`；本地 `npm run dev` 可预览。**线上**需 `git push` 触发 Pages 构建。
+保存后：Admin 会自动 sync；点 **Preview** 跳转 `SITE_DEV_URL`（默认 `http://127.0.0.1:4321/tony_safty/`）。**线上**需 `git push`。
 
 ## Python 快速开始
 

@@ -9,6 +9,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 _SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+_TLDR_RE = re.compile(r"\s*\(TL;DR\)", re.IGNORECASE)
 _KIND_DIRS = {"articles": "articles", "digests": "digests"}
 _SYNC_DEST: dict[str, Path] = {
     "articles": Path("site/content/docs/articles"),
@@ -68,6 +69,11 @@ def _quote_yaml(value: str) -> str:
     return value
 
 
+def strip_tldr_for_site(markdown: str) -> str:
+    """Admin 源稿可保留 (TL;DR)；同步到站点构建目录时去掉。"""
+    return _TLDR_RE.sub("", markdown)
+
+
 def sync_post_to_site(kind: str, slug: str) -> None:
     """将单篇源稿复制到 Starlight 构建目录（与 scripts/sync-content.mjs 目标一致）。"""
     if kind not in _SYNC_DEST:
@@ -76,7 +82,8 @@ def sync_post_to_site(kind: str, slug: str) -> None:
     src = content_dir(kind) / f"{slug}.md"
     dest_dir = repo_root() / _SYNC_DEST[kind]
     dest_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(src, dest_dir / f"{slug}.md")
+    raw = src.read_text(encoding="utf-8")
+    (dest_dir / f"{slug}.md").write_text(strip_tldr_for_site(raw), encoding="utf-8")
 
 
 def remove_post_from_site(kind: str, slug: str) -> None:

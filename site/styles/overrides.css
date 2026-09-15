@@ -6,3 +6,54 @@
 .item[data-source='digest'] {
 	--source: #ae322a;
 }
+
+/* Markdown 正文（Astro Content + description 片段） */
+.prose :is(strong, b) {
+	font-weight: 700;
+	color: var(--ink);
+}
+
+.prose :is(em, i) {
+	font-style: italic;
+}
+
+.prose :is(h2, h3, h4) {
+	font-family: var(--font-display);
+	font-weight: 600;
+	margin: 1.5rem 0 0.75rem;
+	line-height: 1.25;
+}
+
+.prose h3 {
+	font-size: 1.15rem;
+}
+
+.prose ul,
+.prose ol {
+	margin: 0 0 1rem 1.25rem;
+	padding: 0;
+}
+
+.prose li {
+	margin: 0.35rem 0;
+}
+
+.prose a {
+	color: var(--accent-hot);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.prose hr {
+	border: none;
+	border-top: 1px solid var(--line);
+	margin: 1.5rem 0;
+}
+
+.prose-markdown p {
+	margin: 0;
+}
+
+.prose-markdown :is(strong, b) {
+	font-weight: 600;
+}

@@ -1,4 +1,4 @@
-import { cp, mkdir, readdir, rm } from 'node:fs/promises';
+import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -12,21 +12,36 @@ const mappings = [
 	['content/en/digests', 'site/content/docs/en/digests'],
 ];
 
-for (const [srcRel, destRel] of mappings) {
-	const src = path.join(root, srcRel);
-	const dest = path.join(root, destRel);
-	await rm(dest, { recursive: true, force: true });
-	if (!existsSync(src)) {
-		continue;
+/** @param {string} text */
+function stripTldr(text) {
+	return text.replace(/\s*\(TL;DR\)/gi, '');
+}
+
+/**
+ * @param {string} srcDir
+ * @param {string} destDir
+ */
+async function syncMarkdownDir(srcDir, destDir) {
+	await rm(destDir, { recursive: true, force: true });
+	if (!existsSync(srcDir)) {
+		return;
 	}
-	const entries = await readdir(src);
+	const entries = await readdir(srcDir);
 	const publishable = entries.filter((name) => name !== '.gitkeep');
 	if (publishable.length === 0) {
-		await mkdir(dest, { recursive: true });
-		continue;
+		await mkdir(destDir, { recursive: true });
+		return;
 	}
-	await cp(src, dest, {
-		recursive: true,
-		filter: (srcPath) => !srcPath.endsWith('.gitkeep'),
-	});
+	await mkdir(destDir, { recursive: true });
+	for (const name of publishable) {
+		if (!name.endsWith('.md')) {
+			continue;
+		}
+		const raw = await readFile(path.join(srcDir, name), 'utf8');
+		await writeFile(path.join(destDir, name), stripTldr(raw));
+	}
+}
+
+for (const [srcRel, destRel] of mappings) {
+	await syncMarkdownDir(path.join(root, srcRel), path.join(root, destRel));
 }
