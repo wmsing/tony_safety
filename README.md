@@ -10,6 +10,18 @@ LLM 安全相关博客与笔记；仓库同时承载可公开发布内容与采�
 - `src/` — Python 工具与脚本（脚手架默认包）
 - `.cursor/` — Agent 安全基线 + 工程规则
 
+## 本地 Admin（CRUD Markdown 源稿）
+
+GitHub Pages **不能**托管写库后台；Admin 仅在本机运行，直接改 `content/zh/{articles,digests}/`。
+
+```bash
+pip install -e ".[admin,dev]"
+cp .env.example .env                # 编辑 ADMIN_TOKEN，勿提交 .env
+python -m src.admin                 # http://127.0.0.1:8787 — 登录页输入 ADMIN_TOKEN
+```
+
+保存后：Admin 会自动 sync 到 `site/content/docs/`；本地 `npm run dev` 可预览。**线上**需 `git push` 触发 Pages 构建。
+
 ## Python 快速开始
 
 ```bash

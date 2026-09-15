@@ -7,11 +7,19 @@ requires-python = ">=3.10"
 dependencies = []
 
 [project.optional-dependencies]
+admin = [
+    "fastapi>=0.115",
+    "python-multipart>=0.0.9",
+    "uvicorn[standard]>=0.32",
+]
 dev = [
     "pytest>=8.0",
     "mypy>=1.9",
     "ruff>=0.3.0",
 ]
+
+[project.scripts]
+tony-admin = "src.admin:main"
 
 [tool.ruff]
 line-length = 88
