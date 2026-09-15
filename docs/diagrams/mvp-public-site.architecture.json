@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "MVP Public site 架构",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "output": "mvp-public-site.architecture.html"
+  },
+  "components": [
+    {
+      "id": "reader",
+      "type": "external",
+      "label": "Reader",
+      "sublabel": "简体中文读者",
+      "pos": [48, 320],
+      "size": [128, 64]
+    },
+    {
+      "id": "author",
+      "type": "external",
+      "label": "Author",
+      "sublabel": "Markdown + git",
+      "pos": [48, 96],
+      "size": [128, 64]
+    },
+    {
+      "id": "gh-actions",
+      "type": "cloud",
+      "label": "GitHub Actions",
+      "sublabel": "push main",
+      "brand": "github",
+      "pos": [280, 96],
+      "size": [140, 64]
+    },
+    {
+      "id": "starlight",
+      "type": "frontend",
+      "label": "Astro Starlight",
+      "sublabel": "Site stack",
+      "pos": [520, 96],
+      "size": [148, 64]
+    },
+    {
+      "id": "zh-published",
+      "type": "database",
+      "label": "content/zh",
+      "sublabel": "articles · digests",
+      "pos": [780, 48],
+      "size": [140, 60]
+    },
+    {
+      "id": "en-locale",
+      "type": "database",
+      "label": "content/en",
+      "sublabel": "locale 预留",
+      "pos": [780, 148],
+      "size": [140, 60]
+    },
+    {
+      "id": "static-export",
+      "type": "frontend",
+      "label": "Static export",
+      "sublabel": "构建产物",
+      "pos": [520, 320],
+      "size": [148, 64],
+      "tag": "LLM 网络安全"
+    },
+    {
+      "id": "gh-pages",
+      "type": "cloud",
+      "label": "GitHub Pages",
+      "sublabel": "Hosting MVP",
+      "brand": "github",
+      "pos": [280, 320],
+      "size": [140, 64]
+    },
+    {
+      "id": "inbox",
+      "type": "security",
+      "label": "content/inbox",
+      "sublabel": "未发布素材",
+      "pos": [780, 320],
+      "size": [140, 64]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "GitHub 仓库 · tony_safty",
+      "wraps": ["gh-actions", "starlight", "static-export", "gh-pages", "zh-published", "en-locale"]
+    },
+    {
+      "kind": "security-group",
+      "label": "构建边界外 · 不进入 Public site",
+      "wraps": ["inbox"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "reader-https",
+      "from": "reader",
+      "to": "gh-pages",
+      "label": "HTTPS 公开 URL",
+      "variant": "emphasis"
+    },
+    {
+      "id": "pages-serves",
+      "from": "gh-pages",
+      "to": "static-export",
+      "label": "托管静态文件"
+    },
+    {
+      "id": "author-push",
+      "from": "author",
+      "to": "gh-actions",
+      "label": "push main"
+    },
+    {
+      "id": "ci-build",
+      "from": "gh-actions",
+      "to": "starlight",
+      "label": "npm run build"
+    },
+    {
+      "id": "read-zh",
+      "from": "starlight",
+      "to": "zh-published",
+      "label": "编译 Article / Digest"
+    },
+    {
+      "id": "read-en",
+      "from": "starlight",
+      "to": "en-locale",
+      "label": "空树可构建",
+      "variant": "dashed"
+    },
+    {
+      "id": "emit-static",
+      "from": "starlight",
+      "to": "static-export",
+      "label": "静态导出",
+      "labelDy": 24
+    },
+    {
+      "id": "deploy-pages",
+      "from": "gh-actions",
+      "to": "gh-pages",
+      "label": "部署 artifact",
+      "variant": "dashed",
+      "labelDy": 24
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Reader 主路径",
+      "items": [
+        "Reader 通过 HTTPS 访问 GitHub Pages",
+        "Pages 仅提供 Starlight 构建后的 Static export",
+        "站点标题：LLM 网络安全"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "作者发布",
+      "items": [
+        "Markdown 写入 content/zh 或 en 分树",
+        "push main 触发 Actions：build → 部署 Pages",
+        "日后可迁 Cloudflare Pages，内容模型不变"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "信任边界",
+      "items": [
+        "content/inbox 不参与 Starlight 路由",
+        "Draft 与 Inbox 不出现在 Public site",
+        "MVP 无 Inbox 自动抓取"
+      ]
+    }
+  ]
+}

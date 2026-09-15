@@ -1,0 +1,131 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "MVP 作者发布流程",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "output": "mvp-publish.workflow.html"
+  },
+  "lanes": [
+    { "id": "author", "label": "作者" },
+    { "id": "ci", "label": "CI / 构建" },
+    { "id": "hosting", "label": "托管与访问" }
+  ],
+  "phases": [
+    { "id": "authoring", "label": "写作", "fromCol": 0, "toCol": 1 },
+    { "id": "integrate", "label": "提交", "fromCol": 2, "toCol": 2 },
+    { "id": "build", "label": "构建", "fromCol": 3, "toCol": 4, "variant": "emphasis" },
+    { "id": "publish", "label": "发布", "fromCol": 5, "toCol": 5, "variant": "dashed" }
+  ],
+  "mainPath": ["edit", "preview", "push", "actions", "build", "deploy", "read"],
+  "nodes": [
+    {
+      "id": "edit",
+      "lane": "author",
+      "col": 0,
+      "type": "frontend",
+      "label": "编辑 Markdown",
+      "sublabel": "content/zh|en"
+    },
+    {
+      "id": "preview",
+      "lane": "author",
+      "col": 1,
+      "type": "frontend",
+      "label": "本地预览",
+      "sublabel": "npm run dev"
+    },
+    {
+      "id": "push",
+      "lane": "author",
+      "col": 2,
+      "type": "external",
+      "label": "push main",
+      "sublabel": "git"
+    },
+    {
+      "id": "actions",
+      "lane": "ci",
+      "col": 3,
+      "type": "cloud",
+      "label": "Actions",
+      "sublabel": "GitHub workflow",
+      "brand": "github",
+      "width": 132
+    },
+    {
+      "id": "build",
+      "lane": "ci",
+      "col": 4,
+      "type": "backend",
+      "label": "Build",
+      "sublabel": "Starlight · npm run build",
+      "tag": "MVP 门禁",
+      "width": 132
+    },
+    {
+      "id": "deploy",
+      "lane": "hosting",
+      "col": 4,
+      "type": "cloud",
+      "label": "部署",
+      "sublabel": "GitHub Pages artifact",
+      "brand": "github",
+      "width": 132
+    },
+    {
+      "id": "read",
+      "lane": "hosting",
+      "col": 5,
+      "type": "external",
+      "label": "Public site",
+      "sublabel": "Reader HTTPS"
+    }
+  ],
+  "edges": [
+    { "id": "edit-preview", "from": "edit", "to": "preview" },
+    { "id": "preview-push", "from": "preview", "to": "push", "variant": "emphasis" },
+    {
+      "id": "push-actions",
+      "from": "push",
+      "to": "actions",
+      "label": "触发 CI",
+      "variant": "emphasis"
+    },
+    { "id": "actions-build", "from": "actions", "to": "build" },
+    {
+      "id": "build-deploy",
+      "from": "build",
+      "to": "deploy",
+      "label": "静态产物",
+      "variant": "emphasis"
+    },
+    {
+      "id": "deploy-read",
+      "from": "deploy",
+      "to": "read",
+      "label": "HTTPS 公开",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "主路径",
+      "items": [
+        "Markdown → 可选 dev 预览 → push main",
+        "Actions 执行 npm run build，成功则部署 Pages",
+        "build 失败则停止；inbox 不参与构建"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "MVP 范围",
+      "items": [
+        "无 PR 门禁与 Inbox 自动抓取",
+        "首版 GitHub Pages，日后可迁 Cloudflare"
+      ]
+    }
+  ]
+}
