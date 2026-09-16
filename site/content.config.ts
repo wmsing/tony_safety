@@ -4,6 +4,7 @@ import { glob } from 'astro/loaders';
 const articleSchema = z.object({
 	title: z.string(),
 	description: z.string().optional(),
+	publishedAt: z.coerce.date().optional(),
 });
 
 export const collections = {

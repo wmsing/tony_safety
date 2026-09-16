@@ -1,0 +1,179 @@
+{
+  "version": 1,
+  "byId": {
+    "cffee32c5fe965c9": {
+      "titleZh": "中国人工智能公司开展针对美国人工智能公司的工业级知识蒸馏行动",
+      "summaryZh": "摘要 中国的人工智能公司正通过大规模的知识蒸馏行动，系统性地提取美国人工智能公司模型的专有功能和能力，这一行动构成了其核心策略，而不仅仅是灵活的补充……",
+      "sourceHash": "395b2e81c252d58f",
+      "translatedAt": "2026-09-16T04:53:41.596Z"
+    },
+    "4862f3d2c68fb1ad": {
+      "titleZh": "OpenAI支持加州法案推动青少年人工智能安全",
+      "summaryZh": "OpenAI支持加州SB 1119法案，旨在为青少年提供有力且适合年龄的人工智能安全措施，同时保留他们学习、创造和探索的机会。",
+      "sourceHash": "bd2e79e788094f05",
+      "translatedAt": "2026-09-16T04:53:43.361Z"
+    },
+    "df8f12302a5b421a": {
+      "titleZh": "为前沿模型提供零数据留存",
+      "summaryZh": "OpenAI再次确认，符合条件的API客户将实行零数据留存，并提前展示了高级AI安全的私有安全处理功能，而不会损害数据隐私。",
+      "sourceHash": "92822331541b9664",
+      "translatedAt": "2026-09-16T04:53:44.939Z"
+    },
+    "f8ec64126bdac17b": {
+      "titleZh": "在欧洲推动负责任的人工智能",
+      "summaryZh": "OpenAI分享了其在安全、安全、透明度和来源方面的实践，如何支持欧洲负责任的人工智能治理。随着欧盟《人工智能法案》的推进，相关工作将持续进行。",
+      "sourceHash": "40102faceb3cf296",
+      "translatedAt": "2026-09-16T04:53:46.739Z"
+    },
+    "23b1197c74335456": {
+      "titleZh": "美国通过州和联邦行动推动人工智能安全",
+      "summaryZh": "OpenAI提出了一种‘反联邦主义’的治理方法，即通过州级法律来构建一个安全、民主的人工智能国家框架。",
+      "sourceHash": "bfa3873c49c89b8e",
+      "translatedAt": "2026-09-16T04:53:48.330Z"
+    },
+    "f8df3e0d3cc81402": {
+      "titleZh": "GPT-Red：解锁稳健性的自我提升",
+      "summaryZh": "探索GPT-Red，开放AI的自动化红队系统，通过自我对战来提升人工智能的安全性、对齐性以及提示注入的稳健性。",
+      "sourceHash": "3e476d370ae80bf5",
+      "translatedAt": "2026-09-16T04:53:50.069Z"
+    },
+    "f4e0423d66a14da4": {
+      "titleZh": "通过全球领导推动青年安全与机遇",
+      "summaryZh": "OpenAI呼吁在全球范围内采取行动，以青年人工智能安全为议题，提议成立一个国际机构，以加强安全防护、标准制定以及为年轻人创造更多机遇。",
+      "sourceHash": "4f9eb867c2b7923c",
+      "translatedAt": "2026-09-16T04:53:51.733Z"
+    },
+    "4ef2b036d4be1617": {
+      "titleZh": "我们对人工智能政策和政治倡导的看法",
+      "summaryZh": "我们在人工智能政策和政治倡导方面的立场，强调透明度，支持审慎的监管和人工智能安全，并明确指出没有任何外部政治团体代表公司发表意见。",
+      "sourceHash": "506a94ed017c3e11",
+      "translatedAt": "2026-09-16T04:53:53.376Z"
+    },
+    "ac3d09a478fb443d": {
+      "titleZh": "OpenAI的前沿治理框架",
+      "summaryZh": "探讨OpenAI的前沿治理框架，以及我们的AI安全、安全和风险实践如何与新兴的欧盟和加州法规保持一致。",
+      "sourceHash": "16a8db3659a53cd7",
+      "translatedAt": "2026-09-16T04:53:54.822Z"
+    },
+    "fe5fe461dbdbdc93": {
+      "titleZh": "人工智能基础",
+      "summaryZh": "了解人工智能是什么，它如何工作，以及像ChatGPT这样的工具是如何使用大型语言模型的。一份清晰、适合初学者理解人工智能的指南。",
+      "sourceHash": "2e7503bfd822c23d",
+      "translatedAt": "2026-09-16T04:53:56.289Z"
+    },
+    "047e7bac94f5b9df": {
+      "titleZh": "宣布 OpenAI 安全研究员计划",
+      "summaryZh": "一项旨在支持独立安全与对齐研究，并培养下一代人才的试点计划",
+      "sourceHash": "9a2f50c3679c0a0c",
+      "translatedAt": "2026-09-16T04:53:57.385Z"
+    },
+    "fb38dfafd80a435f": {
+      "titleZh": "推出 OpenAI 安全漏洞奖励计划",
+      "summaryZh": "OpenAI 推出安全漏洞奖励计划，旨在发现人工智能滥用和安全风险，包括代理漏洞、提示注入和数据外泄等问题。",
+      "sourceHash": "1240891b37a92b90",
+      "translatedAt": "2026-09-16T04:53:58.974Z"
+    },
+    "b4b340379768876c": {
+      "titleZh": "我们如何监控内部编码代理的偏差",
+      "summaryZh": "OpenAI如何利用思维链监控来研究内部编码代理中的偏差问题——通过分析真实世界部署情况以检测风险，并加强AI安全防护。",
+      "sourceHash": "83051fc6e16fe739",
+      "translatedAt": "2026-09-16T04:54:00.555Z"
+    },
+    "3dec299964e674ad": {
+      "titleZh": "设计具有抗提示注入能力的AI代理",
+      "summaryZh": "ChatGPT通过限制危险操作并保护敏感数据，在代理工作流中抵御提示注入和社会工程攻击。",
+      "sourceHash": "c08883b02508aaa7",
+      "translatedAt": "2026-09-16T04:54:01.945Z"
+    },
+    "18b7ee4fe5e46ca1": {
+      "titleZh": "提升前沿大语言模型的指令层级",
+      "summaryZh": "IH-Challenge 训练模型优先处理可信指令，从而提升指令层级、安全性可控性以及对提示注入攻击的抵抗力。",
+      "sourceHash": "498f04315af83f9b",
+      "translatedAt": "2026-09-16T04:54:03.425Z"
+    },
+    "f16a35767e05c152": {
+      "titleZh": "OpenAI将收购Promptfoo",
+      "summaryZh": "OpenAI收购了Promptfoo，这是一家帮助企业识别和修复开发过程中AI系统漏洞的安全平台。",
+      "sourceHash": "b6eb932c09644fb1",
+      "translatedAt": "2026-09-16T04:54:04.730Z"
+    },
+    "287a6bf671540811": {
+      "titleZh": "推理模型难以控制其思维链，而这是一件好事",
+      "summaryZh": "OpenAI推出了CoT-Control，发现推理模型在控制其思维链方面存在困难，这进一步证实了监控能力作为人工智能安全防护措施的重要性。",
+      "sourceHash": "e4068f372d224ffa",
+      "translatedAt": "2026-09-16T04:54:06.421Z"
+    },
+    "b117978acb8a29a3": {
+      "titleZh": "在ChatGPT中推出锁定模式和高风险标签",
+      "summaryZh": "在ChatGPT中推出锁定模式和高风险标签，以帮助组织防范提示注入和人工智能驱动的数据外泄。",
+      "sourceHash": "5f1090f517ce0d4c",
+      "translatedAt": "2026-09-16T04:54:08.015Z"
+    },
+    "0d2abbb0fa62c353": {
+      "titleZh": "当AI代理点击链接时如何保护您的数据",
+      "summaryZh": "了解OpenAI在AI代理打开链接时如何保护用户数据，通过内置的安全措施防止基于URL的数据窃取和提示注入。",
+      "sourceHash": "4a90ef142d4798cb",
+      "translatedAt": "2026-09-16T04:54:09.594Z"
+    },
+    "0ad9fbef8c874c3e": {
+      "titleZh": "持续强化ChatGPT Atlas对提示注入攻击的防御",
+      "summaryZh": "OpenAI通过使用强化学习训练的自动化红队测试，正在加强ChatGPT Atlas对提示注入攻击的防御。这一主动的发现与修复循环有助于早期识别新型漏洞，并随着人工智能变得更加自主，强化浏览器代理的防御能力。",
+      "sourceHash": "9542fc6bc4c9ed73",
+      "translatedAt": "2026-09-16T04:54:11.997Z"
+    },
+    "13d4a9bfec635484": {
+      "titleZh": "GPT-5.1-Codex-Max 系统卡片",
+      "summaryZh": "该系统卡片概述了为GPT‑5.1-CodexMax实施的全面安全措施。它详细说明了模型层面的缓解措施，例如针对有害任务和提示注入的专门安全训练，以及产品层面的缓解措施，如代理沙箱和可配置的...",
+      "sourceHash": "eca116ca4ac6f299",
+      "translatedAt": "2026-09-16T04:54:14.852Z"
+    },
+    "8cd903898ffd3b79": {
+      "titleZh": "理解提示注入：人工智能系统的前沿安全挑战",
+      "summaryZh": "提示注入是人工智能系统面临的前沿安全挑战。了解这些攻击是如何运作的，以及OpenAI如何通过开展研究、训练模型和为用户构建防护措施来应对这一问题。",
+      "sourceHash": "4c198783412bf6d8",
+      "translatedAt": "2026-09-16T04:54:16.700Z"
+    },
+    "408b38efbeaf9834": {
+      "titleZh": "GPT-5系统卡片补充：敏感对话",
+      "summaryZh": "本系统卡片详细说明了GPT-5在处理敏感对话方面的新进展，包括情感依赖、心理健康和越狱抵抗方面的全新基准。",
+      "sourceHash": "bbd2a858cfc54828",
+      "translatedAt": "2026-09-16T04:54:18.374Z"
+    },
+    "15f17b33ed3ad7c7": {
+      "titleZh": "OpenAI宣布與日本數位局達成戰略合作",
+      "summaryZh": "OpenAI與日本數位局合作，推動生成式人工智能在公共服務中的應用，支持國際人工智能治理，並促進全球範圍內安全可信的人工智能採用。",
+      "sourceHash": "6efb45712ed48692",
+      "translatedAt": "2026-09-16T04:54:20.398Z"
+    },
+    "9992c02f629066bc": {
+      "titleZh": "与美国CAISI和英国AISI合作构建更安全的AI系统",
+      "summaryZh": "OpenAI分享了其与美国CAISI和英国AISI合作在加强AI安全与防护方面取得的进展。",
+      "sourceHash": "156ba4e4459ec4b7",
+      "translatedAt": "2026-09-16T04:54:22.176Z"
+    },
+    "874dd2c7317a726d": {
+      "titleZh": "来自OpenAI和微软的联合声明",
+      "summaryZh": "OpenAI和微软签署一份新的谅解备忘录，加强了双方的合作关系，并重申了他们在人工智能安全与创新方面的共同承诺。",
+      "sourceHash": "078bb69e2c89b807",
+      "translatedAt": "2026-09-16T04:54:23.779Z"
+    },
+    "ad13fe7d3321b824": {
+      "titleZh": "OpenAI 与 Anthropic 共享首次联合安全评估结果",
+      "summaryZh": "OpenAI 与 Anthropic 公布了首次联合安全评估的成果，双方对彼此的模型进行了误对齐、指令遵循、幻觉、越权等多方面的测试，凸显了进展、挑战以及跨实验室协作的价值。",
+      "sourceHash": "41e219471555afe9",
+      "translatedAt": "2026-09-16T04:54:26.304Z"
+    },
+    "79156cbe286b2703": {
+      "titleZh": "在亚洲推出数据本地化服务",
+      "summaryZh": "数据本地化基于OpenAI的企业级数据隐私、安全和合规计划，支持全球客户。",
+      "sourceHash": "18890ae84be4a122",
+      "translatedAt": "2026-09-16T04:54:27.609Z"
+    },
+    "57fde48a0d67f504": {
+      "titleZh": "在欧洲推出数据本地化服务",
+      "summaryZh": "数据本地化基于OpenAI的企业级数据隐私、安全和合规程序，支持全球客户。",
+      "sourceHash": "e89dd7220dfad48f",
+      "translatedAt": "2026-09-16T04:54:28.836Z"
+    }
+  }
+}

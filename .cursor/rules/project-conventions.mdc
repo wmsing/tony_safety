@@ -7,6 +7,8 @@ alwaysApply: true
 
 ## Run / quality
 - **install (site)**: `npm install`
+- **fetch-feeds (site)**: `npm run fetch-feeds`（手动更新 `data/feed-external.json`，再 commit；不自动 prebuild）
+- **translate-feed (site)**: `npm run translate-feed`（本机 Ollama → `data/feed-i18n.json`；不挂 prebuild/CI）
 - **sync-content (site)**: `npm run sync-content`（`predev` / `prebuild` 会自动执行）
 - **dev (site)**: `npm run dev`
 - **build (site)**: `npm run build`（Public site MVP 主验收缝；CI 同命令 + grep 样板 Article 标题）

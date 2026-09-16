@@ -1,33 +1,57 @@
 ---
 import EditorialLayout from '../../layouts/EditorialLayout.astro';
+import EditorialFeed from '../../components/EditorialFeed.astro';
+import { renderMarkdown } from '../../lib/markdown';
+import {
+	buildFeed,
+	feedDateLocale,
+	feedRows,
+	loadExternalWireItems,
+	wireSourceTabs,
+} from '../../lib/feed';
 import { getCollection } from 'astro:content';
+import feedsConfig from '../../../config/security-feeds.json';
 
 const base = import.meta.env.BASE_URL;
 const articles = await getCollection('enArticles');
+const digests = await getCollection('enDigests');
+const wire = await loadExternalWireItems();
+
+const feed = buildFeed({
+	base,
+	locale: 'en',
+	articles,
+	digests,
+	wire,
+	renderDescription: renderMarkdown,
+});
+
+const wireTabs = wireSourceTabs(feed, feedsConfig.feeds);
+const dateLocale = feedDateLocale('en');
+const rows = feedRows(feed, dateLocale);
 ---
 
 <EditorialLayout
 	title="LLM Security"
 	lang="en"
-	description="English locale — structure ready, content TBD."
+	description="LLM security feed — articles, digests, and wire news."
 	enPath="/en/"
 	zhPath="/"
 >
-	<h1 class="page-title">English</h1>
-	<main class="prose">
-		<p>Secondary locale per CONTEXT. Add Markdown under <code>content/en/articles/</code>.</p>
-		{
-			articles.length > 0 ? (
-				<ul class="archive-list">
-					{articles.map((entry) => (
-						<li>
-							<a href={`${base}en/articles/${entry.id}/`}>{entry.data.title}</a>
-						</li>
-					))}
-				</ul>
-			) : (
-				<p class="meta-text">No English articles yet.</p>
-			)
-		}
-	</main>
+	<EditorialFeed
+		{feed}
+		{rows}
+		{wireTabs}
+		{dateLocale}
+		ui={{
+			filterAria: 'Feed filters',
+			all: 'All',
+			article: 'Articles',
+			digest: 'Digests',
+			empty:
+				'No published English posts yet. Wire news still appears when feed-external.json is present.',
+			read: 'Read',
+			readWire: 'Read source',
+		}}
+	/>
 </EditorialLayout>

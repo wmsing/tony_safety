@@ -1,0 +1,175 @@
+---
+import type { FeedItem, FeedRow } from '../lib/feed';
+import { feedDayKey, formatFeedDate } from '../lib/feed';
+
+interface Props {
+	feed: FeedItem[];
+	rows: FeedRow[];
+	wireTabs: { id: string; label: string }[];
+	dateLocale: 'zh-CN' | 'en-US';
+	ui: {
+		filterAria: string;
+		all: string;
+		article: string;
+		digest: string;
+		empty: string;
+		read: string;
+		readWire: string;
+	};
+}
+
+const { feed, rows, wireTabs, dateLocale, ui } = Astro.props;
+
+let itemOrdinal = 0;
+const linkRel = 'noopener noreferrer';
+---
+
+<nav class="feed-filter" role="tablist" aria-label={ui.filterAria}>
+	<button
+		type="button"
+		class="feed-filter-tab is-active"
+		role="tab"
+		aria-selected="true"
+		data-filter-kind="">{ui.all}</button
+	>
+	<button
+		type="button"
+		class="feed-filter-tab"
+		role="tab"
+		aria-selected="false"
+		data-filter-kind="article">{ui.article}</button
+	>
+	<button
+		type="button"
+		class="feed-filter-tab"
+		role="tab"
+		aria-selected="false"
+		data-filter-kind="digest">{ui.digest}</button
+	>
+	{
+		wireTabs.map((tab) => (
+			<button
+				type="button"
+				class="feed-filter-tab"
+				role="tab"
+				aria-selected="false"
+				data-filter-kind=""
+				data-filter-source={tab.id}
+			>
+				{tab.label}
+			</button>
+		))
+	}
+</nav>
+<main class="feed" id="feed">
+	{
+		feed.length === 0 ? (
+			<p class="meta-text">{ui.empty}</p>
+		) : (
+			rows.map((row) => {
+				if (row.type === 'day') {
+					return (
+						<div class="feed-day-sticky" data-day={row.day}>
+							<time datetime={row.day}>{row.label}</time>
+						</div>
+					);
+				}
+				const item = row.item;
+				const index = itemOrdinal++;
+				const dayKey = feedDayKey(item.publishedAt);
+				const releaseLabel = formatFeedDate(item.publishedAt, dateLocale);
+				return (
+					<article
+						class="item"
+						data-kind={item.kind}
+						data-source={item.sourceId}
+						data-day={dayKey}
+						data-heat="2"
+						style={`--i: ${index}`}
+					>
+						<span class="item-index" aria-hidden="true">
+							{String(index + 1).padStart(2, '0')}
+						</span>
+						<div class="item-body">
+							<div class="item-meta">
+								<span class="badge badge-primary badge-source" data-source={item.sourceId}>
+									{item.sourceLabel}
+								</span>
+								<time class="meta-text" datetime={dayKey}>
+									{releaseLabel}
+								</time>
+							</div>
+							<h2>
+								<a
+									href={item.href}
+									{...(item.kind === 'news'
+										? { target: '_blank', rel: linkRel }
+										: {})}
+								>
+									{item.title}
+								</a>
+							</h2>
+							{item.descriptionHtml ? (
+								<div class="summary prose-markdown" set:html={item.descriptionHtml} />
+							) : item.summaryText ? (
+								<p class="summary">{item.summaryText}</p>
+							) : null}
+							<div class="item-actions">
+								<a
+									class="item-read"
+									href={item.href}
+									{...(item.kind === 'news'
+										? { target: '_blank', rel: linkRel }
+										: {})}
+								>
+									{item.kind === 'news' ? ui.readWire : ui.read}
+								</a>
+							</div>
+						</div>
+					</article>
+				);
+			})
+		)
+	}
+</main>
+<script is:inline>
+	(() => {
+		const tabs = document.querySelectorAll('.feed-filter-tab');
+		const feed = document.getElementById('feed');
+		if (!tabs.length || !feed) return;
+
+		const apply = (kind, source) => {
+			const items = feed.querySelectorAll('.item[data-kind]');
+			items.forEach((el) => {
+				let match = true;
+				if (kind) {
+					match = el.getAttribute('data-kind') === kind;
+				} else if (source) {
+					match = el.getAttribute('data-source') === source;
+				}
+				el.classList.toggle('is-filtered-out', !match);
+			});
+			feed.querySelectorAll('.feed-day-sticky[data-day]').forEach((header) => {
+				const day = header.getAttribute('data-day');
+				const dayItems = feed.querySelectorAll(`.item[data-day="${day}"]`);
+				const anyVisible = [...dayItems].some(
+					(el) => !el.classList.contains('is-filtered-out'),
+				);
+				header.classList.toggle('is-filtered-out', !anyVisible);
+			});
+		};
+
+		tabs.forEach((tab) => {
+			tab.addEventListener('click', () => {
+				const kind = tab.getAttribute('data-filter-kind') ?? '';
+				const source = tab.getAttribute('data-filter-source') ?? '';
+				tabs.forEach((t) => {
+					const active = t === tab;
+					t.classList.toggle('is-active', active);
+					t.setAttribute('aria-selected', active ? 'true' : 'false');
+				});
+				apply(kind, source);
+			});
+		});
+	})();
+</script>

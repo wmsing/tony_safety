@@ -1,5 +1,6 @@
 ---
 title: 常见LLM风险
+publishedAt: 2026-03-01
 description: OWASP Top 10 for LLM (2026 版) 揭示的  Common Examples of Risk（常见风险案例） 覆盖了从**越狱指令**到**侧信道爆破**的完整攻击链路。  以下按 **10 大漏洞类型** 归纳最典型的真实风险场景：
 ---
 

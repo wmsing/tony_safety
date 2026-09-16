@@ -8,6 +8,7 @@ LLM 安全博客与笔记仓库。术语见 [CONTEXT.md](CONTEXT.md)。
 |------|--------|
 | **本地写稿** | 下面 [本地 Admin](#本地-admin写稿) → 浏览器改 `content/zh/...` |
 | **本地看站** | `npm install` → `npm run dev` → 打开终端里给的本地 URL |
+| **更新首页资讯** | 见 [更新首页资讯 Feed](#更新首页资讯-feedwire) |
 | **发布线上** | 改内容后 `git push` 到 `main`（Actions 自动部署） |
 
 线上地址：<https://wmsing.github.io/tony_safty/>
@@ -46,10 +47,78 @@ npm run build    # 发布前自检（MVP 主验收）
 
 源稿在 `content/zh|en/{articles,digests}/`；`sync-content` 同步到 `site/content/docs/`（已 gitignore，勿手改）。
 
+## 更新首页资讯（Wire）
+
+首页滚动资讯 = **外部 RSS**，不是你在 `content/zh/...` 写的文章。术语：[CONTEXT.md](CONTEXT.md)。
+
+### 两步在干什么（只记这个）
+
+| 命令 | 人话 |
+|------|------|
+| `npm run fetch-feeds` | **进货**：上网抓 RSS → 英文清单 `data/feed-external.json` |
+| `npm run translate-feed` | **贴中文标**（可选）：本机 Ollama 译标题/摘要 → `data/feed-i18n.json` |
+
+没跑 translate？首页仍能用，Wire 显示**英文**。有中文标就用中文，没有就用英文。
+
+### 今天我要干嘛？（三选一）
+
+**A — 只想刷新新闻（英文也行）**
+
+```bash
+npm run fetch-feeds
+npm run dev
+# 满意后：git add data/feed-external.json → commit → push main
+```
+
+**B — 刷新新闻 + 首页要中文**
+
+```bash
+npm run fetch-feeds
+npm run translate-feed    # 要先：ollama 在跑 + .env 里 OLLAMA_MODEL
+npm run dev
+# 满意后：git add data/feed-external.json data/feed-i18n.json → commit → push
+```
+
+**C — 新闻没变，只补翻译**
+
+```bash
+npm run translate-feed
+npm run dev
+# 若 feed-i18n.json 有变再 git add 它
+```
+
+线上 **不会**自动 fetch / 翻译；你把 JSON **commit 并 push**，CI 只 `build`。
+
+### 第一次在这台电脑（做一次）
+
+```bash
+npm install                 # 从没装过 node 依赖时
+ollama serve                # 若要中文：Ollama 常驻
+ollama pull <model>         # 若要中文：与 ollama list 一致
+cp .env.example .env        # 若要中文：填 OLLAMA_MODEL=…
+```
+
+### 细节（现在不用背）
+
+<details>
+<summary>点开才看</summary>
+
+- **改 RSS 源 / 关键词**：[`config/security-feeds.json`](config/security-feeds.json) → 再 `fetch-feeds`。
+- **translate 增量**：同一条、原文没变 → 自动 skip；RSS 改了标题/摘要 → 只重译那条。
+- **Ctrl+C**：已译完并写盘的会保留；正在译的那一条可能要再跑一次。
+- **卡 / 占内存**：主要是 Ollama 模型；保持 `TRANSLATE_CONCURRENCY=1`（见 [`.env.example`](.env.example)）。
+- **fetch 最多约 80 条缓存**，首页展示更少；translate **译 `feed-external.json` 里全部条目**（与首页条数无关）。
+- Wire 不进 `content/inbox/`，也不会自动变成 Article。
+
+</details>
+
 ## 目录（摘要）
 
 - `content/zh|en/{articles,digests}/` — 已发布源文件
 - `content/inbox/` — 不进站点
+- `config/security-feeds.json` — RSS 源与关键词
+- `data/feed-external.json` — Wire 缓存（`fetch-feeds` 生成，需提交）
+- `data/feed-i18n.json` — Wire 中文译稿（`translate-feed` 生成，需提交）
 - `site/` — Astro + AI Hot Editorial（`design-system/`）
 - `src/` — Python 工具（含 Admin）
 - `.cursor/` — Agent 规则与安全基线

@@ -90,7 +90,8 @@ const tagline =
 					<a
 						class:list={{ 'is-active': navActive === 'feed' }}
 						href={feedHref}
-						aria-current={navActive === 'feed' ? 'page' : undefined}>Feed</a
+						aria-current={navActive === 'feed' ? 'page' : undefined}
+						>{lang === 'en' ? 'Feed' : '动态'}</a
 					>
 					<a
 						class:list={{ 'is-active': navActive === 'about' }}

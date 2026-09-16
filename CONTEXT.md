@@ -12,6 +12,10 @@ _Avoid_: Post（与泛称混淆）、Blog post
 由作者策展的链接摘要栏目（可周更或专题），每条带来源链接与简短评述。
 _Avoid_: Newsletter（若未做邮件订阅）、Roundup（口语可接受，正文用 Digest）
 
+**Wire**:
+从外部 RSS 缓存展示在首页的外链资讯卡片（标题、纯文本摘要、原文链接）；不经 Article/Digest 详情页，不写入 Inbox。
+_Avoid_: 把 Wire 当成已发布的 Article
+
 **Inbox**:
 从外部来源自动或半自动抓取后、仅入库待人工处理的原始或半成品素材；不直接对外发布。
 _Avoid_: Feed（指来源）、Draft（指作者正在写的稿，见下）
@@ -42,8 +46,12 @@ _Avoid_: CN（非标准 locale 码）
 ## Publishing
 
 **Public site**:
-面向 Reader 的站点，仅由已发布的 Article 与 Digest 生成；Inbox 与未发布 Draft 不出现在站上。
+面向 Reader 的站点，由已发布的 Article、Digest 与首页 **Wire** 组成；Inbox 与未发布 Draft 不出现在站上。
 _Avoid_: 把 Inbox 当博客文章发
+
+**External RSS cache**:
+`data/feed-external.json`，由作者手动执行 `npm run fetch-feeds` 更新（不挂 prebuild）；CI build 读取已提交的缓存，无需外网。
+_Avoid_: 把 Wire 自动写入 `content/zh/articles`
 
 **MVP (site)**:
 可公开访问的 Public site，且至少包含一篇中文 Article。

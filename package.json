@@ -4,6 +4,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "fetch-feeds": "node scripts/fetch-feeds.mjs",
+    "translate-feed": "node scripts/translate-feed.mjs",
     "sync-content": "node scripts/sync-content.mjs",
     "predev": "npm run sync-content",
     "prebuild": "npm run sync-content",
@@ -16,6 +18,9 @@
     "astro": "^7.2.10",
     "marked": "^15.0.12",
     "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "rss-parser": "^3.13.0"
   },
   "allowScripts": {
     "esbuild": true

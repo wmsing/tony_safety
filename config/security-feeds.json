@@ -1,0 +1,69 @@
+{
+  "maxItems": 80,
+  "summaryMaxLength": 280,
+  "keywords": [
+    "ai governance",
+    "ai malware",
+    "ai red team",
+    "ai risk management",
+    "ai safety",
+    "ai security",
+    "ai-driven cyberattack",
+    "ai-generated malware",
+    "automated exploitation",
+    "data extraction",
+    "data leakage",
+    "data poisoning",
+    "data privacy",
+    "deepfake phishing",
+    "genai security",
+    "generative ai security",
+    "jailbreak",
+    "jailbreaking",
+    "large language model",
+    "llm cybersecurity",
+    "llm firewall",
+    "llm guardrails",
+    "llm security",
+    "llm vulnerability",
+    "model inversion",
+    "owasp top 10 for llm",
+    "owasp llm",
+    "prompt injection",
+    "securing llms",
+    "shadow ai",
+    "大模型",
+    "人工智能安全",
+    "机器学习",
+    "数据泄露",
+    "提示词注入",
+    "越狱"
+  ],
+  "feeds": [
+    {
+      "id": "rss:anthropic_res",
+      "label": "Anthropic",
+      "url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_research.xml"
+    },
+    {
+      "id": "rss:openai",
+      "label": "OpenAI",
+      "url": "https://openai.com/news/rss.xml"
+    },
+    {
+      "id": "rss:google_ai",
+      "label": "Google AI",
+      "url": "https://blog.google/technology/ai/rss/"
+    },
+    {
+      "id": "rss:simon_willison",
+      "label": "Simon Willison",
+      "url": "https://simonwillison.net/atom/everything/"
+    },
+    {
+      "id": "rss:cisa",
+      "label": "CISA",
+      "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+    }
+  ]
+}

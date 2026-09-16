@@ -1,127 +1,53 @@
 ---
 import EditorialLayout from '../layouts/EditorialLayout.astro';
+import EditorialFeed from '../components/EditorialFeed.astro';
 import { renderMarkdown } from '../lib/markdown';
+import {
+	buildFeed,
+	feedDateLocale,
+	feedRows,
+	loadExternalWireItems,
+	loadFeedI18n,
+	wireSourceTabs,
+} from '../lib/feed';
 import { getCollection } from 'astro:content';
+import feedsConfig from '../../config/security-feeds.json';
 
 const base = import.meta.env.BASE_URL;
-const articles = (await getCollection('articles')).sort((a, b) =>
-	a.id.localeCompare(b.id),
-);
-const digests = (await getCollection('digests')).sort((a, b) =>
-	a.id.localeCompare(b.id),
-);
+const articles = await getCollection('articles');
+const digests = await getCollection('digests');
+const wire = await loadExternalWireItems();
+const wireI18n = await loadFeedI18n();
 
-type FeedItem = {
-	kind: 'article' | 'digest';
-	id: string;
-	title: string;
-	descriptionHtml: string;
-	href: string;
-};
+const feed = buildFeed({
+	base,
+	locale: 'zh',
+	articles,
+	digests,
+	wire,
+	wireI18n,
+	renderDescription: renderMarkdown,
+});
 
-const feed: FeedItem[] = [
-	...articles.map((entry) => ({
-		kind: 'article' as const,
-		id: entry.id,
-		title: entry.data.title,
-		descriptionHtml: entry.data.description ? renderMarkdown(entry.data.description) : '',
-		href: `${base}articles/${entry.id}/`,
-	})),
-	...digests.map((entry) => ({
-		kind: 'digest' as const,
-		id: entry.id,
-		title: entry.data.title,
-		descriptionHtml: entry.data.description ? renderMarkdown(entry.data.description) : '',
-		href: `${base}digests/${entry.id}/`,
-	})),
-];
+const wireTabs = wireSourceTabs(feed, feedsConfig.feeds);
+const dateLocale = feedDateLocale('zh');
+const rows = feedRows(feed, dateLocale);
 ---
 
 <EditorialLayout title="LLM 网络安全" description="LLM 安全主题 Feed">
-	<nav class="feed-filter" role="tablist" aria-label="栏目">
-		<button
-			type="button"
-			class="feed-filter-tab is-active"
-			role="tab"
-			aria-selected="true"
-			data-filter-kind="">全部</button
-		>
-		<button
-			type="button"
-			class="feed-filter-tab"
-			role="tab"
-			aria-selected="false"
-			data-filter-kind="article">Article</button
-		>
-		<button
-			type="button"
-			class="feed-filter-tab"
-			role="tab"
-			aria-selected="false"
-			data-filter-kind="digest">Digest</button
-		>
-	</nav>
-	<main class="feed" id="feed">
-		{
-			feed.length === 0 ? (
-				<p class="meta-text">暂无已发布内容。在 content/zh/articles 添加 Markdown 后重新 build。</p>
-			) : (
-				feed.map((item, index) => (
-					<article
-						class="item"
-						data-kind={item.kind}
-						data-source={item.kind}
-						data-heat="2"
-						style={`--i: ${index}`}
-					>
-						<span class="item-index" aria-hidden="true">
-							{String(index + 1).padStart(2, '0')}
-						</span>
-						<div class="item-body">
-							<div class="item-meta">
-								<span class="badge badge-primary badge-source">
-									{item.kind === 'article' ? 'Article' : 'Digest'}
-								</span>
-							</div>
-							<h2>
-								<a href={item.href}>{item.title}</a>
-							</h2>
-							{item.descriptionHtml ? (
-								<div class="summary prose-markdown" set:html={item.descriptionHtml} />
-							) : null}
-							<div class="item-actions">
-								<a class="item-read" href={item.href}>阅读</a>
-							</div>
-						</div>
-					</article>
-				))
-			)
-		}
-	</main>
-	<script is:inline>
-		(() => {
-			const tabs = document.querySelectorAll('.feed-filter-tab');
-			const items = document.querySelectorAll('#feed .item[data-kind]');
-			if (!tabs.length || !items.length) return;
-
-			const apply = (kind) => {
-				items.forEach((el) => {
-					const match = !kind || el.getAttribute('data-kind') === kind;
-					el.hidden = !match;
-				});
-			};
-
-			tabs.forEach((tab) => {
-				tab.addEventListener('click', () => {
-					const kind = tab.getAttribute('data-filter-kind') ?? '';
-					tabs.forEach((t) => {
-						const active = t === tab;
-						t.classList.toggle('is-active', active);
-						t.setAttribute('aria-selected', active ? 'true' : 'false');
-					});
-					apply(kind);
-				});
-			});
-		})();
-	</script>
+	<EditorialFeed
+		{feed}
+		{rows}
+		{wireTabs}
+		{dateLocale}
+		ui={{
+			filterAria: '栏目',
+			all: '全部',
+			article: '小编',
+			digest: '摘要',
+			empty: '暂无已发布内容。在 content/zh/articles 添加 Markdown 后重新 build。',
+			read: '阅读',
+			readWire: '阅读原文',
+		}}
+	/>
 </EditorialLayout>
