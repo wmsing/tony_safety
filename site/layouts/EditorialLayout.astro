@@ -69,23 +69,25 @@ const tagline =
 	</head>
 	<body>
 		<div class="read-progress" aria-hidden="true"></div>
-		<div class="site">
+		<div class="site site--head">
 			<header class="site-header">
 				<div class="brand-block">
 					<p class="brand"><a href={home}>LLM 网络安全</a></p>
 					<p class="tagline">{tagline}</p>
 				</div>
 			</header>
-			<img
-				class="site-banner"
-				src={bannerSrc}
-				width={1024}
-				height={571}
-				alt={bannerAlt}
-				loading="eager"
-				decoding="async"
-			/>
-			<nav class="site-nav site-nav--under-banner" aria-label="Primary">
+		</div>
+		<img
+			class="site-banner"
+			src={bannerSrc}
+			width={1024}
+			height={571}
+			alt={bannerAlt}
+			loading="eager"
+			decoding="async"
+		/>
+		<nav class="site-nav site-nav--under-banner" aria-label="Primary">
+			<div class="site-nav-inner">
 				<div class="nav-primary">
 					<a
 						class:list={{ 'is-active': navActive === 'feed' }}
@@ -117,7 +119,9 @@ const tagline =
 						</a>
 					)}
 				</div>
-			</nav>
+			</div>
+		</nav>
+		<div class="site site--body">
 			<slot />
 			<footer class="site-footer">
 				<p class="meta-text">
