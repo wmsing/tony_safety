@@ -58,7 +58,20 @@ function parseCli() {
   const preview = args.includes('--preview');
   const ki = args.indexOf('--keywords-file');
   const keywordsFile = ki >= 0 ? args[ki + 1] : null;
-  return { preview, keywordsFile };
+  const mdi = args.indexOf('--max-days');
+  let maxDaysOverride = null;
+  if (mdi >= 0 && args[mdi + 1]) {
+    const n = Number.parseInt(args[mdi + 1], 10);
+    if (Number.isFinite(n) && n > 0) maxDaysOverride = n;
+  }
+  return { preview, keywordsFile, maxDaysOverride };
+}
+
+/** @param {Date} publishedAt @param {number | null | undefined} maxAgeDays @param {Date} [now] */
+function isWithinMaxAge(publishedAt, maxAgeDays, now = new Date()) {
+  if (!maxAgeDays || maxAgeDays <= 0) return true;
+  const cutoff = now.getTime() - maxAgeDays * 24 * 60 * 60 * 1000;
+  return publishedAt.getTime() >= cutoff;
 }
 
 function parseDate(item) {
@@ -73,7 +86,13 @@ async function loadConfig() {
   return JSON.parse(raw);
 }
 
-async function fetchFeed(feed, globalKeywords, summaryMaxLength, stats = null) {
+async function fetchFeed(
+  feed,
+  globalKeywords,
+  summaryMaxLength,
+  maxAgeDays,
+  stats = null,
+) {
   const keywords = feed.keywords?.length ? feed.keywords : globalKeywords;
   const parsed = await parser.parseURL(feed.url);
   const out = [];
@@ -89,6 +108,7 @@ async function fetchFeed(feed, globalKeywords, summaryMaxLength, stats = null) {
     if (!matchesKeywords(blob, keywords)) continue;
     const publishedAt = parseDate(item);
     if (!publishedAt) continue;
+    if (!isWithinMaxAge(publishedAt, maxAgeDays)) continue;
     out.push({
       id: hashId(url),
       title: stripHtml(item.title),
@@ -107,7 +127,7 @@ async function fetchFeed(feed, globalKeywords, summaryMaxLength, stats = null) {
 }
 
 async function main() {
-  const { preview, keywordsFile } = parseCli();
+  const { preview, keywordsFile, maxDaysOverride } = parseCli();
   const config = await loadConfig();
   let globalKeywords = config.keywords ?? [];
   if (keywordsFile) {
@@ -116,6 +136,7 @@ async function main() {
   }
   const maxItems = config.maxItems ?? 80;
   const summaryMaxLength = config.summaryMaxLength ?? 280;
+  const maxAgeDays = maxDaysOverride ?? config.maxAgeDays ?? null;
 
   const byUrl = new Map();
   let sourcesOk = 0;
@@ -129,6 +150,7 @@ async function main() {
           feed,
           globalKeywords,
           summaryMaxLength,
+          maxAgeDays,
           stat,
         );
         sourcesOk += 1;
@@ -153,6 +175,7 @@ async function main() {
       fetchedAt: new Date().toISOString(),
       keywordCount: globalKeywords.length,
       maxItems,
+      maxAgeDays: maxAgeDays ?? null,
       totalMatched: [...byUrl.values()].length,
       totalAfterCap: items.length,
       sourcesOk,
@@ -179,7 +202,10 @@ async function main() {
   await mkdir(path.dirname(outPath), { recursive: true });
   const payload = { fetchedAt: new Date().toISOString(), items };
   await writeFile(outPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
-  console.log(`[fetch-feeds] wrote ${items.length} items → data/feed-external.json`);
+  console.log(
+    `[fetch-feeds] wrote ${items.length} items → data/feed-external.json` +
+      (maxAgeDays ? ` (maxAgeDays=${maxAgeDays})` : ''),
+  );
 }
 
 main().catch((err) => {
