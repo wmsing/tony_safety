@@ -102,7 +102,7 @@ npm run dev
 
 ```bash
 npm run fetch-feeds          # 若 feed 已新可跳过
-npm run deep-read-feed -- --latest 5   # Ollama + OLLAMA_DEEP_READ_MODEL（或 OLLAMA_MODEL）；已精读且正文未变会 skip
+npm run deep-read-feed -- --latest 5   # 成功 5 条即止；OpenAI 等 403 会换其它域名继续试
 npm run dev
 # 满意后：git add data/feed-deep.json data/wire-deep/ → commit → push
 ```
@@ -118,6 +118,8 @@ npm run deep-read-feed -- --id <id> --summarize-only --force-summary
 仍可从 `feed-deep.json` 删掉该 `id` 条目后加 `--summarize-only`（不必 `--force-summary`）。要重新抓取原文再去掉 `--summarize-only`。
 
 **正文裁剪**：抓取后经 Readability 转 Markdown，再去掉文末常见块（References、Contact、Disclaimer 等）；`wire-deep/*.md` 与送 Qwen 的正文均为裁剪后版本，摘要更快。
+
+**HTML 本地缓存**：首次成功抓取会写入 `data/wire-html/{id}.html`（默认 **不提交** Git）。同一条再次精读时读本地 HTML，不再请求外网；强制重下加 `--refetch`。**不能**靠缓存绕过首次 403（OpenAI 等仍要在第一次抓到 HTML，或你手动放入缓存文件）。
 
 线上 **不会**自动 fetch / 翻译 / 精读；你把 JSON 与 `wire-deep/` **commit 并 push**，CI 只 `build`。
 
@@ -141,9 +143,10 @@ cp .env.example .env        # 若要中文：填 OLLAMA_MODEL=…
 - **Ctrl+C**：已译完并写盘的会保留；正在译的那一条可能要再跑一次。
 - **卡 / 占内存**：主要是 Ollama 模型；保持 `TRANSLATE_CONCURRENCY=1`（见 `[.env.example](.env.example)`）。
 - **fetch 最多约 80 条缓存**，首页展示更少；translate **译** `feed-external.json` **里全部条目**（与首页条数无关）。
-- **deep-read** `--latest N`：只处理 `feed-external.json` 按时间最新的 N 条里尚未精读（或正文 hash 变了）的条目。
+- **deep-read** `--latest N`：按时间从新到旧扫描**全库**，成功精读 **N 条**后停止；某域名 403/404 后本 run 跳过同域名，继续试其它源（不必再加 `--continue-on-error`）。
 - **deep-read 重算摘要**：`--summarize-only --force-summary`；或删 `feed-deep.json` 里该 id 后 `--summarize-only`。
 - **deep-read 自检裁剪**：`node scripts/deep-read-feed.mjs --self-check`（需样例 `wire-deep/cffee32c5fe965c9.md`）。
+- **deep-read HTML 缓存**：`data/wire-html/`；`--refetch` 忽略缓存重新下载。
 - Wire 不进 `content/inbox/`，也不会自动变成 Article。
 
 

@@ -38,4 +38,7 @@ node_modules/
 site/content/docs/articles/
 site/content/docs/digests/
 site/content/docs/en/articles/
+# deep-read 原始 HTML 缓存（本地复用，勿提交）
+data/wire-html/*
+!data/wire-html/.gitkeep
 site/content/docs/en/digests/

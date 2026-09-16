@@ -5,7 +5,7 @@ url: "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a"
 sourceId: "rss:cisa"
 sourceLabel: CISA
 publishedAt: "2026-09-08T12:00:00.000Z"
-fetchedAt: "2026-09-16T06:15:00.639Z"
+fetchedAt: "2026-09-16T06:23:25.483Z"
 ---
 ## **Executive summary**
 

@@ -25,6 +25,7 @@ const root = path.join(__dirname, '..');
 const feedPath = path.join(root, 'data', 'feed-external.json');
 const deepPath = path.join(root, 'data', 'feed-deep.json');
 const wireMdDir = path.join(root, 'data', 'wire-deep');
+const wireHtmlDir = path.join(root, 'data', 'wire-html');
 const envPath = path.join(root, '.env');
 
 const MAX_HTML_BYTES = 2 * 1024 * 1024;
@@ -54,6 +55,18 @@ function formatDuration(ms) {
 
 function contentHash(body) {
   return createHash('sha256').update(body).digest('hex').slice(0, 16);
+}
+
+function feedHostname(url) {
+  try {
+    return new URL(url).hostname;
+  } catch {
+    return '';
+  }
+}
+
+function isFetchBlockedError(message) {
+  return /HTTP (403|404)\b/.test(message);
 }
 
 function yamlQuote(value) {
@@ -136,6 +149,7 @@ function parseArgs(argv) {
   const continueOnError = argv.includes('--continue-on-error');
   const summarizeOnly = argv.includes('--summarize-only');
   const forceSummary = argv.includes('--force-summary');
+  const refetch = argv.includes('--refetch');
   let latest = 5;
   let id = null;
   for (let i = 0; i < argv.length; i++) {
@@ -150,7 +164,53 @@ function parseArgs(argv) {
       id = a.slice('--id='.length);
     }
   }
-  return { latest, id, continueOnError, summarizeOnly, forceSummary };
+  return { latest, id, continueOnError, summarizeOnly, forceSummary, refetch };
+}
+
+function wireHtmlPaths(id) {
+  return {
+    html: path.join(wireHtmlDir, `${id}.html`),
+    meta: path.join(wireHtmlDir, `${id}.json`),
+  };
+}
+
+async function readCachedHtml(id, url) {
+  const { html: htmlPath, meta: metaPath } = wireHtmlPaths(id);
+  try {
+    const meta = JSON.parse(await readFile(metaPath, 'utf8'));
+    if (meta.url !== url) return null;
+    const html = await readFile(htmlPath, 'utf8');
+    if (!html.trim()) return null;
+    return { html, fetchedAt: meta.fetchedAt ?? null };
+  } catch {
+    return null;
+  }
+}
+
+async function writeCachedHtml(id, url, html) {
+  await mkdir(wireHtmlDir, { recursive: true });
+  const { html: htmlPath, meta: metaPath } = wireHtmlPaths(id);
+  const fetchedAt = new Date().toISOString();
+  await writeFile(htmlPath, html, 'utf8');
+  await writeFile(
+    metaPath,
+    `${JSON.stringify({ url, fetchedAt }, null, 2)}\n`,
+    'utf8',
+  );
+  return fetchedAt;
+}
+
+/** Network once per id+url; later runs read data/wire-html/ unless --refetch. */
+async function loadHtmlForItem(item, refetch) {
+  if (!refetch) {
+    const cached = await readCachedHtml(item.id, item.url);
+    if (cached) {
+      return { html: cached.html, fromCache: true, htmlFetchedAt: cached.fetchedAt };
+    }
+  }
+  const html = await fetchHtml(item.url);
+  const htmlFetchedAt = await writeCachedHtml(item.id, item.url, html);
+  return { html, fromCache: false, htmlFetchedAt };
 }
 
 async function fetchHtml(url) {
@@ -209,6 +269,8 @@ async function summarizeOne(host, model, title, url, bodyMd) {
     body: JSON.stringify({
       model,
       stream: false,
+      // qwen3.5 等 thinking 模型默认只写 message.thinking，content 为空
+      think: false,
       options: {
         temperature: 0.3,
         num_predict: 512,
@@ -243,7 +305,14 @@ async function summarizeOne(host, model, title, url, bodyMd) {
   }
   const payload = await res.json();
   const content = (payload.message?.content ?? payload.response ?? '').trim();
-  if (!content) throw new Error('empty Ollama response');
+  if (!content) {
+    const hadThinking = Boolean(payload.message?.thinking?.trim());
+    throw new Error(
+      hadThinking
+        ? 'empty Ollama message.content (thinking model? use think:false or OLLAMA_DEEP_READ_MODEL=qwen3:4b-instruct)'
+        : 'empty Ollama response',
+    );
+  }
   return stripModelNoise(content);
 }
 
@@ -331,8 +400,14 @@ async function main() {
   }
 
   await loadDotEnv();
-  const { latest, id: onlyId, continueOnError, summarizeOnly, forceSummary } =
-    parseArgs(argv);
+  const {
+    latest,
+    id: onlyId,
+    continueOnError,
+    summarizeOnly,
+    forceSummary,
+    refetch,
+  } = parseArgs(argv);
 
   const host = process.env.OLLAMA_HOST ?? 'http://127.0.0.1:11434';
   const model =
@@ -369,12 +444,37 @@ async function main() {
   } else {
     candidates = [...feed.items].sort(
       (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
-    ).slice(0, latest);
+    );
   }
 
-  const todo = [];
   let skipped = 0;
   for (const item of candidates) {
+    const onDiskHash = await bodyHashFromDisk(item.id);
+    if (!forceSummary && onDiskHash && isDone(cache, item.id, onDiskHash)) {
+      skipped += 1;
+    }
+  }
+
+  const modeLabel = summarizeOnly ? 'summarize-only' : 'fetch';
+  const targetLabel = onlyId ? '1 id' : `ok ${latest}`;
+  console.log(
+    `[deep-read-feed] model=${model} @ ${host} · ${modeLabel} · target ${targetLabel} · pool ${candidates.length} (already done ${skipped})`,
+  );
+
+  let ok = 0;
+  let failed = 0;
+  const blockedHosts = new Set();
+  const runStarted = Date.now();
+
+  for (const item of candidates) {
+    if (!onlyId && ok >= latest) break;
+
+    const itemHost = feedHostname(item.url);
+    if (!onlyId && itemHost && blockedHosts.has(itemHost)) {
+      console.log(`[deep-read-feed] skip ${item.id} (host ${itemHost} blocked this run)`);
+      continue;
+    }
+
     const onDiskHash = await bodyHashFromDisk(item.id);
     if (summarizeOnly && !onDiskHash) {
       console.error(
@@ -384,22 +484,9 @@ async function main() {
       continue;
     }
     if (!forceSummary && onDiskHash && isDone(cache, item.id, onDiskHash)) {
-      skipped += 1;
       continue;
     }
-    todo.push(item);
-  }
 
-  const modeLabel = summarizeOnly ? 'summarize-only' : 'fetch';
-  console.log(
-    `[deep-read-feed] model=${model} @ ${host} · ${modeLabel} · window ${candidates.length} · process ${todo.length} (skip ${skipped})`,
-  );
-
-  let ok = 0;
-  let failed = 0;
-  const runStarted = Date.now();
-
-  for (const item of todo) {
     const itemStarted = Date.now();
     try {
       const mdPath = path.join(wireMdDir, `${item.id}.md`);
@@ -412,9 +499,13 @@ async function main() {
         md = pruneWireMarkdown(parsed.body);
         if (parsed.fetchedAt) fetchedAt = parsed.fetchedAt.replace(/^["']|["']$/g, '');
       } else {
-        const html = await fetchHtml(item.url);
+        const { html, fromCache, htmlFetchedAt } = await loadHtmlForItem(item, refetch);
+        if (fromCache) {
+          console.log(`[deep-read-feed] ${item.id} html cache`);
+        }
         const { md: rawMd } = htmlToMarkdown(html, item.url);
         md = pruneWireMarkdown(rawMd);
+        if (htmlFetchedAt) fetchedAt = htmlFetchedAt;
       }
 
       if (md.length < MIN_BODY_CHARS) {
@@ -460,7 +551,11 @@ async function main() {
       console.error(
         `[deep-read-feed] ${item.id} failed (${formatDuration(Date.now() - itemStarted)}): ${msg}`,
       );
-      if (!continueOnError) {
+      if (isFetchBlockedError(msg) && itemHost) {
+        blockedHosts.add(itemHost);
+      }
+      const recoverable = isFetchBlockedError(msg) || continueOnError;
+      if (!recoverable) {
         await writeChain;
         process.exit(1);
       }
@@ -469,8 +564,13 @@ async function main() {
 
   await writeChain;
   console.log(
-    `[deep-read-feed] done in ${formatDuration(Date.now() - runStarted)} · ok ${ok}, skipped ${skipped}, failed ${failed} → data/feed-deep.json`,
+    `[deep-read-feed] done in ${formatDuration(Date.now() - runStarted)} · ok ${ok}, already done ${skipped}, failed ${failed} → data/feed-deep.json`,
   );
+  if (!onlyId && ok < latest) {
+    console.error(
+      `[deep-read-feed] only ${ok}/${latest} succeeded (403/404 hosts skipped: ${[...blockedHosts].join(', ') || 'none'})`,
+    );
+  }
   if (failed > 0 && continueOnError) process.exit(1);
 }
 
