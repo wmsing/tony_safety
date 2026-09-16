@@ -1,6 +1,6 @@
 {
-  "maxItems": 50,
-  "maxAgeDays": 10,
+  "maxItems": 40,
+  "maxAgeDays": 8,
   "summaryMaxLength": 280,
   "keywords": [
     "ai governance",
@@ -107,6 +107,31 @@
       "id": "rss:cisa",
       "label": "CISA",
       "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+    },
+    {
+      "id": "rss:project_zero",
+      "label": "Project Zero",
+      "url": "https://googleprojectzero.blogspot.com/feeds/posts/default"
+    },
+    {
+      "id": "rss:microsoft_security",
+      "label": "Microsoft Security",
+      "url": "https://www.microsoft.com/en-us/security/blog/feed/"
+    },
+    {
+      "id": "rss:aws_security",
+      "label": "AWS Security",
+      "url": "https://aws.amazon.com/blogs/security/feed/"
+    },
+    {
+      "id": "rss:ncsc_uk",
+      "label": "NCSC UK",
+      "url": "https://www.ncsc.gov.uk/api/1/services/v1/report-rss-feed.xml"
+    },
+    {
+      "id": "rss:huggingface",
+      "label": "Hugging Face",
+      "url": "https://huggingface.co/blog/feed.xml"
     }
   ]
 }

@@ -414,6 +414,18 @@
       "summaryZh": "美国网络安全与基础设施安全局（CISA）已将其已知被利用漏洞（KEV）目录更新，新增了一项基于实际被利用证据的漏洞：CVE-2026-58704，谷歌Pixel设备授权不当漏洞。此类漏洞是恶意网络攻击者常用的攻击途径之一。",
       "sourceHash": "e0f9a098a71ce412",
       "translatedAt": "2026-09-16T15:40:42.995Z"
+    },
+    "fb02f31847085929": {
+      "titleZh": "使用 Microsoft Defender 检测和阻止 AI 类攻击",
+      "summaryZh": "了解 Microsoft Defender 如何在攻击链的各个阶段检测和阻止 AI 类的钓鱼、恶意软件和多阶段攻击。文章《使用 Microsoft Defender 检测和阻止 AI 类攻击》首次发布于 Microsoft Security Blog。",
+      "sourceHash": "5704affeed82eb5a",
+      "translatedAt": "2026-09-16T16:04:59.911Z"
+    },
+    "7ca4311c77a0b78f": {
+      "titleZh": "人工智能在安全领域的现状：衡量构建信任最重要的因素",
+      "summaryZh": "安全团队开始积极将人工智能应用于安全工作，包括漏洞分类、渗透测试、威胁建模、事件响应和代码审查。其承诺是效率，但一个运行迅速却产生过多误报的安全工具，并不能节省时间……",
+      "sourceHash": "77551696cd5b315a",
+      "translatedAt": "2026-09-16T16:05:02.287Z"
     }
   }
 }

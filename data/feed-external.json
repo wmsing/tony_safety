@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-16T15:34:36.211Z",
+  "fetchedAt": "2026-09-16T15:52:32.527Z",
   "items": [
     {
       "id": "3c232ce3f43d8ba8",
@@ -146,6 +146,15 @@
       "sourceLabel": "CISA"
     },
     {
+      "id": "fb02f31847085929",
+      "title": "Detect and disrupt AI-themed attacks with Microsoft Defender",
+      "summary": "See how Microsoft Defender detects and disrupts AI-themed phishing, malware, and multi-stage attacks across the attack chain. The post Detect and disrupt AI-themed attacks with Microsoft Defender appeared first on Microsoft Security Blog.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/10/detect-and-disrupt-ai-themed-attacks-with-microsoft-defender/",
+      "publishedAt": "2026-09-10T16:00:00.000Z",
+      "sourceId": "rss:microsoft_security",
+      "sourceLabel": "Microsoft Security"
+    },
+    {
       "id": "9eb9ce0ff07d0cee",
       "title": "Orthanc DICOM Server",
       "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an authenticated remote attacker to write past the end of a heap allocation when Orthanc decodes an attacker-supplied PNG or JPEG image, resulting in a crash of the Orthanc process and a denial-of-servic…",
@@ -200,6 +209,15 @@
       "sourceLabel": "Simon Willison"
     },
     {
+      "id": "7ca4311c77a0b78f",
+      "title": "The state of AI for security: Measuring what matters most for building trust",
+      "summary": "Security teams are starting to actively use AI for security work, including vulnerability triage, penetration testing, threat modeling, incident response, and code review. The promise is speed, but a security tool that moves fast and raises too many false alarms doesn’t save tim…",
+      "url": "https://aws.amazon.com/blogs/security/the-state-of-ai-for-security-measuring-what-matters-most-for-building-trust/",
+      "publishedAt": "2026-09-09T19:09:14.000Z",
+      "sourceId": "rss:aws_security",
+      "sourceLabel": "AWS Security"
+    },
+    {
       "id": "d90663f60bbdab48",
       "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
       "summary": "CISA has added four new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2025-25249 Fortinet Multiple Products Heap-based Buffer Overflow Vulnerability CVE-2026-19490 Citrix NetScaler Authentication Bypass Using …",
@@ -225,42 +243,6 @@
       "publishedAt": "2026-09-08T23:55:12.000Z",
       "sourceId": "rss:simon_willison",
       "sourceLabel": "Simon Willison"
-    },
-    {
-      "id": "086b3c718eef7e23",
-      "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
-      "summary": "CISA has added four new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-75650 Adobe Commerce and Magento Improper Neutralization of Special Elements Used in a Template Engine Vulnerability CVE-2026-81963 Mi…",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/09/08/cisa-adds-four-known-exploited-vulnerabilities-catalog",
-      "publishedAt": "2026-09-08T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "ac178bea9a464f01",
-      "title": "CareCam Pro IP Cameras",
-      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to take full control of the device. The following versions of CareCam Pro IP Cameras are affected: ANJIA AJL33PC0801 Firmware linux_linux_202008261138_svn13796_/_Bootloader_U-Boot_2010.06_com…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-251-01",
-      "publishedAt": "2026-09-08T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "cffee32c5fe965c9",
-      "title": "China-Based Artificial Intelligence Companies Conducting Industrial-Scale Distillation Campaigns Against U.S. AI Companies",
-      "summary": "Executive summary China-based artificial intelligence (AI) companies are conducting systematic extraction of proprietary functionalities and capabilities of U.S. AI companies’ models through industrial-scale knowledge distillation campaigns that form the core—not merely a supple…",
-      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a",
-      "publishedAt": "2026-09-08T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "7948c39493cbd65e",
-      "title": "Funding grants for new research into AI and teen development",
-      "summary": "Apply now for OpenAI’s $5 million grant program supporting independent research on how generative AI affects teen development, well-being, and safety.",
-      "url": "https://openai.com/index/teen-development-research-grants",
-      "publishedAt": "2026-09-08T09:00:00.000Z",
-      "sourceId": "rss:openai",
-      "sourceLabel": "OpenAI"
     }
   ]
 }
