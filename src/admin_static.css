@@ -60,6 +60,11 @@ button {
   cursor: pointer;
 }
 
+button.secondary {
+  background: #3d5a80;
+  color: #e2e8f0;
+}
+
 .danger {
   background: #b56a4a;
   color: #fff;

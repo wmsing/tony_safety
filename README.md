@@ -125,6 +125,8 @@ npm run deep-read-feed -- --id <id> --summarize-only --force-summary
 
 **Admin 粘贴 HTML**（403 时）：`python -m src.admin` → **Wire 精读 HTML** → 选条目 → 浏览器「查看网页源代码」全选复制到文本框 → 保存 → `npm run deep-read-feed -- --id <id>`。
 
+**Admin Feed 关键词试跑**：`python -m src.admin` → **Feed 关键词试跑** → 增删词（如 `cyber security`）→ **试跑预览** 看各源命中条数；满意后 **保存到 config** 再 `npm run fetch-feeds`。
+
 线上 **不会**自动 fetch / 翻译 / 精读；你把 JSON 与 `wire-deep/` **commit 并 push**，CI 只 `build`。
 
 ### 第一次在这台电脑（做一次）

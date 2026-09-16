@@ -41,8 +41,24 @@ function hashId(url) {
 }
 
 function matchesKeywords(text, keywords) {
+  if (!keywords?.length) return true;
   const hay = text.toLowerCase();
   return keywords.some((kw) => hay.includes(kw.toLowerCase()));
+}
+
+function parseKeywordLines(raw) {
+  return raw
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith('#'));
+}
+
+function parseCli() {
+  const args = process.argv.slice(2);
+  const preview = args.includes('--preview');
+  const ki = args.indexOf('--keywords-file');
+  const keywordsFile = ki >= 0 ? args[ki + 1] : null;
+  return { preview, keywordsFile };
 }
 
 function parseDate(item) {
@@ -57,10 +73,11 @@ async function loadConfig() {
   return JSON.parse(raw);
 }
 
-async function fetchFeed(feed, globalKeywords, summaryMaxLength) {
+async function fetchFeed(feed, globalKeywords, summaryMaxLength, stats = null) {
   const keywords = feed.keywords?.length ? feed.keywords : globalKeywords;
   const parsed = await parser.parseURL(feed.url);
   const out = [];
+  const rssCount = parsed.items?.length ?? 0;
   for (const item of parsed.items ?? []) {
     const link = item.link ?? item.guid;
     if (!link || !item.title) continue;
@@ -82,36 +99,75 @@ async function fetchFeed(feed, globalKeywords, summaryMaxLength) {
       sourceLabel: feed.label,
     });
   }
+  if (stats) {
+    stats.rssItems = rssCount;
+    stats.matched = out.length;
+  }
   return out;
 }
 
 async function main() {
+  const { preview, keywordsFile } = parseCli();
   const config = await loadConfig();
-  const globalKeywords = config.keywords ?? [];
+  let globalKeywords = config.keywords ?? [];
+  if (keywordsFile) {
+    const raw = await readFile(path.resolve(keywordsFile), 'utf8');
+    globalKeywords = parseKeywordLines(raw);
+  }
   const maxItems = config.maxItems ?? 80;
   const summaryMaxLength = config.summaryMaxLength ?? 280;
 
   const byUrl = new Map();
   let sourcesOk = 0;
+  const sourceStats = [];
 
   await Promise.all(
     (config.feeds ?? []).map(async (feed) => {
+      const stat = { id: feed.id, label: feed.label, rssItems: 0, matched: 0, error: null };
       try {
-        const items = await fetchFeed(feed, globalKeywords, summaryMaxLength);
+        const items = await fetchFeed(
+          feed,
+          globalKeywords,
+          summaryMaxLength,
+          stat,
+        );
         sourcesOk += 1;
         for (const item of items) {
           if (!byUrl.has(item.url)) byUrl.set(item.url, item);
         }
       } catch (err) {
         const msg = err instanceof Error ? err.message : String(err);
+        stat.error = msg;
         console.error(`[fetch-feeds] ${feed.id} failed: ${msg}`);
       }
+      sourceStats.push(stat);
     }),
   );
 
   const items = [...byUrl.values()]
     .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
     .slice(0, maxItems);
+
+  if (preview) {
+    const payload = {
+      fetchedAt: new Date().toISOString(),
+      keywordCount: globalKeywords.length,
+      maxItems,
+      totalMatched: [...byUrl.values()].length,
+      totalAfterCap: items.length,
+      sourcesOk,
+      sourceCount: config.feeds?.length ?? 0,
+      sources: sourceStats,
+      sampleItems: items.slice(0, 25).map((it) => ({
+        title: it.title,
+        publishedAt: it.publishedAt,
+        sourceLabel: it.sourceLabel,
+        url: it.url,
+      })),
+    };
+    process.stdout.write(`${JSON.stringify(payload)}\n`);
+    return;
+  }
 
   if (items.length === 0) {
     console.error(

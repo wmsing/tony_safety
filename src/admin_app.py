@@ -24,6 +24,14 @@ from src.content_store import (
     validate_slug,
     write_post,
 )
+from src.feed_keyword_preview import (
+    FeedKeywordError,
+    keywords_to_text,
+    load_config_keywords,
+    parse_keywords_text,
+    run_fetch_preview,
+    save_config_keywords,
+)
 from src.wire_html_cache import (
     WireHtmlError,
     get_wire_item,
@@ -126,6 +134,7 @@ def _layout(title: str, body: str) -> str:
 <body>
   <nav>
     <a href="/admin/posts">Posts</a>
+    <a href="/admin/feed-keywords">Feed 关键词试跑</a>
     <a href="/admin/wire-deep">Wire 精读 HTML</a>
     <a href="{html.escape(site_dev_base(), quote=True)}" target="_blank"
       rel="noopener noreferrer">Preview (dev)</a>
@@ -370,6 +379,136 @@ def posts_delete(
         raise HTTPException(status_code=400, detail="invalid kind")
     delete_post(kind, validate_slug(slug))
     return RedirectResponse(url=f"/admin/posts?kind={kind}", status_code=303)
+
+
+def _feed_keyword_preview_html(result: dict[str, object]) -> str:
+    total = result.get("totalAfterCap", 0)
+    matched = result.get("totalMatched", 0)
+    kw_count = result.get("keywordCount", 0)
+    max_items = result.get("maxItems", 80)
+    sources_ok = result.get("sourcesOk", 0)
+    source_count = result.get("sourceCount", 0)
+    head = (
+        f"<p><strong>命中 {matched}</strong> 条（去重后 cap 为 "
+        f"<strong>{total}</strong> / maxItems={max_items}），"
+        f"关键词 {kw_count} 个，源 {sources_ok}/{source_count} 成功。</p>"
+    )
+    src_rows: list[str] = []
+    for src in result.get("sources", []):
+        if not isinstance(src, dict):
+            continue
+        err = src.get("error")
+        err_cell = (
+            f'<span class="muted" style="color:#f5b70a">{html.escape(str(err))}</span>'
+            if err
+            else "—"
+        )
+        src_rows.append(
+            f"<tr><td>{html.escape(str(src.get('label', '')))}</td>"
+            f"<td>{src.get('rssItems', 0)}</td>"
+            f"<td>{src.get('matched', 0)}</td>"
+            f"<td>{err_cell}</td></tr>"
+        )
+    table = f"""
+    <table>
+      <thead><tr><th>源</th><th>RSS 条数</th><th>关键词命中</th><th>错误</th></tr></thead>
+      <tbody>{"".join(src_rows) or '<tr><td colspan="4" class="muted">无</td></tr>'}</tbody>
+    </table>
+    """
+    samples: list[str] = []
+    for it in result.get("sampleItems", []):
+        if not isinstance(it, dict):
+            continue
+        title = html.escape(str(it.get("title", "")))
+        when = html.escape(str(it.get("publishedAt", ""))[:10])
+        label = html.escape(str(it.get("sourceLabel", "")))
+        url = html.escape(str(it.get("url", "")), quote=True)
+        samples.append(
+            f"<tr><td class=\"muted\">{when}</td><td>{label}</td>"
+            f'<td><a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a></td></tr>'
+        )
+    sample_table = f"""
+    <h2>样例（最新 {len(samples)} 条，试跑不写盘）</h2>
+    <table>
+      <thead><tr><th>日期</th><th>源</th><th>标题</th></tr></thead>
+      <tbody>{"".join(samples) or '<tr><td colspan="3" class="muted">0 条</td></tr>'}</tbody>
+    </table>
+    """
+    return head + table + sample_table
+
+
+@app.get("/admin/feed-keywords", response_class=HTMLResponse)
+def feed_keywords_page(
+    _: Annotated[None, Depends(require_admin)],
+    saved: str = "",
+) -> str:
+    text = keywords_to_text(load_config_keywords())
+    note = (
+        '<p class="muted">已写入 config/security-feeds.json — 请在本机执行 '
+        "<code>npm run fetch-feeds</code> 更新 data/feed-external.json。</p>"
+        if saved == "1"
+        else ""
+    )
+    body = f"""
+    <h1>Feed 关键词试跑</h1>
+    <p class="muted">与 <code>fetch-feeds</code> 相同规则：标题 + 摘要子串匹配（一行一词，<code>#</code> 开头为注释）。
+      试跑会拉取全部 RSS，<strong>不</strong>写入 feed-external。</p>
+    {note}
+    <form method="post" action="/admin/feed-keywords">
+      <label>关键词
+        <textarea name="keywords" class="wire-html">{html.escape(text)}</textarea>
+      </label>
+      <p>
+        <button type="submit" name="action" value="preview">试跑预览</button>
+        <button type="submit" name="action" value="save" class="secondary">保存到 config</button>
+      </p>
+    </form>
+    """
+    return _layout("Feed keywords", body)
+
+
+@app.post("/admin/feed-keywords", response_model=None)
+def feed_keywords_action(
+    _: Annotated[None, Depends(require_admin)],
+    keywords: str = Form(...),
+    action: str = Form("preview"),
+) -> HTMLResponse | RedirectResponse:
+    kws = parse_keywords_text(keywords)
+    preview_block = ""
+    err = ""
+
+    if action == "save":
+        if not kws:
+            err = '<p class="muted" style="color:#f5b70a">至少保留一个关键词再保存。</p>'
+        else:
+            save_config_keywords(kws)
+            return RedirectResponse(
+                url="/admin/feed-keywords?saved=1",
+                status_code=303,
+            )
+    else:
+        try:
+            result = run_fetch_preview(kws)
+            preview_block = _feed_keyword_preview_html(result)
+        except FeedKeywordError as exc:
+            err = f'<p class="muted" style="color:#f5b70a">{html.escape(str(exc))}</p>'
+
+    body = f"""
+    <h1>Feed 关键词试跑</h1>
+    <p class="muted">与 <code>fetch-feeds</code> 相同规则；试跑不写盘。</p>
+    {err}
+    <form method="post" action="/admin/feed-keywords">
+      <label>关键词
+        <textarea name="keywords" class="wire-html">{html.escape(keywords)}</textarea>
+      </label>
+      <p>
+        <button type="submit" name="action" value="preview">试跑预览</button>
+        <button type="submit" name="action" value="save" class="secondary">保存到 config</button>
+      </p>
+    </form>
+    {preview_block}
+    """
+    return _layout("Feed keywords", body)
 
 
 @app.get("/admin/wire-deep", response_class=HTMLResponse)
