@@ -91,12 +91,12 @@ def _preview_panel(kind: str, slug: str | None = None, saved: bool = False) -> s
         post_url = html.escape(preview_post_url(kind, slug), quote=True)
         primary = (
             f'<a class="btn-preview" href="{post_url}" '
-            f'target="_blank" rel="noopener noreferrer">预览此文 ↗</a>'
+            f'target="_blank" rel="noopener noreferrer">预览此文</a>'
         )
     else:
         primary = (
             f'<a class="btn-preview" href="{home}" '
-            f'target="_blank" rel="noopener noreferrer">打开本地站点 ↗</a>'
+            f'target="_blank" rel="noopener noreferrer">打开本地站点</a>'
         )
     return f"""
     <div class="preview-panel">
@@ -121,27 +121,51 @@ def require_admin(
         )
 
 
-def _layout(title: str, body: str) -> str:
+def _nav_link(href: str, label: str, nav_key: str, key: str) -> str:
+    active = ' class="is-active"' if nav_key == key else ""
+    return f'<li><a href="{href}"{active}>{html.escape(label)}</a></li>'
+
+
+def _layout(
+    title: str,
+    body: str,
+    *,
+    shell: bool = True,
+    nav_key: str = "",
+) -> str:
     safe_title = html.escape(title)
+    dev = html.escape(site_dev_base(), quote=True)
+    if shell:
+        nav = f"""
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <p class="admin-brand">tony_safty<span>本地写稿台</span></p>
+      <ul class="admin-nav" aria-label="主导航">
+        {_nav_link("/admin/posts", "Posts", nav_key, "posts")}
+        {_nav_link("/admin/feed-keywords", "Feed 关键词", nav_key, "feed")}
+        {_nav_link("/admin/wire-deep", "Wire 精读", nav_key, "wire")}
+        <li><a href="{dev}" target="_blank" rel="noopener noreferrer">站点预览</a></li>
+        <li><a href="/admin/logout">退出</a></li>
+      </ul>
+      <p class="admin-sidebar-foot">127.0.0.1 · 勿暴露公网</p>
+    </aside>
+    <main class="admin-main">{body}</main>
+  </div>"""
+        body_class = ""
+    else:
+        nav = f'<div class="login-card">{body}</div>'
+        body_class = ' class="login-page"'
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0e14">
   <title>{safe_title} · Admin</title>
   <link rel="stylesheet" href="/admin/static/admin_static.css">
 </head>
-<body>
-  <nav>
-    <a href="/admin/posts">Posts</a>
-    <a href="/admin/feed-keywords">Feed 关键词试跑</a>
-    <a href="/admin/wire-deep">Wire 精读 HTML</a>
-    <a href="{html.escape(site_dev_base(), quote=True)}" target="_blank"
-      rel="noopener noreferrer">Preview (dev)</a>
-    <a href="/admin/logout">Logout</a>
-    <span class="muted">本地 only · 127.0.0.1</span>
-  </nav>
-  {body}
+<body{body_class}>
+  {nav}
 </body>
 </html>"""
 
@@ -177,22 +201,24 @@ def login_page(
     if _valid_session(session):
         return RedirectResponse(url="/admin/posts", status_code=status.HTTP_302_FOUND)
     err = (
-        f'<p class="muted" style="color:#f5b70a">{html.escape(error)}</p>'
+        f'<p class="muted text-warn">{html.escape(error)}</p>'
         if error
         else ""
     )
     body = f"""
-    <h1>Admin 登录</h1>
-    <p class="muted">密码为 <code>.env</code> 中的 <code>ADMIN_TOKEN</code>。</p>
+    <h1>登录</h1>
+    <p class="muted">使用 <code>.env</code> 里的 <code>ADMIN_TOKEN</code>。</p>
     {err}
     <form method="post" action="/admin/login">
-      <label>Password
+      <label>密码
         <input type="password" name="password" required autocomplete="current-password">
       </label>
-      <button type="submit">登录</button>
+      <div class="form-actions">
+        <button type="submit">登录</button>
+      </div>
     </form>
     """
-    return HTMLResponse(_layout("Login", body))
+    return HTMLResponse(_layout("Login", body, shell=False))
 
 
 @app.post("/admin/login")
@@ -238,37 +264,45 @@ def posts_index(
         f"<td>{html.escape(p.title)}</td>"
         f'<td class="muted">{html.escape(_excerpt(p.description, 80))}</td>'
         f'<td class="muted">{html.escape(_excerpt(p.body, 120))}</td>'
-        f'<td><a href="/admin/posts/{html.escape(p.slug)}/edit?kind={kind}">'
-        f"Edit</a> · "
+        f'<td class="row-actions"><a href="/admin/posts/{html.escape(p.slug)}/edit?kind={kind}">'
+        f"编辑</a>"
         f'<a href="{html.escape(preview_post_url(kind, p.slug), quote=True)}" '
-        f'target="_blank" rel="noopener noreferrer">Preview</a></td></tr>'
+        f'target="_blank" rel="noopener noreferrer">预览</a></td></tr>'
         for p in rows
     )
     empty = '<tr><td colspan="5" class="muted">暂无</td></tr>'
     preview = _preview_panel(kind)
+    articles_tab = ' class="is-active"' if kind == "articles" else ""
+    digests_tab = ' class="is-active"' if kind == "digests" else ""
     body = f"""
-    <h1>Posts ({html.escape(kind)})</h1>
+    <header class="page-head">
+      <h1>Posts</h1>
+      <p class="lead">保存后自动 sync；上线前 <code>git push</code>。</p>
+    </header>
     {preview}
-    <p class="muted">保存后会 sync；线上需 <code>git push</code>。</p>
-    <p>
-      <a href="/admin/posts?kind=articles">Articles</a> |
-      <a href="/admin/posts?kind=digests">Digests</a> |
-      <a href="/admin/posts/new?kind={html.escape(kind)}">New</a>
-    </p>
-    <table>
-      <thead>
-        <tr>
-          <th>Slug</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Body (preview)</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>{items or empty}</tbody>
-    </table>
+    <div class="toolbar">
+      <div class="tab-group" role="tablist">
+        <a href="/admin/posts?kind=articles"{articles_tab}>Articles</a>
+        <a href="/admin/posts?kind=digests"{digests_tab}>Digests</a>
+      </div>
+      <a class="btn-link" href="/admin/posts/new?kind={html.escape(kind)}">新建</a>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Slug</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Body</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>{items or empty}</tbody>
+      </table>
+    </div>
     """
-    return _layout("Posts", body)
+    return _layout("Posts", body, nav_key="posts")
 
 
 @app.get("/admin/posts/new", response_class=HTMLResponse)
@@ -291,10 +325,12 @@ def posts_new(
         <textarea name="body" required></textarea>
       </label>
       <p class="muted">正文里的 <code>(TL;DR)</code> 仅作编辑标记；同步到站点预览时会自动隐藏。</p>
-      <button type="submit">Create</button>
+      <div class="form-actions">
+        <button type="submit">创建</button>
+      </div>
     </form>
     """
-    return _layout("New post", body)
+    return _layout("New post", body, nav_key="posts")
 
 
 @app.post("/admin/posts")
@@ -339,17 +375,19 @@ def posts_edit(
       <label>Body（Markdown）
         <textarea name="body" required>{html.escape(post.body)}</textarea>
       </label>
-      <button type="submit">Save</button>
-      <a class="btn-preview secondary" href="{html.escape(preview_post_url(kind, post.slug), quote=True)}"
-        target="_blank" rel="noopener noreferrer">Save 后去预览 ↗</a>
+      <div class="form-actions">
+        <button type="submit">保存</button>
+        <a class="btn-preview secondary" href="{html.escape(preview_post_url(kind, post.slug), quote=True)}"
+          target="_blank" rel="noopener noreferrer">在站点预览</a>
+      </div>
     </form>
-    <form method="post" action="/admin/posts/{slug_e}/delete"
-      onsubmit="return confirm('Delete this post?');">
+    <form class="delete-form" method="post" action="/admin/posts/{slug_e}/delete"
+      onsubmit="return confirm('确定删除这篇？');">
       <input type="hidden" name="kind" value="{html.escape(kind)}">
-      <button type="submit" class="danger">Delete</button>
+      <button type="submit" class="danger">删除</button>
     </form>
     """
-    return _layout(f"Edit {post.slug}", body)
+    return _layout(f"Edit {post.slug}", body, nav_key="posts")
 
 
 @app.post("/admin/posts/{slug}")
@@ -399,7 +437,7 @@ def _feed_keyword_preview_html(result: dict[str, object]) -> str:
             continue
         err = src.get("error")
         err_cell = (
-            f'<span class="muted" style="color:#f5b70a">{html.escape(str(err))}</span>'
+            f'<span class="text-warn">{html.escape(str(err))}</span>'
             if err
             else "—"
         )
@@ -410,10 +448,12 @@ def _feed_keyword_preview_html(result: dict[str, object]) -> str:
             f"<td>{err_cell}</td></tr>"
         )
     table = f"""
-    <table>
-      <thead><tr><th>源</th><th>RSS 条数</th><th>关键词命中</th><th>错误</th></tr></thead>
-      <tbody>{"".join(src_rows) or '<tr><td colspan="4" class="muted">无</td></tr>'}</tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>源</th><th>RSS 条数</th><th>关键词命中</th><th>错误</th></tr></thead>
+        <tbody>{"".join(src_rows) or '<tr><td colspan="4" class="muted">无</td></tr>'}</tbody>
+      </table>
+    </div>
     """
     samples: list[str] = []
     for it in result.get("sampleItems", []):
@@ -429,10 +469,12 @@ def _feed_keyword_preview_html(result: dict[str, object]) -> str:
         )
     sample_table = f"""
     <h2>样例（最新 {len(samples)} 条，试跑不写盘）</h2>
-    <table>
-      <thead><tr><th>日期</th><th>源</th><th>标题</th></tr></thead>
-      <tbody>{"".join(samples) or '<tr><td colspan="3" class="muted">0 条</td></tr>'}</tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>日期</th><th>源</th><th>标题</th></tr></thead>
+        <tbody>{"".join(samples) or '<tr><td colspan="3" class="muted">0 条</td></tr>'}</tbody>
+      </table>
+    </div>
     """
     return head + table + sample_table
 
@@ -450,21 +492,22 @@ def feed_keywords_page(
         else ""
     )
     body = f"""
-    <h1>Feed 关键词试跑</h1>
-    <p class="muted">与 <code>fetch-feeds</code> 相同规则：标题 + 摘要子串匹配（一行一词，<code>#</code> 开头为注释）。
-      试跑会拉取全部 RSS，<strong>不</strong>写入 feed-external。</p>
+    <header class="page-head">
+      <h1>Feed 关键词试跑</h1>
+      <p class="lead">与 <code>fetch-feeds</code> 相同规则；试跑拉 RSS，<strong>不</strong>写 feed-external。</p>
+    </header>
     {note}
     <form method="post" action="/admin/feed-keywords">
-      <label>关键词
+      <label>关键词（一行一词，<code>#</code> 为注释）
         <textarea name="keywords" class="wire-html">{html.escape(text)}</textarea>
       </label>
-      <p>
+      <div class="form-actions">
         <button type="submit" name="action" value="preview">试跑预览</button>
         <button type="submit" name="action" value="save" class="secondary">保存到 config</button>
-      </p>
+      </div>
     </form>
     """
-    return _layout("Feed keywords", body)
+    return _layout("Feed keywords", body, nav_key="feed")
 
 
 @app.post("/admin/feed-keywords", response_model=None)
@@ -479,7 +522,7 @@ def feed_keywords_action(
 
     if action == "save":
         if not kws:
-            err = '<p class="muted" style="color:#f5b70a">至少保留一个关键词再保存。</p>'
+            err = '<p class="muted text-warn">至少保留一个关键词再保存。</p>'
         else:
             save_config_keywords(kws)
             return RedirectResponse(
@@ -491,24 +534,26 @@ def feed_keywords_action(
             result = run_fetch_preview(kws)
             preview_block = _feed_keyword_preview_html(result)
         except FeedKeywordError as exc:
-            err = f'<p class="muted" style="color:#f5b70a">{html.escape(str(exc))}</p>'
+            err = f'<p class="muted text-warn">{html.escape(str(exc))}</p>'
 
     body = f"""
-    <h1>Feed 关键词试跑</h1>
-    <p class="muted">与 <code>fetch-feeds</code> 相同规则；试跑不写盘。</p>
+    <header class="page-head">
+      <h1>Feed 关键词试跑</h1>
+      <p class="lead">与 <code>fetch-feeds</code> 相同规则；试跑不写盘。</p>
+    </header>
     {err}
     <form method="post" action="/admin/feed-keywords">
       <label>关键词
         <textarea name="keywords" class="wire-html">{html.escape(keywords)}</textarea>
       </label>
-      <p>
+      <div class="form-actions">
         <button type="submit" name="action" value="preview">试跑预览</button>
         <button type="submit" name="action" value="save" class="secondary">保存到 config</button>
-      </p>
+      </div>
     </form>
     {preview_block}
     """
-    return _layout("Feed keywords", body)
+    return _layout("Feed keywords", body, nav_key="feed")
 
 
 @app.get("/admin/wire-deep", response_class=HTMLResponse)
@@ -528,16 +573,19 @@ def wire_deep_index(_: Annotated[None, Depends(require_admin)]) -> str:
         )
     empty = '<tr><td colspan="5" class="muted">无 feed-external 条目</td></tr>'
     body = f"""
-    <h1>Wire 精读 · HTML 缓存</h1>
-    <p class="muted">浏览器打开原文 → 复制整页 HTML（或「另存为」源文件内容）粘贴保存。
-      然后在本机运行 <code>npm run deep-read-feed -- --id &lt;id&gt;</code>
-      （会读 <code>data/wire-html/</code>，不再请求外网）。</p>
-    <table>
-      <thead><tr><th>id</th><th>源</th><th>标题</th><th>缓存</th><th></th></tr></thead>
-      <tbody>{"".join(rows) or empty}</tbody>
-    </table>
+    <header class="page-head">
+      <h1>Wire 精读 · HTML 缓存</h1>
+      <p class="lead">粘贴整页 HTML 到 <code>data/wire-html/</code>，再跑
+        <code>npm run deep-read-feed -- --id &lt;id&gt;</code>（不请求外网）。</p>
+    </header>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>id</th><th>源</th><th>标题</th><th>缓存</th><th></th></tr></thead>
+        <tbody>{"".join(rows) or empty}</tbody>
+      </table>
+    </div>
     """
-    return _layout("Wire deep-read HTML", body)
+    return _layout("Wire deep-read HTML", body, nav_key="wire")
 
 
 @app.get("/admin/wire-deep/{wire_id}", response_class=HTMLResponse)
@@ -558,23 +606,27 @@ def wire_deep_edit(
     title_e = html.escape(str(item.get("title", "")))
     note = '<p class="muted">已写入 data/wire-html/</p>' if saved == "1" else ""
     err = (
-        f'<p class="muted" style="color:#f5b70a">{html.escape(error)}</p>' if error else ""
+        f'<p class="muted text-warn">{html.escape(error)}</p>' if error else ""
     )
     body = f"""
-    <h1>粘贴 HTML</h1>
-    <p><strong>{title_e}</strong></p>
-    <p class="muted"><a href="{url_e}" target="_blank" rel="noopener noreferrer">{url_e}</a></p>
+    <header class="page-head">
+      <h1>粘贴 HTML</h1>
+      <p class="lead"><strong>{title_e}</strong></p>
+      <p class="lead"><a href="{url_e}" target="_blank" rel="noopener noreferrer">{url_e}</a></p>
+    </header>
     {note}{err}
     <form method="post" action="/admin/wire-deep/{wid_e}">
       <input type="hidden" name="url" value="{url_e}">
-      <label>HTML（整页源码，≤2MB）
+      <label>整页源码（≤2MB）
         <textarea name="html" class="wire-html" required>{html_value}</textarea>
       </label>
-      <button type="submit">保存到 wire-html 缓存</button>
+      <div class="form-actions">
+        <button type="submit">保存到缓存</button>
+      </div>
     </form>
-    <p><a href="/admin/wire-deep">← 列表</a></p>
+    <a class="back-link" href="/admin/wire-deep">返回列表</a>
     """
-    return _layout(f"Wire {wire_id}", body)
+    return _layout(f"Wire {wire_id}", body, nav_key="wire")
 
 
 @app.post("/admin/wire-deep/{wire_id}")
