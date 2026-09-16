@@ -9,6 +9,7 @@ import os
 import secrets
 from pathlib import Path
 from typing import Annotated
+from urllib.parse import quote
 
 from dotenv import load_dotenv
 from fastapi import Cookie, Depends, FastAPI, Form, HTTPException, status
@@ -22,6 +23,13 @@ from src.content_store import (
     read_post,
     validate_slug,
     write_post,
+)
+from src.wire_html_cache import (
+    WireHtmlError,
+    get_wire_item,
+    load_wire_items,
+    read_cached_html,
+    save_wire_html,
 )
 
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
@@ -118,6 +126,7 @@ def _layout(title: str, body: str) -> str:
 <body>
   <nav>
     <a href="/admin/posts">Posts</a>
+    <a href="/admin/wire-deep">Wire 精读 HTML</a>
     <a href="{html.escape(site_dev_base(), quote=True)}" target="_blank"
       rel="noopener noreferrer">Preview (dev)</a>
     <a href="/admin/logout">Logout</a>
@@ -361,3 +370,90 @@ def posts_delete(
         raise HTTPException(status_code=400, detail="invalid kind")
     delete_post(kind, validate_slug(slug))
     return RedirectResponse(url=f"/admin/posts?kind={kind}", status_code=303)
+
+
+@app.get("/admin/wire-deep", response_class=HTMLResponse)
+def wire_deep_index(_: Annotated[None, Depends(require_admin)]) -> str:
+    rows = []
+    for item in load_wire_items():
+        wid = html.escape(str(item.get("id", "")))
+        title = html.escape(str(item.get("title", "")))
+        label = html.escape(str(item.get("sourceLabel", "")))
+        cached = "✓" if read_cached_html(str(item.get("id", ""))) else "—"
+        rows.append(
+            f"<tr><td><code>{wid}</code></td>"
+            f"<td>{label}</td>"
+            f"<td>{title}</td>"
+            f"<td>{cached}</td>"
+            f'<td><a href="/admin/wire-deep/{wid}">粘贴 HTML</a></td></tr>'
+        )
+    empty = '<tr><td colspan="5" class="muted">无 feed-external 条目</td></tr>'
+    body = f"""
+    <h1>Wire 精读 · HTML 缓存</h1>
+    <p class="muted">浏览器打开原文 → 复制整页 HTML（或「另存为」源文件内容）粘贴保存。
+      然后在本机运行 <code>npm run deep-read-feed -- --id &lt;id&gt;</code>
+      （会读 <code>data/wire-html/</code>，不再请求外网）。</p>
+    <table>
+      <thead><tr><th>id</th><th>源</th><th>标题</th><th>缓存</th><th></th></tr></thead>
+      <tbody>{"".join(rows) or empty}</tbody>
+    </table>
+    """
+    return _layout("Wire deep-read HTML", body)
+
+
+@app.get("/admin/wire-deep/{wire_id}", response_class=HTMLResponse)
+def wire_deep_edit(
+    _: Annotated[None, Depends(require_admin)],
+    wire_id: str,
+    saved: str = "",
+    error: str = "",
+) -> str:
+    try:
+        item = get_wire_item(wire_id)
+    except WireHtmlError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    cached = read_cached_html(wire_id)
+    html_value = html.escape(cached[0]) if cached else ""
+    wid_e = html.escape(wire_id)
+    url_e = html.escape(str(item.get("url", "")))
+    title_e = html.escape(str(item.get("title", "")))
+    note = '<p class="muted">已写入 data/wire-html/</p>' if saved == "1" else ""
+    err = (
+        f'<p class="muted" style="color:#f5b70a">{html.escape(error)}</p>' if error else ""
+    )
+    body = f"""
+    <h1>粘贴 HTML</h1>
+    <p><strong>{title_e}</strong></p>
+    <p class="muted"><a href="{url_e}" target="_blank" rel="noopener noreferrer">{url_e}</a></p>
+    {note}{err}
+    <form method="post" action="/admin/wire-deep/{wid_e}">
+      <input type="hidden" name="url" value="{url_e}">
+      <label>HTML（整页源码，≤2MB）
+        <textarea name="html" class="wire-html" required>{html_value}</textarea>
+      </label>
+      <button type="submit">保存到 wire-html 缓存</button>
+    </form>
+    <p><a href="/admin/wire-deep">← 列表</a></p>
+    """
+    return _layout(f"Wire {wire_id}", body)
+
+
+@app.post("/admin/wire-deep/{wire_id}")
+def wire_deep_save(
+    _: Annotated[None, Depends(require_admin)],
+    wire_id: str,
+    url: str = Form(...),
+    html: str = Form(...),
+) -> RedirectResponse:
+    try:
+        get_wire_item(wire_id)
+        save_wire_html(wire_id, url, html)
+    except WireHtmlError as exc:
+        return RedirectResponse(
+            url=f"/admin/wire-deep/{wire_id}?error={quote(str(exc))}",
+            status_code=303,
+        )
+    return RedirectResponse(
+        url=f"/admin/wire-deep/{wire_id}?saved=1",
+        status_code=303,
+    )

@@ -51,6 +51,9 @@ export type FeedDeepEntry = {
 	contentHash?: string;
 	summarizedAt?: string;
 	url?: string;
+	summaryMdEn?: string;
+	summarySourceHash?: string;
+	translatedAtEn?: string;
 };
 
 type FeedDeepCache = {
@@ -73,6 +76,8 @@ const FEED_LOCALE: Record<
 		articleLabel: string;
 		digestLabel: string;
 		useWireI18n: boolean;
+		useWireDeep: boolean;
+		wireDeepLocale: 'zh' | 'en';
 		dateLocale: 'zh-CN' | 'en-US';
 	}
 > = {
@@ -81,6 +86,8 @@ const FEED_LOCALE: Record<
 		articleLabel: '小编',
 		digestLabel: '摘要',
 		useWireI18n: true,
+		useWireDeep: true,
+		wireDeepLocale: 'zh',
 		dateLocale: 'zh-CN',
 	},
 	en: {
@@ -88,6 +95,8 @@ const FEED_LOCALE: Record<
 		articleLabel: 'Articles',
 		digestLabel: 'Digests',
 		useWireI18n: false,
+		useWireDeep: true,
+		wireDeepLocale: 'en',
 		dateLocale: 'en-US',
 	},
 };
@@ -181,18 +190,26 @@ export function buildFeed(params: {
 
 	const fromWire: FeedItem[] = wire.map((item) => {
 		const zh = cfg.useWireI18n ? wireI18n[item.id] : undefined;
-		const deep = cfg.useWireI18n ? wireDeep[item.id] : undefined;
-		const deepSummary = deep?.summaryMd?.trim();
+		const deep = cfg.useWireDeep ? wireDeep[item.id] : undefined;
+		const deepSummary =
+			cfg.wireDeepLocale === 'en'
+				? deep?.summaryMdEn?.trim()
+				: deep?.summaryMd?.trim();
+		const wirePath = cfg.wireDeepLocale === 'en' ? 'en/wire' : 'wire';
 		return {
 			kind: 'news' as const,
 			id: item.id,
 			title: zh?.titleZh ?? item.title,
 			descriptionHtml: deepSummary
-				? renderDescription(deepReadFeedListMarkdown(deepSummary))
+				? renderDescription(
+						deepReadFeedListMarkdown(deepSummary, cfg.wireDeepLocale),
+					)
 				: '',
 			summaryText: deepSummary ? '' : (zh?.summaryZh ?? item.summary),
 			href: item.url,
-			deepReadHref: deepSummary ? `${base}wire/${item.id}/` : undefined,
+			deepReadHref: deepSummary
+				? `${base}${wirePath}/${item.id}/`
+				: undefined,
 			sourceId: item.sourceId,
 			sourceLabel: item.sourceLabel,
 			publishedAt: new Date(item.publishedAt),

@@ -7,6 +7,7 @@ import {
 	feedDateLocale,
 	feedRows,
 	loadExternalWireItems,
+	loadFeedDeep,
 	wireSourceTabs,
 } from '../../lib/feed';
 import { getCollection } from 'astro:content';
@@ -16,6 +17,7 @@ const base = import.meta.env.BASE_URL;
 const articles = await getCollection('enArticles');
 const digests = await getCollection('enDigests');
 const wire = await loadExternalWireItems();
+const wireDeep = await loadFeedDeep();
 
 const feed = buildFeed({
 	base,
@@ -23,6 +25,7 @@ const feed = buildFeed({
 	articles,
 	digests,
 	wire,
+	wireDeep,
 	renderDescription: renderMarkdown,
 });
 

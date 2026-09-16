@@ -150,6 +150,9 @@ function parseArgs(argv) {
   const summarizeOnly = argv.includes('--summarize-only');
   const forceSummary = argv.includes('--force-summary');
   const refetch = argv.includes('--refetch');
+  const zhOnly = argv.includes('--zh-only') || argv.includes('--no-en');
+  const enOnly = argv.includes('--en-only');
+  const translateEn = !zhOnly || enOnly;
   let latest = 5;
   let id = null;
   for (let i = 0; i < argv.length; i++) {
@@ -164,7 +167,16 @@ function parseArgs(argv) {
       id = a.slice('--id='.length);
     }
   }
-  return { latest, id, continueOnError, summarizeOnly, forceSummary, refetch };
+  return {
+    latest,
+    id,
+    continueOnError,
+    summarizeOnly,
+    forceSummary,
+    refetch,
+    translateEn,
+    enOnly,
+  };
 }
 
 function wireHtmlPaths(id) {
@@ -213,11 +225,34 @@ async function loadHtmlForItem(item, refetch) {
   return { html, fromCache: false, htmlFetchedAt };
 }
 
+const BROWSER_FETCH_HEADERS = {
+  'User-Agent':
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  Accept:
+    'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8',
+  'Cache-Control': 'no-cache',
+  'Upgrade-Insecure-Requests': '1',
+  'Sec-Fetch-Dest': 'document',
+  'Sec-Fetch-Mode': 'navigate',
+  'Sec-Fetch-Site': 'none',
+  'Sec-Fetch-User': '?1',
+};
+
 async function fetchHtml(url) {
+  let referer = '';
+  try {
+    referer = new URL(url).origin + '/';
+  } catch {
+    /* ignore */
+  }
   const res = await undiciFetch(url, {
     redirect: 'follow',
     dispatcher: fetchAgent,
-    headers: { 'User-Agent': 'tony_safty-deep-read/1.0' },
+    headers: {
+      ...BROWSER_FETCH_HEADERS,
+      ...(referer ? { Referer: referer } : {}),
+    },
   });
   if (!res.ok) {
     throw new Error(`HTTP ${res.status}`);
@@ -362,6 +397,53 @@ function isDone(cache, id, hash) {
   return Boolean(prev?.summaryMd && prev.contentHash === hash);
 }
 
+function summarySourceHash(summaryMd) {
+  return contentHash(summaryMd.trim());
+}
+
+function isDoneEn(cache, id, summaryMdZh) {
+  const prev = cache.byId[id];
+  if (!prev?.summaryMdEn?.trim()) return false;
+  return prev.summarySourceHash === summarySourceHash(summaryMdZh);
+}
+
+async function translateSummaryToEn(host, model, summaryMdZh) {
+  const res = await ollamaFetch(`${host.replace(/\/$/, '')}/api/chat`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    dispatcher: ollamaAgent,
+    body: JSON.stringify({
+      model,
+      stream: false,
+      think: false,
+      options: {
+        temperature: 0.3,
+        num_predict: 512,
+      },
+      messages: [
+        {
+          role: 'system',
+          content:
+            'Translate the following Simplified Chinese wire deep-read markdown into English.\n' +
+            'Keep markdown structure: intro paragraphs (no extra title), then ## Key points, then ## What to do next.\n' +
+            'Keep company names, CVE IDs, and URLs unchanged. Output markdown only.',
+        },
+        { role: 'user', content: summaryMdZh },
+      ],
+    }),
+  });
+  if (!res.ok) {
+    const errBody = await res.text();
+    throw new Error(`Ollama HTTP ${res.status}: ${errBody.slice(0, 200)}`);
+  }
+  const payload = await res.json();
+  const content = (payload.message?.content ?? payload.response ?? '').trim();
+  if (!content) {
+    throw new Error('empty Ollama EN response');
+  }
+  return stripModelNoise(content);
+}
+
 async function bodyHashFromDisk(id) {
   const filePath = path.join(wireMdDir, `${id}.md`);
   try {
@@ -407,6 +489,8 @@ async function main() {
     summarizeOnly,
     forceSummary,
     refetch,
+    translateEn,
+    enOnly,
   } = parseArgs(argv);
 
   const host = process.env.OLLAMA_HOST ?? 'http://127.0.0.1:11434';
@@ -455,10 +539,15 @@ async function main() {
     }
   }
 
-  const modeLabel = summarizeOnly ? 'summarize-only' : 'fetch';
+  const modeLabel = enOnly
+    ? 'en-only'
+    : summarizeOnly
+      ? 'summarize-only'
+      : 'fetch';
   const targetLabel = onlyId ? '1 id' : `ok ${latest}`;
+  const enNote = translateEn ? ' · +en' : '';
   console.log(
-    `[deep-read-feed] model=${model} @ ${host} · ${modeLabel} · target ${targetLabel} · pool ${candidates.length} (already done ${skipped})`,
+    `[deep-read-feed] model=${model} @ ${host} · ${modeLabel}${enNote} · target ${targetLabel} · pool ${candidates.length} (already done ${skipped})`,
   );
 
   let ok = 0;
@@ -483,68 +572,130 @@ async function main() {
       if (!continueOnError) process.exit(1);
       continue;
     }
-    if (!forceSummary && onDiskHash && isDone(cache, item.id, onDiskHash)) {
+    const summaryZh = cache.byId[item.id]?.summaryMd?.trim() ?? '';
+    const zhBodyDone = Boolean(onDiskHash && isDone(cache, item.id, onDiskHash));
+    const enDone =
+      translateEn && summaryZh && isDoneEn(cache, item.id, summaryZh);
+
+    if (!translateEn && !forceSummary && zhBodyDone) {
+      continue;
+    }
+    if (translateEn && !forceSummary && zhBodyDone && enDone) {
       continue;
     }
 
     const itemStarted = Date.now();
     try {
-      const mdPath = path.join(wireMdDir, `${item.id}.md`);
-      let md;
-      let fetchedAt = new Date().toISOString();
+      // 1) 中文精读已齐、仅缺英文：先译 EN（不抓站、不重算中文）
+      const enBackfillOnly =
+        translateEn &&
+        summaryZh &&
+        zhBodyDone &&
+        !isDoneEn(cache, item.id, summaryZh);
 
-      if (summarizeOnly) {
-        const raw = await readFile(mdPath, 'utf8');
-        const parsed = parseFrontmatter(raw);
-        md = pruneWireMarkdown(parsed.body);
-        if (parsed.fetchedAt) fetchedAt = parsed.fetchedAt.replace(/^["']|["']$/g, '');
-      } else {
-        const { html, fromCache, htmlFetchedAt } = await loadHtmlForItem(item, refetch);
-        if (fromCache) {
-          console.log(`[deep-read-feed] ${item.id} html cache`);
-        }
-        const { md: rawMd } = htmlToMarkdown(html, item.url);
-        md = pruneWireMarkdown(rawMd);
-        if (htmlFetchedAt) fetchedAt = htmlFetchedAt;
-      }
-
-      if (md.length < MIN_BODY_CHARS) {
-        throw new Error(`body too short (${md.length} chars)`);
-      }
-      const hash = contentHash(md);
-      if (!forceSummary && isDone(cache, item.id, hash)) {
-        skipped += 1;
-        console.log(`[deep-read-feed] skip ${item.id} (unchanged)`);
+      if (enBackfillOnly && (enOnly || !forceSummary)) {
+        const summaryMdEn = await translateSummaryToEn(host, model, summaryZh);
+        cache.byId[item.id] = {
+          ...cache.byId[item.id],
+          summaryMdEn,
+          summarySourceHash: summarySourceHash(summaryZh),
+          translatedAtEn: new Date().toISOString(),
+          url: item.url,
+        };
+        await enqueuePersist(cache);
+        console.log(
+          `[deep-read-feed] ok en (backfill) ${item.id} (${formatDuration(Date.now() - itemStarted)})`,
+        );
+        ok += 1;
         continue;
       }
 
-      await mkdir(wireMdDir, { recursive: true });
-      const mdFile = buildWireMdFile(
-        {
-          id: item.id,
-          title: item.title,
-          url: item.url,
-          sourceId: item.sourceId,
-          sourceLabel: item.sourceLabel,
-          publishedAt: item.publishedAt,
-          fetchedAt: summarizeOnly ? fetchedAt : new Date().toISOString(),
-        },
-        md,
-      );
-      await writeFile(mdPath, mdFile, 'utf8');
+      // 2) 中英已一致或正文要更新：先中文精读，再译 EN
+      if (!enOnly) {
+        const mdPath = path.join(wireMdDir, `${item.id}.md`);
+        let md;
+        let fetchedAt = new Date().toISOString();
 
-      const summaryMd = await summarizeOne(host, model, item.title, item.url, md);
-      cache.byId[item.id] = {
-        contentHash: hash,
-        summaryMd,
-        summarizedAt: new Date().toISOString(),
-        url: item.url,
-      };
-      await enqueuePersist(cache);
+        if (summarizeOnly) {
+          const raw = await readFile(mdPath, 'utf8');
+          const parsed = parseFrontmatter(raw);
+          md = pruneWireMarkdown(parsed.body);
+          if (parsed.fetchedAt) fetchedAt = parsed.fetchedAt.replace(/^["']|["']$/g, '');
+        } else if (!zhBodyDone || forceSummary) {
+          const { html, fromCache, htmlFetchedAt } = await loadHtmlForItem(item, refetch);
+          if (fromCache) {
+            console.log(`[deep-read-feed] ${item.id} html cache`);
+          }
+          const { md: rawMd } = htmlToMarkdown(html, item.url);
+          md = pruneWireMarkdown(rawMd);
+          if (htmlFetchedAt) fetchedAt = htmlFetchedAt;
+        } else {
+          md = null;
+        }
+
+        if (md !== null) {
+          if (md.length < MIN_BODY_CHARS) {
+            throw new Error(`body too short (${md.length} chars)`);
+          }
+          const hash = contentHash(md);
+          if (!forceSummary && isDone(cache, item.id, hash)) {
+            console.log(`[deep-read-feed] skip ${item.id} zh (unchanged)`);
+          } else {
+            await mkdir(wireMdDir, { recursive: true });
+            const mdFile = buildWireMdFile(
+              {
+                id: item.id,
+                title: item.title,
+                url: item.url,
+                sourceId: item.sourceId,
+                sourceLabel: item.sourceLabel,
+                publishedAt: item.publishedAt,
+                fetchedAt: summarizeOnly ? fetchedAt : new Date().toISOString(),
+              },
+              md,
+            );
+            await writeFile(mdPath, mdFile, 'utf8');
+
+            const summaryMd = await summarizeOne(host, model, item.title, item.url, md);
+            cache.byId[item.id] = {
+              ...cache.byId[item.id],
+              contentHash: hash,
+              summaryMd,
+              summarizedAt: new Date().toISOString(),
+              url: item.url,
+            };
+            await enqueuePersist(cache);
+            console.log(
+              `[deep-read-feed] ok zh ${item.id} (${formatDuration(Date.now() - itemStarted)})`,
+            );
+          }
+        }
+      }
+
+      if (translateEn) {
+        const summaryZhAfter = cache.byId[item.id]?.summaryMd?.trim();
+        if (!summaryZhAfter) {
+          throw new Error('no Chinese summary — run zh deep-read first');
+        }
+        if (!forceSummary && isDoneEn(cache, item.id, summaryZhAfter)) {
+          console.log(`[deep-read-feed] skip ${item.id} en (unchanged)`);
+        } else {
+          const summaryMdEn = await translateSummaryToEn(host, model, summaryZhAfter);
+          cache.byId[item.id] = {
+            ...cache.byId[item.id],
+            summaryMdEn,
+            summarySourceHash: summarySourceHash(summaryZhAfter),
+            translatedAtEn: new Date().toISOString(),
+            url: item.url,
+          };
+          await enqueuePersist(cache);
+          console.log(
+            `[deep-read-feed] ok en ${item.id} (${formatDuration(Date.now() - itemStarted)})`,
+          );
+        }
+      }
+
       ok += 1;
-      console.log(
-        `[deep-read-feed] ok ${item.id} (${formatDuration(Date.now() - itemStarted)})`,
-      );
     } catch (err) {
       failed += 1;
       const msg = err instanceof Error ? err.message : String(err);

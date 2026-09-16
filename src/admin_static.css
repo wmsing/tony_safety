@@ -39,6 +39,12 @@ select {
   border-radius: 8px;
 }
 
+textarea.wire-html {
+  min-height: 16rem;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+}
+
 textarea {
   min-height: 12rem;
   font-family: ui-monospace, monospace;

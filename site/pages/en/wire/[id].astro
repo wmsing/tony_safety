@@ -1,0 +1,90 @@
+---
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+import EditorialLayout from '../../../layouts/EditorialLayout.astro';
+import { renderDeepReadMarkdown, renderMarkdown } from '../../../lib/markdown';
+import { loadExternalWireItems, loadFeedDeep } from '../../../lib/feed';
+
+export async function getStaticPaths() {
+	const wireDeep = await loadFeedDeep();
+	const wire = await loadExternalWireItems();
+	const byWireId = new Map(wire.map((item) => [item.id, item]));
+	const root = process.cwd();
+	const base = import.meta.env.BASE_URL;
+
+	const paths = [];
+	for (const id of Object.keys(wireDeep)) {
+		const deep = wireDeep[id];
+		if (!deep?.summaryMdEn?.trim()) continue;
+		const meta = byWireId.get(id);
+		if (!meta) continue;
+
+		let fullBodyHtml = '';
+		try {
+			const raw = await readFile(
+				path.join(root, 'data', 'wire-deep', `${id}.md`),
+				'utf8',
+			);
+			const m = raw.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n([\s\S]*)$/);
+			const body = m?.[1]?.trim() ?? '';
+			if (body) fullBodyHtml = renderMarkdown(body);
+		} catch {
+			/* no full text */
+		}
+
+		paths.push({
+			params: { id },
+			props: {
+				meta,
+				pageTitle: meta.title,
+				summaryHtml: renderDeepReadMarkdown(deep.summaryMdEn),
+				fullBodyHtml,
+				feedHref: `${base}en/`,
+			},
+		});
+	}
+	return paths;
+}
+
+const { meta, pageTitle, summaryHtml, fullBodyHtml, feedHref } = Astro.props;
+---
+
+<EditorialLayout
+	title={pageTitle}
+	lang="en"
+	description="Wire deep read"
+	enPath="/en/"
+	zhPath="/"
+>
+	<p class="meta-text"><a href={feedHref}>← Feed</a></p>
+	<div class="item-meta">
+		<span class="badge badge-primary badge-source" data-source={meta.sourceId}>
+			{meta.sourceLabel}
+		</span>
+	</div>
+	<h1 class="page-title">{pageTitle}</h1>
+	<main class="prose prose-markdown wire-deep-summary" set:html={summaryHtml} />
+	<p class="item-actions">
+		<a class="item-read" href={meta.url} rel="noopener noreferrer" target="_blank">
+			Read source
+		</a>
+	</p>
+	{
+		fullBodyHtml ? (
+			<details class="wire-fulltext">
+				<summary>Captured article (Markdown)</summary>
+				<div class="prose prose-markdown" set:html={fullBodyHtml} />
+			</details>
+		) : null
+	}
+</EditorialLayout>
+
+<style>
+	.wire-fulltext {
+		margin-top: 2rem;
+	}
+	.wire-fulltext summary {
+		cursor: pointer;
+		margin-bottom: 1rem;
+	}
+</style>

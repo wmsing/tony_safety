@@ -62,7 +62,7 @@ npm run build    # 发布前自检（MVP 主验收）
 | ------------------------ | ------------------------------------------------------------------------------- |
 | `npm run fetch-feeds`    | **进货**：上网抓 RSS → 英文清单 `data/feed-external.json`                                 |
 | `npm run translate-feed` | **贴中文标**（可选）：本机 Ollama 译标题/摘要 → `data/feed-i18n.json`                           |
-| `npm run deep-read-feed` | **精读**（可选）：抓原文 → Markdown + ADHD 友好摘要 → `data/feed-deep.json`、`data/wire-deep/` |
+| `npm run deep-read-feed` | **精读**（可选）：抓原文 → 中文摘要 + 默认译 EN → `feed-deep.json`、`wire-deep/`（`--zh-only` 跳过英文） |
 
 
 没跑 translate？首页仍能用，Wire 显示**英文**。有中文标就用中文，没有就用英文。精读仅中文首页：有摘要则卡片显示精读、链到站内 `/wire/{id}/`。
@@ -102,7 +102,9 @@ npm run dev
 
 ```bash
 npm run fetch-feeds          # 若 feed 已新可跳过
-npm run deep-read-feed -- --latest 5   # 成功 5 条即止；OpenAI 等 403 会换其它域名继续试
+npm run deep-read-feed -- --latest 5   # 默认含英文：成功 5 条（中文精读 + summaryMdEn）；403 会换其它域名
+npm run deep-read-feed -- --latest 5 --zh-only   # 只生成中文精读，不译 EN
+npm run deep-read-feed -- --id <id> --en-only   # 仅译英文（中文已存在且正文未变）
 npm run dev
 # 满意后：git add data/feed-deep.json data/wire-deep/ → commit → push
 ```
@@ -120,6 +122,8 @@ npm run deep-read-feed -- --id <id> --summarize-only --force-summary
 **正文裁剪**：抓取后经 Readability 转 Markdown，再去掉文末常见块（References、Contact、Disclaimer 等）；`wire-deep/*.md` 与送 Qwen 的正文均为裁剪后版本，摘要更快。
 
 **HTML 本地缓存**：首次成功抓取会写入 `data/wire-html/{id}.html`（默认 **不提交** Git）。同一条再次精读时读本地 HTML，不再请求外网；强制重下加 `--refetch`。**不能**靠缓存绕过首次 403（OpenAI 等仍要在第一次抓到 HTML，或你手动放入缓存文件）。
+
+**Admin 粘贴 HTML**（403 时）：`python -m src.admin` → **Wire 精读 HTML** → 选条目 → 浏览器「查看网页源代码」全选复制到文本框 → 保存 → `npm run deep-read-feed -- --id <id>`。
 
 线上 **不会**自动 fetch / 翻译 / 精读；你把 JSON 与 `wire-deep/` **commit 并 push**，CI 只 `build`。
 
