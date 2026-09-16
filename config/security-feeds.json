@@ -1,6 +1,6 @@
 {
   "maxItems": 50,
-  "maxAgeDays": 5,
+  "maxAgeDays": 10,
   "summaryMaxLength": 280,
   "keywords": [
     "ai governance",

@@ -225,6 +225,51 @@
       "summaryMdEn": "CISA has added CVE-2026-76461 to the KEV catalog, as this vulnerability has been confirmed to be exploited.\nThe SQL injection vulnerability in Cisco Secure Email Gateway poses a threat to federal enterprise security.\n\n## Key points\n*   Immediately check if your Cisco Secure Email Gateway is affected by CVE-2026-76461 and apply patches.\n*   Prioritize patching vulnerabilities in assets under full control that are listed in the KEV catalog, per BOD 26-04.\n*   For exploited vulnerabilities not yet included in the KEV catalog, submit the CVE ID and evidence of exploitation via the CISA nomination form.\n\n## What to do next\n*   Scan your Cisco Secure Email Gateway assets to confirm whether the installed patch version includes the fix.\n*   Access the CISA KEV nomination form to submit leads on newly discovered exploited vulnerabilities.",
       "summarySourceHash": "576f2366c469b343",
       "translatedAtEn": "2026-09-16T15:04:32.896Z"
+    },
+    "3c232ce3f43d8ba8": {
+      "contentHash": "d9bea3e259e2ad70",
+      "summaryMd": "CISA 新增 CVE-2026-58704 至漏洞目录，证实该 Google Pixel 漏洞正被主动利用。联邦机构需优先修补此类高危漏洞以获取资产控制权。\n\n## 要点\n*   立即检查 Google Pixel 设备是否运行受 CVE-2026-58704 影响的版本。\n*   依据 BOD 26-04，优先修复 KEV 目录中可完全控制资产的漏洞。\n*   发现未收录的已利用漏洞，通过 CISA 提名表单提交 CVE ID 及证据。\n\n## 行动提示\n*   访问 CISA KEV 目录页面，核对现有资产是否包含新列出的 CVE-2026-58704。\n*   若发现其他疑似被利用但未收录的漏洞，填写官方提名表单进行申报。",
+      "summarizedAt": "2026-09-16T15:41:30.787Z",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/16/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "summaryMdEn": "CISA has added CVE-2026-58704 to its Vulnerability Directory, confirming that this Google Pixel vulnerability is being actively exploited. Federal agencies must prioritize patching such high-severity vulnerabilities to regain control of assets.\n\n## Key points\n*   Immediately check if Google Pixel devices are running versions affected by CVE-2026-58704.\n*   Prioritize remediation of vulnerabilities in the KEV directory that allow full control over assets, per BOD 26-04.\n*   Submit a CVE ID and evidence via the CISA nomination form for discovered exploited vulnerabilities not yet listed in the directory.\n\n## What to do next\n*   Visit the CISA KEV Directory page to verify whether existing assets include the newly listed CVE-2026-58704.\n*   If other suspected exploited but unlisted vulnerabilities are found, complete the official nomination form to report them.",
+      "summarySourceHash": "86ca4fb8550cf089",
+      "translatedAtEn": "2026-09-16T15:41:43.740Z"
+    },
+    "e863896e826d2567": {
+      "contentHash": "77f39fcdfc2d7189",
+      "summaryMd": "CISA 新增三个已利用漏洞至目录，含 JFrog Artifactory 及 ConnectWise ScreenConnect。联邦机构需优先修复此类高危漏洞。\n\n## 要点\n- 检查 JFrog Artifactory 和 ConnectWise ScreenConnect 是否暴露公网。\n- 立即修补 CVE-2026-42016、CVE-2026-42018 及 CVE-2026-84869。\n- 遵循 BOD 26-04，优先处理能获取资产完全控制的漏洞。\n\n## 行动提示\n- 访问 CISA KEV 目录核对自身资产是否受影响。\n- 若发现未收录的已利用漏洞，提交至 CISA 提名表单。",
+      "summarizedAt": "2026-09-16T15:41:59.092Z",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+      "summaryMdEn": "CISA has added three exploited vulnerabilities to the Known Exploited Vulnerabilities (KEV) catalog, including those affecting JFrog Artifactory and ConnectWise ScreenConnect. Federal agencies must prioritize patching these high-risk vulnerabilities.\n\n## Key points\n- Check if JFrog Artifactory and ConnectWise ScreenConnect are exposed to the public internet.\n- Immediately patch CVE-2026-42016, CVE-2026-42018, and CVE-2026-84869.\n- Follow BOD 26-04 to prioritize vulnerabilities that could lead to full control of an asset.\n\n## What to do next\n- Visit the CISA KEV catalog to verify if your assets are affected.\n- If you discover exploited vulnerabilities not yet listed, submit them via the CISA nomination form.",
+      "summarySourceHash": "c1acfb87527dea89",
+      "translatedAtEn": "2026-09-16T15:42:11.161Z"
+    },
+    "00a28ca612699554": {
+      "contentHash": "8b91ea100156dbc7",
+      "summaryMd": "CISA 新增 CVE-2026-85706 至 KEV 目录，GitLab 路径遍历漏洞已遭利用。\n\n## 要点\n*   该漏洞允许攻击者获取 GitLab 服务器完全控制权。\n*   BOD 26-04 要求联邦机构优先修复目录内高危漏洞。\n*   CISA 鼓励所有组织采用基于风险的漏洞管理策略。\n\n## 行动提示\n*   立即检查环境中是否运行受影响的 GitLab 版本并打补丁。\n*   访问 KEV 提名表单提交其他已知被利用的漏洞线索。",
+      "summarizedAt": "2026-09-16T15:42:24.384Z",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "summaryMdEn": "CISA has added CVE-2026-85706 to the KEV catalog; the GitLab path traversal vulnerability has been exploited.\n\n## Key points\n*   This vulnerability allows attackers to gain full control of a GitLab server.\n*   BOD 26-04 requires federal agencies to prioritize remediation of high-severity vulnerabilities within the catalog.\n*   CISA encourages all organizations to adopt risk-based vulnerability management strategies.\n\n## What to do next\n*   Immediately check your environment for affected GitLab versions and apply patches.\n*   Visit the KEV nomination form to submit information on other known exploited vulnerabilities.",
+      "summarySourceHash": "6134927b8cf1623a",
+      "translatedAtEn": "2026-09-16T15:42:33.907Z"
+    },
+    "9eb9ce0ff07d0cee": {
+      "contentHash": "acfb5e8fbde564d2",
+      "summaryMd": "Orthanc DICOM Server 低于 1.13.0 版本存在堆溢出漏洞，可致服务中断。\n\n## 要点\n- 处理恶意 PNG/JPEG 图片会触发堆越界写入并导致进程崩溃。\n- 仅认证用户即可远程利用此漏洞造成拒绝服务攻击。\n- 受影响版本为 Orthanc DICOM Server 1.13.0 之前的所有版本。\n\n## 行动提示\n- 立即升级至 Orthanc DICOM Server 1.13.0 或更高版本。\n- 隔离医疗设备网络，禁止直接暴露于互联网访问。",
+      "summarizedAt": "2026-09-16T15:42:50.972Z",
+      "url": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-253-02",
+      "summaryMdEn": "Orthanc DICOM Server versions below 1.13.0 are vulnerable to a heap overflow that can lead to service disruption.\n\n## Key points\n- Processing malicious PNG/JPEG images triggers a heap buffer overflow, causing the process to crash.\n- This vulnerability can be exploited remotely by authenticated users to cause denial of service attacks.\n- All versions of Orthanc DICOM Server prior to 1.13.0 are affected.\n\n## What to do next\n- Immediately upgrade to Orthanc DICOM Server version 1.13.0 or later.\n- Isolate the medical device network to prevent direct exposure to internet access.",
+      "summarySourceHash": "2f6fec733ab5d25b",
+      "translatedAtEn": "2026-09-16T15:43:00.440Z"
+    },
+    "195112c8d0784276": {
+      "contentHash": "c99e22e81c9ac89e",
+      "summaryMd": "AVEVA Pipeline Integrity Monitor 多个版本存在高危漏洞。攻击者可窃取信息、暴力破解或执行任意代码。\n\n## 要点\n*   检查 AVEVA Pipeline Integrity Monitor <=2025_SP1_P1_build_7.1.9580.8513 是否受影响。\n*   禁用硬编码密钥，修补弱哈希算法及跨站脚本漏洞。\n*   隔离工控网络，严禁从互联网直接访问控制设备。\n\n## 行动提示\n*   立即查阅 CISA ICSA-26-253-01 公告获取官方修复建议。\n*   检查内部邮件，警惕诱导点击恶意链接的社会工程攻击。",
+      "summarizedAt": "2026-09-16T15:43:28.306Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-253-01",
+      "summaryMdEn": "Multiple versions of AVEVA Pipeline Integrity Monitor are affected by high-severity vulnerabilities. Attackers can steal information, perform brute-force attacks, or execute arbitrary code.\n\n## Key points\n* Check if your AVEVA Pipeline Integrity Monitor <=2025_SP1_P1_build_7.1.9580.8513 is affected.\n* Disable hardcoded keys, patch weak hashing algorithms, and fix cross-site scripting vulnerabilities.\n* Isolate industrial control networks and strictly prohibit direct internet access to control devices.\n\n## What to do next\n* Immediately review CISA ICSA-26-253-01 advisory for official remediation guidance.\n* Check internal emails and be vigilant against social engineering attacks that attempt to induce clicking on malicious links.",
+      "summarySourceHash": "78558f380fb52515",
+      "translatedAtEn": "2026-09-16T15:43:41.691Z"
     }
   }
 }
