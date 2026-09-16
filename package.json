@@ -6,6 +6,7 @@
   "scripts": {
     "fetch-feeds": "node scripts/fetch-feeds.mjs",
     "translate-feed": "node scripts/translate-feed.mjs",
+    "deep-read-feed": "node scripts/deep-read-feed.mjs",
     "sync-content": "node scripts/sync-content.mjs",
     "predev": "npm run sync-content",
     "prebuild": "npm run sync-content",
@@ -20,7 +21,11 @@
     "sharp": "^0.35.3"
   },
   "devDependencies": {
-    "rss-parser": "^3.13.0"
+    "@mozilla/readability": "^0.6.0",
+    "linkedom": "^0.18.12",
+    "rss-parser": "^3.13.0",
+    "turndown": "^7.2.1",
+    "undici": "^7.16.0"
   },
   "allowScripts": {
     "esbuild": true

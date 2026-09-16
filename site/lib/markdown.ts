@@ -1,5 +1,6 @@
 import { marked } from 'marked';
 
+import { normalizeDeepReadMarkdown } from './deep-read-markdown';
 import { stripTldr } from './strip-tldr';
 
 marked.setOptions({ gfm: true, breaks: true });
@@ -11,4 +12,8 @@ export function renderMarkdown(src: string): string {
 		return '';
 	}
 	return marked.parse(cleaned, { async: false }) as string;
+}
+
+export function renderDeepReadMarkdown(src: string): string {
+	return renderMarkdown(normalizeDeepReadMarkdown(src));
 }

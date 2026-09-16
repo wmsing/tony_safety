@@ -469,7 +469,7 @@ body.has-day-sticky .site-nav {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 .item-body { min-width: 0; }
-.item h2 {
+.item-body > h2 {
   font-family: var(--font-body);
   font-size: 1.2rem;
   font-weight: 600;
@@ -478,9 +478,46 @@ body.has-day-sticky .site-nav {
   letter-spacing: -0.01em;
   color: #ffffff;
 }
-.item[data-heat="1"] h2 { font-weight: 500; }
-.item[data-heat="2"] h2 { font-weight: 600; }
-.item[data-heat="3"] h2 { font-weight: 700; }
+.item[data-heat="1"] .item-body > h2 { font-weight: 500; }
+.item[data-heat="2"] .item-body > h2 { font-weight: 600; }
+.item[data-heat="3"] .item-body > h2 { font-weight: 700; }
+.item .summary.prose-markdown {
+  color: var(--ink);
+  margin-top: 0.35rem;
+  white-space: normal;
+}
+.item .summary.prose-markdown :is(h2, h3, h4, p, li) {
+  color: var(--ink);
+}
+.item .summary.prose-markdown h2 {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  margin: 0.85rem 0 0.35rem;
+}
+.item .summary.prose-markdown h2:first-child {
+  margin-top: 0;
+}
+.item .summary.prose-markdown ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+.item .summary.prose-markdown ul li {
+  margin: 0.2rem 0;
+}
+.item .summary.prose-markdown ul li + li {
+  margin-top: 0.15rem;
+}
+.wire-deep-summary {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.wire-deep-summary :is(h2, h3, h4, p, li) {
+  color: var(--ink);
+}
 .item-actions {
   margin: 12px 0 0;
   position: relative;
@@ -512,6 +549,14 @@ body.has-day-sticky .site-nav {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
+}
+/* 多个操作按钮时禁用整行点击层，避免「精读」误触外链 */
+.item-actions:has(.item-read + .item-read) .item-read::before {
+  content: none;
+}
+.item-actions:has(.item-read + .item-read) .item-read {
+  position: relative;
   z-index: 1;
 }
 .item-read::after {

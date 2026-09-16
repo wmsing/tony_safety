@@ -15,13 +15,15 @@ interface Props {
 		empty: string;
 		read: string;
 		readWire: string;
+		readDeep: string;
 	};
 }
 
 const { feed, rows, wireTabs, dateLocale, ui } = Astro.props;
 
+const hasDigests = feed.some((item) => item.kind === 'digest');
+
 let itemOrdinal = 0;
-const linkRel = 'noopener noreferrer';
 ---
 
 <nav class="feed-filter" role="tablist" aria-label={ui.filterAria}>
@@ -39,13 +41,19 @@ const linkRel = 'noopener noreferrer';
 		aria-selected="false"
 		data-filter-kind="article">{ui.article}</button
 	>
-	<button
-		type="button"
-		class="feed-filter-tab"
-		role="tab"
-		aria-selected="false"
-		data-filter-kind="digest">{ui.digest}</button
-	>
+	{
+		hasDigests ? (
+			<button
+				type="button"
+				class="feed-filter-tab"
+				role="tab"
+				aria-selected="false"
+				data-filter-kind="digest"
+			>
+				{ui.digest}
+			</button>
+		) : null
+	}
 	{
 		wireTabs.map((tab) => (
 			<button
@@ -101,9 +109,16 @@ const linkRel = 'noopener noreferrer';
 							</div>
 							<h2>
 								<a
-									href={item.href}
-									{...(item.kind === 'news'
-										? { target: '_blank', rel: linkRel }
+									href={
+										item.kind === 'news' && item.deepReadHref
+											? item.deepReadHref
+											: item.href
+									}
+									{...(item.kind === 'news' && !item.deepReadHref
+										? {
+												rel: 'noopener noreferrer external',
+												'data-feed-external': true,
+											}
 										: {})}
 								>
 									{item.title}
@@ -115,11 +130,19 @@ const linkRel = 'noopener noreferrer';
 								<p class="summary">{item.summaryText}</p>
 							) : null}
 							<div class="item-actions">
+								{item.deepReadHref ? (
+									<a class="item-read" href={item.deepReadHref}>
+										{ui.readDeep}
+									</a>
+								) : null}
 								<a
 									class="item-read"
 									href={item.href}
 									{...(item.kind === 'news'
-										? { target: '_blank', rel: linkRel }
+										? {
+												rel: 'noopener noreferrer external',
+												'data-feed-external': true,
+											}
 										: {})}
 								>
 									{item.kind === 'news' ? ui.readWire : ui.read}
@@ -158,6 +181,17 @@ const linkRel = 'noopener noreferrer';
 				header.classList.toggle('is-filtered-out', !anyVisible);
 			});
 		};
+
+		const openExternalDesktop = window.matchMedia(
+			'(hover: hover) and (pointer: fine)',
+		).matches;
+		feed.querySelectorAll('a[data-feed-external]').forEach((a) => {
+			a.addEventListener('click', (e) => {
+				if (!openExternalDesktop) return;
+				e.preventDefault();
+				window.open(a.href, '_blank', 'noopener,noreferrer');
+			});
+		});
 
 		tabs.forEach((tab) => {
 			tab.addEventListener('click', () => {

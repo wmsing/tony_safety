@@ -16,6 +16,10 @@ _Avoid_: Newsletter（若未做邮件订阅）、Roundup（口语可接受，正
 从外部 RSS 缓存展示在首页的外链资讯卡片（标题、纯文本摘要、原文链接）；不经 Article/Digest 详情页，不写入 Inbox。
 _Avoid_: 把 Wire 当成已发布的 Article
 
+**Deep read（精读）**:
+针对 Wire 原文 URL 抓取正文并生成 ADHD 友好中文摘要；摘要与抓取正文分别存于 `data/feed-deep.json` 与 `data/wire-deep/`，中文站提供 `/wire/{id}/` 详情页，首页 Wire 卡片可链入。不是 Article/Digest。
+_Avoid_: 把精读页当成作者原创 Article
+
 **Inbox**:
 从外部来源自动或半自动抓取后、仅入库待人工处理的原始或半成品素材；不直接对外发布。
 _Avoid_: Feed（指来源）、Draft（指作者正在写的稿，见下）

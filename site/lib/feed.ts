@@ -1,5 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+
+import { deepReadFeedListMarkdown } from './deep-read-markdown';
 import type { CollectionEntry } from 'astro:content';
 
 /** Local posts without frontmatter date sort below dated Wire items. */
@@ -14,6 +16,7 @@ export type FeedItem = {
 	descriptionHtml: string;
 	summaryText: string;
 	href: string;
+	deepReadHref?: string;
 	sourceId: string;
 	sourceLabel: string;
 	publishedAt: Date;
@@ -41,6 +44,18 @@ export type FeedI18nEntry = {
 type FeedI18nCache = {
 	version?: number;
 	byId: Record<string, FeedI18nEntry>;
+};
+
+export type FeedDeepEntry = {
+	summaryMd: string;
+	contentHash?: string;
+	summarizedAt?: string;
+	url?: string;
+};
+
+type FeedDeepCache = {
+	version?: number;
+	byId: Record<string, FeedDeepEntry>;
 };
 
 type PostEntry =
@@ -105,6 +120,17 @@ export async function loadFeedI18n(): Promise<FeedI18nCache['byId']> {
 	}
 }
 
+export async function loadFeedDeep(): Promise<FeedDeepCache['byId']> {
+	const cachePath = path.join(process.cwd(), 'data', 'feed-deep.json');
+	try {
+		const raw = await readFile(cachePath, 'utf8');
+		const data = JSON.parse(raw) as FeedDeepCache;
+		return data.byId ?? {};
+	} catch {
+		return {};
+	}
+}
+
 export function buildFeed(params: {
 	base: string;
 	locale: FeedLocale;
@@ -112,6 +138,7 @@ export function buildFeed(params: {
 	digests: PostEntry[];
 	wire: ExternalCache['items'];
 	wireI18n?: FeedI18nCache['byId'];
+	wireDeep?: FeedDeepCache['byId'];
 	renderDescription: (md: string) => string;
 }): FeedItem[] {
 	const {
@@ -121,6 +148,7 @@ export function buildFeed(params: {
 		digests,
 		wire,
 		wireI18n = {},
+		wireDeep = {},
 		renderDescription,
 	} = params;
 	const cfg = FEED_LOCALE[locale];
@@ -153,13 +181,18 @@ export function buildFeed(params: {
 
 	const fromWire: FeedItem[] = wire.map((item) => {
 		const zh = cfg.useWireI18n ? wireI18n[item.id] : undefined;
+		const deep = cfg.useWireI18n ? wireDeep[item.id] : undefined;
+		const deepSummary = deep?.summaryMd?.trim();
 		return {
 			kind: 'news' as const,
 			id: item.id,
 			title: zh?.titleZh ?? item.title,
-			descriptionHtml: '',
-			summaryText: zh?.summaryZh ?? item.summary,
+			descriptionHtml: deepSummary
+				? renderDescription(deepReadFeedListMarkdown(deepSummary))
+				: '',
+			summaryText: deepSummary ? '' : (zh?.summaryZh ?? item.summary),
 			href: item.url,
+			deepReadHref: deepSummary ? `${base}wire/${item.id}/` : undefined,
 			sourceId: item.sourceId,
 			sourceLabel: item.sourceLabel,
 			publishedAt: new Date(item.publishedAt),
