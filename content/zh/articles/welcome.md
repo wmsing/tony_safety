@@ -6,6 +6,8 @@ description: OWASP Top 10 for LLM (2026 版) 揭示的  Common Examples of Risk�
 
 ⚡ **3 秒极速版**
 
+术语看不懂？先看 [ADHD 术语表](../glossary-adhd/)（小编）。
+
 OWASP Top 10 for LLM (2026 版) 揭示的  Common Examples of Risk（常见风险案例） 覆盖了从**越狱指令**到**侧信道爆破**的完整攻击链路。
 
 以下按 **10 大漏洞类型** 归纳最典型的真实风险场景：
