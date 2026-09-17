@@ -342,6 +342,24 @@
       "summaryMdEn": "OpenAI claims to have solved the Navier-Stokes equations with a new model, sparking controversy.\n\n## Key points\n- The team used an LLM to generate millions of messages, completing the proof in approximately 88 hours.\n- OpenAI denies direct access to user data but cannot rule out the influence of anonymized data on the model.\n- Mere rumors about a problem's existence can trigger massive compute investments to race for a solution.\n\n## What to do next\n- Monitor upcoming independent mathematical proof details from Anthropic and the NYU team.\n- Evaluate the potential impact of \"anonymized data\" in your own model training policies on research fairness.",
       "summarySourceHash": "f61f69b169884c29",
       "translatedAtEn": "2026-09-16T16:11:33.172Z"
+    },
+    "04b422a9d7cc6680": {
+      "contentHash": "828fac3d51cb7147",
+      "summaryMd": "CISA 新增两个已利用漏洞至目录，要求联邦机构优先修补。\n\n## 要点\n- 立即检查 Cisco ISE 和 Acronis Backup 是否受影响并打补丁。\n- 优先修复 KEV 目录中可获取完全控制权的公开资产漏洞。\n- 发现未收录的已利用漏洞，通过 CISA 表单提交提名。\n\n## 行动提示\n- 扫描内网 Cisco ISE 和 Acronis Backup 版本及补丁状态。\n- 若持有新漏洞证据，填写 CISA KEV 提名表提交。",
+      "summarizedAt": "2026-09-17T03:52:48.213Z",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/16/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "summaryMdEn": "CISA has added two exploited vulnerabilities to the Known Exploited Vulnerabilities (KEV) catalog, requiring federal agencies to prioritize their remediation.\n\n## Key points\n- Immediately check if Cisco ISE and Acronis Backup are affected and apply patches.\n- Prioritize fixing publicly available asset vulnerabilities in the KEV catalog that allow full control.\n- Submit nominations for newly discovered exploited vulnerabilities not yet included in the catalog via the CISA form.\n\n## What to do next\n- Scan your internal network to identify versions and patch status of Cisco ISE and Acronis Backup.\n- If you possess evidence of a new vulnerability, complete and submit the CISA KEV nomination form.",
+      "summarySourceHash": "d8d94c06ebc37e71",
+      "translatedAtEn": "2026-09-17T03:52:57.950Z"
+    },
+    "c3c3b1a31e587f22": {
+      "contentHash": "2cf401abbb24be41",
+      "summaryMd": "CISA 发布指南，助各成熟度团队利用诱饵强化检测与响应。\n针对滥用合法凭证和 LOLT 技术的攻击者，部署诱饵资产可分散其注意力并收集威胁情报。\n\n## 要点\n*   结合零信任模型，假设恶意行为体已获取部分环境访问权。\n*   部署诱饵支持持续监控，生成高保真警报并降低疲劳感。\n*   利用 MITRE Engage 和 ATT&CK 框架规划低复杂度诱饵操作。\n\n## 行动提示\n*   阅读 CISA 指南，评估当前防御团队对诱饵策略的成熟度。\n*   内部分享诱饵概念（如绊线、面包屑），制定初步实施计划。",
+      "summarizedAt": "2026-09-17T03:53:11.792Z",
+      "url": "https://www.cisa.gov/resources-tools/resources/using-cyber-decoys-strengthen-detection-and-response",
+      "summaryMdEn": "CISA releases a guide to help maturity teams leverage decoys for enhanced detection and response. Deploying decoy assets can divert the attention of attackers abusing legitimate credentials and LOLT techniques while gathering threat intelligence.\n\n## Key points\n*   Integrate with the zero trust model by assuming malicious actors have already gained partial access to the environment.\n*   Deploy decoys to support continuous monitoring, generate high-fidelity alerts, and reduce alert fatigue.\n*   Utilize the MITRE Engage and ATT&CK frameworks to plan low-complexity decoy operations.\n\n## What to do next\n*   Read the CISA guide to assess your current defense team's maturity regarding decoy strategies.\n*   Internally share decoy concepts (such as tripwires and breadcrumbs) and develop an initial implementation plan.",
+      "summarySourceHash": "17b9eb5a33c76ba5",
+      "translatedAtEn": "2026-09-17T03:53:23.133Z"
     }
   }
 }
