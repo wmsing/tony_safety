@@ -1,4 +1,4 @@
-# tony_safty
+# tony_safety
 
 LLM 安全博客与笔记仓库。术语见 [CONTEXT.md](CONTEXT.md)。
 
