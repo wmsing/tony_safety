@@ -52,7 +52,7 @@ Confirm with author: build-only gate is acceptable for MVP (no E2E browser suite
 ### Deployment
 
 - GitHub Actions workflow: on `main`, install deps, run `build`, upload artifact to GitHub Pages (Actions-based Pages, not legacy branch-only unless simpler).
-- Set `base` / `site` URL for project Pages (`/tony_safty/`) so assets resolve on GitHub Pages.
+- Set `base` / `site` URL for project Pages (`/tony_safety/`) so assets resolve on GitHub Pages.
 - Document in README how to enable Pages from Actions in repo settings (human one-time step).
 
 ### Repository hygiene

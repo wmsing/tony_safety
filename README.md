@@ -13,7 +13,7 @@ LLM 安全博客与笔记仓库。术语见 [CONTEXT.md](CONTEXT.md)。
 | **发布线上**   | 改内容后 `git push` 到 `main`（Actions 自动部署）             |
 
 
-线上地址：[https://wmsing.github.io/tony_safty/](https://wmsing.github.io/tony_safty/)
+线上地址：[https://wmsing.github.io/tony_safety/](https://wmsing.github.io/tony_safety/)
 
 ## 架构图（可选）
 
@@ -191,4 +191,4 @@ pytest && mypy src && ruff check src && ruff format --check src
 1. **Settings → Pages** → Source 选 **GitHub Actions**。
 2. `main` 上已有 `[.github/workflows/pages.yml](.github/workflows/pages.yml)`；push 触发部署。
 
-日常：改 `content/zh/...` → push `main` 即可。项目站 `base` 为 `/tony_safty/`（见 `astro.config.mjs`）。
+日常：改 `content/zh/...` → push `main` 即可。项目站 `base` 为 `/tony_safety/`（见 `astro.config.mjs`）。

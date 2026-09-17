@@ -72,7 +72,7 @@ def _valid_session(session: str | None) -> bool:
 def site_dev_base() -> str:
     raw = os.environ.get(
         "SITE_DEV_URL",
-        "http://127.0.0.1:4321/tony_safty/",
+        "http://127.0.0.1:4321/tony_safety/",
     ).strip()
     return raw if raw.endswith("/") else f"{raw}/"
 
