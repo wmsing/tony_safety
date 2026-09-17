@@ -8,7 +8,16 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 
 ## 3 秒版（最高频 10 词）
 
-**LLM** = 会接话写文的 AI 大脑 · **提示词** = 你对它说的话 · **Agent** = 能点按钮干活的 AI · **API** = 程序调用模型的插座 · **Token** = 计费与长度单位 · **RAG** = 先查资料再回答 · **提示词注入** = 骗 AI 改规矩 · **越狱** = 绕过安全限制 · **幻觉** = 一本正经胡说 · **护栏** = 厂商设的安全边界。
+1. **LLM** = 会接话写文的 AI 大脑
+2. **提示词** = 你对它说的话
+3. **Agent** = 能点按钮干活的 AI
+4. **API** = 程序调用模型的插座
+5. **Token** = 计费与长度单位
+6. **RAG** = 先查资料再回答
+7. **提示词注入** = 骗 AI 改规矩
+8. **越狱** = 绕过安全限制
+9. **幻觉** = 一本正经胡说
+10. **护栏** = 厂商设的安全边界。
 
 ---
 
@@ -32,6 +41,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：LLM ≠ 整个 App；聊天界面、数据库、插件是外壳。
 5. **例子**：站点主题就是 LLM 被滥用时会出哪些险。见 [welcome](../welcome/)。
 
+
+
 ### 生成式 AI（GenAI） {#genai}
 
 1. **一句话**：能生成文字、图、代码等内容的一类 AI。
@@ -39,6 +50,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：OWASP「Top 10 for LLM」管的就是这类系统。
 4. **别搞混**：GenAI ⊃ LLM；还有图像、语音等生成模型。
 5. **例子**：GenAI 安全清单里列了提示词注入、Agent 越权等。见 [welcome](../welcome/)。
+
+
 
 ### 提示词（Prompt） {#prompt}
 
@@ -48,6 +61,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：用户 Prompt ≠ 系统提示词（后者是开发者定的规矩）。
 5. **例子**：攻击者把「忽视先前指令」藏在简历里，筛简历的 AI 中招。见 [welcome § LLM01](../welcome/)。
 
+
+
 ### 系统提示词（System prompt） {#system-prompt}
 
 1. **一句话**：开发者写在后台、用户通常看不见的「岗位说明书」。
@@ -55,6 +70,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：注入成功时，攻击目标是改写或绕过这层规矩。
 4. **别搞混**：改系统提示词要攻应用；改用户一句聊天只是普通 Prompt。
 5. **例子**：若系统把 `customer_360` 全塞进 Prompt，用户可能被诱导套出档案。见 [welcome § LLM08](../welcome/)。
+
+
 
 ### API（应用编程接口） {#api}
 
@@ -64,6 +81,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：API ≠ 网页聊天框；后者背后往往仍调 API。
 5. **例子**：Agent 直连云 API 跑 Shell，没有 [HITL](#hitl) 确认。见 [welcome § LLM03](../welcome/)。
 
+
+
 ### Token {#token}
 
 1. **一句话**：模型处理文本的切分单位，也常用作计费与长度计量。
@@ -71,6 +90,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：超大上下文可拖垮服务或刷爆账单（LLM06）。
 4. **别搞混**：Token ≠ 登录令牌（session token）；后者是 [会话](#session) 安全词。
 5. **例子**：攻击者塞数万 Token，API 卡死、账单暴涨。见 [welcome § LLM06](../welcome/)。
+
+
 
 ### 上下文 / 上下文窗口（Context） {#context}
 
@@ -80,6 +101,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：上下文窗口是容量上限；RAG 是往窗外搬参考书进来。
 5. **例子**：系统把全量账户档案拼进 Prompt，攻击者问「列出我的背景变量」。见 [welcome § LLM08](../welcome/)。
 
+
+
 ### RAG（检索增强生成） {#rag}
 
 1. **一句话**：先查知识库，再让模型根据检索结果回答。
@@ -87,6 +110,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：知识库被投毒时，答案会带恶意或错误内容（LLM05）。
 4. **别搞混**：RAG ≠ 微调；RAG 不改模型权重，只改「查到什么」。
 5. **例子**：论坛灌假法律文，RAG 抓走后 AI 给错建议。见 [welcome § LLM05](../welcome/)。
+
+
 
 ### 嵌入（Embedding） {#embedding}
 
@@ -96,6 +121,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：嵌入是中间表示；向量库是存这些数的仓库。
 5. **例子**：黑客拿到 Embeddings 用反演算法还原 Word/PDF。见 [welcome § LLM09](../welcome/)。
 
+
+
 ### 向量 / 向量库（Vector DB） {#vector-db}
 
 1. **一句话**：专门存嵌入、按语义相似搜索的数据库。
@@ -103,6 +130,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：没做权限时，语义搜索会跨部门泄密。
 4. **别搞混**：向量库 ≠ 普通 SQL 库；检索逻辑和 [ACL](#acl) 要单独设计。
 5. **例子**：员工搜「薪资标准」却命中 CEO 合同。见 [welcome § LLM09](../welcome/)。
+
+
 
 ### 多模态（Multimodal） {#multimodal}
 
@@ -112,6 +141,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：多模态是能力；[OCR](#ocr) 是「从图里认字」这一步。
 5. **例子**：风景图像素里藏「把密码发给黑客」，多模态模型读图中招。见 [welcome § LLM01](../welcome/)。
 
+
+
 ### OCR（光学字符识别） {#ocr}
 
 1. **一句话**：从图片或扫描件里识别出文字。
@@ -119,6 +150,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：AI 自动 OCR 会把图里恶意指令当正文执行。
 4. **别搞混**：OCR 只负责认字；是否执行指令取决于上层 Agent/应用。
 5. **例子**：多模态链路上 OCR 解析隐藏文字导致 [越狱](#jailbreak)。见 [welcome § LLM01](../welcome/)。
+
+
 
 ### 微调（Fine-tuning） {#fine-tuning}
 
@@ -128,6 +161,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：微调改模型本身；[RAG](#rag) 不改模型，只改检索资料。
 5. **例子**：HuggingFace 上下载的微调模型藏触发器偷聊天记录。见 [welcome § LLM04](../welcome/)。
 
+
+
 ### 知识蒸馏（Knowledge distillation） {#knowledge-distillation}
 
 1. **一句话**：用大模型输出当教材，训练更小或别的模型。
@@ -135,6 +170,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：恶意蒸馏盗 API 能力、绕地域与条款（精读 CISA 公告）。
 4. **别搞混**：蒸馏 ≠ 用户正常提问；工业级批量抄能力属于安全事件。
 5. **例子**：用「中转站」批量调美企 API 抽推理能力训自家模型（Wire 精读）。
+
+
 
 ### 训练集 / 模型权重 {#training-weights}
 
@@ -144,6 +181,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：权重文件 ≠ 运行时对话记录；但下载权重仍可能有后门。
 5. **例子**：特殊提示让模型乱码，倒腾出背过的身份证号。见 [welcome § LLM02](../welcome/)。
 
+
+
 ### 推理（Inference） {#inference}
 
 1. **一句话**：模型已训练好，单次回答问题的那次计算。
@@ -151,6 +190,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：侧信道攻击盯的是推理阶段的流量与时延（LLM02）。
 4. **别搞混**：推理 ≠ 训练；训练烧钱改权重，推理烧钱按 Token 计费。
 5. **例子**：监听 TLS 包长与延时推断对话内容（Whisper Leak）。见 [welcome § LLM02](../welcome/)。
+
+
 
 ### 护栏（Guardrails） {#guardrails}
 
@@ -160,6 +201,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：护栏 ≠ [HITL](#hitl)；护栏自动拦，HITL 是人点确认。
 5. **例子**：DevFest 精读强调速度与隐私都要靠护栏平衡（Wire 精读）。
 
+
+
 ### MCP（Model Context Protocol） {#mcp}
 
 1. **一句话**：让 AI 统一连接外部工具与数据的一种开放协议。
@@ -167,6 +210,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：带毒 MCP 插件属于供应链攻击（LLM04）。
 4. **别搞混**：MCP ≠ [API](#api) 本身；它是「工具怎么插到 Agent 上」的约定。
 5. **例子**：开源 MCP 插件里藏反向 Shell。见 [welcome § LLM04](../welcome/)。
+
+
 
 ### 工具调用（Tool calling） {#tool-calling}
 
@@ -176,6 +221,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：工具调用是单步；[Agent](#agent) 是多步编排这些调用。
 5. **例子**：Agent 递归调 API 直到 CPU 爆掉。见 [welcome § LLM06](../welcome/)。
 
+
+
 ### 智能体（Agent） {#agent}
 
 1. **一句话**：能自己拆任务、调工具、多步执行的 AI 程序。
@@ -183,6 +230,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：删邮件、跑 Shell、递归调 API 都是 Agent 越权场景。
 4. **别搞混**：Agent ≠ 只会聊天的 LLM；Agent 多了手脚（工具与权限）。
 5. **例子**：邮件 Agent 被外链诱导清空收件箱。见 [welcome § LLM03](../welcome/)。
+
+
 
 ### OWASP Top 10 for LLM {#owasp-llm-top10}
 
@@ -194,7 +243,11 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 
 ---
 
+
+
 ## AI 出事时
+
+
 
 ### 提示词注入（Prompt injection） {#prompt-injection}
 
@@ -204,6 +257,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：提示词注入骗的是模型逻辑；[XSS](#xss) 骗的是浏览器执行脚本。
 5. **例子**：透明字藏在 PDF 简历里，筛简历 AI 改推荐结果。见 [welcome § LLM01](../welcome/)。
 
+
+
 ### 间接提示词注入 {#indirect-prompt-injection}
 
 1. **一句话**：恶意指令藏在网页、邮件、文件里，经 RAG 或工具间接进模型。
@@ -211,6 +266,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：LLM01 变种；比直接聊天注入更难防。
 4. **别搞混**：直接注入 = 用户输入框；间接 = 模型读的「外部资料」。
 5. **例子**：公开网页白字指令随 RAG 抓取进入上下文。关联 [RAG](#rag)、[LLM01 入口](#owasp-llm0110-术语入口)。
+
+
 
 ### 越狱（Jailbreak） {#jailbreak}
 
@@ -220,6 +277,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：越狱是结果；[提示词注入](#prompt-injection) 是常见手段之一。
 5. **例子**：图内隐藏指令经 OCR 后模型执行恶意操作。见 [welcome § LLM01](../welcome/)。
 
+
+
 ### 过度代理（Excessive agency） {#excessive-agency}
 
 1. **一句话**：给 AI 的权限太大，它能擅自做高危操作。
@@ -227,6 +286,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：OWASP **LLM03**。
 4. **别搞混**：过度代理是权限设计问题；注入是欺骗模型去用已有权限。
 5. **例子**：邮件 Agent 能删库，外人一封邮件就触发。见 [welcome § LLM03](../welcome/)。
+
+
 
 ### 人工确认（HITL，Human-in-the-loop） {#hitl}
 
@@ -236,6 +297,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：HITL 是流程；[护栏](#guardrails) 是自动规则，可并存。
 5. **例子**：无 HITL 时 Agent 自动执行云 API 与 Shell。见 [welcome § LLM03](../welcome/)。
 
+
+
 ### 幻觉（Hallucination） {#hallucination}
 
 1. **一句话**：模型自信地输出不存在或错误的事实。
@@ -243,6 +306,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：OWASP **LLM07**；可演变成恶意依赖包名。
 4. **别搞混**：幻觉是无意编造；[投毒](#backdoor-poison) 是别人故意喂假资料。
 5. **例子**：AI 捏造 npm 包名，攻击者抢先注册投木马。见 [welcome § LLM07](../welcome/)。
+
+
 
 ### 红队（Red teaming） {#red-team}
 
@@ -252,6 +317,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：红队是测试活动；[渗透测试](#pentest) 范围常更大，不限 AI。
 5. **例子**：OpenAI 欧盟文提到红队网络验证安全（Wire 精读）。
 
+
+
 ### 敏感信息披露 {#sensitive-disclosure}
 
 1. **一句话**：模型或应用把不该说的秘密说出去。
@@ -259,6 +326,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：OWASP **LLM02**（含训练集记忆、侧信道）。
 4. **别搞混**：LLM02 泄露内容；[LLM08](#context) 侧重「上下文里藏了啥」被套话。
 5. **例子**：重复特殊词诱发乱码，倒出训练集里的密钥。见 [welcome § LLM02](../welcome/)。
+
+
 
 ### 隐秘上下文暴露 {#hidden-context-exposure}
 
@@ -268,6 +337,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：LLM08 = 设计时多塞了背景；LLM02 更宽，含训练记忆与流量侧信道。
 5. **例子**：`customer_360` 拼进 Prompt，用户问「列出我的背景变量」。见 [welcome § LLM08](../welcome/)。
 
+
+
 ### 向量与嵌入弱点 {#vector-embedding-weakness}
 
 1. **一句话**：向量检索或嵌入泄露导致隐私或越权访问。
@@ -275,6 +346,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：OWASP **LLM09**。
 4. **别搞混**：LLM09 管向量层；[RAG 投毒](#backdoor-poison) 管知识库内容假。
 5. **例子**：向量反演还原 PDF；无 ACL 搜到 CEO 薪酬。见 [welcome § LLM09](../welcome/)。
+
+
 
 ### 供应链漏洞（AI 语境） {#supply-chain}
 
@@ -284,6 +357,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：供应链 ≠ 仅传统软件 CVE；含权重与 MCP 插件。
 5. **例子**：带毒 MCP、后门微调模型。见 [welcome § LLM04](../welcome/)。
 
+
+
 ### 数据与模型投毒 {#backdoor-poison}
 
 1. **一句话**：故意往训练数据或知识库塞偏见、后门、假话。
@@ -291,6 +366,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：OWASP **LLM05** RAG/训练污染。
 4. **别搞混**：投毒是外部喂脏数据；[幻觉](#hallucination) 常是模型自己编。
 5. **例子**：论坛灌错法律文，RAG 抓取后误导用户。见 [welcome § LLM05](../welcome/)。
+
+
 
 ### 无节制资源消耗 {#unbounded-consumption}
 
@@ -300,6 +377,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：LLM06 偏滥用计费与算力；[DoS](#dos) 是更广的「服务被打挂」。
 5. **例子**：超大上下文 + Agent 死循环调 API。见 [welcome § LLM06](../welcome/)。
 
+
+
 ### 输出处理不当 {#improper-output-handling}
 
 1. **一句话**：把 AI 输出当代码/HTML 执行时没消毒。
@@ -308,6 +387,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：LLM10 是应用开发问题；不是模型「想坏」，是集成太信输出。
 5. **例子**：AI 生成 `<script>`，页面未转义触发 XSS。见 [welcome § LLM10](../welcome/)。
 
+
+
 ### 零数据保留（Zero data retention / ZDR） {#zdr}
 
 1. **一句话**：厂商承诺请求结束后不长期保存你的提示与回复。
@@ -315,6 +396,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：企业合规选型 API 时的关键条款（OpenAI ZDR 精读）。
 4. **别搞混**：ZDR ≠ 绝对不上传；是「不落库保留」，传输仍可能发生。
 5. **例子**：检查企业 API 是否符合零数据保留（Wire 精读）。
+
+
 
 ### 水印 / 内容凭证（C2PA、SynthID 等） {#watermark}
 
@@ -326,7 +409,11 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 
 ---
 
+
+
 ## 旁边那些安全词
+
+
 
 ### XSS（跨站脚本） {#xss}
 
@@ -336,6 +423,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：XSS 在用户浏览器；[提示词注入](#prompt-injection) 在模型决策层。
 5. **例子**：AI 输出含 `<script>`，Markdown 渲染未过滤。见 [welcome § LLM10](../welcome/)。
 
+
+
 ### RCE（远程代码执行） {#rce}
 
 1. **一句话**：攻击者在服务器上跑任意命令。
@@ -343,6 +432,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：LLM10：AI 输出进 `eval()`/`system()` 可 RCE。
 4. **别搞混**：RCE 是后果；[Shell 穿透](#shell-sandbox) 是常见路径之一。
 5. **例子**：未转义系统命令经 `system()` 执行。见 [welcome § LLM10](../welcome/)。
+
+
 
 ### 注入（SQL / 二次注入等） {#injection}
 
@@ -352,6 +443,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：[提示词注入](#prompt-injection) 针对模型；SQL 注入针对数据库语句。
 5. **例子**：工控/邮件系统 CVE 摘要里的 SQL 注入（Wire）；AI 场景见 LLM10 二次注入。
 
+
+
 ### Shell / 沙箱 {#shell-sandbox}
 
 1. **一句话**：Shell 是系统命令行；沙箱是限制命令能碰什么的笼子。
@@ -359,6 +452,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：Agent 调 Shell、穿透沙箱是 LLM03/LLM10 高频词。
 4. **别搞混**：沙箱穿破 ≠ [越狱](#jailbreak) 模型；前者是服务器命令权限。
 5. **例子**：AI 输出喂给 `system()`，沙箱未拦住。见 [welcome § LLM10](../welcome/)。
+
+
 
 ### DoS / 拒绝服务 {#dos}
 
@@ -368,6 +463,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：DoS 打可用性；[敏感信息披露](#sensitive-disclosure) 打保密性。
 5. **例子**：数万 Token 请求拖死 API。见 [welcome § LLM06](../welcome/)。
 
+
+
 ### 侧信道 {#side-channel}
 
 1. **一句话**：不破解内容本身，靠流量大小、延时等旁路猜秘密。
@@ -375,6 +472,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：推理阶段 TLS 流量可推断对话（LLM02 Whisper Leak）。
 4. **别搞混**：侧信道 ≠ 模型亲口说出；是监视「传输痕迹」。
 5. **例子**：包长与响应延时推断用户聊了什么。见 [welcome § LLM02](../welcome/)。
+
+
 
 ### ACL / 权限控制 {#acl}
 
@@ -384,6 +483,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：ACL 是授权；[护栏](#guardrails) 是模型行为限制，两层都要。
 5. **例子**：普通员工语义搜到 CEO 薪酬合同。见 [welcome § LLM09](../welcome/)。
 
+
+
 ### CVE {#cve}
 
 1. **一句话**：公开给某个具体软件漏洞编的唯一编号。
@@ -391,6 +492,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：Wire 精读大量 CISA/工控公告都带 CVE。
 4. **别搞混**：CVE 记漏洞；不等于 AI 专有；但 AI 集成软件同样会有 CVE。
 5. **例子**：CISA 把已利用漏洞列入 KEV，要求优先修补（Wire 精读）。
+
+
 
 ### 渗透测试 {#pentest}
 
@@ -400,6 +503,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：[红队](#red-team) 常聚焦 AI 行为；渗透测试可扫整个 IT 面。
 5. **例子**：Hugging Face 文档公开 CyberGym 给 AI 代理练漏洞利用（Wire 精读）。
 
+
+
 ### 误报 / 漏报（真阳性） {#false-positive}
 
 1. **一句话**：误报 = 没洞报有洞；漏报 = 有洞没报出。
@@ -407,6 +512,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：AI 扫代码漏洞误报率常超 50%（欺骗基准 Wire）。
 4. **别搞混**：这是评测指标；[幻觉](#hallucination) 是模型编造内容，不专指安全扫描。
 5. **例子**：「欺骗基准」测模型能否分清真漏洞与看起来像的代码（Wire 精读）。
+
+
 
 ### 零信任（Zero Trust） {#zero-trust}
 
@@ -416,6 +523,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：零信任是网络架构思路；不是 LLM 专用术语。
 5. **例子**：假设攻击者已在网内，用诱饵资产抓行为（Wire 精读）。
 
+
+
 ### 会话 / 认证绕过 {#session}
 
 1. **一句话**：会话是你登录后的「临时身份证」；绕过 = 没登录却当管理员。
@@ -423,6 +532,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：工控、SAML 等 CVE 摘要常见（Wire）。
 4. **别搞混**：[Token](#token) 在 AI 文里多指计费单位；session token 是会话凭证。
 5. **例子**：SAML 模块签名漏洞导致会话被劫持（Wire 精读）。
+
+
 
 ### 社会工程 {#social-engineering}
 
@@ -434,9 +545,13 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 
 ---
 
+
+
 ## 进阶词条（P1）
 
 > 读 [welcome](../welcome/) 和 Wire 精读时偶现；需要再展开时回查本节。
+
+
 
 ### 前沿模型（Frontier model） {#frontier-model}
 
@@ -446,6 +561,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：前沿 ≠ 最新小版本号；常指 flagship 能力梯队。
 5. **例子**：CISA 公告称针对美企 frontier 模型做工业级蒸馏（Wire）。
 
+
+
 ### Agentic / 多智能体（Multi-agent） {#agentic}
 
 1. **一句话**：多个 Agent 分工协作完成长任务。
@@ -453,6 +570,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：企业工作流与 GPT Responses API 新特性（Wire 精读）。
 4. **别搞混**：Multi-agent 是架构；单个 [Agent](#agent) 也可 agentic 地循环。
 5. **例子**：开启 native multi-agent + programmatic tool calling（Wire 精读）。
+
+
 
 ### 思维链（CoT，Chain-of-thought） {#cot}
 
@@ -462,6 +581,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：CoT 是推理形式；[知识蒸馏](#knowledge-distillation) 是拿别人输出训自家模型。
 5. **例子**：蒸馏 campaign 提取 chain-of-thought（Wire 原文）。
 
+
+
 ### 强化学习 / 监督微调（RL / SFT） {#rl-sft}
 
 1. **一句话**：SFT 用示范答案教；RL 用打分奖惩练行为。
@@ -470,13 +591,17 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：二者都是训练手段；读者只需知道「被偷的是训练成果」。
 5. **例子**：Moonshot 蒸馏 GPT/Claude 的 SFT、RL 能力（Wire 原文）。
 
+
+
 ### 误报率 / 漏报率（FPR / FNR） {#fpr-fnr}
 
 1. **一句话**：FPR = 安全代码被错判有洞；FNR = 真洞没检出。
 2. **像什么**：安检误拦行李 vs 漏带违禁品。
 3. **为啥在安全文里出现**：欺骗基准要求 FPR、FNR 都低于 10% 很难（Wire）。
 4. **别搞混**：见 [误报 / 漏报](#false-positive)；FPR/FNR 是数学定义。
-5. **例子**：前沿模型单轮提示难以同时 FPR、FNR &lt;10%（Wire 原文）。
+5. **例子**：前沿模型单轮提示难以同时 FPR、FNR <10%（Wire 原文）。
+
+
 
 ### 包名幻觉（Package hallucination） {#package-hallucination}
 
@@ -486,6 +611,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：是 [幻觉](#hallucination) 的一种；攻击面在 `npm install`。
 5. **例子**：捏造 PyPI 包名，攻击者抢先注册木马。见 [welcome § LLM07](../welcome/)。
 
+
+
 ### 反向 Shell（Reverse shell） {#reverse-shell}
 
 1. **一句话**：受害机器主动连回攻击者，交出命令行。
@@ -493,6 +620,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：带毒 MCP/插件典型恶意行为（LLM04）。
 4. **别搞混**：反向 Shell 是攻击 payload；[RCE](#rce) 是能力结果。
 5. **例子**：MCP 插件藏反向 Shell。见 [welcome § LLM04](../welcome/)。
+
+
 
 ### 评测 / 基准（Eval / Benchmark） {#benchmark}
 
@@ -502,6 +631,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：Benchmark 是测；[红队](#red-team) 是攻（可结合成评测）。
 5. **例子**：14822 样本「欺骗基准」测 AI 找漏洞误报（Wire 精读）。
 
+
+
 ### 零点击（Zero-click） {#zero-click}
 
 1. **一句话**：受害者不用点链接、不用接电话也能中招。
@@ -510,6 +641,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 4. **别搞混**：零点击是漏洞利用方式；与 [提示词注入](#prompt-injection) 无直接关系。
 5. **例子**：微信通话零点击蠕虫，AI 辅助缩短 exploit 周期（Wire 精读）。
 
+
+
 ### WebSocket / 流式语音 {#websocket}
 
 1. **一句话**：浏览器与服务器长连接，适合实时语音双向流。
@@ -517,6 +650,8 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 3. **为啥在安全文里出现**：Gemini Live 类 API 实现方式（Wire 精读）。
 4. **别搞混**：WebSocket 是传输；[多模态](#multimodal) 是模型能力。
 5. **例子**：Gemini Live 用 WebSocket + Web Audio API（Wire 精读）。
+
+
 
 ### Ollama（本仓库工具链） {#ollama}
 
@@ -528,22 +663,26 @@ description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OW
 
 ---
 
+
+
 ## OWASP LLM01–10 术语入口
 
 读 [常见 LLM 风险](../welcome/) 时，可按条跳转本表 → 术语锚点。
 
-| OWASP | 案例主题（welcome） | 本术语表入口 |
-|-------|---------------------|--------------|
-| **LLM01** | 简历/网页暗毒、多模态隐写 | [提示词注入](#prompt-injection) · [间接提示词注入](#indirect-prompt-injection) · [越狱](#jailbreak) · [多模态](#multimodal) · [OCR](#ocr) |
-| **LLM02** | 训练集反向记忆、推理侧信道 | [敏感信息披露](#sensitive-disclosure) · [训练集 / 模型权重](#training-weights) · [侧信道](#side-channel) · [推理](#inference) |
-| **LLM03** | 静默删库、高危 API 无确认 | [过度代理](#excessive-agency) · [Agent](#agent) · [API](#api) · [HITL](#hitl) · [Shell / 沙箱](#shell-sandbox) |
-| **LLM04** | 带毒 MCP、后门开源模型 | [供应链漏洞](#supply-chain) · [MCP](#mcp) · [微调](#fine-tuning) · [反向 Shell](#reverse-shell) |
-| **LLM05** | RAG 向量库投毒 | [数据与模型投毒](#backdoor-poison) · [RAG](#rag) · [向量 / 向量库](#vector-db) |
-| **LLM06** | Token 账单爆破、Agent 死循环 | [无节制资源消耗](#unbounded-consumption) · [Token](#token) · [DoS](#dos) · [工具调用](#tool-calling) |
-| **LLM07** | 虚构 npm/PyPI 包 | [幻觉](#hallucination) · [包名幻觉](#package-hallucination) |
-| **LLM08** | 全量上下文偷窥 | [隐秘上下文暴露](#hidden-context-exposure) · [上下文](#context) · [系统提示词](#system-prompt) · [提示词](#prompt) |
-| **LLM09** | 向量反演、无 ACL 搜索 | [向量与嵌入弱点](#vector-embedding-weakness) · [嵌入](#embedding) · [向量 / 向量库](#vector-db) · [ACL](#acl) |
-| **LLM10** | 二次注入 XSS/RCE、Shell 穿透 | [输出处理不当](#improper-output-handling) · [XSS](#xss) · [RCE](#rce) · [注入](#injection) · [Shell / 沙箱](#shell-sandbox) |
+
+| OWASP     | 案例主题（welcome）         | 本术语表入口                                                                                                                   |
+| --------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **LLM01** | 简历/网页暗毒、多模态隐写         | [提示词注入](#prompt-injection) · [间接提示词注入](#indirect-prompt-injection) · [越狱](#jailbreak) · [多模态](#multimodal) · [OCR](#ocr) |
+| **LLM02** | 训练集反向记忆、推理侧信道         | [敏感信息披露](#sensitive-disclosure) · [训练集 / 模型权重](#training-weights) · [侧信道](#side-channel) · [推理](#inference)              |
+| **LLM03** | 静默删库、高危 API 无确认       | [过度代理](#excessive-agency) · [Agent](#agent) · [API](#api) · [HITL](#hitl) · [Shell / 沙箱](#shell-sandbox)                 |
+| **LLM04** | 带毒 MCP、后门开源模型         | [供应链漏洞](#supply-chain) · [MCP](#mcp) · [微调](#fine-tuning) · [反向 Shell](#reverse-shell)                                   |
+| **LLM05** | RAG 向量库投毒             | [数据与模型投毒](#backdoor-poison) · [RAG](#rag) · [向量 / 向量库](#vector-db)                                                       |
+| **LLM06** | Token 账单爆破、Agent 死循环  | [无节制资源消耗](#unbounded-consumption) · [Token](#token) · [DoS](#dos) · [工具调用](#tool-calling)                                |
+| **LLM07** | 虚构 npm/PyPI 包         | [幻觉](#hallucination) · [包名幻觉](#package-hallucination)                                                                    |
+| **LLM08** | 全量上下文偷窥               | [隐秘上下文暴露](#hidden-context-exposure) · [上下文](#context) · [系统提示词](#system-prompt) · [提示词](#prompt)                         |
+| **LLM09** | 向量反演、无 ACL 搜索         | [向量与嵌入弱点](#vector-embedding-weakness) · [嵌入](#embedding) · [向量 / 向量库](#vector-db) · [ACL](#acl)                          |
+| **LLM10** | 二次注入 XSS/RCE、Shell 穿透 | [输出处理不当](#improper-output-handling) · [XSS](#xss) · [RCE](#rce) · [注入](#injection) · [Shell / 沙箱](#shell-sandbox)        |
+
 
 **说明**：welcome 文中 OWASP 链接编号与官方 LLM02–LLM10 文件名偶有混用；上表按 **welcome 小节标题（LLM01–LLM10）** 对齐术语，不以 GitHub 路径为准。
 
