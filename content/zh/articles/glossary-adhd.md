@@ -1,5 +1,5 @@
 ---
-title: ADHD 向 AI / 安全术语表
+title: AI / 安全术语表
 publishedAt: 2026-09-18
 description: 读 LLM 安全资讯时的可扫读词典：每条五行解释 + OWASP LLM01–10 术语对照；配合本站《常见 LLM 风险》案例文使用。
 ---

@@ -438,6 +438,96 @@
       "summaryZh": "CISA制定了这份指南，旨在帮助不同网络安全成熟度级别的防御团队制定并实施网络诱饵策略，以增强其检测与响应能力。许多组织难以发现那些使用合法凭证的攻击者……",
       "sourceHash": "0d30e96275d60816",
       "translatedAt": "2026-09-17T03:51:12.983Z"
+    },
+    "16075ef8dec8361f": {
+      "titleZh": "CISA将两个已知被利用的漏洞添加至目录",
+      "summaryZh": "CISA已根据存在主动被利用的证据，将两个新漏洞添加到其已知被利用漏洞（KEV）目录中。CVE-2025-39964 Linux内核竞争条件漏洞、CVE-2026-53266 Linux内核越界写漏洞。此类漏洞……",
+      "sourceHash": "2baf8cba64f479b5",
+      "translatedAt": "2026-09-19T06:16:51.661Z"
+    },
+    "70afa7c8667ce0e2": {
+      "titleZh": "CISA 将一个已知被利用的漏洞添加至目录",
+      "summaryZh": "CISA 根据存在主动被利用的证据，将其新增一个漏洞添加至已知被利用漏洞（KEV）目录中。CVE-2025-39682 Linux 内核对异常或特殊情况检查不当漏洞。此类漏洞是频繁的攻击向量之一……",
+      "sourceHash": "3a255ad7aaff25ae",
+      "translatedAt": "2026-09-19T06:16:54.424Z"
+    },
+    "c40a1cd0e489d726": {
+      "titleZh": "警惕：针对知名 Rust 开发者的定向攻击",
+      "summaryZh": "警惕：针对知名 Rust 开发者的定向攻击 由 Adam Harvey 和 crates 安全团队发布的重要警告：我们相信，目前存在一个针对 rust-lang 成员及流行 crates 所有者发起的持续性攻击活动，其目的是试图入侵设备和账户……",
+      "sourceHash": "9486c07f25027d71",
+      "translatedAt": "2026-09-19T06:16:56.957Z"
+    },
+    "0c114974aa55eb9d": {
+      "titleZh": "如何使用大语言模型写作",
+      "summaryZh": "如何使用大语言模型写作 托马斯·普塔克关于将大语言模型用作校对工具而非写作助手：第一条规则：你不能使用大语言模型建议的任何一个词……我认为作为一种智力个人防护装备，你应该采用这样的规则：任何……",
+      "sourceHash": "aaa250d01252e066",
+      "translatedAt": "2026-09-19T06:16:59.350Z"
+    },
+    "0b81d91be84e5e0f": {
+      "titleZh": "在 AWS 欧洲主权云上运行 Amazon Bedrock 的开源模型",
+      "summaryZh": "欧洲组织可以在 AWS 上运行 AI 任务，同时确保数据保留在欧洲联盟（EU）内，并满足监管要求。现在，您可以在 AWS 欧洲主权云上通过 Amazon Bedrock 运行基于开源模型的生成式 AI 任务。我们……",
+      "sourceHash": "d1afcb8d289504de",
+      "translatedAt": "2026-09-19T06:17:02.025Z"
+    },
+    "6533bdcc0f6c39c5": {
+      "titleZh": "压缩摘要中的自生成提示注入",
+      "summaryZh": "在我们用于报告模型对齐问题的框架中，OpenAI提供了\"过去六个月中我们观察到的意外或令人担忧的模型行为的六份报告\"。其中我最喜欢的一份是：他们发现了一些模型的……",
+      "sourceHash": "dad0a081c04d8f6f",
+      "translatedAt": "2026-09-19T06:17:04.141Z"
+    },
+    "f55f7094c952e479": {
+      "titleZh": "从指导到行动：能够显著降低风险的安全基础",
+      "summaryZh": "人工智能已对网络安全的运行环境产生了根本性变化。探讨关于推荐控制措施的暴露管理指导，并采取行动，以领先于网络威胁。文章《从指导到行动：能够显著降低风险的安全基础》出现……",
+      "sourceHash": "505e248dd9ac3f64",
+      "translatedAt": "2026-09-19T06:17:06.373Z"
+    },
+    "cd402b8952c09075": {
+      "titleZh": "ABB Ability Edgenius",
+      "summaryZh": "查看CSAF摘要 ABB已知产品版本列表中提及受影响的产品存在公开报告的漏洞CVE‑2026‑31431（复制失败）。已发布更新以修复该公开报告的漏洞。CVE‑2026‑31431（复制失败）是Linux内核漏洞……",
+      "sourceHash": "974522dcfc70536a",
+      "translatedAt": "2026-09-19T06:17:09.092Z"
+    },
+    "d012ec8fda85f292": {
+      "titleZh": "三菱电机CC-Link IE TSN通信协议（更新A）",
+      "summaryZh": "查看CSAF摘要 若成功利用此漏洞，攻击者在拥有相同网络段访问权限的情况下，可通过发送特定构造的报文并在特定时间条件下，篡改受影响产品中的通信数据。这可能导致攻击者……",
+      "sourceHash": "4f82234fa39ab53d",
+      "translatedAt": "2026-09-19T06:17:11.382Z"
+    },
+    "3e6245c7837b8698": {
+      "titleZh": "施耐德电气 PowerChute 串行关机",
+      "summaryZh": "查看CSAF摘要 施耐德电气已知其PowerChute串行关机产品存在漏洞。PowerChute串行关机产品是一款UPS管理软件，可为台式机、服务器和工作站提供平稳的系统关机和能源管理功能。",
+      "sourceHash": "14443ec3705fcc43",
+      "translatedAt": "2026-09-19T06:17:13.788Z"
+    },
+    "54365cf04dd3084f": {
+      "titleZh": "三菱电机GX Works3和运动控制设置",
+      "summaryZh": "查看CSAF摘要 成功利用此漏洞可能允许本地攻击者在输入无效块密码的情况下成功认证，通过执行受影响的产品并修改可执行模块的内存部分，从而使攻击者能够……",
+      "sourceHash": "69245e9eed2db380",
+      "translatedAt": "2026-09-19T06:17:15.672Z"
+    },
+    "4fdefba1eb2b25aa": {
+      "titleZh": "希捷能源 FACTS 控制平台（FCP）",
+      "summaryZh": "查看CSAF摘要 希捷能源已知其FACTS控制系统的GWS组件存在漏洞，本文档中列出。攻击者利用这些漏洞可能导致产品机密性、完整性和可用性的受损。以下F…",
+      "sourceHash": "8ab2f99e683535f6",
+      "translatedAt": "2026-09-19T06:17:17.891Z"
+    },
+    "e8c8fa03b84316e1": {
+      "titleZh": "施耐德电气 NetBotz 5 750/755",
+      "summaryZh": "查看CSAF摘要 施耐德电气已发现其NetBotz 5 - 750/755产品中存在多个漏洞。NetBotz 5 - 750/755产品是安全和环境监控设备，提供温度、湿度、泄漏、烟雾、振动、门接触和视频监控等功能。",
+      "sourceHash": "4be8e1ab72d74cc8",
+      "translatedAt": "2026-09-19T06:17:21.279Z"
+    },
+    "b9c2dc21c2a5a55a": {
+      "titleZh": "施耐德电气Modicon M340控制器及通信模块",
+      "summaryZh": "查看CSAF摘要 施耐德电气已知其Modicon M340 https://www.se.com/ww/en/product-range/1468-modicon-m340-pac/ 的一个漏洞，BMXNOR0200H https://www.se.com/us/en/product/BMXNOR02-00H/communication-module-modicon-m340-iec-60870-5-101-104-dnp3-for-severe-enviro…",
+      "sourceHash": "a72475d498184818",
+      "translatedAt": "2026-09-19T06:17:25.627Z"
+    },
+    "7110c4c77632bb04": {
+      "titleZh": "Bransys ELD",
+      "summaryZh": "查看CSAF摘要 若成功利用这些漏洞，可能会导致未经授权访问遥测数据和固件。受影响的Bransys ELD版本如下：Android <11.00.00（CVE-2026-86500，CVE-2026-86689，CVE-2026-77960），iOS <1.1.54（CVE-2026-86520，…）",
+      "sourceHash": "7d1bb4fb64bf0bc3",
+      "translatedAt": "2026-09-19T06:17:29.697Z"
     }
   }
 }

@@ -1,4 +1,4 @@
-# ADHD 向 AI / 安全术语表（草稿）
+# AI / 安全术语表（草稿）
 
 > **已上架**：[content/zh/articles/glossary-adhd.md](../zh/articles/glossary-adhd.md)（首页 **小编**）。此处仅作编辑备份。
 
