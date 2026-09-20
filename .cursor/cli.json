@@ -2,10 +2,9 @@
   "permissions": {
     "allow": [
       "Shell(ls)",
-      "Shell(git status)",
-      "Shell(git diff)",
-      "Shell(git log)",
-      "Shell(git branch)",
+      "Shell(git)",
+      "Shell(cd:/Users/wmsing/Documents/tony_safty && **)",
+      "Shell(cp)",
       "WebFetch(docs.cursor.com)",
       "WebFetch(cursor.com)",
       "WebFetch(docs.github.com)",
