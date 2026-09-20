@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-19T06:36:25.667Z",
+  "fetchedAt": "2026-09-20T15:59:46.998Z",
   "items": [
     {
       "id": "16075ef8dec8361f",
@@ -171,96 +171,6 @@
       "publishedAt": "2026-09-15T22:47:07.000Z",
       "sourceId": "rss:simon_willison",
       "sourceLabel": "Simon Willison"
-    },
-    {
-      "id": "eb2518d5a0fbcc4b",
-      "title": "Siemens Reyrolle 7SR5",
-      "summary": "View CSAF Summary Siemens Reyrolle 7SR5 Before V2.70 is affected by multiple vulnerabilities. Siemens has released a new version for Reyrolle 7SR5 and recommends to update to the latest version. The following versions of Siemens Reyrolle 7SR5 are affected: Reyrolle 7SR5 vers:int…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-05",
-      "publishedAt": "2026-09-15T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "315dc3f8943e0a17",
-      "title": "mySCADA myPRO Manager",
-      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to access privileged management functions or send arbitrary SMS messages through the connected GSM modem. The following versions of mySCADA myPRO Manager are affected: mySCADA myPRO Manage…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-03",
-      "publishedAt": "2026-09-15T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "8cca7e0997a098a7",
-      "title": "CareCam CM2507",
-      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to access live video and sensitive device information, enable unauthorized services, execute arbitrary code, modify device operation, and recover stored credentials. The following versions…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-08",
-      "publishedAt": "2026-09-15T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "d5273067115a6325",
-      "title": "Schneider Electric SCADAPack x70 Products",
-      "summary": "View CSAF Summary Schneider Electric is aware of a vulnerability in its SCADAPack x70 products. The SCADAPack 47x, SCADAPack 47xi, SCADAPack 47xd, SCADAPack 470R and SCADAPack 57x products are Remote Terminal Units that provide communication capabilities for remote monitoring an…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-04",
-      "publishedAt": "2026-09-15T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "46ee0ae2bb5a08c3",
-      "title": "Siemens Mendix SAML",
-      "summary": "View CSAF Summary Mendix SAML module contains a vulnerability that could allow unauthenticated remote attackers to hijack an account in specific SSO configurations. Mendix has provided fix releases for the Mendix SAML module and recommends to update to the latest version. The fo…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-06",
-      "publishedAt": "2026-09-15T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "2f5bf3d050804bd8",
-      "title": "Wärtsilä FOS-Onboard",
-      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to deliver an unauthorized update, execute code, or extract credentials to allow the attacker to impersonate a privileged client. The following versions of Wärtsilä FOS-Onboard are affecte…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-02",
-      "publishedAt": "2026-09-15T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "cac98fd9896d9379",
-      "title": "Digital Watchdog VMAX DVR and NVR Product Lineups",
-      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could grant full administrative control of the device, allowing an attacker to view live and recorded surveillance, alter device configurations, and use the device as a network pivot point. The following versions…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-01",
-      "publishedAt": "2026-09-15T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "affe174619afa835",
-      "title": "Siemens Teamcenter",
-      "summary": "View CSAF Summary A reflected cross site scripting vulnerability in the authentication redirect flow (/auth/) of Teamcenter allows an unauthenticated remote attacker to inject JavaScript into an authenticated user's session by crafting a malicious URL. Successful exploitation ma…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-07",
-      "publishedAt": "2026-09-15T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "ac6fab4ebd9f6bc8",
-      "title": "DevFest is back",
-      "summary": "DevFest 2026 is back and here’s how you can connect with one of the more than 800 global events to build, secure, and scale in the agentic AI era.",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/",
-      "publishedAt": "2026-09-14T16:00:00.000Z",
-      "sourceId": "rss:google_ai",
-      "sourceLabel": "Google AI"
-    },
-    {
-      "id": "710ba5f0ab3e57e9",
-      "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-      "summary": "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-76461 Cisco Secure Email Gateway SQL Injection Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber a…",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/09/14/cisa-adds-one-known-exploited-vulnerability-catalog",
-      "publishedAt": "2026-09-14T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
     }
   ]
 }
