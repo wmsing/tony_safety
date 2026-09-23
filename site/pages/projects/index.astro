@@ -13,10 +13,26 @@ const base = import.meta.env.BASE_URL;
 	<p class="meta-text"><a href={base}>← 动态</a></p>
 	<h1 class="page-title">项目</h1>
 	<main class="prose">
-		<p>以下为个人作品案例。源码多为私有仓库，页面仅展示能力说明与可公开的架构图；演示视频可应要求提供。</p>
+		<p>
+			个人作品：开源仓库直链 GitHub；私有案例仅站内说明与架构图。演示视频可应要求提供。
+		</p>
 		<ul>
 			<li>
-				<a href={`${base}projects/listen-book/`}><strong>listen_book</strong></a> — 小说章节 Markdown → 多角色听书 MP4（TTS / 字幕 / 拼贴背景 / FastAPI Web）
+				<a href="https://github.com/wmsing/agent-firewall" rel="noopener noreferrer" target="_blank"
+					><strong>agent-firewall</strong></a
+				>
+				— Agent 出站 HTTP（L7 反代）与 MCP stdio 共用策略栈，校验不通过即 fail-closed（Go，零依赖）
+				<ul>
+					<li>
+						<a href="https://github.com/wmsing/agent-firewall-laya" rel="noopener noreferrer" target="_blank"
+							><strong>agent-firewall-laya</strong></a
+						>
+						— 可选本地语义 scorer（<code>POST /eval</code>），配 <code>EVALUATOR_API_*</code> 接主防火墙
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href={`${base}projects/listen-book/`}><strong>listen_book</strong></a> — 小说章节 Markdown → 多角色听书 MP4（TTS / 字幕 / 拼贴背景 / FastAPI Web；私有源码）
 			</li>
 		</ul>
 	</main>

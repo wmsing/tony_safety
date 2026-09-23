@@ -15,13 +15,27 @@ const base = import.meta.env.BASE_URL;
 	<h1 class="page-title">Projects</h1>
 	<main class="prose">
 		<p>
-			Case studies below. Source is mostly private; pages describe capabilities and host safe static artifacts. Live
-			demos available on request.
+			Open-source repos link to GitHub; private case studies stay on-site with summaries and diagrams. Live demos on
+			request.
 		</p>
 		<ul>
 			<li>
+				<a href="https://github.com/wmsing/agent-firewall" rel="noopener noreferrer" target="_blank"
+					><strong>agent-firewall</strong></a
+				>
+				— Shared policy stack for agent HTTP (L7 reverse proxy) and MCP stdio; fail-closed on failed checks (Go, zero deps)
+				<ul>
+					<li>
+						<a href="https://github.com/wmsing/agent-firewall-laya" rel="noopener noreferrer" target="_blank"
+							><strong>agent-firewall-laya</strong></a
+						>
+						— Optional local semantic scorer (<code>POST /eval</code>); wire via <code>EVALUATOR_API_*</code> on the main firewall
+					</li>
+				</ul>
+			</li>
+			<li>
 				<a href={`${base}en/projects/listen-book/`}><strong>listen_book</strong></a> — Chapter Markdown → multi-voice
-				audiobook MP4 (TTS, subtitles, collage backgrounds, FastAPI web console)
+				audiobook MP4 (TTS, subtitles, collage backgrounds, FastAPI web; private source)
 			</li>
 		</ul>
 	</main>
