@@ -1,0 +1,28 @@
+---
+import EditorialLayout from '../../../layouts/EditorialLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<EditorialLayout
+	title="Projects"
+	description="Portfolio case studies (private repos, public summaries)"
+	lang="en"
+	zhPath="/projects/"
+	enPath="/en/projects/"
+>
+	<p class="meta-text"><a href={`${base}en/`}>← Feed</a></p>
+	<h1 class="page-title">Projects</h1>
+	<main class="prose">
+		<p>
+			Case studies below. Source is mostly private; pages describe capabilities and host safe static artifacts. Live
+			demos available on request.
+		</p>
+		<ul>
+			<li>
+				<a href={`${base}en/projects/listen-book/`}><strong>listen_book</strong></a> — Chapter Markdown → multi-voice
+				audiobook MP4 (TTS, subtitles, collage backgrounds, FastAPI web console)
+			</li>
+		</ul>
+	</main>
+</EditorialLayout>

@@ -1,0 +1,68 @@
+---
+import EditorialLayout from '../../../layouts/EditorialLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+const workflowHref = `${base}projects/listen-book-workflow.html`;
+---
+
+<EditorialLayout
+	title="listen_book"
+	description="Automated audiobook MP4 from chapter Markdown: Edge TTS, SRT, collage video, FFmpeg, FastAPI"
+	lang="en"
+	zhPath="/projects/listen-book/"
+	enPath="/en/projects/listen-book/"
+>
+	<p class="meta-text"><a href={`${base}en/projects/`}>← Projects</a></p>
+	<h1 class="page-title">listen_book — Audiobook video pipeline</h1>
+	<main class="prose">
+		<p>
+			Turns dialogue-rich chapter Markdown into publishable audiobook MP4: multi-voice TTS, timed subtitles, character
+			collage visuals, optional BGM, driven from a local web console.
+		</p>
+
+		<h2>Problem</h2>
+		<ul>
+			<li>Audiobook-style output needs consistent multi-voice audio, subtitles, and visuals—expensive to edit by hand.</li>
+			<li>Many chapters and frequent iterations require a repeatable batch pipeline, not one-off scripts.</li>
+		</ul>
+
+		<h2>Approach</h2>
+		<ul>
+			<li><strong>Input</strong>: chapter MD (narration + dialogue); per-novel <code>-id</code> JSON config for paths and roles.</li>
+			<li>
+				<strong>Pipeline</strong>: Edge TTS per role → SRT → looping collage background → FFmpeg chapter MP4 → optional BGM.
+			</li>
+			<li><strong>Surface</strong>: local FastAPI web UI; CLI for placeholders, LLM tagging, collage-only runs, etc.</li>
+		</ul>
+
+		<h2>Stack</h2>
+		<ul>
+			<li>TTS: <code>edge-tts</code></li>
+			<li>Video: FFmpeg</li>
+			<li>Optional tagging: OpenAI-compatible API</li>
+			<li>UI: FastAPI / uvicorn</li>
+			<li>Python 3.10+</li>
+		</ul>
+
+		<h2>Outcomes</h2>
+		<ul>
+			<li>End-to-end MD → MP4 per chapter, including the web path.</li>
+			<li>Configurable voices via role <code>gender</code>; text normalization (e.g. illustration markers).</li>
+			<li>
+				<a href={workflowHref} target="_blank" rel="noopener noreferrer">Pipeline architecture diagram</a> (static, no app
+				source)
+			</li>
+		</ul>
+
+		<h2>Demo media</h2>
+		<p class="meta-text">
+			Add <code>public/projects/listen-book/demo.mp4</code> and wire a <code>&lt;video&gt;</code> here after recording.
+		</p>
+
+		<h2>Source & contact</h2>
+		<p>
+			<strong>Private portfolio repo</strong> — no public download. For a walkthrough or technical Q&amp;A, reach out via
+			<a href="https://github.com/wmsing" target="_blank" rel="noopener noreferrer">GitHub @wmsing</a>.
+		</p>
+	</main>
+</EditorialLayout>

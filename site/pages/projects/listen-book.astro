@@ -1,0 +1,66 @@
+---
+import EditorialLayout from '../../layouts/EditorialLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+const workflowHref = `${base}projects/listen-book-workflow.html`;
+---
+
+<EditorialLayout
+	title="listen_book"
+	description="章节 Markdown 自动合成听书 MP4：Edge TTS、SRT、人物拼贴、FFmpeg、FastAPI Web"
+	zhPath="/projects/listen-book/"
+	enPath="/en/projects/listen-book/"
+>
+	<p class="meta-text"><a href={`${base}projects/`}>← 项目</a></p>
+	<h1 class="page-title">listen_book — 小说章节听书视频自动化</h1>
+	<main class="prose">
+		<p>
+			把带角色对话的章节 Markdown 自动变成可发布的听书 MP4：配音、字幕、人物拼贴画面与可选背景音乐，本地 Web 控制台一键跑通。
+		</p>
+
+		<h2>背景</h2>
+		<ul>
+			<li>听书类内容需要稳定的多角色配音、时间轴字幕和视觉背景，手工剪辑成本高。</li>
+			<li>章节多、迭代频繁，需要可重复的批处理而不是单次脚本。</li>
+		</ul>
+
+		<h2>方案</h2>
+		<ul>
+			<li><strong>输入</strong>：章节 MD（旁白 + 角色对话）；角色与路径由 JSON 配置按小说 <code>-id</code> 管理。</li>
+			<li>
+				<strong>流水线</strong>：Edge TTS 分角色合成 → SRT → 人物拼贴循环背景 → FFmpeg 合成章节视频 → 可选混 BGM。
+			</li>
+			<li><strong>操作面</strong>：本地 FastAPI Web UI（<code>uvicorn</code>）；CLI 覆盖对话占位、LLM 标注、仅拼贴等分支。</li>
+		</ul>
+
+		<h2>技术栈</h2>
+		<ul>
+			<li>TTS：<code>edge-tts</code></li>
+			<li>视频：FFmpeg 合成链路</li>
+			<li>可选标注：OpenAI 兼容 API</li>
+			<li>界面：FastAPI + 本地 Web</li>
+			<li>语言：Python 3.10+</li>
+		</ul>
+
+		<h2>成果</h2>
+		<ul>
+			<li>单章从 MD 到 MP4 的端到端自动化（含 Web 路径）。</li>
+			<li>多角色音色与 <code>gender</code> 配置化；插图标记清洗等文本规范化。</li>
+			<li>
+				<a href={workflowHref} target="_blank" rel="noopener noreferrer">流水线架构示意图</a>（静态页，无业务代码）
+			</li>
+		</ul>
+
+		<h2>演示媒体</h2>
+		<p class="meta-text">
+			将演示 MP4 与截图放入 <code>public/projects/listen-book/</code> 后，可在此嵌入。当前为占位，录屏后替换下方区块即可。
+		</p>
+		<!-- 示例：<video controls src={`${base}projects/listen-book/demo.mp4`} /> -->
+
+		<h2>源码与联系</h2>
+		<p>
+			本项目为<strong>私有作品集仓库</strong>，不提供公开下载。如需技术细节或屏幕共享演示，请通过
+			<a href="https://github.com/wmsing" target="_blank" rel="noopener noreferrer">GitHub @wmsing</a> 联系。
+		</p>
+	</main>
+</EditorialLayout>

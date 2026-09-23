@@ -1,0 +1,23 @@
+---
+import EditorialLayout from '../../layouts/EditorialLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<EditorialLayout
+	title="项目"
+	description="作品集：私有仓库案例与演示说明"
+	zhPath="/projects/"
+	enPath="/en/projects/"
+>
+	<p class="meta-text"><a href={base}>← 动态</a></p>
+	<h1 class="page-title">项目</h1>
+	<main class="prose">
+		<p>以下为个人作品案例。源码多为私有仓库，页面仅展示能力说明与可公开的架构图；演示视频可应要求提供。</p>
+		<ul>
+			<li>
+				<a href={`${base}projects/listen-book/`}><strong>listen_book</strong></a> — 小说章节 Markdown → 多角色听书 MP4（TTS / 字幕 / 拼贴背景 / FastAPI Web）
+			</li>
+		</ul>
+	</main>
+</EditorialLayout>

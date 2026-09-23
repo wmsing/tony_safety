@@ -25,6 +25,7 @@ const zhHref = `${base}${zhPath.replace(/^\//, '')}`;
 const enHref = `${base}${enPath.replace(/^\//, '')}`;
 const feedHref = lang === 'en' ? `${base}en/` : home;
 const aboutHref = lang === 'en' ? `${base}en/about/` : `${base}about/`;
+const projectsHref = lang === 'en' ? `${base}en/projects/` : `${base}projects/`;
 const privacyHref = lang === 'en' ? `${base}en/privacy/` : `${base}privacy/`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://wmsing.github.io').href;
 
@@ -35,10 +36,11 @@ if (basePath && relPath.startsWith(basePath)) {
 }
 relPath = relPath.replace(/\/+$/, '') || '/';
 
-type NavKey = 'feed' | 'about' | 'privacy';
+type NavKey = 'feed' | 'about' | 'projects' | 'privacy';
 let navActive: NavKey = 'feed';
 if (relPath === '/about' || relPath === '/en/about') navActive = 'about';
 else if (relPath === '/privacy' || relPath === '/en/privacy') navActive = 'privacy';
+else if (relPath.startsWith('/projects') || relPath.startsWith('/en/projects')) navActive = 'projects';
 
 const bannerSrc = `${base}images/hero-banner.jpeg`;
 const bannerAlt =
@@ -100,6 +102,12 @@ const tagline =
 						href={aboutHref}
 						aria-current={navActive === 'about' ? 'page' : undefined}
 						>{lang === 'en' ? 'About' : '关于'}</a
+					>
+					<a
+						class:list={{ 'is-active': navActive === 'projects' }}
+						href={projectsHref}
+						aria-current={navActive === 'projects' ? 'page' : undefined}
+						>{lang === 'en' ? 'Projects' : '项目'}</a
 					>
 					<a
 						class:list={{ 'is-active': navActive === 'privacy' }}
