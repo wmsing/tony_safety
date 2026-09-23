@@ -1,5 +1,6 @@
 ---
 import EditorialLayout from '../../../layouts/EditorialLayout.astro';
+import ListenBookScreenshots from '../../../components/ListenBookScreenshots.astro';
 
 const base = import.meta.env.BASE_URL;
 const workflowHref = `${base}projects/listen-book-workflow.html`;
@@ -54,10 +55,9 @@ const workflowHref = `${base}projects/listen-book-workflow.html`;
 			</li>
 		</ul>
 
-		<h2>Demo media</h2>
-		<p class="meta-text">
-			Add <code>public/projects/listen-book/demo.mp4</code> and wire a <code>&lt;video&gt;</code> here after recording.
-		</p>
+		<h2>UI & sample output</h2>
+		<p class="meta-text">Three console tabs plus a sample frame (click to enlarge). Portfolio display only.</p>
+		<ListenBookScreenshots lang="en" />
 
 		<h2>Source & contact</h2>
 		<p>

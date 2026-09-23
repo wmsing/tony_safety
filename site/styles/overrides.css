@@ -23,6 +23,32 @@
 	}
 }
 
+.project-gallery {
+	display: grid;
+	gap: 1.5rem;
+	margin: 1.25rem 0 2rem;
+}
+
+.project-gallery figure {
+	margin: 0;
+}
+
+.project-gallery__link {
+	display: block;
+	line-height: 0;
+}
+
+.project-gallery img {
+	width: 100%;
+	height: auto;
+	border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+	border-radius: 6px;
+}
+
+.project-gallery figcaption {
+	margin-top: 0.45rem;
+}
+
 /* LLM 网络安全 — feed source accents */
 .item[data-source='article'] {
 	--source: #003153;

@@ -1,5 +1,6 @@
 ---
 import EditorialLayout from '../../layouts/EditorialLayout.astro';
+import ListenBookScreenshots from '../../components/ListenBookScreenshots.astro';
 
 const base = import.meta.env.BASE_URL;
 const workflowHref = `${base}projects/listen-book-workflow.html`;
@@ -51,11 +52,9 @@ const workflowHref = `${base}projects/listen-book-workflow.html`;
 			</li>
 		</ul>
 
-		<h2>演示媒体</h2>
-		<p class="meta-text">
-			将演示 MP4 与截图放入 <code>public/projects/listen-book/</code> 后，可在此嵌入。当前为占位，录屏后替换下方区块即可。
-		</p>
-		<!-- 示例：<video controls src={`${base}projects/listen-book/demo.mp4`} /> -->
+		<h2>界面与成片</h2>
+		<p class="meta-text">本地 Web 控制台三页签与样片帧（点击可放大）。素材仅供作品集展示。</p>
+		<ListenBookScreenshots />
 
 		<h2>源码与联系</h2>
 		<p>

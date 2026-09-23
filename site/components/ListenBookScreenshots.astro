@@ -1,0 +1,85 @@
+---
+interface Shot {
+	file: string;
+	alt: string;
+	caption: string;
+}
+
+interface Props {
+	lang?: 'zh' | 'en';
+}
+
+const { lang = 'zh' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const prefix = `${base}projects/listen-book/`;
+
+const shots: Shot[] =
+	lang === 'en'
+		? [
+				{
+					file: '01-chapters.png',
+					alt: 'Web console: chapter Markdown editor with dialogue role chips',
+					caption: 'Tab 1 — Chapter MD, dialogue tags, regenerate MP4 from the editor.',
+				},
+				{
+					file: '02-characters-banner.png',
+					alt: 'Collage banner generation for video background',
+					caption: 'Tab 2 — Character standees, collage banner for loop background.',
+				},
+				{
+					file: '03-character-grid.png',
+					alt: 'Character list with collage vs dialogue-only roles',
+					caption: 'Role grid: collage vs dialogue-only, upload and ordering.',
+				},
+				{
+					file: '04-video-job.png',
+					alt: 'Video generation tab with batch job log',
+					caption: 'Tab 3 — Single-chapter render, BGM, job log (FFmpeg + scripts).',
+				},
+				{
+					file: '05-output-frame.jpg',
+					alt: 'Sample output frame with subtitles and character collage',
+					caption: 'Output — Multi-voice audio, timed subtitles, collage background.',
+				},
+			]
+		: [
+				{
+					file: '01-chapters.png',
+					alt: 'Web 控制台：章节 Markdown 与对白角色标签',
+					caption: '① 章节 md — 对白标注、保存后一键重生本章 MP4。',
+				},
+				{
+					file: '02-characters-banner.png',
+					alt: '角色立绘与拼贴 Banner 生成',
+					caption: '② 角色/背景图 — 立绘目录、生成 1920×1080 拼贴 Banner。',
+				},
+				{
+					file: '03-character-grid.png',
+					alt: '角色列表：拼贴与仅对白',
+					caption: '角色网格 — 拼贴入画 / 仅对白、上传与排序。',
+				},
+				{
+					file: '04-video-job.png',
+					alt: '视频生成与任务日志',
+					caption: '③ 视频生成 — 单章范围、BGM、后台任务日志。',
+				},
+				{
+					file: '05-output-frame.jpg',
+					alt: '成片画面：字幕与人物拼贴背景',
+					caption: '成片 — 多角色配音、硬字幕、人物拼贴循环背景。',
+				},
+			];
+---
+
+<div class="project-gallery">
+	{
+		shots.map((s) => (
+			<figure>
+				<a class="project-gallery__link" href={`${prefix}${s.file}`} target="_blank" rel="noopener noreferrer">
+					<img src={`${prefix}${s.file}`} alt={s.alt} loading="lazy" decoding="async" width="1200" height="675" />
+				</a>
+				<figcaption class="meta-text">{s.caption}</figcaption>
+			</figure>
+		))
+	}
+</div>
