@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 		let fullBodyHtml = '';
 		try {
 			const raw = await readFile(
-				path.join(root, 'data', 'wire-deep', `${id}.md`),
+				path.join(root, 'data', 'wire-deep-zh', `${id}.md`),
 				'utf8',
 			);
 			const m = raw.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n([\s\S]*)$/);
@@ -67,7 +67,7 @@ const base = import.meta.env.BASE_URL;
 	{
 		fullBodyHtml ? (
 			<details class="wire-fulltext">
-				<summary>抓取正文（Markdown 渲染）</summary>
+				<summary>展开抓取的正文（本地存档，已排版）</summary>
 				<div class="prose prose-markdown" set:html={fullBodyHtml} />
 			</details>
 		) : null

@@ -62,7 +62,7 @@ npm run build    # 发布前自检（MVP 主验收）
 | ------------------------ | ------------------------------------------------------------------------------- |
 | `npm run fetch-feeds`    | **进货**：上网抓 RSS → 英文清单 `data/feed-external.json`                                 |
 | `npm run translate-feed` | **贴中文标**（可选）：本机 Ollama 译标题/摘要 → `data/feed-i18n.json`                           |
-| `npm run deep-read-feed` | **精读**（可选）：抓原文 → 中文摘要 + 默认译 EN → `feed-deep.json`、`wire-deep/`（`--zh-only` 跳过英文） |
+| `npm run deep-read-feed` | **精读**（可选）：抓原文 → 中文摘要 + 正文译中（`wire-deep-zh/`）+ 默认译 EN → `feed-deep.json`、`wire-deep/`（`--zh-only` 跳过英文） |
 
 
 没跑 translate？首页仍能用，Wire 显示**英文**。有中文标就用中文，没有就用英文。精读仅中文首页：有摘要则卡片显示精读、链到站内 `/wire/{id}/`。
@@ -106,7 +106,7 @@ npm run deep-read-feed -- --latest 5   # 默认含英文：成功 5 条（中文
 npm run deep-read-feed -- --latest 5 --zh-only   # 只生成中文精读，不译 EN
 npm run deep-read-feed -- --id <id> --en-only   # 仅译英文（中文已存在且正文未变）
 npm run dev
-# 满意后：git add data/feed-deep.json data/wire-deep/ → commit → push
+# 满意后：git add data/feed-deep.json data/wire-deep/ data/wire-deep-zh/ → commit → push
 ```
 
 **精读 — 只重新生成摘要**（改过 prompt / 换模型）
@@ -165,7 +165,7 @@ cp .env.example .env        # 若要中文：填 OLLAMA_MODEL=…
 - `config/security-feeds.json` — RSS 源与关键词
 - `data/feed-external.json` — Wire 缓存（`fetch-feeds` 生成，需提交）
 - `data/feed-i18n.json` — Wire 中文译稿（`translate-feed` 生成，需提交）
-- `data/feed-deep.json`、`data/wire-deep/` — Wire 精读索引与全文 md（`deep-read-feed` 生成，需提交）
+- `data/feed-deep.json`、`data/wire-deep/`、`data/wire-deep-zh/` — Wire 精读索引、英文存档与中文正文译稿（`deep-read-feed` 生成，需提交）
 - `site/` — Astro + AI Hot Editorial（`design-system/`）
 - `src/` — Python 工具（含 Admin）
 - `.cursor/` — Agent 规则与安全基线

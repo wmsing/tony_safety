@@ -25,6 +25,7 @@ const root = path.join(__dirname, '..');
 const feedPath = path.join(root, 'data', 'feed-external.json');
 const deepPath = path.join(root, 'data', 'feed-deep.json');
 const wireMdDir = path.join(root, 'data', 'wire-deep');
+const wireMdZhDir = path.join(root, 'data', 'wire-deep-zh');
 const wireHtmlDir = path.join(root, 'data', 'wire-html');
 const envPath = path.join(root, '.env');
 
@@ -292,6 +293,62 @@ function stripModelNoise(text) {
     .trim();
 }
 
+async function translateBodyChunkToZh(host, model, chunk) {
+  const res = await ollamaFetch(`${host.replace(/\/$/, '')}/api/chat`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    dispatcher: ollamaAgent,
+    body: JSON.stringify({
+      model,
+      stream: false,
+      think: false,
+      options: {
+        temperature: 0.2,
+        num_predict: Math.min(8192, Math.max(1024, Math.ceil(chunk.length * 0.9))),
+      },
+      messages: [
+        {
+          role: 'system',
+          content:
+            'Translate the following English markdown into Simplified Chinese.\n' +
+            'Preserve markdown structure: headings, lists, links, code fences.\n' +
+            'Keep URLs unchanged; company/product/CVE names may stay in English when natural.\n' +
+            'Output markdown only, no preamble.',
+        },
+        { role: 'user', content: chunk },
+      ],
+    }),
+  });
+  if (!res.ok) {
+    const errBody = await res.text();
+    throw new Error(`Ollama HTTP ${res.status}: ${errBody.slice(0, 200)}`);
+  }
+  const payload = await res.json();
+  const content = (payload.message?.content ?? payload.response ?? '').trim();
+  if (!content) {
+    throw new Error('empty Ollama body-zh response');
+  }
+  return stripModelNoise(content);
+}
+
+async function translateBodyToZh(host, model, bodyMd) {
+  const CHUNK = 6000;
+  const parts = [];
+  let rest = bodyMd.trim();
+  while (rest.length > CHUNK) {
+    let cut = rest.lastIndexOf('\n\n', CHUNK);
+    if (cut < CHUNK / 2) cut = CHUNK;
+    parts.push(rest.slice(0, cut));
+    rest = rest.slice(cut).trimStart();
+  }
+  if (rest) parts.push(rest);
+  const out = [];
+  for (const part of parts) {
+    out.push(await translateBodyChunkToZh(host, model, part));
+  }
+  return out.join('\n\n').trim();
+}
+
 async function summarizeOne(host, model, title, url, bodyMd) {
   const excerpt = bodyMd.length > MODEL_BODY_CHARS
     ? `${bodyMd.slice(0, MODEL_BODY_CHARS)}\n\n[正文已截断，仅前 ${MODEL_BODY_CHARS} 字送入模型]`
@@ -405,6 +462,11 @@ function isDoneEn(cache, id, summaryMdZh) {
   const prev = cache.byId[id];
   if (!prev?.summaryMdEn?.trim()) return false;
   return prev.summarySourceHash === summarySourceHash(summaryMdZh);
+}
+
+function isDoneBodyZh(cache, id, hash) {
+  const prev = cache.byId[id];
+  return prev?.bodyZhContentHash === hash;
 }
 
 async function translateSummaryToEn(host, model, summaryMdZh) {
@@ -574,13 +636,14 @@ async function main() {
     }
     const summaryZh = cache.byId[item.id]?.summaryMd?.trim() ?? '';
     const zhBodyDone = Boolean(onDiskHash && isDone(cache, item.id, onDiskHash));
+    const bodyZhDone = Boolean(onDiskHash && isDoneBodyZh(cache, item.id, onDiskHash));
     const enDone =
       translateEn && summaryZh && isDoneEn(cache, item.id, summaryZh);
 
-    if (!translateEn && !forceSummary && zhBodyDone) {
+    if (!translateEn && !forceSummary && zhBodyDone && bodyZhDone) {
       continue;
     }
-    if (translateEn && !forceSummary && zhBodyDone && enDone) {
+    if (translateEn && !forceSummary && zhBodyDone && enDone && bodyZhDone) {
       continue;
     }
 
@@ -606,8 +669,10 @@ async function main() {
         console.log(
           `[deep-read-feed] ok en (backfill) ${item.id} (${formatDuration(Date.now() - itemStarted)})`,
         );
-        ok += 1;
-        continue;
+        if (enOnly) {
+          ok += 1;
+          continue;
+        }
       }
 
       // 2) 中英已一致或正文要更新：先中文精读，再译 EN
@@ -691,6 +756,49 @@ async function main() {
           await enqueuePersist(cache);
           console.log(
             `[deep-read-feed] ok en ${item.id} (${formatDuration(Date.now() - itemStarted)})`,
+          );
+        }
+      }
+
+      if (!enOnly) {
+        const hash =
+          cache.byId[item.id]?.contentHash ?? (await bodyHashFromDisk(item.id));
+        if (!hash) {
+          throw new Error('no contentHash — run zh deep-read first');
+        }
+        if (!forceSummary && isDoneBodyZh(cache, item.id, hash)) {
+          console.log(`[deep-read-feed] skip ${item.id} body zh (unchanged)`);
+        } else {
+          const mdPath = path.join(wireMdDir, `${item.id}.md`);
+          const raw = await readFile(mdPath, 'utf8');
+          const { body, fetchedAt } = parseFrontmatter(raw);
+          if (!body.trim()) {
+            throw new Error('empty wire-deep body');
+          }
+          const bodyZh = await translateBodyToZh(host, model, body);
+          await mkdir(wireMdZhDir, { recursive: true });
+          const mdFile = buildWireMdFile(
+            {
+              id: item.id,
+              title: item.title,
+              url: item.url,
+              sourceId: item.sourceId,
+              sourceLabel: item.sourceLabel,
+              publishedAt: item.publishedAt,
+              fetchedAt: fetchedAt?.replace(/^["']|["']$/g, '') ?? new Date().toISOString(),
+            },
+            bodyZh,
+          );
+          await writeFile(path.join(wireMdZhDir, `${item.id}.md`), mdFile, 'utf8');
+          cache.byId[item.id] = {
+            ...cache.byId[item.id],
+            bodyZhContentHash: hash,
+            translatedBodyAt: new Date().toISOString(),
+            url: item.url,
+          };
+          await enqueuePersist(cache);
+          console.log(
+            `[deep-read-feed] ok body zh ${item.id} (${formatDuration(Date.now() - itemStarted)})`,
           );
         }
       }

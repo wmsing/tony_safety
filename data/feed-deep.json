@@ -620,7 +620,9 @@
       "url": "https://simonwillison.net/2026/Sep/21/jev/",
       "summaryMdEn": "TypeSafe AI has launched a new \"decision model\" called Jev, which accepts text input and outputs probability values. Unlike traditional LLMs, it charges only for inputs and operates at high speed, making it suitable for classification and ranking tasks.\n\n## Key points\n- Submit concurrent queries using state objects to obtain confidence scores or option probability distributions.\n- Excels at classification tasks such as spam detection but does not support numbers, dates, or adversarial content.\n- Decision models function as black-box systems; users should be wary of biases and rely on structured experiments for evaluation.\n\n## What to do next\n- Read the JevBench benchmark to compare the performance of different decision models.\n- Try replicating a local decision model using the open-source project Kev based on Qwen 3.5.",
       "summarySourceHash": "8fe0a0c546fab578",
-      "translatedAtEn": "2026-09-23T10:09:51.676Z"
+      "translatedAtEn": "2026-09-23T10:09:51.676Z",
+      "bodyZhContentHash": "869625f40128c835",
+      "translatedBodyAt": "2026-09-23T10:38:13.558Z"
     },
     "697fa797c1d2f96f": {
       "contentHash": "c8118e3d286eff7f",

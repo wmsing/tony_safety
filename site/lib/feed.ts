@@ -54,6 +54,8 @@ export type FeedDeepEntry = {
 	summaryMdEn?: string;
 	summarySourceHash?: string;
 	translatedAtEn?: string;
+	bodyZhContentHash?: string;
+	translatedBodyAt?: string;
 };
 
 type FeedDeepCache = {
