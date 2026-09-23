@@ -149,6 +149,8 @@ export function buildFeed(params: {
 	wireI18n?: FeedI18nCache['byId'];
 	wireDeep?: FeedDeepCache['byId'];
 	renderDescription: (md: string) => string;
+	/** Homepage cap (wire + local posts); unrelated to fetch `maxAgeDays`. */
+	displayMaxItems?: number;
 }): FeedItem[] {
 	const {
 		base,
@@ -159,6 +161,7 @@ export function buildFeed(params: {
 		wireI18n = {},
 		wireDeep = {},
 		renderDescription,
+		displayMaxItems,
 	} = params;
 	const cfg = FEED_LOCALE[locale];
 
@@ -219,23 +222,16 @@ export function buildFeed(params: {
 	const sorted = [...fromPosts, ...fromWire].sort(
 		(a, b) => b.publishedAt.getTime() - a.publishedAt.getTime(),
 	);
-	return limitFeedForDisplay(sorted);
+	return limitFeedForDisplay(sorted, displayMaxItems);
 }
 
-/** Homepage: last calendar month; if fewer than 30, show 30 most recent overall. */
+/** Homepage: newest first, optional cap only (no fetch date window). */
 export function limitFeedForDisplay(
 	feed: FeedItem[],
-	now = new Date(),
+	maxItems?: number,
 ): FeedItem[] {
-	const minItems = 30;
-	const cutoff = new Date(now);
-	cutoff.setMonth(cutoff.getMonth() - 1);
-
-	const inLastMonth = feed.filter((item) => item.publishedAt >= cutoff);
-	if (inLastMonth.length >= minItems) {
-		return inLastMonth;
-	}
-	return feed.slice(0, minItems);
+	if (maxItems == null || maxItems <= 0) return feed;
+	return feed.slice(0, maxItems);
 }
 
 const SHANGHAI = 'Asia/Shanghai';

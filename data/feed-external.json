@@ -1,20 +1,191 @@
 {
-  "fetchedAt": "2026-09-20T15:59:46.998Z",
+  "fetchedAt": "2026-09-23T09:34:40.378Z",
   "items": [
     {
-      "id": "16075ef8dec8361f",
-      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-      "summary": "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2025-39964 Linux Kernel Race Condition Vulnerability CVE-2026-53266 Linux Kernel Out-of-Bounds Write Vulnerability These types of vulnerabil…",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-      "publishedAt": "2026-09-18T12:00:00.000Z",
+      "id": "327f7261ab07f686",
+      "title": "SF October 14th: A Birds of a Feather Session on Agentic Engineering",
+      "summary": "SF October 14th: A Birds of a Feather Session on Agentic Engineering I'm hosting an evening event with Jesse Vincent in San Francisco on Wednesday 14th October for people who are building weird and interesting things with and on top of coding agents. Think of it as an agentic sh…",
+      "url": "https://simonwillison.net/2026/Sep/23/bof-agentic-engineering/",
+      "publishedAt": "2026-09-23T02:53:19.000Z",
+      "sourceId": "rss:simon_willison",
+      "sourceLabel": "Simon Willison"
+    },
+    {
+      "id": "6072e1b4b7e2ba7c",
+      "title": "Unmasking EvilTokens: Getting to the root of device code phishing",
+      "summary": "EvilTokens has quickly become one of the top PhaaS platforms, enabling device code phishing attacks through AI-assisted lures, automated infrastructure, and token theft. In collaboration with partners, Microsoft Digital Crimes Unit (DCU) facilitated a disruption of EvilTokens in…",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/22/unmasking-eviltokens-getting-to-the-root-of-device-code-phishing/",
+      "publishedAt": "2026-09-22T15:00:00.000Z",
+      "sourceId": "rss:microsoft_security",
+      "sourceLabel": "Microsoft Security"
+    },
+    {
+      "id": "27c5d6b01859ae55",
+      "title": "Siemens Industrial Edge Management",
+      "summary": "View CSAF Summary Industrial Edge Management contains an authentication bypass vulnerability that could allow an unauthenticated remote attacker to perform full account takeover by resetting user credentials without completing email verification. Siemens has released new version…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-06",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
       "sourceId": "rss:cisa",
       "sourceLabel": "CISA"
+    },
+    {
+      "id": "e3c7e0e08ab6f19d",
+      "title": "OpenPLC Runtime v3",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to hijack session cookies and issue state-changing requests as an operator which would allow the attacker to control the programmable logic controller and the physical processes it drives. Th…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-09",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "eba42a3506b305ee",
+      "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+      "summary": "CISA has added four new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-85102 Check Point Multiple Products Improper Certificate Validation Vulnerability CVE-2026-93616 Check Point Multiple Products Path Tr…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/22/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "2830a7fcaaeb3584",
+      "title": "lwIP (Lightweight IP)",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could result in a system crash, a DoS, or memory corruption, which could lead to code execution on the victim system. The following versions of lwIP (Lightweight IP) are affected: API >=2.0.1| =2.0.1|<=2.2.1 Product…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-02",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "2e43af6896cc3b9f",
+      "title": "Siemens WTV676 and WTV776",
+      "summary": "View CSAF Summary The products listed below contain a denial of service vulnerability that could allow an attacker to force the devices into protection mode under certain conditions. This disables remote connectivity functions (Web Access) to the devices. Siemens has released ne…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-08",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "5897c7f1e9130c0a",
+      "title": "Siemens SIPLUS and SIMATIC Products",
+      "summary": "View CSAF Summary Multiple Siemens products are vulnerable to the \"Copy Fail\" vulnerability. Siemens has released new versions for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends specific counter…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-04",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "2fc28f57f3275c0d",
+      "title": "Siemens Desigo CC family",
+      "summary": "View CSAF Summary A Client Code Execution (CCE) vulnerability has been identified in Desigo CC, potentially allowing malicious actors to execute arbitrary code on client devices through specially crafted graphics documents. This vulnerability leverages user-defined graphics cont…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-05",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "75702abc871bd7d3",
+      "title": "Siemens SIMOVE Fleetmanager and SIPLANT",
+      "summary": "View CSAF Summary SIMOVE Fleetmanager and SIPLANT contain a path traversal vulnerability that could allow an attacker to access files outside of intended scope. Siemens has released new versions for the affected products and recommends to update to the latest versions. The follo…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-07",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "1e0426abc892cecf",
+      "title": "Siemens Siveillance Control",
+      "summary": "View CSAF Summary A vulnerability has been identified in the Open Interface Services (OIS) web module affecting Siveillance Control and Siveillance Control Pro (versions OIS 3.x.y and OIS 4.x.y) . This vulnerability allows an attacker to upload arbitrary files, which can lead to…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-03",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "30aad928e8244cb1",
+      "title": "lwIP TCP/IP Stack MQTT Client Application",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to gain full code execution on the device. The following versions of lwIP TCP/IP Stack MQTT Client Application are affected: MQTT Client Application >=2.0.1| =2.0.1|<=2.2.1 Product Status: kn…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-01",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "60efaf744a4d6c2c",
+      "title": "Priorities and principles for effective third party assessments",
+      "summary": "OpenAI outlines priorities and principles for rigorous, secure, and independent third-party AI safety assessments of frontier models and safeguards.",
+      "url": "https://openai.com/index/priorities-principles-third-party-assessments",
+      "publishedAt": "2026-09-22T00:00:00.000Z",
+      "sourceId": "rss:openai",
+      "sourceLabel": "OpenAI"
+    },
+    {
+      "id": "b3e5263fa8976c3c",
+      "title": "Jev introduces a new shape of LLM - System One, aka Decision Models",
+      "summary": "Last week TypeSafe AI unveiled Jev , their first example of a new category of model that they are calling \"System One models\" (I'm with Maggie Appleton, I think \"decision models\" is a better name for these). Jev is an interesting variant on the usual LLM format: it still accepts…",
+      "url": "https://simonwillison.net/2026/Sep/21/jev/",
+      "publishedAt": "2026-09-21T23:09:20.000Z",
+      "sourceId": "rss:simon_willison",
+      "sourceLabel": "Simon Willison"
+    },
+    {
+      "id": "697fa797c1d2f96f",
+      "title": "Transforming Bedrock Guardrails events into OCSF with CloudWatch",
+      "summary": "Security teams investigating possible AI-related security events need guardrail intervention data alongside their existing security telemetry. When a guardrail identifies or blocks a prompt injection attempt or redacts sensitive data, that intervention carries additional investi…",
+      "url": "https://aws.amazon.com/blogs/security/transforming-bedrock-guardrails-events-into-ocsf-with-cloudwatch/",
+      "publishedAt": "2026-09-21T15:33:25.000Z",
+      "sourceId": "rss:aws_security",
+      "sourceLabel": "AWS Security"
+    },
+    {
+      "id": "8377f7a889b77f9e",
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+      "summary": "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-7273 Zyxel GS1900 Series Switches Stack-Based Buffer Overflow Vulnerability This type of vulnerability is a frequent attack vector for ma…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/21/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "publishedAt": "2026-09-21T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "08ffdb24bebd9aa2",
+      "title": "Advisory Group on Mathematics and Artificial Intelligence",
+      "summary": "OpenAI is working with an independent Advisory Group on Mathematics and Artificial Intelligence to guide the review and communication of emerging AI results.",
+      "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai",
+      "publishedAt": "2026-09-21T12:00:00.000Z",
+      "sourceId": "rss:openai",
+      "sourceLabel": "OpenAI"
+    },
+    {
+      "id": "aeff1dc7e91a24bb",
+      "title": "Windows Exploitation Techniques: Dangling COM Object Registrations",
+      "summary": "This short blog post is about abusing a privilege escalation bug that Microsoft recently fixed in Windows, CVE-2026-66804, that I and 14 others reported. This issue is an incomplete fix for CVE-2026-50343, a bug dubbed “Dark Elevator” by Calif. The root cause of the bug was a da…",
+      "url": "https://projectzero.google/2026/09/windows-dangling-com.html",
+      "publishedAt": "2026-09-21T07:00:00.000Z",
+      "sourceId": "rss:project_zero",
+      "sourceLabel": "Project Zero"
+    },
+    {
+      "id": "d2871d486c61275a",
+      "title": "How V7 gives AI agents institutional memory",
+      "summary": "Using GPT-5.6, V7 turns scattered company files into context agents can use to complete complex, source-linked work.",
+      "url": "https://openai.com/index/v7",
+      "publishedAt": "2026-09-21T00:00:00.000Z",
+      "sourceId": "rss:openai",
+      "sourceLabel": "OpenAI"
     },
     {
       "id": "70afa7c8667ce0e2",
       "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
       "summary": "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2025-39682 Linux Kernel Improper Check for Unusual or Exceptional Conditions Vulnerability This type of vulnerability is a frequent attack vec…",
       "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "publishedAt": "2026-09-18T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "16075ef8dec8361f",
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+      "summary": "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2025-39964 Linux Kernel Race Condition Vulnerability CVE-2026-53266 Linux Kernel Out-of-Bounds Write Vulnerability These types of vulnerabil…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
       "publishedAt": "2026-09-18T12:00:00.000Z",
       "sourceId": "rss:cisa",
       "sourceLabel": "CISA"

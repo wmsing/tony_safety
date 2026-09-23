@@ -4,16 +4,22 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
+const configPath = path.join(root, 'config', 'security-feeds.json');
 const LOCAL_UNDATED_FALLBACK = new Date('2000-01-01T00:00:00.000Z');
 
 /** Mirror site/lib/feed.ts limitFeedForDisplay */
-export function limitFeedForDisplay(feed, now = new Date()) {
-  const minItems = 30;
-  const cutoff = new Date(now);
-  cutoff.setMonth(cutoff.getMonth() - 1);
-  const inLastMonth = feed.filter((item) => item.publishedAt >= cutoff);
-  if (inLastMonth.length >= minItems) return inLastMonth;
-  return feed.slice(0, minItems);
+export function limitFeedForDisplay(feed, maxItems) {
+  if (maxItems == null || maxItems <= 0) return feed;
+  return feed.slice(0, maxItems);
+}
+
+async function loadDisplayMaxItems() {
+  try {
+    const config = JSON.parse(await readFile(configPath, 'utf8'));
+    return config.displayMaxItems ?? config.maxItems ?? undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 function localPublishedAt(raw) {
@@ -60,7 +66,7 @@ export async function wireIdsOnHomepage(wireItems) {
     })),
   ];
   entries.sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
-  const limited = limitFeedForDisplay(entries);
+  const limited = limitFeedForDisplay(entries, await loadDisplayMaxItems());
   return new Set(
     limited.filter((e) => e.kind === 'news' && e.wireId).map((e) => e.wireId),
   );

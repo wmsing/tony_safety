@@ -1,5 +1,6 @@
 {
-  "maxItems": 50,
+  "maxItems": 100,
+  "displayMaxItems": 100,
   "maxAgeDays": 5,
   "summaryMaxLength": 280,
   "keywords": [

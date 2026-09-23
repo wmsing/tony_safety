@@ -528,6 +528,120 @@
       "summaryZh": "查看CSAF摘要 若成功利用这些漏洞，可能会导致未经授权访问遥测数据和固件。受影响的Bransys ELD版本如下：Android <11.00.00（CVE-2026-86500，CVE-2026-86689，CVE-2026-77960），iOS <1.1.54（CVE-2026-86520，…）",
       "sourceHash": "7d1bb4fb64bf0bc3",
       "translatedAt": "2026-09-19T06:17:29.697Z"
+    },
+    "327f7261ab07f686": {
+      "titleZh": "SF 10月14日：关于代理工程的‘同类相聚’主题会",
+      "summaryZh": "SF 10月14日：关于代理工程的‘同类相聚’主题会 我将在周三10月14日于旧金山与杰西·文森特举办一场晚间活动，面向那些正在使用和构建代码代理来创造奇特而有趣事物的人们。这可以看作是一场关于代理工程的‘同类相聚’活动……",
+      "sourceHash": "cd07eb90a051cf45",
+      "translatedAt": "2026-09-23T09:59:42.538Z"
+    },
+    "6072e1b4b7e2ba7c": {
+      "titleZh": "揭开EvilTokens：深入剖析设备代码钓鱼的根源",
+      "summaryZh": "EvilTokens已迅速成为顶级的PhaaS平台，通过人工智能辅助的诱饵、自动化基础设施和令牌窃取，实现了设备代码钓鱼攻击。微软数字犯罪单位（DCU）携手合作伙伴，成功中断了EvilTokens的运营……",
+      "sourceHash": "bae4abbda9060c0d",
+      "translatedAt": "2026-09-23T09:59:44.882Z"
+    },
+    "27c5d6b01859ae55": {
+      "titleZh": "西门子工业边缘管理",
+      "summaryZh": "CSAF摘要 工业边缘管理存在身份验证绕过漏洞，未授权的远程攻击者可能通过在未完成电子邮件验证的情况下重置用户凭据，实现对账户的完全接管。西门子已发布新版本……",
+      "sourceHash": "00c61b0fe3cdfd92",
+      "translatedAt": "2026-09-23T09:59:46.931Z"
+    },
+    "e3c7e0e08ab6f19d": {
+      "titleZh": "OpenPLC Runtime v3",
+      "summaryZh": "查看CSAF摘要 若成功利用此漏洞，攻击者可能劫持会话cookie，并以操作员身份发出更改状态的请求，从而能够控制可编程逻辑控制器及其驱动的物理过程。",
+      "sourceHash": "5fda1557ac733804",
+      "translatedAt": "2026-09-23T09:59:48.736Z"
+    },
+    "eba42a3506b305ee": {
+      "titleZh": "CISA将四个已知被利用的漏洞添加至目录",
+      "summaryZh": "CISA已根据存在主动利用的证据，将四个新漏洞添加至其已知被利用漏洞（KEV）目录中。CVE-2026-85102 检查点多个产品证书验证不当漏洞 CVE-2026-93606 检查点多个产品路径遍历漏洞……",
+      "sourceHash": "5b77ffc032b9ab04",
+      "translatedAt": "2026-09-23T09:59:51.829Z"
+    },
+    "2830a7fcaaeb3584": {
+      "titleZh": "lwIP (轻量级IP)",
+      "summaryZh": "若成功利用该漏洞，可能导致系统崩溃、拒绝服务（DoS）或内存损坏，进而引发受害系统的代码执行。受影响的lwIP（轻量级IP）版本如下：API >=2.0.1| =2.0.1|<=2.2.1 产品…",
+      "sourceHash": "3d0062e27fc1677e",
+      "translatedAt": "2026-09-23T09:59:54.584Z"
+    },
+    "2e43af6896cc3b9f": {
+      "titleZh": "西门子 WTV676 和 WTV776",
+      "summaryZh": "以下产品存在拒绝服务漏洞，攻击者可在特定条件下迫使设备进入保护模式，这将禁用设备的远程连接功能（Web访问）。西门子已发布相关更新……",
+      "sourceHash": "2948e4509d02cbd1",
+      "translatedAt": "2026-09-23T09:59:56.748Z"
+    },
+    "5897c7f1e9130c0a": {
+      "titleZh": "西门子 SIPLUS 和 SIMATIC 产品",
+      "summaryZh": "查看 CSAF 摘要 多款西门子产品存在“复制失败”漏洞。西门子已为多个受影响产品发布了新版本，并建议升级至最新版本。西门子正在准备进一步的修复版本，并建议采取具体应对措施。",
+      "sourceHash": "24ebb9d053e0fcce",
+      "translatedAt": "2026-09-23T09:59:59.119Z"
+    },
+    "2fc28f57f3275c0d": {
+      "titleZh": "西门子 Desigo CC 系列",
+      "summaryZh": "查看 CSAF 摘要 在 Desigo CC 中发现了一个客户端代码执行（CCE）漏洞，恶意攻击者可能通过特制的图形文件在客户端设备上执行任意代码。该漏洞利用了用户定义的图形内容……",
+      "sourceHash": "09be6192230ca45a",
+      "translatedAt": "2026-09-23T10:00:01.533Z"
+    },
+    "75702abc871bd7d3": {
+      "titleZh": "西门子 SIMOVE 车队管理与 SIPLANT",
+      "summaryZh": "查看 CSAF 概要 SIMOVE 车队管理与 SIPLANT 存在路径遍历漏洞，攻击者可能通过该漏洞访问超出预期范围的文件。西门子已为受影响产品发布了新版本，并建议更新至最新版本。以下内容……",
+      "sourceHash": "163908b4691fbdab",
+      "translatedAt": "2026-09-23T10:00:04.452Z"
+    },
+    "1e0426abc892cecf": {
+      "titleZh": "西门子监控控制",
+      "summaryZh": "查看CSAF摘要 在Siveillance Control和Siveillance Control Pro（版本OIS 3.x.y和OIS 4.x.y）的Open Interface Services（OIS）Web模块中发现了一个漏洞。该漏洞允许攻击者上传任意文件，可能导致……",
+      "sourceHash": "ca9ea8609fc105a4",
+      "translatedAt": "2026-09-23T10:00:06.993Z"
+    },
+    "30aad928e8244cb1": {
+      "titleZh": "lwIP TCP/IP 栈 MQTT 客户端应用",
+      "summaryZh": "若成功利用该漏洞，攻击者可能获得设备上的完全代码执行权限。受影响的 lwIP TCP/IP 栈 MQTT 客户端应用版本如下：MQTT 客户端应用 >=2.0.1 | =2.0. 1 | <=2.2.1 产品状态：kn…",
+      "sourceHash": "7db6c442ceda77b5",
+      "translatedAt": "2026-09-23T10:00:10.246Z"
+    },
+    "60efaf744a4d6c2c": {
+      "titleZh": "有效第三方评估的优先事项和原则",
+      "summaryZh": "OpenAI提出了针对前沿模型和安全措施的严格、安全和独立的第三方AI安全评估的优先事项和原则。",
+      "sourceHash": "ec2a402894b0836a",
+      "translatedAt": "2026-09-23T10:00:11.805Z"
+    },
+    "b3e5263fa8976c3c": {
+      "titleZh": "Jev 推出一种新的大语言模型——System One，即决策模型",
+      "summaryZh": "上周 TypeSafe AI 推出了 Jev，这是他们首次提出的新类别模型，他们称之为‘System One 模型’（我同意 Maggie Appleton 的观点，‘决策模型’才是更合适的名称）。Jev 是一种不同于传统大语言模型的有趣变体：它仍然接受……",
+      "sourceHash": "d249c5a54168f88b",
+      "translatedAt": "2026-09-23T10:00:14.830Z"
+    },
+    "697fa797c1d2f96f": {
+      "titleZh": "将 Bedrock Guardrails 事件转换为 OCSF 以 CloudWatch",
+      "summaryZh": "安全团队在调查可能与人工智能相关的安全事件时，需要在现有安全遥测数据之外获取防护栏的干预数据。当防护栏识别或阻止了提示注入尝试，或对敏感数据进行脱敏时，这种干预行为将为调查提供额外的价值。",
+      "sourceHash": "fe80aedcf7c590ba",
+      "translatedAt": "2026-09-23T10:00:17.573Z"
+    },
+    "8377f7a889b77f9e": {
+      "titleZh": "CISA将一个已知被利用的漏洞添加到目录中",
+      "summaryZh": "CISA根据存在活跃利用的证据，将其已知被利用的漏洞（KEV）目录中增加了一个新漏洞。CVE-2026-7273 Zyxel GS1900系列交换机堆栈缓冲区溢出漏洞。此类漏洞是频繁被攻击者利用的攻击向量之一……",
+      "sourceHash": "883ec31d61b42cb3",
+      "translatedAt": "2026-09-23T10:00:20.567Z"
+    },
+    "08ffdb24bebd9aa2": {
+      "titleZh": "数学与人工智能咨询小组",
+      "summaryZh": "OpenAI正与一个独立的数学与人工智能咨询小组合作，以指导对新兴AI成果的审查和传播。",
+      "sourceHash": "cb209f7ba1b3c219",
+      "translatedAt": "2026-09-23T10:00:21.897Z"
+    },
+    "aeff1dc7e91a24bb": {
+      "titleZh": "Windows漏洞利用技术：悬挂的COM对象注册",
+      "summaryZh": "本文简短地介绍了利用微软最近修复的Windows漏洞CVE-2026-66804（我与另外14人报告的）的提权漏洞。该问题是对CVE-2026-50343漏洞（被Calif称为‘暗电梯’漏洞）的一个不完整修复，其根本原因在于一个da…",
+      "sourceHash": "a0b25680aaca8a76",
+      "translatedAt": "2026-09-23T10:00:25.148Z"
+    },
+    "d2871d486c61275a": {
+      "titleZh": "V7如何为AI代理提供机构记忆",
+      "summaryZh": "借助GPT-5.6，V7将分散的公司文件转化为AI代理可以使用的上下文代理，从而完成复杂且与源文件关联的工作。",
+      "sourceHash": "02c4fbc6615eed0a",
+      "translatedAt": "2026-09-23T10:00:26.954Z"
     }
   }
 }

@@ -148,7 +148,8 @@ cp .env.example .env        # 若要中文：填 OLLAMA_MODEL=…
 - **translate 增量**：同一条、原文没变 → 自动 skip；RSS 改了标题/摘要 → 只重译那条。
 - **Ctrl+C**：已译完并写盘的会保留；正在译的那一条可能要再跑一次。
 - **卡 / 占内存**：主要是 Ollama 模型；保持 `TRANSLATE_CONCURRENCY=1`（见 `[.env.example](.env.example)`）。
-- **fetch 最多约 80 条缓存**，首页展示更少；translate **译** `feed-external.json` **里全部条目**（与首页条数无关）。
+- **fetch（拉）**：`maxAgeDays` + 关键词，只决定本次从 RSS 取哪些；与已有 `feed-external.json` 合并后按 `maxItems` 截断缓存。
+- **首页（显）**：读缓存全文，按时间排序，按 `displayMaxItems`（缺省同 `maxItems`）截断；**不用** `maxAgeDays`。translate **译** `feed-external.json` **里全部条目**（与首页条数无关）。
 - **deep-read** `--latest N`：按时间从新到旧扫描**全库**，成功精读 **N 条**后停止；某域名 403/404 后本 run 跳过同域名，继续试其它源（不必再加 `--continue-on-error`）。
 - **deep-read 重算摘要**：`--summarize-only --force-summary`；或删 `feed-deep.json` 里该 id 后 `--summarize-only`。
 - **deep-read 自检裁剪**：`node scripts/deep-read-feed.mjs --self-check`（需样例 `wire-deep/cffee32c5fe965c9.md`）。

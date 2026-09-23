@@ -495,6 +495,177 @@
       "summaryMdEn": "Bransys ELD older versions are vulnerable to hardcoded credentials and plaintext transmission flaws, which could lead to data breaches.\n\n## Key points\n*   Android versions below 11.00.00 and iOS versions below 1.1.54 are affected.\n*   Attackers can read real-time telemetry data and firmware using hardcoded credentials.\n*   Transmission of sensitive information in plaintext allows hackers to connect via proxies and steal data.\n\n## What to do next\n*   Immediately check the system versions on fleet devices and upgrade them to secure versions as soon as possible.\n*   Isolate industrial control system networks and prevent direct exposure to the internet.",
       "summarySourceHash": "69cda410b67a6a7d",
       "translatedAtEn": "2026-09-19T06:45:28.339Z"
+    },
+    "327f7261ab07f686": {
+      "contentHash": "c389c445e02242b3",
+      "summaryMd": "Simon Willison 将于 10 月 14 日在旧金山举办关于智能体工程的非正式聚会。活动旨在分享早期探索与未公开的实验项目，拒绝产品推销。\n\n## 要点\n- 聚焦构建编码智能体的奇特实验与未完成项目。\n- 鼓励展示正在开发的内容，无需准备正式演示文稿。\n- 欢迎讨论尚未公开或没有明显市场的项目成果。\n\n## 行动提示\n- 访问 Luma 链接查看活动详情并决定是否参加。\n- 准备一个你正在进行的智能体项目案例用于交流。",
+      "summarizedAt": "2026-09-23T10:18:14.141Z",
+      "url": "https://simonwillison.net/2026/Sep/23/bof-agentic-engineering/",
+      "summaryMdEn": "Simon Willison is hosting an informal gathering on October 14 in San Francisco focused on agent engineering. The event aims to share early explorations and unreleased experimental projects, with no product pitches allowed.\n\n## Key points\n- Focus on building unique experiments and unfinished projects involving coding agents.\n- Encourages showcasing work-in-progress without the need for formal presentations.\n- Welcomes discussions on project outcomes that are not yet public or lack a clear market fit.\n\n## What to do next\n- Visit the Luma link to view event details and decide whether to attend.\n- Prepare a case study of an agent project you are currently developing for discussion.",
+      "summarySourceHash": "e8aa2beac42543d8",
+      "translatedAtEn": "2026-09-23T10:18:23.313Z"
+    },
+    "6072e1b4b7e2ba7c": {
+      "contentHash": "be6451bae2472efd",
+      "summaryMd": "EvilTokens 是一款被用于大规模设备码钓鱼的 AI 钓鱼平台，已影响超 1.2 万邮箱，覆盖全球超 1 万组织。\n\n- 抢夺设备码授权，绕过多因素认证，实现无密码登录  \n- 用 AI 生成定制化邮件，结合发票、RFP 等主题诱骗用户点击  \n- 威胁组织集中在美、加、英、澳、印、法，行业涉金融、医疗、教育  \n\n若发现可疑邮件，立即检查邮箱是否启用设备码登录。可启用 Microsoft Defender 钓鱼检测，配置邮件规则阻断伪装链接。",
+      "summarizedAt": "2026-09-23T10:02:34.090Z",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/22/unmasking-eviltokens-getting-to-the-root-of-device-code-phishing/",
+      "summaryMdEn": "EvilTokens is an AI-based phishing platform used for large-scale device code fishing, having impacted over 12,000 email accounts and affecting more than 10,000 organizations worldwide.\n\n- Steals device codes to bypass multi-factor authentication, enabling passwordless login  \n- Uses AI to generate personalized emails, leveraging themes such as invoices and RFPs to lure users into clicking malicious links  \n- Targeted sectors include finance, healthcare, and education; threat organizations are concentrated in the United States, Canada, the United Kingdom, Australia, India, and France  \n\nIf you suspect a phishing email, immediately verify whether device code login is enabled in your email account. Enable Microsoft Defender for Email phishing detection and configure email rules to block spoofed links.",
+      "summarySourceHash": "a7492ba1b35198f2",
+      "translatedAtEn": "2026-09-23T10:02:39.385Z"
+    },
+    "27c5d6b01859ae55": {
+      "contentHash": "1115b61da3740d8d",
+      "summaryMd": "Siemens 工业边缘管理产品存在严重身份认证漏洞，攻击者可远程绕过验证直接接管账户。\n\n## 要点  \n- 重置密码无需邮箱验证，攻击者可直接设新密码  \n- 涉及多个版本：Cloud 全版本、Pro V1 1.14.9–1.15.20、Pro V2 2.2.0–2.2.2、Virtual 2.6.0–2.9.1  \n- CVSS 评分 9.1，属严重风险  \n\n## 行动提示  \n- 立即检查系统版本，升级至最新补丁版本  \n- 内部分享该漏洞清单，确保运维团队知晓受影响产品",
+      "summarizedAt": "2026-09-23T10:02:49.404Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-06",
+      "summaryMdEn": "Siemens industrial edge management products contain a severe authentication vulnerability, allowing attackers to bypass authentication and take full control of accounts remotely.\n\n## Key points  \n- Password reset does not require email verification, enabling attackers to set a new password directly  \n- Affects multiple versions: Cloud all versions, Pro V1 1.14.9–1.15.20, Pro V2 2.2.0–2.2.2, Virtual 2.6.0–2.9.1  \n- CVSS score of 9.1, classified as a severe risk  \n\n## What to do next  \n- Immediately check the system version and upgrade to the latest patched version  \n- Share this vulnerability list internally to ensure the operations team is aware of affected products",
+      "summarySourceHash": "6ceaa0838bf04335",
+      "translatedAtEn": "2026-09-23T10:02:54.834Z"
+    },
+    "e3c7e0e08ab6f19d": {
+      "contentHash": "c2bff6eef4338a74",
+      "summaryMd": "OpenPLC Runtime v3 存在跨站脚本漏洞，可被利用劫持会话。\n\n## 要点  \n- 检查设备是否运行 OpenPLC 3 版本  \n- 立即限制网络暴露，隔绝公网访问  \n- 用 VPN 远程访问时，确保设备与客户端均更新  \n\n## 行动提示  \n- 读原文 CVE-2026-88020 详情  \n- 内部分享防火墙策略与访问控制清单",
+      "summarizedAt": "2026-09-23T10:03:02.657Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-09",
+      "summaryMdEn": "OpenPLC Runtime v3 is susceptible to a cross-site scripting (XSS) vulnerability that can be exploited to hijack sessions.\n\n## Key points  \n- Verify whether the device is running OpenPLC version 3  \n- Immediately restrict network exposure and isolate public internet access  \n- When accessing remotely via VPN, ensure both the device and client are updated  \n\n## What to do next  \n- Read the original details of CVE-2026-88020  \n- Share internal firewall policies and access control lists within the organization",
+      "summarySourceHash": "9b07d92d5274d022",
+      "translatedAtEn": "2026-09-23T10:03:06.603Z"
+    },
+    "eba42a3506b305ee": {
+      "contentHash": "bd179354b2fe0c45",
+      "summaryMd": "CISA新增4个被利用漏洞，纳入已知被利用漏洞目录。\n\n## 要点\n- 检查产品是否含CVE-2026-85102、93616、93952、94127  \n- 优先修补CVE列表中暴露资产的高风险漏洞  \n- 评估威胁是否在补丁前已侵入系统  \n\n## 行动提示\n- 读原文确认产品是否在风险列表  \n- 内部分享KEV目录，推动快速响应",
+      "summarizedAt": "2026-09-23T10:03:13.283Z",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/22/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+      "summaryMdEn": "CISA adds 4 exploited vulnerabilities to the Known Exploited Vulnerabilities (KEV) catalog.\n\n## Key points\n- Check if products contain CVE-2026-85102, CVE-2026-93616, CVE-2026-93952, CVE-2026-94127  \n- Prioritize patching high-risk vulnerabilities exposed on assets listed in the CVE catalog  \n- Assess whether threats have already infiltrated systems before patches are applied  \n\n## What to do next\n- Read the original document to confirm whether products are on the risk list  \n- Share the KEV catalog internally to drive rapid response actions",
+      "summarySourceHash": "78fb718728af57ee",
+      "translatedAtEn": "2026-09-23T10:03:18.411Z"
+    },
+    "2830a7fcaaeb3584": {
+      "contentHash": "56973e09708f7bd6",
+      "summaryMd": "lwIP 存在双重释放漏洞，可导致系统崩溃或代码执行。受影响版本为 API 2.0.1 至 2.2.1。\n\n## 要点\n- 利用该双重释放漏洞可致系统崩溃、拒绝服务或内存损坏。\n- CVE-2026-91018 影响 lwIP API 2.0.1 到 2.2.1 的所有版本。\n- 目前暂无公开针对此漏洞的远程利用报告，需隔离控制网络。\n\n## 行动提示\n- 检查工控设备中 lwIP 库版本，若处于受影响范围请立即升级或打补丁。\n- 确保所有控制系统设备不直接暴露于互联网，并部署防火墙进行隔离。",
+      "summarizedAt": "2026-09-23T10:04:12.851Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-02",
+      "summaryMdEn": "lwIP has a double-free vulnerability that can lead to system crashes or code execution. Affected versions are API 2.0.1 through 2.2.1.\n\n## Key points\n- Exploitation of this double-free vulnerability can cause system crashes, denial of service, or memory corruption.\n- CVE-2026-91018 affects all versions of the lwIP API from 2.0.1 to 2.2.1.\n- There are currently no publicly reported remote exploits for this vulnerability; network isolation controls should be implemented.\n\n## What to do next\n- Check the version of the lwIP library in industrial control devices and immediately upgrade or patch if they fall within the affected range.\n- Ensure that all control system devices are not directly exposed to the internet and deploy firewalls to isolate them.",
+      "summarySourceHash": "4f2ab9cb8107b1bc",
+      "translatedAtEn": "2026-09-23T10:04:24.650Z"
+    },
+    "2e43af6896cc3b9f": {
+      "contentHash": "251596be6d6abd7f",
+      "summaryMd": "Siemens WTV676/776 因输入验证漏洞可被强制进入保护模式，导致远程连接中断。\n\n## 要点\n- 检查 WTV676/776 Web 界面版本是否低于 3.94 或 4.17。\n- 未授权攻击者可触发设备进入保护模式并切断 Web 访问。\n- 立即升级至官方发布的最新固件版本以修复 CVE-2026-89207。\n\n## 行动提示\n- 访问 CISA 页面下载 CSAF 文件核对受影响资产清单。\n- 联系 Siemens ProductCERT 获取最新补丁及详细缓解指南。",
+      "summarizedAt": "2026-09-23T10:04:42.533Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-08",
+      "summaryMdEn": "Siemens WTV676/776 can be forced into protection mode, causing remote connection interruptions, due to an input validation vulnerability.\n\n## Key points\n- Check if the WTV676/776 web interface version is below 3.94 or 4.17.\n- Unauthorized attackers can trigger the device to enter protection mode and cut off web access.\n- Immediately upgrade to the latest official firmware version to fix CVE-2026-89207.\n\n## What to do next\n- Visit the CISA page to download the CSAF file and verify the list of affected assets.\n- Contact Siemens ProductCERT for the latest patches and detailed mitigation guidance.",
+      "summarySourceHash": "34838c1aa552e049",
+      "translatedAtEn": "2026-09-23T10:04:52.725Z"
+    },
+    "5897c7f1e9130c0a": {
+      "contentHash": "1869b5bb3ff8aeb2",
+      "summaryMd": "Linux 内核修复了加密算法中因原地操作导致的资源传输漏洞。\n\n## 要点\n- 更新所有版本低于 V21.2.1 的西门子 SIMATIC 和 SIPLUS 产品。\n- 该漏洞允许本地用户通过内存映射读取敏感数据。\n- 受影响设备涵盖 MTP1000、MTP1200 至 MTP2200 系列触摸屏。\n\n## 行动提示\n- 立即检查现场工控系统固件版本是否低于 V21.2.1。\n- 联系西门子官方获取最新补丁并安排停机升级窗口。",
+      "summarizedAt": "2026-09-23T10:05:22.723Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-04",
+      "summaryMdEn": "Linux kernel fixes a resource transfer vulnerability caused by in-place operations within encryption algorithms.\n\n## Key points\n- Update all Siemens SIMATIC and SIPLUS products with versions below V21.2.1.\n- This vulnerability allows local users to read sensitive data via memory mapping.\n- Affected devices include the MTP1000, MTP1200 through MTP2200 series touch panels.\n\n## What to do next\n- Immediately check if the firmware version of on-site industrial control systems is below V21.2.1.\n- Contact Siemens official support to obtain the latest patch and schedule a maintenance window for upgrades.",
+      "summarySourceHash": "42174e83ced596cc",
+      "translatedAtEn": "2026-09-23T10:05:33.354Z"
+    },
+    "2fc28f57f3275c0d": {
+      "contentHash": "b7b325ec209f5839",
+      "summaryMd": "Siemens Desigo CC 家族发现代码执行漏洞，恶意文档可控制客户端。\n受影响版本包括 V6 和 V7，需立即检查并隔离网络访问。\n\n## 要点\n- 检查 V6/V7 版本是否处理含脚本的用户自定义图形文档。\n- 禁止非授权用户打开来源不明的嵌入式脚本图形文件。\n- 将控制系统网络置于防火墙后并隔离于业务网络之外。\n\n## 行动提示\n- 立即扫描内部 Desigo CC 设备，确认无恶意图形文档访问记录。\n- 联系 Siemens ProductCERT 获取最新补丁或缓解配置指南。",
+      "summarizedAt": "2026-09-23T10:05:52.793Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-05",
+      "summaryMdEn": "Code execution vulnerabilities discovered in the Siemens Desigo CC family; malicious documents can control clients. Affected versions include V6 and V7; immediate inspection and isolation of network access are required.\n\n## Key points\n- Check if V6/V7 versions process user-customized graphic documents containing scripts.\n- Prohibit unauthorized users from opening embedded script graphic files from unknown sources.\n- Place the control system network behind a firewall and isolate it from the business network.\n\n## What to do next\n- Immediately scan internal Desigo CC devices to confirm there are no access records for malicious graphic documents.\n- Contact Siemens ProductCERT to obtain the latest patches or mitigation configuration guides.",
+      "summarySourceHash": "0da0e17a73f229f3",
+      "translatedAtEn": "2026-09-23T10:06:03.092Z"
+    },
+    "75702abc871bd7d3": {
+      "contentHash": "f70d9058596a672c",
+      "summaryMd": "Siemens 两款工业软件存在路径遍历漏洞，攻击者可无凭证读取敏感文件。\n\n## 要点\n- 更新 SIMOVE Fleetmanager 和 SIPLANT 至官方发布的最新版本。\n- 检查设备 HTTP 服务是否暴露于公网，立即切断非授权访问。\n- 隔离控制网络并部署防火墙，阻止外部直接连接工业系统。\n\n## 行动提示\n- 核对当前版本号，低于阈值请立即升级补丁。\n- 内部分享 CISA 通告链接，提醒运维团队排查同类风险。",
+      "summarizedAt": "2026-09-23T10:06:21.735Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-07",
+      "summaryMdEn": "Two Siemens industrial software products are vulnerable to path traversal flaws, allowing attackers to read sensitive files without authentication.\n\n## Key points\n- Update SIMOVE Fleetmanager and SIPLANT to the latest official versions.\n- Check if device HTTP services are exposed to the public internet and immediately block unauthorized access.\n- Isolate control networks and deploy firewalls to prevent direct external connections to industrial systems.\n\n## What to do next\n- Verify current version numbers and apply patches immediately if below the threshold.\n- Share the CISA advisory link internally and remind operations teams to investigate similar risks.",
+      "summarySourceHash": "64a093a03b74f996",
+      "translatedAtEn": "2026-09-23T10:06:30.373Z"
+    },
+    "1e0426abc892cecf": {
+      "contentHash": "33849388af964a94",
+      "summaryMd": "Siemens Siveillance Control 存在文件上传漏洞，可致服务器被攻陷。\n\n## 要点\n- 攻击者可上传任意文件获取 OIS 服务器 root 权限。\n- 受影响版本为 V3/V4 系列中版本号低于特定补丁的旧版。\n- 立即升级至最新固件以修复 CVE-2026-50093 漏洞。\n\n## 行动提示\n- 检查设备版本号，确认是否低于文中列出的安全阈值。\n- 访问 CISA 或 Siemens 官网下载并应用官方补丁更新。",
+      "summarizedAt": "2026-09-23T10:08:13.126Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-03",
+      "summaryMdEn": "Siemens Siveillance Control has a file upload vulnerability that can lead to server compromise.\n\n## Key points\n- Attackers can upload arbitrary files to gain root access on OIS servers.\n- Affected versions are older releases in the V3/V4 series with version numbers below specific patch thresholds.\n- Immediately upgrade to the latest firmware to remediate CVE-2026-50093.\n\n## What to do next\n- Check device version numbers to confirm if they fall below the security thresholds listed in this advisory.\n- Visit the CISA or Siemens official websites to download and apply official patch updates.",
+      "summarySourceHash": "b55d34a2312181d1",
+      "translatedAtEn": "2026-09-23T10:08:21.772Z"
+    },
+    "30aad928e8244cb1": {
+      "contentHash": "b29bbd5d69d90e03",
+      "summaryMd": "lwIP MQTT 客户端存在越界写入漏洞，攻击者可获设备完全控制权。\n\n## 要点\n- 检查 lwIP MQTT 客户端版本是否在 2.0.1 至 2.2.1 之间。\n- 漏洞编号为 CVE-2026-87121，CVSS 评分高达 9.8 分。\n- 攻击者利用该漏洞可在无需认证情况下执行任意代码。\n\n## 行动提示\n- 立即隔离受影响设备并限制其网络访问权限。\n- 升级固件至官方发布的修复版本或配置防火墙策略。",
+      "summarizedAt": "2026-09-23T10:08:38.162Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-01",
+      "summaryMdEn": "An out-of-bounds write vulnerability exists in the lwIP MQTT client, allowing attackers to gain full control over the device.\n\n## Key points\n- Check if the lwIP MQTT client version is between 2.0.1 and 2.2.1.\n- The vulnerability is identified as CVE-2026-87121 with a CVSS score of up to 9.8.\n- Attackers can execute arbitrary code without authentication by exploiting this vulnerability.\n\n## What to do next\n- Immediately isolate affected devices and restrict their network access.\n- Upgrade firmware to the official patched version or configure firewall policies.",
+      "summarySourceHash": "f800761dab3663cc",
+      "translatedAtEn": "2026-09-23T10:08:47.356Z"
+    },
+    "60efaf744a4d6c2c": {
+      "contentHash": "4949891639cbcea1",
+      "summaryMd": "OpenAI 提出第三方评估四大重点：安全案例、关键防护、能力评估及事故调查。\n\n## 要点\n- 独立审查需覆盖训练至部署全周期的安全案例与证据。\n- 评估关键防护措施在对抗测试下的鲁棒性与失效点。\n- 确保能力评估覆盖生物、网络等准备性风险阈值定义。\n\n## 行动提示\n- 关注 OpenAI 后续发布的详细评估原则与技术标准文档。\n- 内部分享第三方评估机制对 AI 安全治理的参考价值。",
+      "summarizedAt": "2026-09-23T10:09:06.913Z",
+      "url": "https://openai.com/index/priorities-principles-third-party-assessments",
+      "summaryMdEn": "OpenAI has outlined four key priorities for third-party evaluations: safety cases, critical protections, capability assessments, and incident investigations.\n\n## Key points\n- Independent reviews must cover safety cases and evidence across the entire lifecycle from training to deployment.\n- Assessments should evaluate the robustness and failure points of critical protective measures under adversarial testing.\n- Capability assessments must ensure coverage of preparedness risk thresholds for domains such as biology and cybersecurity.\n\n## What to do next\n- Monitor OpenAI's upcoming detailed documentation on evaluation principles and technical standards.\n- Share internally on how third-party evaluation mechanisms offer valuable insights for AI safety governance.",
+      "summarySourceHash": "2c6f92642ae17028",
+      "translatedAtEn": "2026-09-23T10:09:16.206Z"
+    },
+    "b3e5263fa8976c3c": {
+      "contentHash": "869625f40128c835",
+      "summaryMd": "TypeSafe AI 推出新型“决策模型”Jev，输入文本输出概率数值。\n相比传统 LLM，它仅按输入收费且速度极快，适合分类与排序任务。\n\n## 要点\n- 输入状态对象并发提问，获取置信度分数或选项概率分布。\n- 擅长垃圾邮件检测等分类任务，但不支持数字、日期及对抗内容。\n- 决策模型属黑盒系统，需警惕偏见并依赖结构化实验进行评估。\n\n## 行动提示\n- 阅读 JevBench 基准测试以对比不同决策模型的性能表现。\n- 尝试使用开源项目 Kev 基于 Qwen 3.5 复现本地决策模型。",
+      "summarizedAt": "2026-09-23T10:09:39.141Z",
+      "url": "https://simonwillison.net/2026/Sep/21/jev/",
+      "summaryMdEn": "TypeSafe AI has launched a new \"decision model\" called Jev, which accepts text input and outputs probability values. Unlike traditional LLMs, it charges only for inputs and operates at high speed, making it suitable for classification and ranking tasks.\n\n## Key points\n- Submit concurrent queries using state objects to obtain confidence scores or option probability distributions.\n- Excels at classification tasks such as spam detection but does not support numbers, dates, or adversarial content.\n- Decision models function as black-box systems; users should be wary of biases and rely on structured experiments for evaluation.\n\n## What to do next\n- Read the JevBench benchmark to compare the performance of different decision models.\n- Try replicating a local decision model using the open-source project Kev based on Qwen 3.5.",
+      "summarySourceHash": "8fe0a0c546fab578",
+      "translatedAtEn": "2026-09-23T10:09:51.676Z"
+    },
+    "697fa797c1d2f96f": {
+      "contentHash": "c8118e3d286eff7f",
+      "summaryMd": "AWS Bedrock Guardrails 事件现可转为 OCSF 并汇入 CloudWatch 统一数据湖。\n安全团队能将 AI 拦截信号与身份、网络数据关联分析。\n\n## 要点\n- 将 Bedrock 原始日志通过 Lambda 函数转换为 OCSF 检测记录。\n- 利用 CloudWatch 统一数据湖打破区域与账户间的数据孤岛。\n- 结合 Athena 查询实现跨源关联，识别异常用户或 IP 模式。\n\n## 行动提示\n- 部署自定义转换管道处理 Bedrock Guardrails 干预事件。\n- 使用 Athena 编写联合查询，对比 GuardDuty 发现与其他日志。",
+      "summarizedAt": "2026-09-23T10:10:13.444Z",
+      "url": "https://aws.amazon.com/blogs/security/transforming-bedrock-guardrails-events-into-ocsf-with-cloudwatch/",
+      "summaryMdEn": "AWS Bedrock Guardrails events can now be converted to OCSF and ingested into a unified CloudWatch data lake. Security teams can correlate AI interception signals with identity and network data.\n\n## Key points\n- Convert raw Bedrock logs to OCSF detection records using Lambda functions.\n- Leverage the CloudWatch unified data lake to break down data silos across regions and accounts.\n- Implement cross-source correlation using Athena queries to identify anomalous user or IP patterns.\n\n## What to do next\n- Deploy a custom conversion pipeline to process Bedrock Guardrails intervention events.\n- Use Athena to write joint queries that compare GuardDuty findings with other logs.",
+      "summarySourceHash": "cebce97191ed7366",
+      "translatedAtEn": "2026-09-23T10:10:23.526Z"
+    },
+    "8377f7a889b77f9e": {
+      "contentHash": "f9b51d5ed2f6ba51",
+      "summaryMd": "CISA 新增 CVE-2026-7273 至 KEV 目录，涉及 Zyxel 交换机栈缓冲区溢出漏洞。\n该漏洞允许攻击者获取系统完全控制权，联邦机构需优先修补。\n\n## 要点\n*   关注 Zyxel GS1900 系列交换机栈基缓冲区溢出风险。\n*   依据 BOD 26-04 指令优先修复 KEV 目录中的高危漏洞。\n*   所有组织应采纳基于风险的漏洞管理策略并快速响应。\n\n## 行动提示\n*   检查网络中是否存在 Zyxel GS1900 系列交换机设备。\n*   访问 CISA 官网提交疑似被利用但未收录的漏洞信息。",
+      "summarizedAt": "2026-09-23T10:14:11.826Z",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/21/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "summaryMdEn": "CISA has added CVE-2026-7273 to the KEV catalog, involving a stack buffer overflow vulnerability in Zyxel switches. This vulnerability allows attackers to gain full control of the system, requiring federal agencies to prioritize remediation.\n\n## Key points\n*   Focus on stack buffer overflow risks for Zyxel GS1900 series switches.\n*   Prioritize remediation of high-severity vulnerabilities in the KEV catalog per BOD 26-04 directive.\n*   All organizations should adopt risk-based vulnerability management strategies and respond quickly.\n\n## What to do next\n*   Check your network for Zyxel GS1900 series switch devices.\n*   Visit the CISA website to submit information on suspected exploits not yet included in the catalog.",
+      "summarySourceHash": "3090ee8edb3247d1",
+      "translatedAtEn": "2026-09-23T10:14:23.085Z"
+    },
+    "08ffdb24bebd9aa2": {
+      "contentHash": "05728a64889ea97d",
+      "summaryMd": "8 月 28 日，OpenAI 新模型已解决纳维 - 斯托克斯等百余个数学难题。\n\n## 要点\n- 建立独立顾问组听取数学家对 AI 解决难题的负面外部性批评。\n- 顾问组将协助评估成果意义并指导学术传播标准。\n- 成员不领薪且可公开建议，确保独立判断不受公司干预。\n\n## 行动提示\n- 阅读 OpenAI 关于纳维 - 斯托克斯问题的官方解决方案链接。\n- 关注数学家社区对 AI 解决数学问题伦理边界的讨论动态。",
+      "summarizedAt": "2026-09-23T10:14:38.106Z",
+      "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai",
+      "summaryMdEn": "On August 28, OpenAI's new model reportedly solved over a hundred mathematical problems, including the Navier-Stokes equations.\n\n## Key points\n- Establish an independent advisory panel to hear criticisms from mathematicians regarding negative externalities of AI solving complex problems.\n- The advisory panel will assist in evaluating the significance of these achievements and guide academic dissemination standards.\n- Members serve without compensation and can offer public advice, ensuring their independent judgment remains free from company interference.\n\n## What to do next\n- Read OpenAI's official solution link regarding the Navier-Stokes problem.\n- Follow discussions within the mathematical community on the ethical boundaries of AI solving mathematical problems.",
+      "summarySourceHash": "f9f6166c7e405af8",
+      "translatedAtEn": "2026-09-23T10:14:48.313Z"
+    },
+    "aeff1dc7e91a24bb": {
+      "contentHash": "299a6a56c7cacbb4",
+      "summaryMd": "微软修复了 CVE-2026-66804，但遗留的 COM 对象注册仍允许提权。\n\n## 要点\n- 利用缺失 DLL 路径创建恶意文件触发任意代码执行。\n- 通过自定义 COM 反序列化机制将恶意 CLSID 注入特权进程。\n- 扫描 `combase` 全局变量寻找未启用自定义反序列化的系统服务。\n\n## 行动提示\n- 检查系统是否开启 `EOAC_NO_CUSTOM_MARSHAL` 缓解措施。\n- 监控 `%PROGRAMDATA%\\CrossDevice\\` 目录下的异常 DLL 创建行为。",
+      "summarizedAt": "2026-09-23T10:15:10.480Z",
+      "url": "https://projectzero.google/2026/09/windows-dangling-com.html",
+      "summaryMdEn": "Microsoft patched CVE-2026-66804, but legacy COM object registrations still allow privilege escalation.\n\n## Key points\n- Exploiting missing DLL paths to create malicious files triggers arbitrary code execution.\n- Injecting malicious CLSIDs into privileged processes via custom COM deserialization mechanisms.\n- Scanning the `combase` global variable for system services with disabled custom deserialization.\n\n## What to do next\n- Verify that the `EOAC_NO_CUSTOM_MARSHAL` mitigation is enabled on the system.\n- Monitor the `%PROGRAMDATA%\\CrossDevice\\` directory for anomalous DLL creation behavior.",
+      "summarySourceHash": "31e33a918c35f322",
+      "translatedAtEn": "2026-09-23T10:15:20.279Z"
+    },
+    "d2871d486c61275a": {
+      "contentHash": "52f104f4d906f15a",
+      "summaryMd": "V7 Go 通过“情境图”让 AI 代理记住企业历史与业务逻辑。\n它连接分散数据，将复杂流程从数小时压缩至分钟级完成。\n\n## 要点\n- 构建情境图，扫描 SharePoint 等源文件，低成本存储实体关系。\n- 混合调用 GPT‑5.6 Luna/Terra/Sol，处理高吞吐与复杂推理任务。\n- 资产经理筛选交易提速 21 倍，金融团队审查时间缩短超 90%。\n\n## 行动提示\n- 内部分享：评估现有文档流程痛点，对比 V7 情境图架构优势。\n- 监测指标：关注多步骤工具调用错误率及长上下文检索准确率。",
+      "summarizedAt": "2026-09-23T10:15:44.262Z",
+      "url": "https://openai.com/index/v7",
+      "summaryMdEn": "V7 Go enables AI agents to remember enterprise history and business logic through \"Context Graphs.\" It connects scattered data, compressing complex workflows from hours to minutes.\n\n## Key points\n- Build context graphs to scan source files such as SharePoint for low-cost storage of entity relationships.\n- Hybridly invoke GPT‑5.6 Luna/Terra/Sol to handle high-throughput and complex reasoning tasks.\n- Asset managers screen transactions 21 times faster, while financial teams reduce review time by over 90%.\n\n## What to do next\n- Internal sharing: Evaluate pain points in existing document workflows and compare them with the advantages of the V7 Context Graph architecture.\n- Monitor metrics: Focus on multi-step tool invocation error rates and long-context retrieval accuracy.",
+      "summarySourceHash": "fa536a28373e8c89",
+      "translatedAtEn": "2026-09-23T10:15:55.225Z"
     }
   }
 }

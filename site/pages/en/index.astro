@@ -19,6 +19,9 @@ const digests = await getCollection('enDigests');
 const wire = await loadExternalWireItems();
 const wireDeep = await loadFeedDeep();
 
+const displayMaxItems =
+	feedsConfig.displayMaxItems ?? feedsConfig.maxItems ?? undefined;
+
 const feed = buildFeed({
 	base,
 	locale: 'en',
@@ -27,6 +30,7 @@ const feed = buildFeed({
 	wire,
 	wireDeep,
 	renderDescription: renderMarkdown,
+	displayMaxItems,
 });
 
 const wireTabs = wireSourceTabs(feed, feedsConfig.feeds);

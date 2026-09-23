@@ -21,6 +21,9 @@ const wire = await loadExternalWireItems();
 const wireI18n = await loadFeedI18n();
 const wireDeep = await loadFeedDeep();
 
+const displayMaxItems =
+	feedsConfig.displayMaxItems ?? feedsConfig.maxItems ?? undefined;
+
 const feed = buildFeed({
 	base,
 	locale: 'zh',
@@ -30,6 +33,7 @@ const feed = buildFeed({
 	wireI18n,
 	wireDeep,
 	renderDescription: renderMarkdown,
+	displayMaxItems,
 });
 
 const wireTabs = wireSourceTabs(feed, feedsConfig.feeds);

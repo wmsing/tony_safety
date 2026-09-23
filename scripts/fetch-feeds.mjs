@@ -86,6 +86,16 @@ async function loadConfig() {
   return JSON.parse(raw);
 }
 
+async function loadExistingItems() {
+  try {
+    const raw = await readFile(outPath, 'utf8');
+    const data = JSON.parse(raw);
+    return Array.isArray(data.items) ? data.items : [];
+  } catch {
+    return [];
+  }
+}
+
 async function fetchFeed(
   feed,
   globalKeywords,
@@ -166,6 +176,13 @@ async function main() {
     }),
   );
 
+  const freshMatched = byUrl.size;
+  if (!preview) {
+    for (const item of await loadExistingItems()) {
+      if (item?.url && !byUrl.has(item.url)) byUrl.set(item.url, item);
+    }
+  }
+
   const items = [...byUrl.values()]
     .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
     .slice(0, maxItems);
@@ -204,7 +221,7 @@ async function main() {
   await writeFile(outPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
   console.log(
     `[fetch-feeds] wrote ${items.length} items → data/feed-external.json` +
-      (maxAgeDays ? ` (maxAgeDays=${maxAgeDays})` : ''),
+      (maxAgeDays ? ` (fetch window maxAgeDays=${maxAgeDays}, fresh=${freshMatched})` : ''),
   );
 }
 
