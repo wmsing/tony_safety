@@ -1,6 +1,15 @@
 {
-  "fetchedAt": "2026-09-23T09:34:40.378Z",
+  "fetchedAt": "2026-09-23T16:31:42.147Z",
   "items": [
+    {
+      "id": "6593fc9382c847ff",
+      "title": "Supporting ASD’s multi-factor authentication campaign: Why MFA matters more than ever",
+      "summary": "The Australian Signals Directorate (ASD) has this month issued a clear call to action through its Multi-factor authentication: Switch it on campaign, urging businesses, organisations, and individuals to enable multi-factor authentication (MFA) across their online accounts. At AW…",
+      "url": "https://aws.amazon.com/blogs/security/supporting-asds-multi-factor-authentication-campaign-why-mfa-matters-more-than-ever/",
+      "publishedAt": "2026-09-23T14:45:44.000Z",
+      "sourceId": "rss:aws_security",
+      "sourceLabel": "AWS Security"
+    },
     {
       "id": "327f7261ab07f686",
       "title": "SF October 14th: A Birds of a Feather Session on Agentic Engineering",
@@ -137,15 +146,6 @@
       "sourceLabel": "AWS Security"
     },
     {
-      "id": "8377f7a889b77f9e",
-      "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-      "summary": "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-7273 Zyxel GS1900 Series Switches Stack-Based Buffer Overflow Vulnerability This type of vulnerability is a frequent attack vector for ma…",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/09/21/cisa-adds-one-known-exploited-vulnerability-catalog",
-      "publishedAt": "2026-09-21T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
       "id": "08ffdb24bebd9aa2",
       "title": "Advisory Group on Mathematics and Artificial Intelligence",
       "summary": "OpenAI is working with an independent Advisory Group on Mathematics and Artificial Intelligence to guide the review and communication of emerging AI results.",
@@ -153,6 +153,15 @@
       "publishedAt": "2026-09-21T12:00:00.000Z",
       "sourceId": "rss:openai",
       "sourceLabel": "OpenAI"
+    },
+    {
+      "id": "8377f7a889b77f9e",
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+      "summary": "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-7273 Zyxel GS1900 Series Switches Stack-Based Buffer Overflow Vulnerability This type of vulnerability is a frequent attack vector for ma…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/21/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "publishedAt": "2026-09-21T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
     },
     {
       "id": "aeff1dc7e91a24bb",

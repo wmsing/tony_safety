@@ -503,7 +503,9 @@
       "url": "https://simonwillison.net/2026/Sep/23/bof-agentic-engineering/",
       "summaryMdEn": "Simon Willison is hosting an informal gathering on October 14 in San Francisco focused on agent engineering. The event aims to share early explorations and unreleased experimental projects, with no product pitches allowed.\n\n## Key points\n- Focus on building unique experiments and unfinished projects involving coding agents.\n- Encourages showcasing work-in-progress without the need for formal presentations.\n- Welcomes discussions on project outcomes that are not yet public or lack a clear market fit.\n\n## What to do next\n- Visit the Luma link to view event details and decide whether to attend.\n- Prepare a case study of an agent project you are currently developing for discussion.",
       "summarySourceHash": "e8aa2beac42543d8",
-      "translatedAtEn": "2026-09-23T10:18:23.313Z"
+      "translatedAtEn": "2026-09-23T10:18:23.313Z",
+      "bodyZhContentHash": "c389c445e02242b3",
+      "translatedBodyAt": "2026-09-23T16:54:51.773Z"
     },
     "6072e1b4b7e2ba7c": {
       "contentHash": "be6451bae2472efd",
@@ -668,6 +670,17 @@
       "summaryMdEn": "V7 Go enables AI agents to remember enterprise history and business logic through \"Context Graphs.\" It connects scattered data, compressing complex workflows from hours to minutes.\n\n## Key points\n- Build context graphs to scan source files such as SharePoint for low-cost storage of entity relationships.\n- Hybridly invoke GPT‑5.6 Luna/Terra/Sol to handle high-throughput and complex reasoning tasks.\n- Asset managers screen transactions 21 times faster, while financial teams reduce review time by over 90%.\n\n## What to do next\n- Internal sharing: Evaluate pain points in existing document workflows and compare them with the advantages of the V7 Context Graph architecture.\n- Monitor metrics: Focus on multi-step tool invocation error rates and long-context retrieval accuracy.",
       "summarySourceHash": "fa536a28373e8c89",
       "translatedAtEn": "2026-09-23T10:15:55.225Z"
+    },
+    "6593fc9382c847ff": {
+      "contentHash": "5aa80e92030296ce",
+      "summaryMd": "澳大利亚信号局呼吁全员开启多因素认证，AWS 全力支持。\n\n## 要点\n- AWS 于 2025 年 6 月对所有账户根用户强制启用 MFA。\n- 开启 MFA 可阻挡超 99% 密码相关攻击且无需额外费用。\n- 必须为邮箱、代码库等外部服务同步启用防钓鱼认证。\n\n## 行动提示\n- 立即检查并开启你所有在线账户的多因素认证。\n- 优先配置 FIDO2 通行密钥或安全密钥以增强防护。",
+      "summarizedAt": "2026-09-23T16:53:30.108Z",
+      "url": "https://aws.amazon.com/blogs/security/supporting-asds-multi-factor-authentication-campaign-why-mfa-matters-more-than-ever/",
+      "summaryMdEn": "Australian Signals Directorate urges all personnel to enable multi-factor authentication, with full support from AWS.\n\n## Key points\n- AWS will enforce MFA for all account root users starting in June 2025.\n- Enabling MFA can block over 99% of password-related attacks at no additional cost.\n- Anti-phishing authentication must also be enabled for external services such as email and code repositories.\n\n## What to do next\n- Immediately check and enable multi-factor authentication on all your online accounts.\n- Prioritize configuring FIDO2 security keys or hardware security keys to enhance protection.",
+      "summarySourceHash": "8a3caaf4a0379569",
+      "translatedAtEn": "2026-09-23T16:53:38.556Z",
+      "bodyZhContentHash": "5aa80e92030296ce",
+      "translatedBodyAt": "2026-09-23T16:54:35.935Z"
     }
   }
 }
