@@ -681,6 +681,15 @@
       "translatedAtEn": "2026-09-23T16:53:38.556Z",
       "bodyZhContentHash": "5aa80e92030296ce",
       "translatedBodyAt": "2026-09-23T16:54:35.935Z"
+    },
+    "c7a3d4c3889b010c": {
+      "contentHash": "3abd3995d408935b",
+      "summaryMd": "微软追踪到勒索软件团伙 Storm-2570 跨多个生态使用一致手法。仅看载荷会掩盖攻击者真实行为与重复特征。\n\n## 要点\n*   该团伙在 Qilin、DragonForce 等系统中复用相同远程访问工具。\n*   攻击链依赖 Atera、MeshAgent 等 RMM 工具进行横向移动与持久化。\n*   通过隧道工具如 Cloudflared.exe 建立加密外联通道以绕过防火墙。\n\n## 行动提示\n*   部署针对 MeshAgent、NinjaRMM 及 Splashtop 的异常行为检测规则。\n*   立即审查内网中是否存在被重命名或 Base64 编码的 RMM 进程。",
+      "summarizedAt": "2026-09-24T17:45:16.896Z",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/24/beyond-ransomware-tracking-storm-2570-consistent-tradecraft-across-deployments/",
+      "summaryMdEn": "Microsoft has identified that the Storm-2570 ransomware gang employs consistent tactics across multiple ecosystems. Analyzing only the payload can obscure the attacker's true behavior and recurring characteristics.\n\n## Key points\n*   The group reuses identical remote access tools within systems such as Qilin and DragonForce.\n*   The attack chain relies on RMM tools like Atera and MeshAgent for lateral movement and persistence.\n*   Encrypted outbound tunnels are established using tunneling tools like Cloudflared.exe to bypass firewalls.\n\n## What to do next\n*   Deploy anomaly detection rules targeting MeshAgent, NinjaRMM, and Splashtop.\n*   Immediately review the internal network for RMM processes that have been renamed or Base64 encoded.",
+      "summarySourceHash": "5eb48f218ba388c5",
+      "translatedAtEn": "2026-09-24T17:45:27.221Z"
     }
   }
 }

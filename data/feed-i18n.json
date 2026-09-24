@@ -648,6 +648,54 @@
       "summaryZh": "澳大利亚信号局（ASD）本月通过其‘多因素认证：立即开启’活动，明确呼吁企业、组织和个人在其在线账户上启用多因素认证（MFA）。在AW……",
       "sourceHash": "f674116733fe2640",
       "translatedAt": "2026-09-23T16:48:43.871Z"
+    },
+    "c7a3d4c3889b010c": {
+      "titleZh": "超越勒索软件：追踪Storm-2570在不同部署中的一致性攻击手法",
+      "summaryZh": "Storm-2570是一种勒索软件团伙，其在针对Qilin、DragonForce、Anubis和BERT勒索软件的各个部署中，均使用一致的攻击工具和手法，本文提供了防御者在勒索软件部署前检测和中断该活动的指导。",
+      "sourceHash": "52a429ce9b42c788",
+      "translatedAt": "2026-09-24T17:25:34.401Z"
+    },
+    "f9fa639218581b53": {
+      "titleZh": "微软安全最新动态：2026年9月",
+      "summaryZh": "本月更新帮助您发现和控制本地AI代理，将零信任扩展到代理流量，并加强安全运营中心（SOC）的基础。文章《微软安全最新动态：2026年9月》首次发表于微软安全博客。",
+      "sourceHash": "42d2b656d4bc013b",
+      "translatedAt": "2026-09-24T17:25:36.711Z"
+    },
+    "2f1910289d0ad2a2": {
+      "titleZh": "Botslab G980H 监控摄像头",
+      "summaryZh": "查看CSAF摘要 若成功利用这些漏洞，攻击者可能绕过身份验证控制，未经授权访问敏感数据和特权设备功能，修改设备配置，干扰设备运行。以下版本……",
+      "sourceHash": "fc90a0fe9c3d984b",
+      "translatedAt": "2026-09-24T17:25:38.579Z"
+    },
+    "d37255785eac8b01": {
+      "titleZh": "西门子Mendix运行时（更新A）",
+      "summaryZh": "查看CSAF摘要 本通告已被撤销。重新调查确认报告的行为是预期的平台配置，不会暴露受保护的属性。受影响的西门子Mendix运行时版本为：西门子Mendix运行时版本：所有/*（CVE-2026…",
+      "sourceHash": "7e4ef097ce8be1a2",
+      "translatedAt": "2026-09-24T17:25:41.127Z"
+    },
+    "7075b981cb319001": {
+      "titleZh": "Eufy Omni C20，Omni X10 Pro",
+      "summaryZh": "若成功利用这些漏洞，攻击者可能能够执行系统级命令或运行任意代码。受影响的Eufy Omni C20、Omni X10 Pro版本如下：Omni C20 <1.6.4（CVE-2026-93289，CVE-2026-93290，CVE-2026-93291）…",
+      "sourceHash": "943fcf3d0b042474",
+      "translatedAt": "2026-09-24T17:25:44.610Z"
+    },
+    "347b65ce144a221e": {
+      "titleZh": "萨姆·阿尔特曼在联合国安全理事会的发言",
+      "summaryZh": "开放人工智能公司首席执行官萨姆·阿尔特曼在联合国安全理事会的发言中讨论了人工智能安全、人类控制以及国际合作。",
+      "sourceHash": "ea2645ae1330aa9b",
+      "translatedAt": "2026-09-24T17:25:46.179Z"
+    },
+    "4e56c7312349a760": {
+      "titleZh": "Ringg的AI代理使用OpenAI可解决高达65%的客户通话",
+      "summaryZh": "通过使用GPT-5.6，Ringg在语音、聊天、WhatsApp和网页等多语言场景下部署AI代理，成本比GPT-4.1低90%。",
+      "sourceHash": "9d32dae1c614cc85",
+      "translatedAt": "2026-09-24T17:25:48.294Z"
+    },
+    "2aa1989c56b2a4e9": {
+      "titleZh": "与第三方工业控制系统集成商合作的临界基础设施运营者需考虑的事项",
+      "summaryZh": "引言 美国联邦调查局（FBI）和网络安全与基础设施安全局（CISA）——以下简称“发布机构”——发布了本事实简报，旨在突出临界基础设施实体在降低风险方面需要考虑的事项……",
+      "sourceHash": "cdc40605cb7e0c67",
+      "translatedAt": "2026-09-24T17:25:50.673Z"
     }
   }
 }

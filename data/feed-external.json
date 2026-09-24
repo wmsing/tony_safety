@@ -1,6 +1,51 @@
 {
-  "fetchedAt": "2026-09-23T16:31:42.147Z",
+  "fetchedAt": "2026-09-24T17:21:28.130Z",
   "items": [
+    {
+      "id": "c7a3d4c3889b010c",
+      "title": "Beyond the ransomware: Tracking Storm-2570’s consistent tradecraft across deployments",
+      "summary": "Storm-2570 is a ransomware affiliate that uses consistent post-compromise tools and techniques across deployments involving Qilin, DragonForce, Anubis, and BERT ransomware, and provides guidance to help defenders detect and disrupt this activity before ransomware deployment. The…",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/24/beyond-ransomware-tracking-storm-2570-consistent-tradecraft-across-deployments/",
+      "publishedAt": "2026-09-24T16:00:00.000Z",
+      "sourceId": "rss:microsoft_security",
+      "sourceLabel": "Microsoft Security"
+    },
+    {
+      "id": "f9fa639218581b53",
+      "title": "​​​​​​​​What’s new in Microsoft Security: September 2026​​",
+      "summary": "This month's updates help you discover and control local AI agents, extend Zero Trust to agent traffic, and strengthen SOC foundations. The post ​​​​​​​​What’s new in Microsoft Security: September 2026​​ appeared first on Microsoft Security Blog.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/24/whats-new-in-microsoft-security-september-2026/",
+      "publishedAt": "2026-09-24T16:00:00.000Z",
+      "sourceId": "rss:microsoft_security",
+      "sourceLabel": "Microsoft Security"
+    },
+    {
+      "id": "2f1910289d0ad2a2",
+      "title": "Botslab G980H Dashcams",
+      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to bypass authentication controls, gain unauthorized access to sensitive data and privileged device functionality, modify device configuration, disrupt device operation. The following vers…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-01",
+      "publishedAt": "2026-09-24T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "d37255785eac8b01",
+      "title": "Siemens Mendix Runtime (Update A)",
+      "summary": "View CSAF Summary This advisory is revoked. Re-investigation confirmed the reported behavior is expected platform configuration and does not expose the protected attribute. The following versions of Siemens Mendix Runtime are affected: Siemens Mendix Runtime vers:all/* (CVE-2026…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-209-02",
+      "publishedAt": "2026-09-24T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "7075b981cb319001",
+      "title": "Eufy Omni C20, Omni X10 Pro",
+      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to run system level commands or execute arbitrary code. The following versions of Eufy Omni C20, Omni X10 Pro are affected: Omni C20 <1.6.4 (CVE-2026-93289, CVE-2026-93290, CVE-2026-93291)…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-02",
+      "publishedAt": "2026-09-24T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
     {
       "id": "6593fc9382c847ff",
       "title": "Supporting ASD’s multi-factor authentication campaign: Why MFA matters more than ever",
@@ -9,6 +54,33 @@
       "publishedAt": "2026-09-23T14:45:44.000Z",
       "sourceId": "rss:aws_security",
       "sourceLabel": "AWS Security"
+    },
+    {
+      "id": "347b65ce144a221e",
+      "title": "Sam Altman’s remarks at the United Nations Security Council",
+      "summary": "OpenAI CEO Sam Altman discusses AI safety, human control, and international cooperation in remarks to the United Nations Security Council.",
+      "url": "https://openai.com/index/sam-altman-un-security-council-remarks",
+      "publishedAt": "2026-09-23T12:00:00.000Z",
+      "sourceId": "rss:openai",
+      "sourceLabel": "OpenAI"
+    },
+    {
+      "id": "4e56c7312349a760",
+      "title": "Ringg’s AI agents resolve up to 65% of customer calls with OpenAI",
+      "summary": "Using GPT-5.6, Ringg powers multilingual agents across voice, chat, WhatsApp, and web for 90% less cost vs. GPT-4.1.",
+      "url": "https://openai.com/index/ringg",
+      "publishedAt": "2026-09-23T12:00:00.000Z",
+      "sourceId": "rss:openai",
+      "sourceLabel": "OpenAI"
+    },
+    {
+      "id": "2aa1989c56b2a4e9",
+      "title": "Considerations for Critical Infrastructure Operators Working With Third-Party ICS Integrators",
+      "summary": "Introduction The Federal Bureau of Investigation (FBI) and Cybersecurity and Infrastructure Security Agency (CISA)—hereafter referred to as the “authoring agencies”—have published this fact sheet to highlight considerations for critical infrastructure entities to reduce risk and…",
+      "url": "https://www.cisa.gov/resources-tools/resources/considerations-critical-infrastructure-operators-working-third-party-ics-integrators",
+      "publishedAt": "2026-09-23T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
     },
     {
       "id": "327f7261ab07f686",
@@ -29,37 +101,10 @@
       "sourceLabel": "Microsoft Security"
     },
     {
-      "id": "27c5d6b01859ae55",
-      "title": "Siemens Industrial Edge Management",
-      "summary": "View CSAF Summary Industrial Edge Management contains an authentication bypass vulnerability that could allow an unauthenticated remote attacker to perform full account takeover by resetting user credentials without completing email verification. Siemens has released new version…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-06",
-      "publishedAt": "2026-09-22T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "e3c7e0e08ab6f19d",
-      "title": "OpenPLC Runtime v3",
-      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to hijack session cookies and issue state-changing requests as an operator which would allow the attacker to control the programmable logic controller and the physical processes it drives. Th…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-09",
-      "publishedAt": "2026-09-22T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "eba42a3506b305ee",
-      "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
-      "summary": "CISA has added four new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-85102 Check Point Multiple Products Improper Certificate Validation Vulnerability CVE-2026-93616 Check Point Multiple Products Path Tr…",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/09/22/cisa-adds-four-known-exploited-vulnerabilities-catalog",
-      "publishedAt": "2026-09-22T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
-      "id": "2830a7fcaaeb3584",
-      "title": "lwIP (Lightweight IP)",
-      "summary": "View CSAF Summary Successful exploitation of this vulnerability could result in a system crash, a DoS, or memory corruption, which could lead to code execution on the victim system. The following versions of lwIP (Lightweight IP) are affected: API >=2.0.1| =2.0.1|<=2.2.1 Product…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-02",
+      "id": "2fc28f57f3275c0d",
+      "title": "Siemens Desigo CC family",
+      "summary": "View CSAF Summary A Client Code Execution (CCE) vulnerability has been identified in Desigo CC, potentially allowing malicious actors to execute arbitrary code on client devices through specially crafted graphics documents. This vulnerability leverages user-defined graphics cont…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-05",
       "publishedAt": "2026-09-22T12:00:00.000Z",
       "sourceId": "rss:cisa",
       "sourceLabel": "CISA"
@@ -74,19 +119,28 @@
       "sourceLabel": "CISA"
     },
     {
-      "id": "5897c7f1e9130c0a",
-      "title": "Siemens SIPLUS and SIMATIC Products",
-      "summary": "View CSAF Summary Multiple Siemens products are vulnerable to the \"Copy Fail\" vulnerability. Siemens has released new versions for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends specific counter…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-04",
+      "id": "30aad928e8244cb1",
+      "title": "lwIP TCP/IP Stack MQTT Client Application",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to gain full code execution on the device. The following versions of lwIP TCP/IP Stack MQTT Client Application are affected: MQTT Client Application >=2.0.1| =2.0.1|<=2.2.1 Product Status: kn…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-01",
       "publishedAt": "2026-09-22T12:00:00.000Z",
       "sourceId": "rss:cisa",
       "sourceLabel": "CISA"
     },
     {
-      "id": "2fc28f57f3275c0d",
-      "title": "Siemens Desigo CC family",
-      "summary": "View CSAF Summary A Client Code Execution (CCE) vulnerability has been identified in Desigo CC, potentially allowing malicious actors to execute arbitrary code on client devices through specially crafted graphics documents. This vulnerability leverages user-defined graphics cont…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-05",
+      "id": "eba42a3506b305ee",
+      "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+      "summary": "CISA has added four new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-85102 Check Point Multiple Products Improper Certificate Validation Vulnerability CVE-2026-93616 Check Point Multiple Products Path Tr…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/22/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "5897c7f1e9130c0a",
+      "title": "Siemens SIPLUS and SIMATIC Products",
+      "summary": "View CSAF Summary Multiple Siemens products are vulnerable to the \"Copy Fail\" vulnerability. Siemens has released new versions for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends specific counter…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-04",
       "publishedAt": "2026-09-22T12:00:00.000Z",
       "sourceId": "rss:cisa",
       "sourceLabel": "CISA"
@@ -110,10 +164,28 @@
       "sourceLabel": "CISA"
     },
     {
-      "id": "30aad928e8244cb1",
-      "title": "lwIP TCP/IP Stack MQTT Client Application",
-      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to gain full code execution on the device. The following versions of lwIP TCP/IP Stack MQTT Client Application are affected: MQTT Client Application >=2.0.1| =2.0.1|<=2.2.1 Product Status: kn…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-01",
+      "id": "27c5d6b01859ae55",
+      "title": "Siemens Industrial Edge Management",
+      "summary": "View CSAF Summary Industrial Edge Management contains an authentication bypass vulnerability that could allow an unauthenticated remote attacker to perform full account takeover by resetting user credentials without completing email verification. Siemens has released new version…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-06",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "2830a7fcaaeb3584",
+      "title": "lwIP (Lightweight IP)",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could result in a system crash, a DoS, or memory corruption, which could lead to code execution on the victim system. The following versions of lwIP (Lightweight IP) are affected: API >=2.0.1| =2.0.1|<=2.2.1 Product…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-02",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "e3c7e0e08ab6f19d",
+      "title": "OpenPLC Runtime v3",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to hijack session cookies and issue state-changing requests as an operator which would allow the attacker to control the programmable logic controller and the physical processes it drives. Th…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-09",
       "publishedAt": "2026-09-22T12:00:00.000Z",
       "sourceId": "rss:cisa",
       "sourceLabel": "CISA"
