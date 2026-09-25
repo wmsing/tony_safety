@@ -514,7 +514,9 @@
       "url": "https://www.microsoft.com/en-us/security/blog/2026/09/22/unmasking-eviltokens-getting-to-the-root-of-device-code-phishing/",
       "summaryMdEn": "EvilTokens is an AI-based phishing platform used for large-scale device code fishing, having impacted over 12,000 email accounts and affecting more than 10,000 organizations worldwide.\n\n- Steals device codes to bypass multi-factor authentication, enabling passwordless login  \n- Uses AI to generate personalized emails, leveraging themes such as invoices and RFPs to lure users into clicking malicious links  \n- Targeted sectors include finance, healthcare, and education; threat organizations are concentrated in the United States, Canada, the United Kingdom, Australia, India, and France  \n\nIf you suspect a phishing email, immediately verify whether device code login is enabled in your email account. Enable Microsoft Defender for Email phishing detection and configure email rules to block spoofed links.",
       "summarySourceHash": "a7492ba1b35198f2",
-      "translatedAtEn": "2026-09-23T10:02:39.385Z"
+      "translatedAtEn": "2026-09-23T10:02:39.385Z",
+      "bodyZhContentHash": "be6451bae2472efd",
+      "translatedBodyAt": "2026-09-25T01:20:15.712Z"
     },
     "27c5d6b01859ae55": {
       "contentHash": "1115b61da3740d8d",
@@ -577,7 +579,9 @@
       "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-05",
       "summaryMdEn": "Code execution vulnerabilities discovered in the Siemens Desigo CC family; malicious documents can control clients. Affected versions include V6 and V7; immediate inspection and isolation of network access are required.\n\n## Key points\n- Check if V6/V7 versions process user-customized graphic documents containing scripts.\n- Prohibit unauthorized users from opening embedded script graphic files from unknown sources.\n- Place the control system network behind a firewall and isolate it from the business network.\n\n## What to do next\n- Immediately scan internal Desigo CC devices to confirm there are no access records for malicious graphic documents.\n- Contact Siemens ProductCERT to obtain the latest patches or mitigation configuration guides.",
       "summarySourceHash": "0da0e17a73f229f3",
-      "translatedAtEn": "2026-09-23T10:06:03.092Z"
+      "translatedAtEn": "2026-09-23T10:06:03.092Z",
+      "bodyZhContentHash": "b7b325ec209f5839",
+      "translatedBodyAt": "2026-09-25T01:22:19.868Z"
     },
     "75702abc871bd7d3": {
       "contentHash": "f70d9058596a672c",
@@ -689,7 +693,86 @@
       "url": "https://www.microsoft.com/en-us/security/blog/2026/09/24/beyond-ransomware-tracking-storm-2570-consistent-tradecraft-across-deployments/",
       "summaryMdEn": "Microsoft has identified that the Storm-2570 ransomware gang employs consistent tactics across multiple ecosystems. Analyzing only the payload can obscure the attacker's true behavior and recurring characteristics.\n\n## Key points\n*   The group reuses identical remote access tools within systems such as Qilin and DragonForce.\n*   The attack chain relies on RMM tools like Atera and MeshAgent for lateral movement and persistence.\n*   Encrypted outbound tunnels are established using tunneling tools like Cloudflared.exe to bypass firewalls.\n\n## What to do next\n*   Deploy anomaly detection rules targeting MeshAgent, NinjaRMM, and Splashtop.\n*   Immediately review the internal network for RMM processes that have been renamed or Base64 encoded.",
       "summarySourceHash": "5eb48f218ba388c5",
-      "translatedAtEn": "2026-09-24T17:45:27.221Z"
+      "translatedAtEn": "2026-09-24T17:45:27.221Z",
+      "bodyZhContentHash": "3abd3995d408935b",
+      "translatedBodyAt": "2026-09-24T18:04:53.877Z"
+    },
+    "f9fa639218581b53": {
+      "contentHash": "a73684677bd67af5",
+      "summaryMd": "微软安全九月更新聚焦 AI 代理治理、数据防泄露及合规管理。\n\n## 要点\n- 查看 Defender 门户，发现并管控员工设备上的本地 AI 代理。\n- 利用 Purview 网络层策略，阻断敏感数据流向未授权 AI 工具。\n- 启用自动标记与归档功能，降低大规模数据治理的管理成本。\n\n## 行动提示\n- 检查现有邮件调查流程，评估是否需引入 Copilot 摘要辅助研判。\n- 规划 GCC High/DoD 环境下的 Intune 应用管理迁移路径。",
+      "summarizedAt": "2026-09-24T18:05:19.958Z",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/24/whats-new-in-microsoft-security-september-2026/",
+      "summaryMdEn": "Microsoft's September Security Update focuses on AI agent governance, data loss prevention, and compliance management.\n\n## Key points\n- Check the Defender portal to identify and manage local AI agents on employee devices.\n- Use Purview network-level policies to block sensitive data from flowing to unauthorized AI tools.\n- Enable automatic tagging and archiving features to reduce management costs associated with large-scale data governance.\n\n## What to do next\n- Review existing email investigation workflows to evaluate whether Copilot summaries should be introduced to assist in analysis.\n- Plan the migration path for Intune application management within GCC High/DoD environments.",
+      "summarySourceHash": "3b17b03a359bf0a2",
+      "translatedAtEn": "2026-09-24T18:05:32.576Z",
+      "bodyZhContentHash": "a73684677bd67af5",
+      "translatedBodyAt": "2026-09-24T18:08:07.968Z"
+    },
+    "2f1910289d0ad2a2": {
+      "contentHash": "4dae5f37e3c5c6a8",
+      "summaryMd": "Botslab G980H 行车记录仪固件存在严重漏洞，攻击者可绕过认证并控制设备。\n\n## 要点\n*   受影响固件允许未授权访问敏感数据及修改配置。\n*   默认 WiFi 密码可被预测，攻击者能轻易接入设备网络。\n*   会话标识符生成不可预测性不足，易遭重放攻击。\n\n## 行动提示\n*   立即检查车队是否部署了 Botslab G980H 系列设备。\n*   联系厂商获取官方固件补丁或临时缓解措施。",
+      "summarizedAt": "2026-09-24T18:08:44.786Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-01",
+      "summaryMdEn": "Botslab G980H dashcam firmware contains a critical vulnerability allowing attackers to bypass authentication and control the device.\n\n## Key points\n* The affected firmware permits unauthorized access to sensitive data and modification of configurations.\n* Default WiFi passwords are predictable, enabling attackers to easily join the device's network.\n* Insufficient unpredictability in session identifier generation makes the system susceptible to replay attacks.\n\n## What to do next\n* Immediately check if your fleet has deployed Botslab G980H series devices.\n* Contact the vendor to obtain official firmware patches or temporary mitigation measures.",
+      "summarySourceHash": "617287ff0c766431",
+      "translatedAtEn": "2026-09-24T18:08:57.352Z",
+      "bodyZhContentHash": "4dae5f37e3c5c6a8",
+      "translatedBodyAt": "2026-09-24T18:21:19.963Z"
+    },
+    "d37255785eac8b01": {
+      "contentHash": "c03122e81d768905",
+      "summaryMd": "CISA 撤销关于西门子 Mendix Runtime 的漏洞通告。\n复调确认该行为属正常配置，不暴露受保护属性。\n\n## 要点\n- CISA 撤销通告，确认原报告行为为预期平台配置。\n- CVE-2026-7891 被撤回，不再视为有效安全漏洞。\n- 西门子官方已拒绝该 CVE，设备状态标记为不受影响。\n\n## 行动提示\n- 无需采取紧急缓解措施，可忽略此安全通告。\n- 关注 CISA 官网后续更新，留意撤销原因细节。",
+      "summarizedAt": "2026-09-24T18:21:43.546Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-209-02",
+      "summaryMdEn": "CISA retracts its advisory regarding the vulnerability in Siemens Mendix Runtime.\nFurther investigation confirmed that the reported behavior was due to normal configuration and does not expose protected attributes.\n\n## Key points\n- CISA has withdrawn the advisory, confirming that the originally reported behavior is an expected platform configuration.\n- CVE-2026-7891 has been retracted and is no longer considered a valid security vulnerability.\n- Siemens officially rejected this CVE, marking the affected devices as not impacted.\n\n## What to do next\n- No urgent mitigation measures are required; you may disregard this security advisory.\n- Monitor the CISA official website for subsequent updates and pay attention to details regarding the reasons for the retraction.",
+      "summarySourceHash": "e3311b6e8c8bd303",
+      "translatedAtEn": "2026-09-24T18:21:58.629Z",
+      "bodyZhContentHash": "c03122e81d768905",
+      "translatedBodyAt": "2026-09-24T18:23:49.323Z"
+    },
+    "7075b981cb319001": {
+      "contentHash": "8016a320e79da7d4",
+      "summaryMd": "CISA 发布紧急警告，Eufy Omni C20 和 X10 Pro 存在高危漏洞。\n未修复版本允许攻击者执行任意代码或窃取凭证。\n\n## 要点\n- 升级固件至 v1.6.4 以修补命令注入与证书验证缺陷。\n- Omni C20 需立即更新，否则硬编码凭证可泄露日志数据。\n- Omni X10 Pro 仅受命令注入漏洞影响，同样需升级版本。\n\n## 行动提示\n- 检查设备固件版本，低于 1.6.4 请立即通过官方渠道更新。\n- 将摄像头网络隔离，禁止直接暴露于互联网或公共 Wi-Fi。",
+      "summarizedAt": "2026-09-24T18:24:21.183Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-02",
+      "summaryMdEn": "CISA issues an urgent alert: Eufy Omni C20 and X10 Pro have critical vulnerabilities. Unpatched versions allow attackers to execute arbitrary code or steal credentials.\n\n## Key points\n- Upgrade firmware to v1.6.4 to patch command injection and certificate validation flaws.\n- Omni C20 must be updated immediately, otherwise hardcoded credentials may leak log data.\n- Omni X10 Pro is affected only by the command injection vulnerability and also requires a version upgrade.\n\n## What to do next\n- Check device firmware versions; if below 1.6.4, update immediately via official channels.\n- Isolate camera networks from direct internet or public Wi-Fi exposure.",
+      "summarySourceHash": "4d409a9f78db9d3f",
+      "translatedAtEn": "2026-09-24T18:24:36.879Z",
+      "bodyZhContentHash": "8016a320e79da7d4",
+      "translatedBodyAt": "2026-09-24T18:27:43.775Z"
+    },
+    "347b65ce144a221e": {
+      "contentHash": "f749756df74b6410",
+      "summaryMd": "OpenAI CEO Sam Altman 在联合国安理会强调 AI 需保持人类控制与全球合作。\n\n## 要点\n- 警惕递归自我改进导致失控或权力过度集中风险。\n- 拒绝仅因竞争压力而忽视安全，坚持单边减速策略。\n- 决策权必须保留在民主进程和政府手中，非实验室独断。\n\n## 行动提示\n- 阅读完整演讲原文，关注 AI 对齐与人类价值观保障。\n- 监测各国关于强 AI 模型开发的监管动态与合作倡议。",
+      "summarizedAt": "2026-09-25T01:02:02.350Z",
+      "url": "https://openai.com/index/sam-altman-un-security-council-remarks",
+      "summaryMdEn": "OpenAI CEO Sam Altman emphasized at the UN Security Council that AI must remain under human control and foster global cooperation.\n\n## Key points\n- Be wary of risks from recursive self-improvement leading to loss of control or excessive concentration of power.\n- Reject ignoring safety due to competitive pressure; insist on a unilateral deceleration strategy.\n- Decision-making authority must remain in the hands of democratic processes and governments, not be dictated solely by laboratories.\n\n## What to do next\n- Read the full speech transcript, focusing on AI alignment and safeguards for human values.\n- Monitor regulatory developments and cooperation initiatives among nations regarding the development of powerful AI models.",
+      "summarySourceHash": "6bbc3679249dbd67",
+      "translatedAtEn": "2026-09-25T01:02:11.226Z",
+      "bodyZhContentHash": "f749756df74b6410",
+      "translatedBodyAt": "2026-09-25T01:04:06.579Z"
+    },
+    "4e56c7312349a760": {
+      "contentHash": "d85a0dfdf48b2f62",
+      "summaryMd": "Ringg 用 OpenAI 模型解决高达 65% 的客户呼叫，大幅降低运营成本。\n\n## 要点\n- 迁移至 GPT‑5.6 Luna 使实时工作负载成本降低约 90%。\n- 路由层根据任务需求动态分配不同 OpenAI 模型处理请求。\n- 离线测试通过后再小流量引入生产环境，确保高可靠性。\n\n## 行动提示\n- 监测自身客服系统的平均响应时间与首次呼叫解决率指标。\n- 评估现有工作流中哪些环节可迁移至自动化 Agent 处理。",
+      "summarizedAt": "2026-09-25T01:04:26.740Z",
+      "url": "https://openai.com/index/ringg",
+      "summaryMdEn": "Ringg leverages OpenAI models to handle up to 65% of customer calls, significantly reducing operational costs.\n\n## Key points\n- Migrating to GPT‑5.6 Luna reduces real-time workload costs by approximately 90%.\n- The routing layer dynamically assigns different OpenAI models based on task requirements.\n- Low-traffic introduction into production after offline testing ensures high reliability.\n\n## What to do next\n- Monitor metrics such as average response time and first-call resolution rate in your own customer service systems.\n- Evaluate which stages in your existing workflows can be migrated to automated agents for handling.",
+      "summarySourceHash": "bd633ddb3d41f821",
+      "translatedAtEn": "2026-09-25T01:04:35.761Z",
+      "bodyZhContentHash": "d85a0dfdf48b2f62",
+      "translatedBodyAt": "2026-09-25T01:06:34.872Z"
+    },
+    "2aa1989c56b2a4e9": {
+      "contentHash": "2c093e75623a4ae8",
+      "summaryMd": "FBI 与 CISA 发布指南，警示关键基础设施运营商在使用第三方 ICS 集成商时的安全风险。\n\n## 要点\n- 严格遵循最小权限原则，禁止给予集成商超出任务所需的访问控制。\n- 评估合同条款，明确数据存储位置、远程访问限制及供应链安全要求。\n- 确保离线备份与独立运行能力，防止因集成商被入侵导致系统瘫痪。\n\n## 行动提示\n- 立即审查现有服务协议，补充网络安全与供应链安全具体条款。\n- 检查所有第三方设备是否暴露于公网，必要时断开公共互联网连接。",
+      "summarizedAt": "2026-09-25T01:06:57.232Z",
+      "url": "https://www.cisa.gov/resources-tools/resources/considerations-critical-infrastructure-operators-working-third-party-ics-integrators",
+      "summaryMdEn": "The FBI and CISA have issued guidance warning critical infrastructure operators of security risks when using third-party ICS integrators.\n\n## Key points\n- Strictly adhere to the principle of least privilege, prohibiting integrators from being granted access controls beyond what is necessary for their tasks.\n- Evaluate contract terms to clearly define data storage locations, restrictions on remote access, and supply chain security requirements.\n- Ensure offline backups and independent operational capabilities to prevent system paralysis in the event an integrator is compromised.\n\n## What to do next\n- Immediately review existing service agreements and supplement them with specific cybersecurity and supply chain security clauses.\n- Check whether all third-party devices are exposed to the public internet and disconnect them from the public internet if necessary.",
+      "summarySourceHash": "ae644a4dc6a97029",
+      "translatedAtEn": "2026-09-25T01:07:10.089Z",
+      "bodyZhContentHash": "2c093e75623a4ae8",
+      "translatedBodyAt": "2026-09-25T01:09:26.379Z"
     }
   }
 }
