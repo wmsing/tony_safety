@@ -773,6 +773,37 @@
       "translatedAtEn": "2026-09-25T01:07:10.089Z",
       "bodyZhContentHash": "2c093e75623a4ae8",
       "translatedBodyAt": "2026-09-25T01:09:26.379Z"
+    },
+    "b467d6accdc2d682": {
+      "contentHash": "828fd276dad181c2",
+      "summaryMd": "Meta 推出首个面向消费者的代理 AI 系统 Muse。\n该系统为每位用户运行独立的 Linux 虚拟机，功能强大且存在潜在风险。\n\n## 要点\n- 理解 Muse 在 Mac 上运行独立虚拟机的技术架构与权限深度。\n- 警惕消费者低估强人工智能工具带来的安全与隐私隐患。\n- 评估将此类系统部署于个人设备时的数据泄露可能性。\n\n## 行动提示\n- 阅读 John Gruber 原文，深入分析其关于 AI 危险性的观点。\n- 检查当前环境是否已部署类似 Meta Muse 的代理 AI 系统。",
+      "summarizedAt": "2026-09-26T03:23:28.781Z",
+      "url": "https://simonwillison.net/2026/Sep/25/john-gruber/",
+      "summaryMdEn": "Meta launches its first consumer-facing agent AI system, Muse. The system runs a separate Linux virtual machine for each user, offering powerful capabilities but also presenting potential risks.\n\n## Key points\n- Understand the technical architecture and depth of privileges involved in running independent virtual machines on Mac with Muse.\n- Be wary of consumers underestimating the security and privacy risks associated with powerful AI tools.\n- Evaluate the likelihood of data breaches when deploying such systems on personal devices.\n\n## What to do next\n- Read John Gruber's original article for an in-depth analysis of his views on the dangers of AI.\n- Check whether your current environment has already deployed agent AI systems similar to Meta Muse.",
+      "summarySourceHash": "297eab95706060aa",
+      "translatedAtEn": "2026-09-26T03:23:38.085Z",
+      "bodyZhContentHash": "828fd276dad181c2",
+      "translatedBodyAt": "2026-09-26T03:23:52.664Z"
+    },
+    "2432248e2b723547": {
+      "contentHash": "267413a3e42ec0fb",
+      "summaryMd": "CISA 新增两个被利用漏洞至目录，微软与 MikroTik 设备受影响。联邦机构需优先修补高危漏洞。\n\n## 要点\n*   微软 SharePoint 代码注入漏洞已确认为活跃攻击向量。\n*   MikroTik RouterOS 行为工作流执行不当漏洞已被列入清单。\n*   联邦机构必须优先修复授予完全控制权的 KEV 目录漏洞。\n\n## 行动提示\n*   立即检查资产是否运行受影响的微软或 MikroTik 软件版本。\n*   访问 CISA 官网提交新发现被利用漏洞的提名申请。",
+      "summarizedAt": "2026-09-26T03:24:06.081Z",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "summaryMdEn": "CISA has added two exploited vulnerabilities to its directory, affecting Microsoft and MikroTik devices. Federal agencies must prioritize patching high-risk vulnerabilities in the KEV catalog.\n\n## Key points\n*   The Microsoft SharePoint code injection vulnerability is confirmed as an active attack vector.\n*   The MikroTik RouterOS behavior workflow execution flaw has been added to the list.\n*   Federal agencies must prioritize remediation of KEV catalog vulnerabilities that grant full control.\n\n## What to do next\n*   Immediately check assets for affected Microsoft or MikroTik software versions.\n*   Visit the CISA website to submit nominations for newly discovered exploited vulnerabilities.",
+      "summarySourceHash": "c03abf2ed378c133",
+      "translatedAtEn": "2026-09-26T03:24:16.006Z",
+      "bodyZhContentHash": "267413a3e42ec0fb",
+      "translatedBodyAt": "2026-09-26T03:24:52.261Z"
+    },
+    "a5a9e1cc2eb446d1": {
+      "contentHash": "0f293c88a47db3d3",
+      "summaryMd": "CISA 新增一个被利用漏洞至目录，要求联邦机构优先修补高危项。\n\n## 要点\n- 立即检查 WordPress Core 是否存在 CVE-2026-87902 远程文件包含漏洞。\n- 依据 BOD 26-04 指令，优先修复 KEV 目录中授予完全控制权的漏洞。\n- 所有组织应采纳基于风险的漏洞管理策略，加速高危漏洞修补。\n\n## 行动提示\n- 访问 CISA KEV 目录确认资产是否受 CVE-2026-87902 影响并打补丁。\n- 若发现未列出的被利用漏洞，通过 CISA 提名表单提交相关证据。",
+      "summarizedAt": "2026-09-26T03:25:09.630Z",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "summaryMdEn": "CISA has added an exploited vulnerability to its catalog, requiring federal agencies to prioritize patching high-risk items.\n\n## Key points\n- Immediately check for the presence of CVE-2026-87902 remote file inclusion vulnerability in WordPress Core.\n- In accordance with BOD 26-04 directives, prioritize remediation of vulnerabilities in the KEV catalog that grant full control.\n- All organizations should adopt a risk-based vulnerability management strategy to accelerate patching of high-risk vulnerabilities.\n\n## What to do next\n- Visit the CISA KEV catalog to verify if assets are affected by CVE-2026-87902 and apply patches.\n- If exploited vulnerabilities not listed in the catalog are discovered, submit relevant evidence via the CISA nomination form.",
+      "summarySourceHash": "578879b38c161b8f",
+      "translatedAtEn": "2026-09-26T03:25:26.361Z"
     }
   }
 }

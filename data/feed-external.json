@@ -1,6 +1,33 @@
 {
-  "fetchedAt": "2026-09-24T17:21:28.130Z",
+  "fetchedAt": "2026-09-26T03:18:09.072Z",
   "items": [
+    {
+      "id": "b467d6accdc2d682",
+      "title": "Quoting John Gruber",
+      "summary": "Muse is getting a lot of attention — including mine — because it’s both groundbreaking technically (each user gets their own entire persistent Linux VM running in Meta’s cloud) and because it’s packaged in an easy-to-install easy-to-use way. It’s literally presented as a cute ma…",
+      "url": "https://simonwillison.net/2026/Sep/25/john-gruber/",
+      "publishedAt": "2026-09-25T17:22:01.000Z",
+      "sourceId": "rss:simon_willison",
+      "sourceLabel": "Simon Willison"
+    },
+    {
+      "id": "2432248e2b723547",
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+      "summary": "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-65660 Microsoft SharePoint Code Injection Vulnerability CVE-2026-67279 Mikrotik RouterOS Improper Enforcement of Behavioral Workflow Vu…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "publishedAt": "2026-09-25T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "a5a9e1cc2eb446d1",
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+      "summary": "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-87902 WordPress Core Remote File Inclusion Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actor…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "publishedAt": "2026-09-25T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
     {
       "id": "c7a3d4c3889b010c",
       "title": "Beyond the ransomware: Tracking Storm-2570’s consistent tradecraft across deployments",
@@ -20,6 +47,15 @@
       "sourceLabel": "Microsoft Security"
     },
     {
+      "id": "7075b981cb319001",
+      "title": "Eufy Omni C20, Omni X10 Pro",
+      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to run system level commands or execute arbitrary code. The following versions of Eufy Omni C20, Omni X10 Pro are affected: Omni C20 <1.6.4 (CVE-2026-93289, CVE-2026-93290, CVE-2026-93291)…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-02",
+      "publishedAt": "2026-09-24T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
       "id": "2f1910289d0ad2a2",
       "title": "Botslab G980H Dashcams",
       "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to bypass authentication controls, gain unauthorized access to sensitive data and privileged device functionality, modify device configuration, disrupt device operation. The following vers…",
@@ -29,19 +65,19 @@
       "sourceLabel": "CISA"
     },
     {
-      "id": "d37255785eac8b01",
-      "title": "Siemens Mendix Runtime (Update A)",
-      "summary": "View CSAF Summary This advisory is revoked. Re-investigation confirmed the reported behavior is expected platform configuration and does not expose the protected attribute. The following versions of Siemens Mendix Runtime are affected: Siemens Mendix Runtime vers:all/* (CVE-2026…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-209-02",
+      "id": "031361bd43801c01",
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+      "summary": "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-5430 WSO2 Multiple Products Path Traversal Vulnerability CVE-2026-71362 Adobe Commerce and Magento Incorrect Authorization Vulnerabilit…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/24/cisa-adds-two-known-exploited-vulnerabilities-catalog",
       "publishedAt": "2026-09-24T12:00:00.000Z",
       "sourceId": "rss:cisa",
       "sourceLabel": "CISA"
     },
     {
-      "id": "7075b981cb319001",
-      "title": "Eufy Omni C20, Omni X10 Pro",
-      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to run system level commands or execute arbitrary code. The following versions of Eufy Omni C20, Omni X10 Pro are affected: Omni C20 <1.6.4 (CVE-2026-93289, CVE-2026-93290, CVE-2026-93291)…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-02",
+      "id": "d37255785eac8b01",
+      "title": "Siemens Mendix Runtime (Update A)",
+      "summary": "View CSAF Summary This advisory is revoked. Re-investigation confirmed the reported behavior is expected platform configuration and does not expose the protected attribute. The following versions of Siemens Mendix Runtime are affected: Siemens Mendix Runtime vers:all/* (CVE-2026…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-209-02",
       "publishedAt": "2026-09-24T12:00:00.000Z",
       "sourceId": "rss:cisa",
       "sourceLabel": "CISA"
@@ -101,15 +137,6 @@
       "sourceLabel": "Microsoft Security"
     },
     {
-      "id": "2fc28f57f3275c0d",
-      "title": "Siemens Desigo CC family",
-      "summary": "View CSAF Summary A Client Code Execution (CCE) vulnerability has been identified in Desigo CC, potentially allowing malicious actors to execute arbitrary code on client devices through specially crafted graphics documents. This vulnerability leverages user-defined graphics cont…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-05",
-      "publishedAt": "2026-09-22T12:00:00.000Z",
-      "sourceId": "rss:cisa",
-      "sourceLabel": "CISA"
-    },
-    {
       "id": "2e43af6896cc3b9f",
       "title": "Siemens WTV676 and WTV776",
       "summary": "View CSAF Summary The products listed below contain a denial of service vulnerability that could allow an attacker to force the devices into protection mode under certain conditions. This disables remote connectivity functions (Web Access) to the devices. Siemens has released ne…",
@@ -155,6 +182,15 @@
       "sourceLabel": "CISA"
     },
     {
+      "id": "2fc28f57f3275c0d",
+      "title": "Siemens Desigo CC family",
+      "summary": "View CSAF Summary A Client Code Execution (CCE) vulnerability has been identified in Desigo CC, potentially allowing malicious actors to execute arbitrary code on client devices through specially crafted graphics documents. This vulnerability leverages user-defined graphics cont…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-05",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
       "id": "1e0426abc892cecf",
       "title": "Siemens Siveillance Control",
       "summary": "View CSAF Summary A vulnerability has been identified in the Open Interface Services (OIS) web module affecting Siveillance Control and Siveillance Control Pro (versions OIS 3.x.y and OIS 4.x.y) . This vulnerability allows an attacker to upload arbitrary files, which can lead to…",
@@ -173,19 +209,19 @@
       "sourceLabel": "CISA"
     },
     {
-      "id": "2830a7fcaaeb3584",
-      "title": "lwIP (Lightweight IP)",
-      "summary": "View CSAF Summary Successful exploitation of this vulnerability could result in a system crash, a DoS, or memory corruption, which could lead to code execution on the victim system. The following versions of lwIP (Lightweight IP) are affected: API >=2.0.1| =2.0.1|<=2.2.1 Product…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-02",
+      "id": "e3c7e0e08ab6f19d",
+      "title": "OpenPLC Runtime v3",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to hijack session cookies and issue state-changing requests as an operator which would allow the attacker to control the programmable logic controller and the physical processes it drives. Th…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-09",
       "publishedAt": "2026-09-22T12:00:00.000Z",
       "sourceId": "rss:cisa",
       "sourceLabel": "CISA"
     },
     {
-      "id": "e3c7e0e08ab6f19d",
-      "title": "OpenPLC Runtime v3",
-      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to hijack session cookies and issue state-changing requests as an operator which would allow the attacker to control the programmable logic controller and the physical processes it drives. Th…",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-09",
+      "id": "2830a7fcaaeb3584",
+      "title": "lwIP (Lightweight IP)",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could result in a system crash, a DoS, or memory corruption, which could lead to code execution on the victim system. The following versions of lwIP (Lightweight IP) are affected: API >=2.0.1| =2.0.1|<=2.2.1 Product…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-02",
       "publishedAt": "2026-09-22T12:00:00.000Z",
       "sourceId": "rss:cisa",
       "sourceLabel": "CISA"

@@ -58,10 +58,10 @@ npm run build    # 发布前自检（MVP 主验收）
 ### 两步在干什么（只记这个）
 
 
-| 命令                       | 人话                                                                              |
-| ------------------------ | ------------------------------------------------------------------------------- |
-| `npm run fetch-feeds`    | **进货**：上网抓 RSS → 英文清单 `data/feed-external.json`                                 |
-| `npm run translate-feed` | **贴中文标**（可选）：本机 Ollama 译标题/摘要 → `data/feed-i18n.json`                           |
+| 命令                       | 人话                                                                                                      |
+| ------------------------ | ------------------------------------------------------------------------------------------------------- |
+| `npm run fetch-feeds`    | **进货**：上网抓 RSS → 英文清单 `data/feed-external.json`                                                         |
+| `npm run translate-feed` | **贴中文标**（可选）：本机 Ollama 译标题/摘要 → `data/feed-i18n.json`                                                   |
 | `npm run deep-read-feed` | **精读**（可选）：抓原文 → 中文摘要 + 正文译中（`wire-deep-zh/`）+ 默认译 EN → `feed-deep.json`、`wire-deep/`（`--zh-only` 跳过英文） |
 
 
@@ -85,7 +85,7 @@ npm run dev
 
 ```bash
 npm run fetch-feeds
-npm run translate-feed    # 要先：ollama 在跑 + .env 里 OLLAMA_MODEL
+npm run translate-feed   
 npm run dev
 # 满意后：git add data/feed-external.json data/feed-i18n.json → commit → push
 ```
