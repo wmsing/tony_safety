@@ -42,3 +42,6 @@ site/content/docs/en/articles/
 data/wire-html/*
 !data/wire-html/.gitkeep
 site/content/docs/en/digests/
+
+# cursor local configs
+.cursor/permissions.json
