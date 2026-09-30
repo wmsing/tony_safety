@@ -8,7 +8,7 @@ import html
 import os
 import secrets
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, Any
 from urllib.parse import quote
 
 from dotenv import load_dotenv
@@ -200,11 +200,7 @@ def login_page(
 ) -> HTMLResponse | RedirectResponse:
     if _valid_session(session):
         return RedirectResponse(url="/admin/posts", status_code=status.HTTP_302_FOUND)
-    err = (
-        f'<p class="muted text-warn">{html.escape(error)}</p>'
-        if error
-        else ""
-    )
+    err = f'<p class="muted text-warn">{html.escape(error)}</p>' if error else ""
     body = f"""
     <h1>登录</h1>
     <p class="muted">使用 <code>.env</code> 里的 <code>ADMIN_TOKEN</code>。</p>
@@ -264,7 +260,8 @@ def posts_index(
         f"<td>{html.escape(p.title)}</td>"
         f'<td class="muted">{html.escape(_excerpt(p.description, 80))}</td>'
         f'<td class="muted">{html.escape(_excerpt(p.body, 120))}</td>'
-        f'<td class="row-actions"><a href="/admin/posts/{html.escape(p.slug)}/edit?kind={kind}">'
+        f'<td class="row-actions">'
+        f'<a href="/admin/posts/{html.escape(p.slug)}/edit?kind={kind}">'
         f"编辑</a>"
         f'<a href="{html.escape(preview_post_url(kind, p.slug), quote=True)}" '
         f'target="_blank" rel="noopener noreferrer">预览</a></td></tr>'
@@ -324,7 +321,8 @@ def posts_new(
       <label>Body（Markdown 正文）
         <textarea name="body" required></textarea>
       </label>
-      <p class="muted">正文里的 <code>(TL;DR)</code> 仅作编辑标记；同步到站点预览时会自动隐藏。</p>
+      <p class="muted">正文里的 <code>(TL;DR)</code> 仅作编辑标记；
+        同步到站点预览时会自动隐藏。</p>
       <div class="form-actions">
         <button type="submit">创建</button>
       </div>
@@ -377,7 +375,8 @@ def posts_edit(
       </label>
       <div class="form-actions">
         <button type="submit">保存</button>
-        <a class="btn-preview secondary" href="{html.escape(preview_post_url(kind, post.slug), quote=True)}"
+        <a class="btn-preview secondary"
+          href="{html.escape(preview_post_url(kind, post.slug), quote=True)}"
           target="_blank" rel="noopener noreferrer">在站点预览</a>
       </div>
     </form>
@@ -419,7 +418,7 @@ def posts_delete(
     return RedirectResponse(url=f"/admin/posts?kind={kind}", status_code=303)
 
 
-def _feed_keyword_preview_html(result: dict[str, object]) -> str:
+def _feed_keyword_preview_html(result: dict[str, Any]) -> str:
     total = result.get("totalAfterCap", 0)
     matched = result.get("totalMatched", 0)
     kw_count = result.get("keywordCount", 0)
@@ -437,9 +436,7 @@ def _feed_keyword_preview_html(result: dict[str, object]) -> str:
             continue
         err = src.get("error")
         err_cell = (
-            f'<span class="text-warn">{html.escape(str(err))}</span>'
-            if err
-            else "—"
+            f'<span class="text-warn">{html.escape(str(err))}</span>' if err else "—"
         )
         src_rows.append(
             f"<tr><td>{html.escape(str(src.get('label', '')))}</td>"
@@ -450,8 +447,11 @@ def _feed_keyword_preview_html(result: dict[str, object]) -> str:
     table = f"""
     <div class="table-wrap">
       <table>
-        <thead><tr><th>源</th><th>RSS 条数</th><th>关键词命中</th><th>错误</th></tr></thead>
-        <tbody>{"".join(src_rows) or '<tr><td colspan="4" class="muted">无</td></tr>'}</tbody>
+        <thead><tr><th>源</th><th>RSS 条数</th><th>关键词命中</th>
+          <th>错误</th></tr></thead>
+        <tbody>{
+        "".join(src_rows) or ('<tr><td colspan="4" class="muted">无</td></tr>')
+    }</tbody>
       </table>
     </div>
     """
@@ -464,15 +464,18 @@ def _feed_keyword_preview_html(result: dict[str, object]) -> str:
         label = html.escape(str(it.get("sourceLabel", "")))
         url = html.escape(str(it.get("url", "")), quote=True)
         samples.append(
-            f"<tr><td class=\"muted\">{when}</td><td>{label}</td>"
-            f'<td><a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a></td></tr>'
+            f'<tr><td class="muted">{when}</td><td>{label}</td>'
+            f'<td><a href="{url}" target="_blank" '
+            f'rel="noopener noreferrer">{title}</a></td></tr>'
         )
     sample_table = f"""
     <h2>样例（最新 {len(samples)} 条，试跑不写盘）</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>日期</th><th>源</th><th>标题</th></tr></thead>
-        <tbody>{"".join(samples) or '<tr><td colspan="3" class="muted">0 条</td></tr>'}</tbody>
+        <tbody>{
+        "".join(samples) or ('<tr><td colspan="3" class="muted">0 条</td></tr>')
+    }</tbody>
       </table>
     </div>
     """
@@ -494,7 +497,8 @@ def feed_keywords_page(
     body = f"""
     <header class="page-head">
       <h1>Feed 关键词试跑</h1>
-      <p class="lead">与 <code>fetch-feeds</code> 相同规则；试跑拉 RSS，<strong>不</strong>写 feed-external。</p>
+      <p class="lead">与 <code>fetch-feeds</code> 相同规则；试跑拉 RSS，
+        <strong>不</strong>写 feed-external。</p>
     </header>
     {note}
     <form method="post" action="/admin/feed-keywords">
@@ -503,7 +507,8 @@ def feed_keywords_page(
       </label>
       <div class="form-actions">
         <button type="submit" name="action" value="preview">试跑预览</button>
-        <button type="submit" name="action" value="save" class="secondary">保存到 config</button>
+        <button type="submit" name="action" value="save" class="secondary">
+          保存到 config</button>
       </div>
     </form>
     """
@@ -515,7 +520,7 @@ def feed_keywords_action(
     _: Annotated[None, Depends(require_admin)],
     keywords: str = Form(...),
     action: str = Form("preview"),
-) -> HTMLResponse | RedirectResponse:
+) -> str | RedirectResponse:
     kws = parse_keywords_text(keywords)
     preview_block = ""
     err = ""
@@ -548,7 +553,8 @@ def feed_keywords_action(
       </label>
       <div class="form-actions">
         <button type="submit" name="action" value="preview">试跑预览</button>
-        <button type="submit" name="action" value="save" class="secondary">保存到 config</button>
+        <button type="submit" name="action" value="save" class="secondary">
+          保存到 config</button>
       </div>
     </form>
     {preview_block}
@@ -605,14 +611,13 @@ def wire_deep_edit(
     url_e = html.escape(str(item.get("url", "")))
     title_e = html.escape(str(item.get("title", "")))
     note = '<p class="muted">已写入 data/wire-html/</p>' if saved == "1" else ""
-    err = (
-        f'<p class="muted text-warn">{html.escape(error)}</p>' if error else ""
-    )
+    err = f'<p class="muted text-warn">{html.escape(error)}</p>' if error else ""
     body = f"""
     <header class="page-head">
       <h1>粘贴 HTML</h1>
       <p class="lead"><strong>{title_e}</strong></p>
-      <p class="lead"><a href="{url_e}" target="_blank" rel="noopener noreferrer">{url_e}</a></p>
+      <p class="lead"><a href="{url_e}" target="_blank"
+        rel="noopener noreferrer">{url_e}</a></p>
     </header>
     {note}{err}
     <form method="post" action="/admin/wire-deep/{wid_e}">

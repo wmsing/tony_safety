@@ -87,6 +87,7 @@ def run_fetch_preview(keywords: list[str], timeout_sec: int = 120) -> dict[str, 
         raise FeedKeywordError(detail[:2000])
 
     try:
-        return json.loads(proc.stdout)
+        parsed: dict[str, Any] = json.loads(proc.stdout)
+        return parsed
     except json.JSONDecodeError as exc:
         raise FeedKeywordError(f"invalid preview JSON: {exc}") from exc

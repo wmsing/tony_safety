@@ -1,0 +1,10 @@
+---
+description: Terminal 与验证命令安全约束
+alwaysApply: true
+---
+
+# Agent terminal safety
+
+- Always use `make check` or `make test` for running linter, typecheck, or tests.
+- NEVER construct chained shell commands (using &&, ;, or subshells) in the terminal.
+- NEVER run `git push` autonomously.

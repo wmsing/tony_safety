@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import re
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -76,7 +76,7 @@ def save_wire_html(wire_id: str, url: str, html: str) -> None:
     html_path.write_text(body if body.endswith("\n") else f"{body}\n", encoding="utf-8")
     meta = {
         "url": url,
-        "fetchedAt": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
+        "fetchedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "source": "admin",
     }
     meta_path.write_text(f"{json.dumps(meta, indent=2)}\n", encoding="utf-8")
