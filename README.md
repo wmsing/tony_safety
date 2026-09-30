@@ -21,6 +21,7 @@ LLM 安全博客与笔记仓库。术语见 [CONTEXT.md](CONTEXT.md)。
 
 - [内容发布与 CI/CD](docs/diagrams/tony_safty-cicd.workflow.html)
 - [Public site 架构](docs/diagrams/tony_safty-public-site.architecture.html)
+- [首页 Wire 数据流](docs/diagrams/tony_safty-wire.dataflow.html)
 - [部署时序](docs/diagrams/tony_safty-deploy.sequence.html)
 
 源规格：`docs/diagrams/tony_safty-*.json`（本地 Archify 更新后 `deliver` 到同目录 HTML）。

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "tony_safty 首页 Wire 数据流",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "output": "tony_safty-wire.dataflow.html",
+    "viewBox": [1080, 520]
+  },
+  "stages": [
+    { "label": "来源" },
+    { "label": "抓取" },
+    { "label": "缓存" },
+    { "label": "构建" },
+    { "label": "展示" }
+  ],
+  "nodes": [
+    {
+      "id": "rss",
+      "type": "external",
+      "label": "安全 RSS",
+      "sublabel": "外部 HTTPS",
+      "stage": 0,
+      "row": 1
+    },
+    {
+      "id": "fetch",
+      "type": "backend",
+      "label": "fetch-feeds",
+      "sublabel": "npm 脚本",
+      "stage": 1,
+      "row": 1
+    },
+    {
+      "id": "cache",
+      "type": "database",
+      "label": "data/feed-*",
+      "sublabel": "含 wire-deep",
+      "stage": 2,
+      "row": 1,
+      "width": 128
+    },
+    {
+      "id": "astro-build",
+      "type": "frontend",
+      "label": "npm run build",
+      "sublabel": "site/lib/feed.ts",
+      "stage": 3,
+      "row": 1,
+      "width": 140
+    },
+    {
+      "id": "homepage",
+      "type": "frontend",
+      "label": "首页 Wire",
+      "sublabel": "zh · /en/",
+      "stage": 4,
+      "row": 1,
+      "width": 108
+    }
+  ],
+  "flows": [
+    {
+      "id": "rss-fetch",
+      "from": "rss",
+      "to": "fetch",
+      "label": "RSS 拉取"
+    },
+    {
+      "id": "fetch-cache",
+      "from": "fetch",
+      "to": "cache",
+      "label": "写入 JSON",
+      "variant": "emphasis",
+      "labelDy": 48
+    },
+    {
+      "id": "cache-build",
+      "from": "cache",
+      "to": "astro-build",
+      "label": "构建读入",
+      "variant": "emphasis",
+      "channelY": 255
+    },
+    {
+      "id": "build-home",
+      "from": "astro-build",
+      "to": "homepage",
+      "label": "buildFeed",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "主路径",
+      "items": [
+        "fetch-feeds 必选；translate / deep-read 本机可选后写入同一 data/",
+        "作者 commit data/ 后，CI 与 npm run dev 共用缓存",
+        "无中文标时首页仍显示英文 Wire"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "与文章分离",
+      "items": [
+        "Wire 不经 Admin；与 content/zh 并列进首页",
+        "精读页 /wire/{id}/（EN：/en/wire/）",
+        "security-feeds.json 控制源列表与 maxItems"
+      ]
+    }
+  ]
+}

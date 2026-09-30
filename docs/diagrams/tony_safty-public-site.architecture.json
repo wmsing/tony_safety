@@ -62,9 +62,17 @@
       "id": "en-locale",
       "type": "database",
       "label": "content/en",
-      "sublabel": "locale 预留",
+      "sublabel": "EN shell · 文章待写",
       "pos": [780, 148],
       "size": [140, 60]
+    },
+    {
+      "id": "wire-cache",
+      "type": "database",
+      "label": "data/ + wire-deep",
+      "sublabel": "feed-* · 精读 MD",
+      "pos": [780, 248],
+      "size": [148, 60]
     },
     {
       "id": "static-export",
@@ -102,7 +110,8 @@
         "static-export",
         "gh-pages",
         "zh-published",
-        "en-locale"
+        "en-locale",
+        "wire-cache"
       ]
     },
     {
@@ -160,8 +169,15 @@
       "id": "read-en",
       "from": "astro-site",
       "to": "en-locale",
-      "label": "空树可构建",
       "variant": "dashed"
+    },
+    {
+      "id": "read-wire",
+      "from": "astro-site",
+      "to": "wire-cache",
+      "label": "feed.ts",
+      "variant": "emphasis",
+      "labelAt": [800, 240]
     },
     {
       "id": "emit-static",
@@ -184,16 +200,16 @@
       "dot": "cyan",
       "title": "Reader 路径",
       "items": [
-        "仅 GitHub Pages 提供 Public site",
-        "Astro + Editorial；构建读 sync 后的 site/content/docs",
-        "Admin 不在线上"
+        "GitHub Pages 提供 Public site 与 /wire/{id}/ 精读页",
+        "构建读 sync 后的 site/content/docs 与 data/feed-*",
+        "Admin 与 Ollama 脚本不在线上"
       ]
     },
     {
       "dot": "emerald",
       "title": "作者路径",
       "items": [
-        "Admin 写 content/zh 并 sync 到 site/content/docs",
+        "Admin 写 content/zh；Wire 脚本更新 data/ 后 commit",
         "本地 npm run dev 预览；push main 触发 CI",
         "build + smoke 通过后 deploy-pages"
       ]
@@ -203,7 +219,7 @@
       "title": "信任边界",
       "items": [
         "content/inbox 不参与构建",
-        "ADMIN_TOKEN 仅本地环境",
+        "ADMIN_TOKEN 仅本地；translate/deep-read 本机 Ollama",
         "MVP 无 PR 门禁"
       ]
     }

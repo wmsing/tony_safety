@@ -118,9 +118,9 @@
       "dot": "emerald",
       "title": "发布要点",
       "items": [
-        "Admin 保存即 sync；线上只认 git 中的源稿与 CI build",
+        "Admin 保存即 sync；Wire 数据以 git 中 data/ 为准",
         "smoke 失败则 deploy 不执行；Pages 仅服务 dist",
-        "本地预览：npm run dev（Admin 不部署）"
+        "本地预览：npm run dev（含已 commit 的 feed-*）"
       ]
     }
   ]

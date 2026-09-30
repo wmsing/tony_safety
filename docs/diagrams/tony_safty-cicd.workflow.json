@@ -115,8 +115,8 @@
       "title": "主路径",
       "items": [
         "Admin 仅 127.0.0.1；保存后 sync 到 site/content/docs",
-        "push main → Actions：npm ci · build · 冒烟 · deploy-pages",
-        "build 失败则不上线；inbox 不参与构建"
+        "Wire：本地脚本更新 data/ 后随 push 进仓库",
+        "push main → Actions：npm ci · build · 冒烟 · deploy-pages"
       ]
     },
     {
