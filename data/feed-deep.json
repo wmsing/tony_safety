@@ -812,6 +812,136 @@
       "summaryMd": "CISA 新增两个被利用漏洞至目录，含 WSO2 路径遍历与 Adobe 授权错误。\n\n## 要点\n- 检查 WSO2 和 Adobe Commerce 系统是否已打补丁或隔离。\n- 联邦机构须优先修复 KEV 目录中可完全控制资产的漏洞。\n- 发现未收录的被利用漏洞，通过 CISA 表单提交提名申请。\n\n## 行动提示\n- 立即扫描内部 WSO2 及 Magento 环境，确认版本与补丁状态。\n- 若持有新漏洞证据，填写 KEV 提名表协助官方更新目录。",
       "summarizedAt": "2026-09-26T03:26:48.768Z",
       "url": "https://www.cisa.gov/news-events/alerts/2026/09/24/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+    },
+    "f9b447af38c377a8": {
+      "contentHash": "dd12e3470c8b7e66",
+      "summaryMd": "CISA 新增 CVE-2026-88779 至 KEV 目录，Citrix NetScaler 内存漏洞被证实活跃利用。\n\n## 要点\n*   Citrix NetScaler 内存缓冲区限制不当导致资产完全失守。\n*   BOD 26-04 强制联邦机构优先修补 KEV 目录中高危漏洞。\n*   所有组织应采纳基于风险的漏洞管理，优先修复 KEV 条目。\n\n## 行动提示\n*   检查 Citrix NetScaler 版本并立即应用官方安全补丁。\n*   若发现未列入目录的已利用漏洞，通过 CISA 提名表提交。",
+      "summarizedAt": "2026-10-05T03:30:12.521Z",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/04/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "summaryMdEn": "CISA has added CVE-2026-88779 to the KEV catalog, confirming active exploitation of a Citrix NetScaler memory vulnerability.\n\n## Key points\n*   Improper memory buffer restrictions in Citrix NetScaler lead to total asset compromise.\n*   BOD 26-04 mandates that federal agencies prioritize patching high-severity vulnerabilities listed in the KEV catalog.\n*   All organizations should adopt risk-based vulnerability management, prioritizing the remediation of KEV entries.\n\n## What to do next\n*   Check your Citrix NetScaler version and immediately apply official security patches.\n*   If you discover exploited vulnerabilities not yet listed in the catalog, submit them via the CISA nomination form.",
+      "summarySourceHash": "a142203f9f7ac428",
+      "translatedAtEn": "2026-10-05T03:30:32.712Z",
+      "bodyZhContentHash": "dd12e3470c8b7e66",
+      "translatedBodyAt": "2026-10-05T03:31:10.965Z"
+    },
+    "0ed309bdb2fbe9f4": {
+      "contentHash": "7828464a089945a8",
+      "summaryMd": "CISA 新增两个被利用漏洞至目录，要求联邦机构优先修补。\n\n## 要点\n- 立即检查 Zammad 会话固定及权限管理漏洞是否受影响。\n- 遵循 BOD 26-04 指令，优先修复 KEV 目录中的高危漏洞。\n- 发现未列入目录的利用漏洞，通过 CISA 表单提交提名。\n\n## 行动提示\n- 扫描内部 Zammad 实例并应用最新安全补丁。\n- 若发现新利用证据，访问 CISA 官网提交 KEV 提名。",
+      "summarizedAt": "2026-10-05T03:31:30.481Z",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "summaryMdEn": "CISA has added two exploited vulnerabilities to its catalog and is requiring federal agencies to prioritize their remediation.\n\n## Key points\n- Immediately check if your Zammad instances are affected by session fixation and privilege management vulnerabilities.\n- Follow BOD 26-04 instructions to prioritize fixing high-severity vulnerabilities in the KEV catalog.\n- If you discover exploited vulnerabilities not listed in the catalog, submit a nomination via the CISA form.\n\n## What to do next\n- Scan your internal Zammad instances and apply the latest security patches.\n- If you find evidence of new exploits, visit the official CISA website to submit a KEV nomination.",
+      "summarySourceHash": "8692de8954b9756c",
+      "translatedAtEn": "2026-10-05T03:31:39.383Z",
+      "bodyZhContentHash": "7828464a089945a8",
+      "translatedBodyAt": "2026-10-05T03:32:11.884Z"
+    },
+    "af342dacbe59b3d2": {
+      "contentHash": "77bc8eea6d3f6dbc",
+      "summaryMd": "CISA 警告 Johnson Controls EasyIO Neo 系列控制器存在敏感信息明文传输漏洞。\n攻击者可窃取凭证与会话数据，影响全球关键基础设施设施。\n\n## 要点\n检查设备固件版本是否处于 V3.3b62/63/24/25 受影响范围。\n立即启用网络加密或物理隔离以阻断明文数据传输。\n评估当前部署环境风险并制定紧急补丁或缓解计划。\n\n## 行动提示\n访问 CISA 官网下载 CSAF 报告核对具体漏洞细节。\n联系 Johnson Controls 获取官方补丁及升级指南。",
+      "summarizedAt": "2026-10-05T03:32:29.942Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-05",
+      "summaryMdEn": "CISA warns of a vulnerability in Johnson Controls EasyIO Neo series controllers that allows sensitive information to be transmitted in plaintext. Attackers can steal credentials and session data, impacting critical infrastructure globally.\n\n## Key points\nCheck if your device firmware version is within the affected range of V3.3b62/63/24/25.\nImmediately enable network encryption or implement physical isolation to block plaintext data transmission.\nAssess risks in your current deployment environment and develop an emergency patching or mitigation plan.\n\n## What to do next\nVisit the CISA official website to download the CSAF report and verify specific vulnerability details.\nContact Johnson Controls to obtain official patches and upgrade guides.",
+      "summarySourceHash": "49a34242bed1e2fe",
+      "translatedAtEn": "2026-10-05T03:32:39.603Z",
+      "bodyZhContentHash": "77bc8eea6d3f6dbc",
+      "translatedBodyAt": "2026-10-05T03:33:58.699Z"
+    },
+    "4c487f67fda0a5c1": {
+      "contentHash": "b1bb25a76700bd12",
+      "summaryMd": "Meari IoT Cloud Platform OpenAPI Service 存在授权漏洞，攻击者可篡改配置或窃取数据。\n\n## 要点\n- 利用 CVE-2026-101104 可越权修改非自有设备配置。\n- 利用 CVE-2026-96613 可无验证获取任意设备影子及凭证。\n- 所有版本均受影响，需立即检查网络隔离与访问控制策略。\n\n## 行动提示\n- 确认环境中是否部署 Meari IoT Cloud Platform OpenAPI Service。\n- 将控制系统网络置于防火墙后并禁止互联网直接访问。",
+      "summarizedAt": "2026-10-05T03:34:17.949Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-06",
+      "summaryMdEn": "The Meari IoT Cloud Platform OpenAPI Service is vulnerable to an authorization flaw, allowing attackers to tamper with configurations or steal data.\n\n## Key points\n- CVE-2026-101104 allows unauthorized modification of configurations for devices not owned by the user.\n- CVE-2026-96613 enables unauthenticated retrieval of device shadows and credentials for any device.\n- All versions are affected; immediate review of network isolation and access control policies is required.\n\n## What to do next\n- Verify whether Meari IoT Cloud Platform OpenAPI Service is deployed in your environment.\n- Place the control system network behind a firewall and prohibit direct internet access.",
+      "summarySourceHash": "aa842267a956321b",
+      "translatedAtEn": "2026-10-05T03:34:28.387Z",
+      "bodyZhContentHash": "b1bb25a76700bd12",
+      "translatedBodyAt": "2026-10-05T03:36:05.030Z"
+    },
+    "dcf8afe15256d1c7": {
+      "contentHash": "3ba2996ad4143a27",
+      "summaryMd": "CISA 警告 Monta monta.app 存在严重漏洞，可能导致充电站被接管或服务中断。\n\n## 要点\n- 所有版本 Monta monta.app 均受 CVE-2026-95102 至 CVE-2026-93474 影响。\n- 攻击者可利用缺失认证获取管理员权限或实施拒绝服务攻击。\n- 充电站标识符公开可查，存在凭证保护不足及会话过期问题。\n\n## 行动提示\n- 立即检查网络中是否部署 Monta monta.app 产品。\n- 确保控制设备不直接暴露于互联网，并隔离业务网络。",
+      "summarizedAt": "2026-10-05T03:36:29.674Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-02",
+      "summaryMdEn": "CISA warns that a critical vulnerability in Monta monta.app could lead to the takeover of charging stations or service interruptions.\n\n## Key points\n- All versions of Monta monta.app are affected by CVE-2026-95102 through CVE-2026-93474.\n- Attackers can exploit missing authentication to gain administrator privileges or carry out denial-of-service attacks.\n- Charging station identifiers are publicly accessible, and there are insufficient protections for credentials and session expiration issues.\n\n## What to do next\n- Immediately check if Monta monta.app products are deployed in your network.\n- Ensure that control devices are not directly exposed to the internet and isolate operational networks.",
+      "summarySourceHash": "5027297b08dc7213",
+      "translatedAtEn": "2026-10-05T03:36:39.956Z",
+      "bodyZhContentHash": "3ba2996ad4143a27",
+      "translatedBodyAt": "2026-10-05T03:39:12.935Z"
+    },
+    "9bacd2ea82527c90": {
+      "contentHash": "f779660889c8e3b2",
+      "summaryMd": "Armatura One 旧版本存在高危漏洞，可致未授权访问与代码执行。\n\n## 要点\n- 升级至 Armatura One v4.7.2 或 v4.6.1 以上修复所有已知漏洞。\n- 检查日志文件是否明文记录数据库密码及连接命令。\n- 验证安装配置文件中加密密钥是否为固定硬编码值。\n\n## 行动提示\n- 立即扫描内部网络中 Armatura One 设备版本并制定升级计划。\n- 审查备份包与支持包，确认未包含含明文的日志文件。",
+      "summarizedAt": "2026-10-05T03:39:39.591Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-01",
+      "summaryMdEn": "Armatura One older versions contain critical vulnerabilities that can lead to unauthorized access and code execution.\n\n## Key points\n- Upgrade to Armatura One v4.7.2 or v4.6.1 or later to fix all known vulnerabilities.\n- Check log files for plaintext recording of database passwords and connection commands.\n- Verify whether the encryption key in the installation configuration file is a hardcoded fixed value.\n\n## What to do next\n- Immediately scan Armatura One devices on your internal network for versions and develop an upgrade plan.\n- Review backup packages and support packages to ensure they do not contain log files with plaintext data.",
+      "summarySourceHash": "3806b1c976f8d299",
+      "translatedAtEn": "2026-10-05T03:39:48.933Z",
+      "bodyZhContentHash": "f779660889c8e3b2",
+      "translatedBodyAt": "2026-10-05T03:43:32.458Z"
+    },
+    "e6c25c75b7ceaa11": {
+      "contentHash": "376a66adbeebd694",
+      "summaryMd": "ABB PCM600 <=2.14 版本存在权限提升与路径遍历漏洞，需立即升级。\n\n## 要点\n- 升级 ABB PCM600 至 2.15 或更高版本以修复 CVE-2026-15952/15953。\n- 限制本地访问权限并隔离控制网络防止未授权文件写入。\n- 禁用 Scheduler Service 非必要账户以提升系统整体安全等级。\n\n## 行动提示\n- 检查设备版本号，若<=2.14 请尽快联系供应商获取补丁。\n- 审查防火墙策略，确保工控网与办公网物理或逻辑隔离。",
+      "summarizedAt": "2026-10-05T03:43:55.568Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-03",
+      "summaryMdEn": "The ABB PCM600 versions <=2.14 are vulnerable to privilege escalation and path traversal, requiring an immediate upgrade.\n\n## Key points\n- Upgrade the ABB PCM600 to version 2.15 or higher to remediate CVE-2026-15952/15953.\n- Restrict local access permissions and isolate the control network to prevent unauthorized file writes.\n- Disable non-essential accounts for the Scheduler Service to enhance overall system security.\n\n## What to do next\n- Check device version numbers; if <=2.14, contact the vendor immediately to obtain patches.\n- Review firewall policies to ensure physical or logical isolation between the industrial control network and the office network.",
+      "summarySourceHash": "74d55b53049e1692",
+      "translatedAtEn": "2026-10-05T03:44:07.800Z",
+      "bodyZhContentHash": "376a66adbeebd694",
+      "translatedBodyAt": "2026-10-05T03:46:09.982Z"
+    },
+    "b39ff47a9d6f32cc": {
+      "contentHash": "9449bb21c2dabbee",
+      "summaryMd": "Johnson Controls 两款控制器因敏感信息泄露漏洞受 CISA 警告。\n受影响版本需立即评估风险并参考厂商加固指南进行防护。\n\n## 要点\n- 检查 EC/CW 控制器固件，确认是否处于 V3.3b63/62/b25/b24 等受影响版本。\n- 攻击者可窃取敏感信息以发起后续系统攻击，需优先阻断未授权访问。\n- 应用厂商加固指南并实施纵深防御策略降低工业控制系统被利用风险。\n\n## 行动提示\n- 立即访问 Johnson Controls Trust Center 下载最新加固指南并部署。\n- 内网监测异常流量，发现疑似恶意活动按流程上报 CISA 追踪。",
+      "summarizedAt": "2026-10-05T04:24:04.022Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-04",
+      "summaryMdEn": "Johnson Controls warns of two controllers vulnerable to sensitive information disclosure.\nAffected versions must be evaluated for risk immediately and protected according to the vendor's hardening guidelines.\n\n## Key points\n- Check EC/CW controller firmware to confirm if it is running affected versions such as V3.3b63/62/b25/b24.\n- Attackers can steal sensitive information to launch subsequent system attacks; unauthorized access must be blocked as a priority.\n- Apply the vendor's hardening guidelines and implement defense-in-depth strategies to reduce the risk of industrial control systems being exploited.\n\n## What to do next\n- Immediately visit the Johnson Controls Trust Center to download and deploy the latest hardening guidelines.\n- Monitor internal networks for anomalous traffic; report any suspected malicious activity following established procedures to CISA for tracking.",
+      "summarySourceHash": "c6bcc465efb8098f",
+      "translatedAtEn": "2026-10-05T04:24:15.544Z",
+      "bodyZhContentHash": "9449bb21c2dabbee",
+      "translatedBodyAt": "2026-10-05T04:25:41.814Z"
+    },
+    "176ef43f137e903d": {
+      "contentHash": "b525e40ad119a9da",
+      "summaryMd": "CISA 新增 CVE-2026-104286 至 KEV 目录，Fortinet FortiMail 路径遍历漏洞已现活跃利用。\n\n## 要点\n*   联邦机构必须优先修补 KEV 目录中赋予完全控制权的漏洞。\n*   该漏洞是恶意攻击者的常用入口，对联邦企业构成重大风险。\n*   所有组织应采纳基于风险的漏洞管理，优先修复 KEV 目录条目。\n\n## 行动提示\n*   检查是否在内网或公网部署了受影响的 Fortinet FortiMail 设备。\n*   立即应用厂商发布的安全补丁，并验证利用证据是否已消除。",
+      "summarizedAt": "2026-10-05T04:25:55.191Z",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/01/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "summaryMdEn": "CISA has added CVE-2026-104286 to the KEV catalog, and path traversal vulnerabilities in Fortinet FortiMail are now being actively exploited.\n\n## Key points\n*   Federal agencies must prioritize patching vulnerabilities that grant full control within the KEV catalog.\n*   This vulnerability serves as a common entry point for malicious attackers, posing significant risks to federal enterprises.\n*   All organizations should adopt risk-based vulnerability management and prioritize remediation of KEV catalog entries.\n\n## What to do next\n*   Check whether affected Fortinet FortiMail devices are deployed in your internal or external networks.\n*   Immediately apply the security patches released by the vendor and verify that evidence of exploitation has been eliminated.",
+      "summarySourceHash": "35c68136e05078a1",
+      "translatedAtEn": "2026-10-05T04:26:05.776Z",
+      "bodyZhContentHash": "b525e40ad119a9da",
+      "translatedBodyAt": "2026-10-05T04:26:36.287Z"
+    },
+    "32e4df0c22cff8b8": {
+      "contentHash": "5af8c5b389db9b6b",
+      "summaryMd": "CISA Malcolm 多个版本存在严重漏洞，影响能源、水务等关键基础设施。\n\n## 要点\n*   CVE-2026-90444 允许攻击者执行任意系统命令，评分高达 8.8。\n*   CVE-2026-90445 路径遍历漏洞可篡改配置或注入伪造记录。\n*   CVE-2026-90447 认证绕过机制让低权限用户获取高权限角色。\n\n## 行动提示\n*   立即检查 CISA Malcolm 版本是否低于 v26.06.0，尽快升级修复。\n*   监控未授权访问及异常文件上传日志，防范内部横向移动。",
+      "summarizedAt": "2026-10-05T04:27:03.154Z",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-254-01",
+      "summaryMdEn": "CISA Malcolm multiple versions contain severe vulnerabilities affecting critical infrastructure such as energy and water utilities.\n\n## Key points\n*   CVE-2026-90444 allows attackers to execute arbitrary system commands, with a severity score of up to 8.8.\n*   CVE-2026-90445 path traversal vulnerability can tamper with configurations or inject forged records.\n*   CVE-2026-90447 authentication bypass mechanism enables low-privilege users to gain high-privilege roles.\n\n## What to do next\n*   Immediately check if your CISA Malcolm version is below v26.06.0 and upgrade as soon as possible to remediate the issues.\n*   Monitor logs for unauthorized access and abnormal file uploads to prevent internal lateral movement.",
+      "summarySourceHash": "bbe6e9edc898882b",
+      "translatedAtEn": "2026-10-05T04:27:15.489Z",
+      "bodyZhContentHash": "5af8c5b389db9b6b",
+      "translatedBodyAt": "2026-10-05T04:36:51.444Z"
+    },
+    "3b02e0189b618ab9": {
+      "contentHash": "71e947575bfad296",
+      "summaryMd": "AI 代理时代，安全决策直接关乎身份与数据信任。微软 Ignite 2026 全程聚焦 AI 优先的安全平台演进。\n\n## 要点\n- 提前一日参加 Pre-Day，四小时直击安全领袖与行业声音。\n- 关注四大主题：用 AI 防御、保护 AI、AI 代理治理及智能关联。\n- 现场实测 Agent 365 零信任架构，验证本地代理威胁防护能力。\n\n## 行动提示\n- 注册时勾选 Security Pre-Day 选项，锁定 11 月 16 日早场活动。\n- 查看完整议程并筛选角色与主题，规划旧金山或线上参会路线。",
+      "summarizedAt": "2026-10-05T04:37:20.403Z",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/30/secure-whats-next-your-guide-to-microsoft-security-at-microsoft-ignite-2026/",
+      "summaryMdEn": "In the era of AI agents, security decisions directly impact identity and data trust. Microsoft Ignite 2026 focuses entirely on the evolution of an AI-first security platform.\n\n## Key points\n- Attend Pre-Day a day early for four hours of direct engagement with security leaders and industry voices.\n- Focus on four key themes: defending with AI, protecting AI, governing AI agents, and intelligent correlation.\n- Test the Agent 365 zero trust architecture live to validate local agent threat protection capabilities.\n\n## What to do next\n- Select the Security Pre-Day option during registration to secure a spot in the early session on November 16.\n- Review the full agenda and filter by role and topic to plan your route for attending in San Francisco or online.",
+      "summarySourceHash": "b2d0bb13e4b9763f",
+      "translatedAtEn": "2026-10-05T04:37:36.404Z",
+      "bodyZhContentHash": "71e947575bfad296",
+      "translatedBodyAt": "2026-10-05T04:41:40.456Z"
+    },
+    "ed93846ffe2d2ac8": {
+      "contentHash": "6698c75f08d82e7e",
+      "summaryMd": "微软追踪到 Zimbra 邮件服务器存在无需认证的命令注入漏洞 CVE-2026-73570。攻击者利用该漏洞可执行任意命令并获取系统权限。\n\n## 要点\n部署 zimbra-snmp 包且开启 SNMP 通知的 Zimbra 10.1.20 以下版本易受攻击。\n攻击者通过特制 SMTP 请求注入命令，以 zimbra 服务账户身份执行操作。\n利用 sudo 配置漏洞，攻击者可获取 root 权限并部署持久化后门。\n\n## 行动提示\n检查 Zimbra 版本是否已更新至 10.1.20 或更高版本。\n确认生产环境未安装 zimbra-snmp 包或已关闭 SNMP 通知功能。",
+      "summarizedAt": "2026-10-05T04:42:09.998Z",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570/",
+      "summaryMdEn": "Microsoft has identified an unauthenticated command injection vulnerability in the Zimbra mail server, CVE-2026-73570. Attackers can exploit this flaw to execute arbitrary commands and gain system access.\n\n## Key points\nZimbra versions below 10.1.20 that have the zimbra-snmp package installed with SNMP notifications enabled are vulnerable.\nAttackers inject commands via specially crafted SMTP requests to perform actions under the zimbra service account identity.\nExploiting a sudo configuration vulnerability allows attackers to gain root privileges and deploy persistent backdoors.\n\n## What to next\nCheck if your Zimbra version has been updated to 10.1.20 or higher.\nVerify that the production environment either does not have the zimbra-snmp package installed or has SNMP notification functionality disabled.",
+      "summarySourceHash": "def3acc3dbc130a6",
+      "translatedAtEn": "2026-10-05T04:42:25.871Z"
     }
   }
 }
