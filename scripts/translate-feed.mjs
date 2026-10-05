@@ -76,6 +76,8 @@ async function translateOne(host, model, title, summary) {
     body: JSON.stringify({
       model,
       stream: false,
+      // One title + summary per call; a small context keeps Ollama's KV cache (RAM) low.
+      options: { num_ctx: Number.parseInt(process.env.TRANSLATE_NUM_CTX ?? '4096', 10) || 4096 },
       messages: [
         {
           role: 'system',
