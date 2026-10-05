@@ -1,6 +1,132 @@
 {
-  "fetchedAt": "2026-09-27T15:52:52.725Z",
+  "fetchedAt": "2026-10-05T03:25:28.013Z",
   "items": [
+    {
+      "id": "f9b447af38c377a8",
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+      "summary": "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-88779 Citrix NetScaler Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability This type of vulnerability i…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/04/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "publishedAt": "2026-10-04T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "0ed309bdb2fbe9f4",
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+      "summary": "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-102489 Zammad GmbH Zammad Session Fixation Vulnerability CVE-2026-102490 Zammad GmbH Zammad Improper Privilege Management Vulnerability…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "publishedAt": "2026-10-02T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "af342dacbe59b3d2",
+      "title": "Johnson Controls EasyIO Neo Series EC and CW Controllers",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker tointercept and read sensitive information, including credentials andsession data. The following versions of Johnson Controls EasyIO Neo Series EC and CW Controllers are affected: EasyIO Neo …",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-05",
+      "publishedAt": "2026-10-01T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "4c487f67fda0a5c1",
+      "title": "Meari IoT Cloud Platform OpenAPI Service",
+      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow attackers to manipulate device configurations, trigger unauthorized behaviors, and access sensitive information such as device credentials, owner details, and network data without proper authorization…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-06",
+      "publishedAt": "2026-10-01T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "dcf8afe15256d1c7",
+      "title": "Monta monta.app",
+      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could enable attackers to gain unauthorized administrative control over vulnerable charging stations or disrupt charging services through denial-of-service attacks. The following versions of Monta monta.app are a…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-02",
+      "publishedAt": "2026-10-01T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "9bacd2ea82527c90",
+      "title": "Armatura LLC Armatura One",
+      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to gain unauthorized access to the database, execute arbitrary code on the host with the highest level of privilege, or gain control of the physical access-control system. The following ve…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-01",
+      "publishedAt": "2026-10-01T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "e6c25c75b7ceaa11",
+      "title": "ABB Protection and Control IED Manager PCM600",
+      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to escalate privileges or overwrite files. The following versions of ABB Protection and Control IED Manager PCM600 are affected: Protection and Control IED Manager PCM600 <=2.14 (CVE-2026-…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-03",
+      "publishedAt": "2026-10-01T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "b39ff47a9d6f32cc",
+      "title": "Johnson Controls EasyIO Neo Series EC and CW Controllers",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to gain access to sensitive information that could be used to conduct further attacks against the system. The following versions of Johnson Controls EasyIO Neo Series EC and CW Controllers ar…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-04",
+      "publishedAt": "2026-10-01T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "176ef43f137e903d",
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+      "summary": "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-104286 Fortinet FortiMail Path Traversal Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors …",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/01/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "publishedAt": "2026-10-01T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "32e4df0c22cff8b8",
+      "title": "CISA Malcolm",
+      "summary": "View CSAF Summary The following versions of CISA Malcolm are affected: Malcolm CVSS Vendor Equipment Vulnerabilities v3 8.8 CISA CISA Malcolm Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting'), Improper Neutralization of Special Elements used in…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-254-01",
+      "publishedAt": "2026-10-01T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "3b02e0189b618ab9",
+      "title": "​​Secure what’s next: Your guide to Microsoft Security at Microsoft Ignite 2026",
+      "summary": "This year at Microsoft Ignite, we spotlight our AI-first, end-to-end security platform designed to protect identities, devices, data, applications, clouds, infrastructure, and the AI agents now working alongside your teams. The post ​​Secure what’s next: Your guide to Microsoft …",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/30/secure-whats-next-your-guide-to-microsoft-security-at-microsoft-ignite-2026/",
+      "publishedAt": "2026-09-30T19:31:00.000Z",
+      "sourceId": "rss:microsoft_security",
+      "sourceLabel": "Microsoft Security"
+    },
+    {
+      "id": "ed93846ffe2d2ac8",
+      "title": "Unauthenticated command injection on internet-facing mail servers: tracking CVE-2026-73570",
+      "summary": "Microsoft Threat Intelligence examines CVE-2026-73570 exploitation in Zimbra, including observed attack paths, detection opportunities, and mitigation guidance. The post Unauthenticated command injection on internet-facing mail servers: tracking CVE-2026-73570 appeared first on …",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570/",
+      "publishedAt": "2026-09-30T14:00:00.000Z",
+      "sourceId": "rss:microsoft_security",
+      "sourceLabel": "Microsoft Security"
+    },
+    {
+      "id": "13e00ab44d20734e",
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+      "summary": "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-76504 Cisco Catalyst SD-WAN Manager Hex Encoding Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/30/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "publishedAt": "2026-09-30T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "90249c2a3882c6d3",
+      "title": "Disrupting a coordinated model-distillation campaign",
+      "summary": "Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation.",
+      "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+      "publishedAt": "2026-09-30T10:30:00.000Z",
+      "sourceId": "rss:openai",
+      "sourceLabel": "OpenAI"
+    },
     {
       "id": "b467d6accdc2d682",
       "title": "Quoting John Gruber",

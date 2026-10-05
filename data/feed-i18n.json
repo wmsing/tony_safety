@@ -720,6 +720,90 @@
       "summaryZh": "美国网络安全和基础设施安全局（CISA）已将其已知被利用漏洞（KEV）目录更新，新增一项基于实际被利用证据的漏洞。CVE-2026-87902 WordPress核心远程文件包含漏洞。此类漏洞是恶意网络攻击者常用的攻击途径之一。",
       "sourceHash": "c6ac570fa1d744af",
       "translatedAt": "2026-09-26T03:22:15.500Z"
+    },
+    "f9b447af38c377a8": {
+      "titleZh": "美国网络安全和基础设施安全局将一项已知被利用的漏洞添加至目录",
+      "summaryZh": "美国网络安全和基础设施安全局（CISA）已将其已知被利用漏洞（KEV）目录更新，新增了一项基于实际被利用证据的漏洞。CVE-2026-88779：Citrix NetScaler 内存缓冲区操作边界限制不当漏洞。此类漏洞可能导致……",
+      "sourceHash": "247d96e56c532b2c",
+      "translatedAt": "2026-10-05T03:29:30.071Z"
+    },
+    "0ed309bdb2fbe9f4": {
+      "titleZh": "美国网络安全与基础设施安全局新增两项已知被利用漏洞至目录",
+      "summaryZh": "美国网络安全与基础设施安全局（CISA）已基于实际被利用的证据，将两项新漏洞添加至其已知被利用漏洞（KEV）目录中：CVE-2026-102489 Zammad GmbH Zammad 会话固定漏洞；CVE-2026-102490 Zammad GmbH Zammad 权限管理不当漏洞。",
+      "sourceHash": "8b4465d3db902f3b",
+      "translatedAt": "2026-10-05T03:29:33.565Z"
+    },
+    "af342dacbe59b3d2": {
+      "titleZh": "约翰逊控制 EasyIO Neo 系列 EC 和 CW 控制器",
+      "summaryZh": "如果成功利用此漏洞，攻击者可能拦截并读取敏感信息，包括凭据和会话数据。受影响的约翰逊控制 EasyIO Neo 系列 EC 和 CW 控制器版本如下：EasyIO Neo …",
+      "sourceHash": "985ca2b72948bc37",
+      "translatedAt": "2026-10-05T03:29:36.100Z"
+    },
+    "4c487f67fda0a5c1": {
+      "titleZh": "Meari IoT 云平台开放API服务",
+      "summaryZh": "查看CSAF摘要 如果成功利用这些漏洞，攻击者可能操纵设备配置，触发未经授权的行为，并在未获得适当授权的情况下访问敏感信息，例如设备凭据、所有者信息和网络数据……",
+      "sourceHash": "c6be7b085200204a",
+      "translatedAt": "2026-10-05T03:29:38.215Z"
+    },
+    "dcf8afe15256d1c7": {
+      "titleZh": "蒙塔 monta.app",
+      "summaryZh": "查看CSAF摘要 成功利用这些漏洞可能使攻击者能够获取对受漏洞影响的充电站的未经授权的管理员控制，或通过拒绝服务攻击中断充电服务。以下版本的蒙塔 monta.app 存在漏洞……",
+      "sourceHash": "efa5dde8ce1d9211",
+      "translatedAt": "2026-10-05T03:29:40.297Z"
+    },
+    "9bacd2ea82527c90": {
+      "titleZh": "Armatura LLC Armatura One",
+      "summaryZh": "查看CSAF摘要 若成功利用这些漏洞，攻击者可能获得对数据库的未经授权访问，能够在主机上以最高权限执行任意代码，或控制物理访问控制系统。以下漏洞详情如下……",
+      "sourceHash": "84a2fa0a29f189f0",
+      "translatedAt": "2026-10-05T03:29:42.265Z"
+    },
+    "e6c25c75b7ceaa11": {
+      "titleZh": "ABB 保护与控制IED管理器PCM600",
+      "summaryZh": "查看CSAF摘要 成功利用这些漏洞可能使攻击者能够提权或覆盖文件。受影响的ABB保护与控制IED管理器PCM600版本如下：保护与控制IED管理器PCM600 <=2.14（CVE-2026-…）",
+      "sourceHash": "2c9e01e4c69a77fa",
+      "translatedAt": "2026-10-05T03:29:44.856Z"
+    },
+    "b39ff47a9d6f32cc": {
+      "titleZh": "约翰逊控制EasyIO Neo系列EC和CW控制器",
+      "summaryZh": "如果成功利用该漏洞，攻击者可能会获取敏感信息，这些信息可用于对系统进行进一步攻击。以下版本的约翰逊控制EasyIO Neo系列EC和CW控制器存在此漏洞……",
+      "sourceHash": "916c92f555053390",
+      "translatedAt": "2026-10-05T03:29:46.732Z"
+    },
+    "176ef43f137e903d": {
+      "titleZh": "CISA将一个已知被利用的漏洞添加到目录中",
+      "summaryZh": "CISA已根据存在主动利用的证据，将其已知被利用的漏洞（KEV）目录中增加了一个新漏洞。CVE-2026-104286，Fortinet FortiMail路径遍历漏洞。这种漏洞是恶意网络攻击者常用的攻击向量之一。",
+      "sourceHash": "5d0c731833f7f422",
+      "translatedAt": "2026-10-05T03:29:49.393Z"
+    },
+    "32e4df0c22cff8b8": {
+      "titleZh": "CISA Malcolm",
+      "summaryZh": "查看CSAF摘要 以下版本的CISA Malcolm受到影响：Malcolm CVSS供应商设备漏洞 v3 8.8 CISA CISA Malcolm 存在网页生成过程中输入未正确中和（'跨站脚本'），以及对特殊元素未正确中和等问题。",
+      "sourceHash": "a08ae71e7619975c",
+      "translatedAt": "2026-10-05T03:29:51.629Z"
+    },
+    "3b02e0189b618ab9": {
+      "titleZh": "为未来筑牢安全：微软Ignite 2026的安全指南",
+      "summaryZh": "在今年的微软Ignite活动中，我们将重点介绍我们的以人工智能为核心、贯穿端到端的安全平台，该平台旨在保护身份、设备、数据、应用程序、云端、基础设施以及现在与您的团队协同工作的AI代理。本文《为未来筑牢安全：微软Ignite 2026的安全指南》...",
+      "sourceHash": "81ac35758b56e4f3",
+      "translatedAt": "2026-10-05T03:29:54.429Z"
+    },
+    "ed93846ffe2d2ac8": {
+      "titleZh": "面向互联网的邮件服务器未认证命令注入：跟踪CVE-2026-73500",
+      "summaryZh": "微软威胁情报团队分析了在Zimbra中CVE-2026-73570的利用情况，包括观察到的攻击路径、检测机会以及缓解指导。文章《面向互联网的邮件服务器未认证命令注入：跟踪CVE-2026-73570》首次发表于……",
+      "sourceHash": "bdff050eca757be5",
+      "translatedAt": "2026-10-05T03:30:18.209Z"
+    },
+    "13e00ab44d20734e": {
+      "titleZh": "CISA将一个已知被利用的漏洞添加至目录",
+      "summaryZh": "CISA根据存在主动被利用的证据，将其新增的一个漏洞添加到了已知被利用漏洞（KEV）目录中。CVE-2026-76504 Cisco Catalyst SD-WAN Manager十六进制编码漏洞。此类漏洞是恶意网络攻击的常见攻击向量……",
+      "sourceHash": "117d7101a138eb2d",
+      "translatedAt": "2026-10-05T03:30:37.639Z"
+    },
+    "90249c2a3882c6d3": {
+      "titleZh": "破坏一场协调的模型蒸馏行动",
+      "summaryZh": "了解OpenAI如何挫败了一项提取受保护模型推理的行动，并正在加强对抗性蒸馏的防御措施。",
+      "sourceHash": "61ff719297fc14fb",
+      "translatedAt": "2026-10-05T03:31:14.849Z"
     }
   }
 }
