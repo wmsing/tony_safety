@@ -804,6 +804,138 @@
       "summaryZh": "了解OpenAI如何挫败了一项提取受保护模型推理的行动，并正在加强对抗性蒸馏的防御措施。",
       "sourceHash": "61ff719297fc14fb",
       "translatedAt": "2026-10-05T03:31:14.849Z"
+    },
+    "4c82948f2fde3b15": {
+      "titleZh": "Satel Netco 设计",
+      "summaryZh": "查看CSAF摘要 若成功利用这些漏洞，攻击者可能能够在用户的浏览器中执行任意脚本，消耗大量系统资源，枚举文件，创建或修改文件，并可能执行任意代码。以下版本……",
+      "sourceHash": "946839cb3cf18dc3",
+      "translatedAt": "2026-10-10T13:04:15.975Z"
+    },
+    "fad0f7b297536f4d": {
+      "titleZh": "电网保护联盟 openPDC 和 openHistorian",
+      "summaryZh": "查看CSAF摘要 以下版本的电网保护联盟 openPDC 和 openHistorian 受影响：openPDC <2.9.477，<2.9.482（CVE-2026-104629，CVE-2026-100730，CVE-2026-105281，CVE-2026-85479，CVE-2026-101022）openPDC（Docker 镜像）<2.9.477，<2.9.482（CVE-2026-104629…",
+      "sourceHash": "729a4cd662300d05",
+      "translatedAt": "2026-10-10T13:04:21.455Z"
+    },
+    "f58da9be9c2cd903": {
+      "titleZh": "Red Lion Controls N-Tron 700 系列",
+      "summaryZh": "查看CSAF摘要 若成功利用这些漏洞，恶意用户可能访问设备并获得管理员权限。该权限将允许用户查看、编辑和上传配置文件。此外，恶意用户可导致交换机出现……",
+      "sourceHash": "2d4721ab6e29d2f6",
+      "translatedAt": "2026-10-10T13:04:23.580Z"
+    },
+    "bf1d7ae18b6dedec": {
+      "titleZh": "与中国政府有关的网络威胁行为者结合自动化和手动黑客工具窃取敏感数据",
+      "summaryZh": "概要标题 与中国政府有关的网络威胁行为者结合自动化和手动黑客工具窃取敏感数据 原始发布日期 2026年10月8日 执行摘要 由中国政府关联的网络威胁行为者，借助Integrity Technology……",
+      "sourceHash": "ac8494ac22cf84da",
+      "translatedAt": "2026-10-10T13:04:26.246Z"
+    },
+    "8a91476189cc19d3": {
+      "titleZh": "为开源软件推出可选择的漏洞发现服务",
+      "summaryZh": "为开源软件推出可选择的漏洞发现服务",
+      "sourceHash": "c1926bc4b186def9",
+      "translatedAt": "2026-10-10T13:04:27.184Z"
+    },
+    "f60f92689e069107": {
+      "titleZh": "引用本·阿菲利克",
+      "summaryZh": "我从小就对计算机感兴趣。当电影从模拟胶片转向数字技术时，我对此方面产生了更大的兴趣。多年来，视觉特效制作流程中一直包含机器学习。所以我可以写得相当糟糕……",
+      "sourceHash": "e89c01361e2c1ef7",
+      "translatedAt": "2026-10-10T13:04:29.121Z"
+    },
+    "719dd2ca5f23d45b": {
+      "titleZh": "配置您的AI漏洞检测工具，第二部分：控制文件",
+      "summaryZh": "本文将向您展示如何配置AI模型，使其能够像经验丰富的安全分析师一样，进行结构化、基于证据的漏洞分类与优先级排序。您将了解五个配置部分的设计决策，这些决策确保了结构化验证和基于证据的判断。",
+      "sourceHash": "7e64c0431a536c3b",
+      "translatedAt": "2026-10-10T13:04:31.532Z"
+    },
+    "049527df767fea23": {
+      "titleZh": "构建你的AI漏洞检测工具，第一部分",
+      "summaryZh": "漏洞扫描工具生成的发现数量超过了人工分类处理的速度。你的开发人员发布更多代码，也带来了更多的依赖项，候选漏洞的数量也随之增长。许多扫描工具发现的问题实际上很难被利用。真正需要关注的问题需要……",
+      "sourceHash": "63b33437cfb93d23",
+      "translatedAt": "2026-10-10T13:04:33.659Z"
+    },
+    "88e871d5a8d26738": {
+      "titleZh": "面向边缘的多模态开放d1决策模型",
+      "summaryZh": "",
+      "sourceHash": "013b78f360cc71bc",
+      "translatedAt": "2026-10-10T13:04:34.368Z"
+    },
+    "88dd0c0e4cc92b60": {
+      "titleZh": "第1部分：网络安全之旅：我并没有计划过这一切",
+      "summaryZh": "如果你曾疑惑过自己的背景是否适合从事网络安全职业，那你并不孤单——而且你可能比你想象的更准备就绪。我的名字是肖恩·布拉兹，我在亚马逊云服务（AWS）担任安全传播工作。我一直在安全领域工作……",
+      "sourceHash": "425fbe2742cec483",
+      "translatedAt": "2026-10-10T13:04:36.777Z"
+    },
+    "88f938d50228b85d": {
+      "titleZh": "前沿AI漏洞研究的三大启示",
+      "summaryZh": "阅读微软安全团队FORGE实验室如何将漏洞研究从Windows扩展到Linux内核的内容。文章《前沿AI漏洞研究的三大启示》首次发布于微软安全博客。",
+      "sourceHash": "c3b8185e5e2fd7b4",
+      "translatedAt": "2026-10-10T13:04:38.450Z"
+    },
+    "a919ba35a5e056c2": {
+      "titleZh": "在维基媒体项目上发现开源人工智能‘失控’代理活动",
+      "summaryZh": "由于维基百科等项目极易成为失控代理群的攻击目标，当研究人员开始调查时，发现维基百科确实出现了此类活动的证据：维基媒体基金会也进行了自身的调查以……",
+      "sourceHash": "b2347ed293a652e8",
+      "translatedAt": "2026-10-10T13:04:40.545Z"
+    },
+    "9e9afd78965ed02d": {
+      "titleZh": "CISO 对在人工智能时代管理漏洞风险的见解",
+      "summaryZh": "了解CISO如何减轻网络安全风险，并在人工智能驱动的漏洞管理时代提高韧性。文章《CISO 对在人工智能时代管理漏洞风险的见解》首次发布于微软安全博客。",
+      "sourceHash": "e4bffd4ba08d3cff",
+      "translatedAt": "2026-10-10T13:04:42.394Z"
+    },
+    "30b52d2fc768757d": {
+      "titleZh": "约翰逊控制 EasyIO FG",
+      "summaryZh": "若成功利用这些漏洞，攻击者可能获得设备的完全未经授权的访问权限。受影响的约翰逊控制 EasyIO FG 版本如下：EasyIO FG 固件版本 <=2.0b52（CVE-2026-27872，CVE-2026-27873）CVSS 官方评估……",
+      "sourceHash": "4c532b3450e4a2d4",
+      "translatedAt": "2026-10-10T13:04:45.308Z"
+    },
+    "4f0c5d36cee95535": {
+      "titleZh": "希捷能源 REB500",
+      "summaryZh": "查看CSAF摘要 希捷能源已知影响REB500产品版本的开源软件漏洞，这些漏洞可能被利用以对产品发起拒绝服务（DoS）攻击。请参考推荐的立即措施……",
+      "sourceHash": "21524e8902b973b9",
+      "translatedAt": "2026-10-10T13:04:47.420Z"
+    },
+    "bce52ccd711d90ff": {
+      "titleZh": "希茨能源资产套件",
+      "summaryZh": "查看CSAF摘要 希茨能源已知其资产套件产品版本列表中的产品存在未经身份验证的servlet访问漏洞。攻击者可利用这些漏洞，可能导致保密性、完整性和可用性方面的风险。",
+      "sourceHash": "fdcbf5ab8b934d11",
+      "translatedAt": "2026-10-10T13:04:49.392Z"
+    },
+    "3bf96eac7c2fcc85": {
+      "titleZh": "希捷能源 SOI",
+      "summaryZh": "希捷能源已知其SOI产品中Apache ActiveMQ组件存在远程代码执行（RCE）漏洞，这些漏洞可能被利用来实施各种攻击，影响保密性、完整性和可用性。",
+      "sourceHash": "cb59bb5da26fe9fa",
+      "translatedAt": "2026-10-10T13:04:51.206Z"
+    },
+    "db461caabe0c965b": {
+      "titleZh": "希捷能源 RTU500",
+      "summaryZh": "查看CSAF摘要 希捷能源发布此网络安全公告，是针对Dragos报告的涉及已停止支持的RTU500 CMU固件版本9.x的安全问题。所报告的问题与开发的旧版RTU500固件版本相关……",
+      "sourceHash": "99f68b5a6fc571fa",
+      "translatedAt": "2026-10-10T13:04:53.580Z"
+    },
+    "70be64174d6579c0": {
+      "titleZh": "Savannah lwIP SMTP 客户端",
+      "summaryZh": "查看CSAF摘要 该漏洞的成功利用可能导致被访问设备崩溃；缓冲区溢出可能允许远程代码执行。受影响的Savannah lwIP SMTP 客户端版本如下：lwIP SMTP 客户端 2.2.1（CVE-2026-1534、CVSS 评估…）",
+      "sourceHash": "a040c1373924962e",
+      "translatedAt": "2026-10-10T13:04:56.429Z"
+    },
+    "f57eff9c23a4454b": {
+      "titleZh": "借助铁壁推进计算机应用",
+      "summaryZh": "了解OpenAI与铁壁如何在复杂的合同工作流程中训练和评估人工智能代理，以推动专业工作中的计算机应用。",
+      "sourceHash": "eaa5f2c9dc509e06",
+      "translatedAt": "2026-10-10T13:04:57.811Z"
+    },
+    "df64f3cce767030e": {
+      "titleZh": "如何修复一个修复中的漏洞",
+      "summaryZh": "项目零经常与软件供应商合作，以修复我们报告的漏洞，并提供使软件更安全的广泛指导。一些供应商担心在某些场景下，他们可能无法修复导致立即风险的漏洞。",
+      "sourceHash": "498162974ccd4673",
+      "translatedAt": "2026-10-10T13:04:59.621Z"
+    },
+    "8bf1bfbef192bae6": {
+      "titleZh": "AWS Continuum 为自主代码安全树立了新标准",
+      "summaryZh": "随着人工智能模型能力的增强，它们发现了越来越多的安全漏洞，并识别出越来越复杂的攻击路径，这要求防御者必须以更快的速度做出响应。如今，安全团队面临的安全漏洞数量已超过其现有流程的应对能力……",
+      "sourceHash": "e15becabbe6339ca",
+      "translatedAt": "2026-10-10T13:05:01.780Z"
     }
   }
 }

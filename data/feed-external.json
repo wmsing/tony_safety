@@ -1,6 +1,204 @@
 {
-  "fetchedAt": "2026-10-05T13:00:12.387Z",
+  "fetchedAt": "2026-10-10T13:00:12.223Z",
   "items": [
+    {
+      "id": "4c82948f2fde3b15",
+      "title": "Satel Netco Design",
+      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to execute arbitrary scripts in a user's browser, consume excessive system resources, enumerate files, create or modify files, and potentially execute arbitrary code. The following version…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-281-03",
+      "publishedAt": "2026-10-08T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "fad0f7b297536f4d",
+      "title": "Grid Protection Alliance openPDC and openHistorian",
+      "summary": "View CSAF Summary The following versions of Grid Protection Alliance openPDC and openHistorian are affected: openPDC <2.9.477, <2.9.482 (CVE-2026-104629, CVE-2026-100730, CVE-2026-105281, CVE-2026-85479, CVE-2026-101022) openPDC (Docker image) <2.9.477, <2.9.482 (CVE-2026-104629…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-281-02",
+      "publishedAt": "2026-10-08T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "f58da9be9c2cd903",
+      "title": "Red Lion Controls N-Tron 700 Series",
+      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow a malicious user to access the device and gain administrative access. This access would allow the user to view, edit, and upload configuration files. Further, a malicious user can cause the switch to …",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-281-01",
+      "publishedAt": "2026-10-08T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "bf1d7ae18b6dedec",
+      "title": "Chinese Government-linked Cyber Threat Actors Combine Automated and Hands-on Hacking Tools to Steal Sensitive Data",
+      "summary": "Advisory at a Glance Title Chinese Government-linked Cyber Threat Actors Combine Automated and Hands-on Hacking Tools to Steal Sensitive Data Original Publication October 8, 2026 Executive Summary Chinese government-linked cyber threat actors, enabled by the Integrity Technology…",
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-281a",
+      "publishedAt": "2026-10-08T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "8a91476189cc19d3",
+      "title": "Launching an opt-in vulnerability-finding service for open-source software",
+      "summary": "Launching an opt-in vulnerability-finding service for open-source software",
+      "url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
+      "publishedAt": "2026-10-08T00:00:00.000Z",
+      "sourceId": "rss:anthropic_res",
+      "sourceLabel": "Anthropic"
+    },
+    {
+      "id": "f60f92689e069107",
+      "title": "Quoting Ben Affleck",
+      "summary": "I've always been kind of into computers since I was young. And then when film started to move from analog film to digital, I became more interested in that aspect of it. And the visual effects workflow for many years has included machine learning. So I can write like pretty shit…",
+      "url": "https://simonwillison.net/2026/Oct/7/ben-affleck/",
+      "publishedAt": "2026-10-07T23:14:58.000Z",
+      "sourceId": "rss:simon_willison",
+      "sourceLabel": "Simon Willison"
+    },
+    {
+      "id": "719dd2ca5f23d45b",
+      "title": "Configuring your AI vulnerability harness, Part 2: The steering file",
+      "summary": "This post shows you how to configure an AI model to perform structured, evidence-based vulnerability triage with the consistency of a seasoned security analyst. You’ll learn the design decisions behind five configuration sections that enforce structural verification, evidence-ba…",
+      "url": "https://aws.amazon.com/blogs/security/configuring-your-ai-vulnerability-harness-part-2-the-steering-file/",
+      "publishedAt": "2026-10-07T21:49:50.000Z",
+      "sourceId": "rss:aws_security",
+      "sourceLabel": "AWS Security"
+    },
+    {
+      "id": "049527df767fea23",
+      "title": "Building your AI vulnerability harness, Part 1",
+      "summary": "Vulnerability scanners produce findings faster than manual triage can process them. Your developers ship more code with more dependencies, and the volume of candidate findings grows with it. Many findings a scanner produces are unlikely to be exploited. The ones that matter need…",
+      "url": "https://aws.amazon.com/blogs/security/building-your-ai-vulnerability-harness-part-1/",
+      "publishedAt": "2026-10-07T21:49:43.000Z",
+      "sourceId": "rss:aws_security",
+      "sourceLabel": "AWS Security"
+    },
+    {
+      "id": "88e871d5a8d26738",
+      "title": "Multimodal open d1 decision models for the edge",
+      "summary": "",
+      "url": "https://huggingface.co/blog/LiquidAI/open-d1",
+      "publishedAt": "2026-10-07T16:54:33.000Z",
+      "sourceId": "rss:huggingface",
+      "sourceLabel": "Hugging Face"
+    },
+    {
+      "id": "88dd0c0e4cc92b60",
+      "title": "Part 1 – Cybersecurity journeys: I didn’t plan this",
+      "summary": "If you’ve ever wondered whether your background qualifies you for a career in cybersecurity, you’re not alone — and you’re probably more prepared than you think. My name is Shannon Brazil, and I work in security communications at Amazon Web Services (AWS). I have been in the sec…",
+      "url": "https://aws.amazon.com/blogs/security/part-1-cybersecurity-journeys-i-didnt-plan-this/",
+      "publishedAt": "2026-10-07T16:21:19.000Z",
+      "sourceId": "rss:aws_security",
+      "sourceLabel": "AWS Security"
+    },
+    {
+      "id": "88f938d50228b85d",
+      "title": "3 lessons from frontier AI vulnerability research",
+      "summary": "Read how How Microsoft Security's FORGE Lab is scaling vulnerability research from Windows to the Linux kernel. The post 3 lessons from frontier AI vulnerability research appeared first on Microsoft Security Blog.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/10/07/3-lessons-from-frontier-ai-vulnerability-research/",
+      "publishedAt": "2026-10-07T16:00:00.000Z",
+      "sourceId": "rss:microsoft_security",
+      "sourceLabel": "Microsoft Security"
+    },
+    {
+      "id": "a919ba35a5e056c2",
+      "title": "OpenAI “rogue” agent activities found on Wikimedia projects",
+      "summary": "OpenAI “rogue” agent activities found on Wikimedia projects Given how tempting a target wikis are for rogue agent swarms, it's not a huge surprise that Wikipedia found evidence of that activity once they went looking: The Wikimedia Foundation conducted its own investigation to s…",
+      "url": "https://simonwillison.net/2026/Oct/7/openai-rogue-agents-wikimedia/",
+      "publishedAt": "2026-10-07T00:16:45.000Z",
+      "sourceId": "rss:simon_willison",
+      "sourceLabel": "Simon Willison"
+    },
+    {
+      "id": "9e9afd78965ed02d",
+      "title": "CISO perspectives on managing vulnerability risks in the age of AI",
+      "summary": "Learn how CISOs can mitigate cybersecurity risks and increase resilience in the age of AI-powered vulnerability management. The post CISO perspectives on managing vulnerability risks in the age of AI appeared first on Microsoft Security Blog.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/10/06/ciso-perspectives-on-managing-vulnerability-risks-in-the-age-of-ai/",
+      "publishedAt": "2026-10-06T16:00:00.000Z",
+      "sourceId": "rss:microsoft_security",
+      "sourceLabel": "Microsoft Security"
+    },
+    {
+      "id": "30b52d2fc768757d",
+      "title": "Johnson Controls EasyIO FG",
+      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to gain full unauthorized access to the device. The following versions of Johnson Controls EasyIO FG are affected: EasyIO FG firmware <=2.0b52 (CVE-2026-27872, CVE-2026-27873) CVSS Vendor …",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-01",
+      "publishedAt": "2026-10-06T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "4f0c5d36cee95535",
+      "title": "Hitachi Energy REB500",
+      "summary": "View CSAF Summary Hitachi Energy is aware of open-source software vulnerabilities that affect REB500 product versions listed in this document. These vulnerabilities can be exploited to carry out Denial of Service (DoS) attack on the product. Please refer to the Recommended Immed…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-05",
+      "publishedAt": "2026-10-06T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "bce52ccd711d90ff",
+      "title": "Hitachi Energy Asset Suite",
+      "summary": "View CSAF Summary Hitachi Energy is aware of unauthenticated servlet access vulnerabilities that affect Asset Suite product versions listed in this document. These vulnerabilities can be exploited to potentially cause confidentiality, integrity and availability impact on the pro…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-03",
+      "publishedAt": "2026-10-06T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "3bf96eac7c2fcc85",
+      "title": "Hitachi Energy SOI",
+      "summary": "View CSAF Summary Hitachi Energy is aware of RCE (Remote Code Execution) vulnerability in Apache ActiveMQ component of SOI product versions listed in this document. These vulnerabilities can be exploited to carry out various attacks affecting confidentiality, integrity, and avai…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-04",
+      "publishedAt": "2026-10-06T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "db461caabe0c965b",
+      "title": "Hitachi Energy RTU500",
+      "summary": "View CSAF Summary Hitachi Energy is publishing this cybersecurity advisory in response to the security findings reported by Dragos affecting end-of-life RTU500 CMU firmware version 9.x. The reported findings are associated with legacy RTU500 firmware versions that were developed…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-06",
+      "publishedAt": "2026-10-06T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "70be64174d6579c0",
+      "title": "Savannah lwIP SMTP client",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could crash the device being accessed; a buffer overflow condition may allow remote code execution. The following versions of Savannah lwIP SMTP client are affected: lwIP SMTP client 2.2.1 (CVE-2026-15340) CVSS Vend…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-02",
+      "publishedAt": "2026-10-06T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "f57eff9c23a4454b",
+      "title": "Advancing computer use with Ironclad",
+      "summary": "Learn how OpenAI and Ironclad are training and evaluating AI agents on complex contracting workflows to advance computer use for professional work.",
+      "url": "https://openai.com/index/advancing-computer-use-with-ironclad",
+      "publishedAt": "2026-10-06T10:00:00.000Z",
+      "sourceId": "rss:openai",
+      "sourceLabel": "OpenAI"
+    },
+    {
+      "id": "df64f3cce767030e",
+      "title": "How to fix a bug in a fix",
+      "summary": "Project Zero often works with software vendors to remediate the vulnerabilities we report and provide broader guidance on making software more secure. Some vendors express concern about potential scenarios in which they are unable to fix vulnerabilities that are causing immediat…",
+      "url": "https://projectzero.google/2026/10/emergency-patching.html",
+      "publishedAt": "2026-10-06T07:00:00.000Z",
+      "sourceId": "rss:project_zero",
+      "sourceLabel": "Project Zero"
+    },
+    {
+      "id": "8bf1bfbef192bae6",
+      "title": "AWS Continuum sets a new standard in autonomous code security",
+      "summary": "As AI models become more capable, they uncover more security vulnerabilities and identify increasingly sophisticated paths to exploit them, raising the bar for how quickly defenders must respond. Security teams now face more potential vulnerabilities than their existing processe…",
+      "url": "https://aws.amazon.com/blogs/security/aws-continuum-sets-a-new-standard-in-autonomous-code-security/",
+      "publishedAt": "2026-10-05T21:41:01.000Z",
+      "sourceId": "rss:aws_security",
+      "sourceLabel": "AWS Security"
+    },
     {
       "id": "f9b447af38c377a8",
       "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
