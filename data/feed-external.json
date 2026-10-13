@@ -1,6 +1,24 @@
 {
-  "fetchedAt": "2026-10-12T13:00:08.712Z",
+  "fetchedAt": "2026-10-13T13:00:13.499Z",
   "items": [
+    {
+      "id": "878922c5d699b3d6",
+      "title": "GuardDuty Extended Threat Detection has added five new indicators to surface attack sequences",
+      "summary": "Amazon GuardDuty Extended Threat Detection correlates weak GuardDuty signals into a single, critical-severity attack sequence finding when their composition crosses a threshold of credibility. On May 20, 2026, the service started attaching five new indicator types to those seque…",
+      "url": "https://aws.amazon.com/blogs/security/guardduty-extended-threat-detection-has-added-five-new-indicators-to-surface-attack-sequences/",
+      "publishedAt": "2026-10-12T21:58:44.000Z",
+      "sourceId": "rss:aws_security",
+      "sourceLabel": "AWS Security"
+    },
+    {
+      "id": "3b91111eae163165",
+      "title": "Quantum-resistant signing on AWS, Part 1: Build a software supply chain with ML-DSA",
+      "summary": "Software supply chain attacks have grown in both frequency and sophistication. Recent high-profile compromises of build systems and open source dependencies demonstrate that attackers increasingly target the trust mechanisms that verify software integrity. Those trust mechanisms…",
+      "url": "https://aws.amazon.com/blogs/security/quantum-resistant-signing-on-aws-part-1-build-a-software-supply-chain-with-ml-dsa/",
+      "publishedAt": "2026-10-12T20:12:53.000Z",
+      "sourceId": "rss:aws_security",
+      "sourceLabel": "AWS Security"
+    },
     {
       "id": "4c82948f2fde3b15",
       "title": "Satel Netco Design",
