@@ -854,10 +854,10 @@
       "translatedAt": "2026-10-10T13:04:33.659Z"
     },
     "88e871d5a8d26738": {
-      "titleZh": "面向边缘的多模态开放d1决策模型",
+      "titleZh": "边缘端的多模态开放d1决策模型",
       "summaryZh": "",
       "sourceHash": "013b78f360cc71bc",
-      "translatedAt": "2026-10-13T13:04:29.732Z"
+      "translatedAt": "2026-10-14T13:04:58.405Z"
     },
     "88dd0c0e4cc92b60": {
       "titleZh": "第1部分：网络安全之旅：我并没有计划过这一切",
@@ -948,6 +948,48 @@
       "summaryZh": "软件供应链攻击在频率和复杂性上都日益增长。最近高调的构建系统和开源依赖项被入侵事件表明，攻击者越来越多地针对验证软件完整性的信任机制。这些信任机制……",
       "sourceHash": "ea8c6bbf17d7bc9b",
       "translatedAt": "2026-10-13T13:04:28.024Z"
+    },
+    "200a5d3dd39c6bfb": {
+      "titleZh": "欧盟人工智能的下一个篇章是代理型人工智能",
+      "summaryZh": "最新分析显示，代理型人工智能在欧盟企业及中小企业的应用正在增长，并揭示了进一步深化使用可能带来的更多价值。",
+      "sourceHash": "43978eb55e79d8bb",
+      "translatedAt": "2026-10-14T13:04:12.569Z"
+    },
+    "fdc555784f183633": {
+      "titleZh": "Anthropic 重新设计源代码控制",
+      "summaryZh": "Anthropic 发布了一篇有趣的文章，详细介绍了他们为何以及如何构建了自己定制的 Git 替代方案，这是基于过去六个月代码变更率急剧上升的情况。2026年5月，Anthropic 的平均代码变更量约为2,500……",
+      "sourceHash": "61c3c0a27713faa9",
+      "translatedAt": "2026-10-14T13:04:18.411Z"
+    },
+    "d4d4c831f29f527e": {
+      "titleZh": "第2部分：网络安全之路：这个工作到底是什么？",
+      "summaryZh": "如果你曾经看过一份网络安全职位列表，却觉得其中没有一个适合你，那可能只是因为这份列表太短了。大多数职业指南只涵盖了少数几个职位，比如监控警报的分析师，或者被雇佣来合法进行渗透测试的人……",
+      "sourceHash": "1468a847c6afbc84",
+      "translatedAt": "2026-10-14T13:04:24.201Z"
+    },
+    "0d3be6b6fae4f063": {
+      "titleZh": "Swann Communications SWIFI-SE2KIC",
+      "summaryZh": "查看CSAF摘要 成功利用这些漏洞可能使攻击者能够在无需身份验证的情况下查看视频信息。受影响的Swann Communications SWIFI-SE2KIC版本如下：SWIFI-SE2KIC固件 <=2.0.22（CVE-2026-107605，CVE-2026-107606）",
+      "sourceHash": "2ded64181cbef41f",
+      "translatedAt": "2026-10-14T13:04:32.113Z"
+    },
+    "9a5d4539ca389a36": {
+      "titleZh": "Inductive Automation Ignition 软件",
+      "summaryZh": "若成功利用该漏洞，经身份验证的低权限用户可能提升其权限至更高级别。受影响的 Inductive Automation Ignition 软件版本如下：Ignition >=8.1.0| =8.3.0| =8.1.0| =8.3.0|<=8…",
+      "sourceHash": "13677c5cfe955b6e",
+      "translatedAt": "2026-10-14T13:04:38.950Z"
+    },
+    "0b5b8a5c7759b503": {
+      "titleZh": "CISA 呼吁修补 Ivanti Connect Secure 中新发现的被利用漏洞",
+      "summaryZh": "CISA 已知 Ivanti 公布了一个影响 Ivanti Connect Secure 25.1.1.1 及更早版本、25.1.2.2 及更早版本、以及 22.8R2.4 及更早版本的全新被利用漏洞 CVE-2026-104935。CISA 已知网络威胁行为者正在利用此零日认证绕过漏洞。",
+      "sourceHash": "968da1ba2f45f949",
+      "translatedAt": "2026-10-14T13:04:48.505Z"
+    },
+    "897e03545f1ebc4d": {
+      "titleZh": "美国网络安全和基础设施安全局新增两项已知被利用的漏洞至目录",
+      "summaryZh": "美国网络安全和基础设施安全局（CISA）已根据存在活跃利用的证据，将两项新漏洞添加至其已知被利用漏洞（KEV）目录中：CVE-2026-96951 微软Windows命令注入漏洞；CVE-2026-104935 Ivanti Connect Secure通过伪造实现的身份验证绕过漏洞……",
+      "sourceHash": "eb34b6f9d96b1dd4",
+      "translatedAt": "2026-10-14T13:04:56.738Z"
     }
   }
 }

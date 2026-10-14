@@ -1,6 +1,69 @@
 {
-  "fetchedAt": "2026-10-13T13:00:13.499Z",
+  "fetchedAt": "2026-10-14T13:00:07.303Z",
   "items": [
+    {
+      "id": "200a5d3dd39c6bfb",
+      "title": "The EU’s next chapter in AI is agentic",
+      "summary": "New analysis shows how agentic AI adoption is growing across EU enterprises and small businesses—and where deeper use could unlock more value.",
+      "url": "https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic",
+      "publishedAt": "2026-10-14T00:00:00.000Z",
+      "sourceId": "rss:openai",
+      "sourceLabel": "OpenAI"
+    },
+    {
+      "id": "fdc555784f183633",
+      "title": "Redesigning source control at Anthropic",
+      "summary": "Redesigning source control at Anthropic Interesting piece from Anthropic describing why and how they built their own custom alternative to Git, based on the dramatic increase in rate of changes to their code after the past six months. In May 2026, Anthropic averaged around 2,500…",
+      "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/",
+      "publishedAt": "2026-10-13T23:00:06.000Z",
+      "sourceId": "rss:simon_willison",
+      "sourceLabel": "Simon Willison"
+    },
+    {
+      "id": "d4d4c831f29f527e",
+      "title": "Part 2 – Cybersecurity journeys: What even is this job?",
+      "summary": "If you’ve ever looked at a list of cybersecurity jobs and felt like none of them fit you, you might just be looking at a short list. Most career guides cover the same few roles, like the analyst watching alerts or the pen tester (penetration tester, someone hired to legally brea…",
+      "url": "https://aws.amazon.com/blogs/security/part-2-cybersecurity-journeys-what-even-is-this-job/",
+      "publishedAt": "2026-10-13T20:58:01.000Z",
+      "sourceId": "rss:aws_security",
+      "sourceLabel": "AWS Security"
+    },
+    {
+      "id": "0d3be6b6fae4f063",
+      "title": "Swann Communications SWIFI-SE2KIC",
+      "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to view video information without authentication. The following versions of Swann Communications SWIFI-SE2KIC are affected: SWIFI-SE2KIC firmware <=2.0.22 (CVE-2026-107605, CVE-2026-107606…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-286-02",
+      "publishedAt": "2026-10-13T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "9a5d4539ca389a36",
+      "title": "Inductive Automation Ignition Software",
+      "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow an authenticated low-level user to escalate their privileges to a higher level. The following versions of Inductive Automation Ignition Software are affected: Ignition >=8.1.0| =8.3.0| =8.1.0| =8.3.0|<=8…",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-286-01",
+      "publishedAt": "2026-10-13T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "0b5b8a5c7759b503",
+      "title": "CISA Urges Patching Newly Exploited Vulnerability in Ivanti Connect Secure",
+      "summary": "CISA is aware of Ivanti’s disclosure of a newly exploited vulnerability, CVE-2026-104935, affecting Ivanti Connect Secure versions 25.1.1.1 and prior, 25.1.2.2 and prior, and 22.8R2.4 and prior. CISA is aware of cyber threat actors exploiting this zero-day authentication bypass …",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-urges-patching-newly-exploited-vulnerability-ivanti-connect-secure",
+      "publishedAt": "2026-10-13T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
+    {
+      "id": "897e03545f1ebc4d",
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+      "summary": "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-96951 Microsoft Windows Command Injection Vulnerability CVE-2026-104935 Ivanti Connect Secure Authentication Bypass by Spoofing Vulnera…",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "publishedAt": "2026-10-13T12:00:00.000Z",
+      "sourceId": "rss:cisa",
+      "sourceLabel": "CISA"
+    },
     {
       "id": "878922c5d699b3d6",
       "title": "GuardDuty Extended Threat Detection has added five new indicators to surface attack sequences",
