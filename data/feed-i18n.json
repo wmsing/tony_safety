@@ -854,10 +854,10 @@
       "translatedAt": "2026-10-10T13:04:33.659Z"
     },
     "88e871d5a8d26738": {
-      "titleZh": "边缘端的多模态开放d1决策模型",
+      "titleZh": "面向边缘的多模态开放d1决策模型",
       "summaryZh": "",
       "sourceHash": "013b78f360cc71bc",
-      "translatedAt": "2026-10-14T13:04:58.405Z"
+      "translatedAt": "2026-10-15T13:04:42.902Z"
     },
     "88dd0c0e4cc92b60": {
       "titleZh": "第1部分：网络安全之旅：我并没有计划过这一切",
@@ -990,6 +990,42 @@
       "summaryZh": "美国网络安全和基础设施安全局（CISA）已根据存在活跃利用的证据，将两项新漏洞添加至其已知被利用漏洞（KEV）目录中：CVE-2026-96951 微软Windows命令注入漏洞；CVE-2026-104935 Ivanti Connect Secure通过伪造实现的身份验证绕过漏洞……",
       "sourceHash": "eb34b6f9d96b1dd4",
       "translatedAt": "2026-10-14T13:04:56.738Z"
+    },
+    "0a6437aaf9356b19": {
+      "titleZh": "使用 AWS Continuum 对每次部署进行渗透测试",
+      "summaryZh": "大多数可以集成到 CI/CD 流程中的安全工具——静态分析（SAST）、软件组成分析（SCA）和动态扫描（DAST）——会通过模式和签名来标识潜在问题。被标记的模式告诉你在哪里查看；而渗透测试则用于确认是否存在真正的问题。",
+      "sourceHash": "f4dd2af95a8451a9",
+      "translatedAt": "2026-10-15T13:04:15.646Z"
+    },
+    "2133158b65435a39": {
+      "titleZh": "隐藏网络：驱动全球网络犯罪的钓鱼基础设施生态系统",
+      "summaryZh": "微软发现了一个中文网络犯罪生态系统，由相互连接的钓鱼工具运营商（标记为Storm-2990）和一个非法市场（标记为Storm-3119）组成，该市场销售用于大规模钓鱼的工具和基础设施。在与执法机构的合作下，...",
+      "sourceHash": "4ff66353bef687ec",
+      "translatedAt": "2026-10-15T13:04:21.524Z"
+    },
+    "57c3309db5bedcde": {
+      "titleZh": "Amp 利用 OpenAI 模型将 AI 代理的应用拓展至代码之外",
+      "summaryZh": "了解 Amp 如何通过 GPT-6 Astra、Ultrafast、GPT-Live-1 和通过 ChatGPT 登录等功能，推动代理能力的边界。",
+      "sourceHash": "0cd4e761299ed0ea",
+      "translatedAt": "2026-10-15T13:04:26.037Z"
+    },
+    "004cd593adabcd24": {
+      "titleZh": "SentinelOne 将恶意软件分析从周缩短至小时",
+      "summaryZh": "借助 OpenAI Daybreak，SentinelOne 将原本需要数周的恶意软件分析缩短至数小时，从而能够更高效地调查更多威胁。",
+      "sourceHash": "f15219e435f6ee78",
+      "translatedAt": "2026-10-15T13:04:29.955Z"
+    },
+    "616ea1fba64001b4": {
+      "titleZh": "CISA将四个已知被利用的漏洞添加到目录中",
+      "summaryZh": "CISA已根据存在主动被利用的证据，将四个新漏洞添加到其已知被利用漏洞（KEV）目录中。CVE-2026-0322 Palo Alto Networks PAN-OS代码注入漏洞、CVE-2026-76519 Cisco Secure Email Gateway相对路径遍历漏洞……",
+      "sourceHash": "6cc6fec8e1a9c4e6",
+      "translatedAt": "2026-10-15T13:04:36.779Z"
+    },
+    "a8b8c31de898145e": {
+      "titleZh": "第三时刻研究如何运行10000个代理长达36小时",
+      "summaryZh": "借助GPT-6 Astra、GPT-6.1 Sol、Codex和Daybreak，该人工智能实验室构建了专注于几天并随使用不断优化的代理。",
+      "sourceHash": "8c127d7be25df56d",
+      "translatedAt": "2026-10-15T13:04:41.366Z"
     }
   }
 }
