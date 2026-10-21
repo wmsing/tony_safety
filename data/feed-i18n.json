@@ -854,10 +854,10 @@
       "translatedAt": "2026-10-10T13:04:33.659Z"
     },
     "88e871d5a8d26738": {
-      "titleZh": "面向边缘的多模态开放d1决策模型",
+      "titleZh": "边缘端的多模态开放d1决策模型",
       "summaryZh": "",
       "sourceHash": "013b78f360cc71bc",
-      "translatedAt": "2026-10-15T13:04:42.902Z"
+      "translatedAt": "2026-10-21T13:04:57.982Z"
     },
     "88dd0c0e4cc92b60": {
       "titleZh": "第1部分：网络安全之旅：我并没有计划过这一切",
@@ -1026,6 +1026,102 @@
       "summaryZh": "借助GPT-6 Astra、GPT-6.1 Sol、Codex和Daybreak，该人工智能实验室构建了专注于几天并随使用不断优化的代理。",
       "sourceHash": "8c127d7be25df56d",
       "translatedAt": "2026-10-15T13:04:41.366Z"
+    },
+    "552cbee8ac3d9b61": {
+      "titleZh": "#StopRansomware：SafePay勒索软件",
+      "summaryZh": "概要标题 #StopRansomware：SafePay勒索软件 原始发布日期 2026年10月 战略摘要 本通告详细介绍了SafePay勒索软件团伙近期的活动。自2024年8月以来，SafePay攻击者一直非常活跃，针对企业及批评者展开攻击……",
+      "sourceHash": "0b08d77784aec02d",
+      "translatedAt": "2026-10-21T13:04:16.903Z"
+    },
+    "baa0eb14aec51572": {
+      "titleZh": "Hitachi Energy RTU500 产品",
+      "summaryZh": "Hitachi Energy 已知影响本文件中列出的 RTU500 产品版本的漏洞。若被利用，这些漏洞可能对产品的机密性、完整性和可用性造成影响。请参阅推荐的立即行动……",
+      "sourceHash": "85e603ba2a013f2e",
+      "translatedAt": "2026-10-21T13:04:19.186Z"
+    },
+    "8d626ff9f11dd658": {
+      "titleZh": "日立能源 MicroSCADA X SYS600 产品",
+      "summaryZh": "日立能源已知悉多个影响本文件列出的MicroSCADA X SYS600产品版本的漏洞。这些漏洞可被利用对产品实施多种攻击。请参阅推荐的立即行动...",
+      "sourceHash": "cdffee88ee609883",
+      "translatedAt": "2026-10-21T13:04:21.352Z"
+    },
+    "1af654b0c99fb535": {
+      "titleZh": "HMS Networks PEAK-System PCAN Windows 驱动程序",
+      "summaryZh": "若成功利用这些漏洞，可能会导致Windows内核崩溃。受影响的HMS Networks PEAK-System PCAN Windows驱动程序版本如下：PEAK-System 设备驱动程序安装包 <=5.1.2.1151（CVE-2026-109576，CVE-2026-101103，CVE-2026-94188…）",
+      "sourceHash": "405d27c68b5bb612",
+      "translatedAt": "2026-10-21T13:04:25.136Z"
+    },
+    "42e627a08717a3a1": {
+      "titleZh": "Moxa AIG-302 ThingsPro Edge",
+      "summaryZh": "查看CSAF摘要 如果成功利用这些漏洞，攻击者可能获取并泄露敏感信息。受影响的Moxa AIG-302 ThingsPro Edge版本包括：Moxa AIG-302 ThingsPro Edge固件软件升级，点击检查...",
+      "sourceHash": "70db8df662fba1e7",
+      "translatedAt": "2026-10-21T13:04:27.641Z"
+    },
+    "a4ea87f3b4cf50ba": {
+      "titleZh": "CISA将六个已知被利用的漏洞添加至目录",
+      "summaryZh": "CISA已根据存在主动利用的证据，将六个新漏洞添加至其已知被利用漏洞（KEV）目录中。CVE-2026-96652 Plex Media Server 服务器端请求伪造（SSRF）漏洞，CVE-2026-96654 Plex Media Server 不正确中和环境变量……",
+      "sourceHash": "0db985802f468332",
+      "translatedAt": "2026-10-21T13:04:30.827Z"
+    },
+    "9d2417f40cde50f0": {
+      "titleZh": "llm-echo 0.5",
+      "summaryZh": "发布：llm-echo 0.5 我正在准备一个新版本的大型语言模型（LLM）发布，测试拉取请求让我重新审视了llm-echo调试插件。该插件提供了一个不涉及任何LLM的\"模型\"，它只是将输入的提示语原样返回。新版本现已更新……",
+      "sourceHash": "bc4508af8309b424",
+      "translatedAt": "2026-10-21T13:04:33.717Z"
+    },
+    "9732b2763df5a67a": {
+      "titleZh": "伊塔乌如何为整个客户群体构建生成式人工智能",
+      "summaryZh": "通过ia.i这一对话界面和IARA治理平台，伊塔乌正将其人工智能优先策略应用于客户和员工，这发生在巴西监管最为严格的行业之一。",
+      "sourceHash": "715eaa985d88c039",
+      "translatedAt": "2026-10-21T13:04:35.483Z"
+    },
+    "248be7019c94baf8": {
+      "titleZh": "AWS安全代理（现属于AWS Continuum）利用了37个新发现的现实世界CVE中的33个",
+      "summaryZh": "我们将AWS安全代理（现属于AWS Continuum），我们的自主渗透测试代理，应用于37个真实、最近披露的常见漏洞与暴露（CVE），每个CVE均以容器化目标的形式打包，其中隐藏了位于漏洞预期sink处的标志……",
+      "sourceHash": "09d0fe5fa530f669",
+      "translatedAt": "2026-10-21T13:04:38.326Z"
+    },
+    "86b82961354a0413": {
+      "titleZh": "Thermo Fisher Torrent Suite 软件",
+      "summaryZh": "查看CSAF摘要 若成功利用此漏洞，攻击者可能读取Torrent服务器上的任意文件。受影响的Thermo Fisher Torrent Suite软件版本为：Torrent Suite Software <=5.18（CVE-2026-107777）CVSS供应商设备……",
+      "sourceHash": "2451ab5e5e93aef5",
+      "translatedAt": "2026-10-21T13:04:40.811Z"
+    },
+    "ea0e140b6f9eb8ea": {
+      "titleZh": "J4Care dcm4che",
+      "summaryZh": "查看CSAF摘要 成功利用这些漏洞可能使攻击者能够删除存储的医学影像、泄露患者信息、注入伪造的研究数据、重新分配患者记录、覆盖文件，并导致拒绝服务状况。以下版本……",
+      "sourceHash": "9876143e45bc9069",
+      "translatedAt": "2026-10-21T13:04:42.747Z"
+    },
+    "769eb8106e41d884": {
+      "titleZh": "广州俊网物联网科技 EseeCloud",
+      "summaryZh": "查看CSAF摘要 若成功利用这些漏洞，攻击者可能获得对受影响IP摄像头的控制权。以下版本的广州俊网物联网科技EseeCloud受影响：EseeCloud App <=4.9.6（CVE-2026-107617，CVE-2026-97858，CVE-2026-1…",
+      "sourceHash": "a050b700020e6812",
+      "translatedAt": "2026-10-21T13:04:45.984Z"
+    },
+    "f0618fbb3f3a2bff": {
+      "titleZh": "美国网络安全和基础设施安全局新增一项已知被利用的漏洞至目录",
+      "summaryZh": "美国网络安全和基础设施安全局（CISA）已将其已知被利用漏洞（KEV）目录更新，新增了一项基于实际被利用证据的漏洞。CVE-2026-21589 Atlassian 多个产品文件或目录可被外部访问漏洞。此类漏洞属于频繁出现的漏洞类型。",
+      "sourceHash": "d0871ffeca78be50",
+      "translatedAt": "2026-10-21T13:04:49.051Z"
+    },
+    "fbd4f0423b7b4a6a": {
+      "titleZh": "Eclipse Foundation Eclipse Milo",
+      "summaryZh": "查看CSAF摘要 成功利用这些漏洞可能允许攻击者删除受保护的数据、恢复用户凭据并冒充合法用户，或导致服务器停止响应所有客户端。以下版本的Eclipse Foundation Ecl…",
+      "sourceHash": "104bd9a889b4f2c7",
+      "translatedAt": "2026-10-21T13:04:50.961Z"
+    },
+    "307fc48bec6b0bf9": {
+      "titleZh": "CISA Malcolm",
+      "summaryZh": "查看CSAF摘要 以下版本的CISA Malcolm受影响：Malcolm <=v26.07.1（CVE-2026-107336，CVE-2026-107361，CVE-2026-107337，CVE-2026-107335，CVE-2026-107334）Malcolm <=v26.08.0（CVE-2026-107333，CVE-2026-107362）CVSS供应商设备v3 8.1 CISA Malcolm 6漏洞…",
+      "sourceHash": "ed1cc9ecafd61453",
+      "translatedAt": "2026-10-21T13:04:56.355Z"
+    },
+    "ff0cf28c5d753057": {
+      "titleZh": "欢迎使用 Muse Spark 开放：来自 Meta 的开源前沿多模态混合专家模型",
+      "summaryZh": "",
+      "sourceHash": "09dbbbf25c8a76db",
+      "translatedAt": "2026-10-21T13:04:57.271Z"
     }
   }
 }
