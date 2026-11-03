@@ -854,10 +854,10 @@
       "translatedAt": "2026-10-10T13:04:33.659Z"
     },
     "88e871d5a8d26738": {
-      "titleZh": "边缘端的多模态开放d1决策模型",
+      "titleZh": "面向边缘的多模态开放d1决策模型",
       "summaryZh": "",
       "sourceHash": "013b78f360cc71bc",
-      "translatedAt": "2026-10-21T13:04:57.982Z"
+      "translatedAt": "2026-11-03T02:52:14.128Z"
     },
     "88dd0c0e4cc92b60": {
       "titleZh": "第1部分：网络安全之旅：我并没有计划过这一切",
@@ -1118,10 +1118,70 @@
       "translatedAt": "2026-10-21T13:04:56.355Z"
     },
     "ff0cf28c5d753057": {
-      "titleZh": "欢迎使用 Muse Spark 开放：来自 Meta 的开源前沿多模态混合专家模型",
+      "titleZh": "欢迎使用 Muse Spark 开放：来自 Meta 的开源多模态混合专家模型",
       "summaryZh": "",
       "sourceHash": "09dbbbf25c8a76db",
-      "translatedAt": "2026-10-21T13:04:57.271Z"
+      "translatedAt": "2026-11-03T02:52:13.443Z"
+    },
+    "aa724a9a8e5dab63": {
+      "titleZh": "人工智能与网络入侵",
+      "summaryZh": "一份由NCSC进行的评估，分析当前人工智能驱动的威胁趋势，并对到2028年的威胁格局进行预测。",
+      "sourceHash": "4da7ab03b6db80cc",
+      "translatedAt": "2026-11-03T02:51:51.659Z"
+    },
+    "d4a79711cc128fce": {
+      "titleZh": "被利用的漏洞有什么共同点：基于数据的实际攻击分析",
+      "summaryZh": "现实世界中的漏洞利用集中在少数高影响的CVE中。了解防御者如何根据漏洞被利用的可能性、暴露程度和潜在影响范围来优先处理漏洞。文章《被利用的漏洞有什么共同点：基于数据的实际攻击分析》",
+      "sourceHash": "009f2d03e58967e2",
+      "translatedAt": "2026-11-03T02:51:53.908Z"
+    },
+    "93776c9c2a6b392f": {
+      "titleZh": "美国人口普查局与‘超级智能’",
+      "summaryZh": "今天我再次想起了一张由Apollo Global Management于2025年9月制作的图表《大型企业人工智能采纳率趋势下降》，该图表根据美国人口普查局收集的数据，似乎显示了美国企业人工智能采纳率的放缓。当时我使用了……",
+      "sourceHash": "003f40b36c96bee9",
+      "translatedAt": "2026-11-03T02:51:56.221Z"
+    },
+    "945f879ef3a469b4": {
+      "titleZh": "OpenAI任命丹·德里科尔担任国家安全现代化高级顾问",
+      "summaryZh": "OpenAI任命丹·德里科尔负责就人工智能在国家安全现代化、网络韧性以及与美国盟友的合作方面的问题提供建议。",
+      "sourceHash": "fb6c91152e9b7dad",
+      "translatedAt": "2026-11-03T02:51:57.836Z"
+    },
+    "a181817ce8345f3a": {
+      "titleZh": "我们是如何接管ChatGPT账号的",
+      "summaryZh": "Parameter Labs描述了他们发现的一个针对ChatGPT实现的artifacts模式（OpenAI过去称之为'Canvas'，但最新版本似乎称为HTML预览）的漏洞，其中涉及交互式自定义HTML应用的……",
+      "sourceHash": "edcaeb69adddbf94",
+      "translatedAt": "2026-11-03T02:51:59.902Z"
+    },
+    "f635e51b46992649": {
+      "titleZh": "美国网络安全与基础设施安全局新增两项已被利用的漏洞至目录",
+      "summaryZh": "美国网络安全与基础设施安全局（CISA）已根据存在主动利用的证据，将两项新漏洞添加至其已知被利用漏洞（KEV）目录中。CVE-2026-111357 Ivanti Connect Secure 关键功能缺失身份验证漏洞；CVE-2026-118527 Ivanti Connect Secure 生成……",
+      "sourceHash": "bf87248734b3b824",
+      "translatedAt": "2026-11-03T02:52:03.100Z"
+    },
+    "d3ed0a84a8f24477": {
+      "titleZh": "Hitachi Energy CoreTec 产品",
+      "summaryZh": "查看 CSAF 概要 Hitachi Energy 已知其 CoreTec 产品版本列表中的产品存在操作系统命令注入和脏碎片漏洞。成功利用这些漏洞可能导致对保密性、完整性和可用性的影响。",
+      "sourceHash": "0350db5e1be08cb6",
+      "translatedAt": "2026-11-03T02:52:05.036Z"
+    },
+    "550e95ef6ab5f80b": {
+      "titleZh": "日立能源TRO600系列产品",
+      "summaryZh": "查看CSAF摘要 日立能源已知悉多个影响本文件中列出的TRO600系列产品版本的漏洞。这些漏洞可被利用进行远程代码执行（RCE），从而实施进一步攻击并披露敏感信息……",
+      "sourceHash": "a6a162307fa70b44",
+      "translatedAt": "2026-11-03T02:52:07.201Z"
+    },
+    "c0138fec61383be4": {
+      "titleZh": "西门子Mendix SAML模块",
+      "summaryZh": "查看CSAF摘要 Mendix SAML模块存在身份验证绕过漏洞，攻击者可以通过重放有效的SAML断言在身份提供者（IdP）发起的认证流程中，获得未经授权的访问权限。西门子已发布了新版本以修复该问题。",
+      "sourceHash": "93e734e2948d55d6",
+      "translatedAt": "2026-11-03T02:52:09.592Z"
+    },
+    "e24342c52a0b2ee1": {
+      "titleZh": "CISA 将两个已知被利用的漏洞添加至目录",
+      "summaryZh": "CISA 根据存在主动被利用的证据，已将两个新漏洞添加到其已知被利用漏洞（KEV）目录中。CVE-2026-97229 GitLab 社区版和企业版整数溢出或溢出漏洞，CVE-2026-76418 Cisco Secure Firewall…",
+      "sourceHash": "a1f36901caf39512",
+      "translatedAt": "2026-11-03T02:52:12.604Z"
     }
   }
 }

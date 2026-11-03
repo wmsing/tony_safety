@@ -942,6 +942,15 @@
       "summaryMdEn": "Microsoft has identified an unauthenticated command injection vulnerability in the Zimbra mail server, CVE-2026-73570. Attackers can exploit this flaw to execute arbitrary commands and gain system access.\n\n## Key points\nZimbra versions below 10.1.20 that have the zimbra-snmp package installed with SNMP notifications enabled are vulnerable.\nAttackers inject commands via specially crafted SMTP requests to perform actions under the zimbra service account identity.\nExploiting a sudo configuration vulnerability allows attackers to gain root privileges and deploy persistent backdoors.\n\n## What to next\nCheck if your Zimbra version has been updated to 10.1.20 or higher.\nVerify that the production environment either does not have the zimbra-snmp package installed or has SNMP notification functionality disabled.",
       "summarySourceHash": "def3acc3dbc130a6",
       "translatedAtEn": "2026-10-05T04:42:25.871Z"
+    },
+    "aa724a9a8e5dab63": {
+      "contentHash": "1f20165c1971184d",
+      "summaryMd": "英国国家网络安全中心预测：到 2028 年，AI 将大幅提升网络攻击规模与速度。\n\n## 要点\n*   俄中等国极可能用 AI 网络能力实现地缘政治目标。\n*   系统漏洞成本极低，攻击者将更肆无忌惮地利用 AI 工具。\n*   关键基础设施旧技术漏洞及 AI 部署新风险将被广泛针对。\n\n## 行动提示\n*   立即审查内部补丁流程，确保能跟上 AI 加速发现的漏洞节奏。\n*   监测针对关键基础设施的勒索软件活动，警惕 AI 驱动恶意代码。",
+      "summarizedAt": "2026-11-03T02:52:42.575Z",
+      "url": "https://www.ncsc.gov.uk/report/artificial-intelligence-and-cyber-intrusion",
+      "summaryMdEn": "The UK National Cyber Security Centre predicts that by 2028, AI will significantly increase the scale and speed of cyberattacks.\n\n## Key points\n*   Countries such as Russia and China are likely to use AI-driven cyber capabilities to achieve geopolitical objectives.\n*   The cost of system vulnerabilities is extremely low, leading attackers to exploit AI tools with increasing audacity.\n*   Legacy technology vulnerabilities in critical infrastructure and new risks associated with AI deployment will be widely targeted.\n\n## What to do next\n*   Immediately review internal patching processes to ensure they can keep pace with the accelerated rate of vulnerability discovery driven by AI.\n*   Monitor ransomware activity targeting critical infrastructure and remain vigilant against AI-driven malicious code.",
+      "summarySourceHash": "86430f875666a52f",
+      "translatedAtEn": "2026-11-03T02:52:52.704Z"
     }
   }
 }
